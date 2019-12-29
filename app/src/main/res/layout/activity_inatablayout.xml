@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".view.activity.MainActivity">
+
+	<com.ali.view.dd.gif.GifImageView
+		android:layout_width="70dp"
+		android:layout_height="60dp"
+		android:onClick="shiping"
+		android:src="@drawable/drawable_gif_home" />
+
+	<com.ali.view.dd.gif.GifImageView
+		android:layout_width="50dp"
+		android:layout_height="50dp"
+		android:layout_marginTop="20dp"
+		android:src="@drawable/drawable_2222" />
+
+	<ImageView
+		android:id="@+id/ivImageView"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:background="@drawable/loading" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<ImageView
+			android:id="@+id/iv1"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" />
+
+		<ImageView
+			android:id="@+id/iv2"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" />
+
+		<ImageView
+			android:id="@+id/iv3"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" />
+
+		<ImageView
+			android:id="@+id/iv4"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1" />
+
+	</LinearLayout>
+
+	<com.ali.view.dd.INATabLayout
+		android:id="@+id/anTablayout"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:background="@color/ColorNavajowhite"
+		app:anTabDisplayNum="4"
+		app:anTabDividerWidthWidthText="true"
+		app:anTabIndicatorColor="#FF4600"
+		app:anTabIndicatorHeight="2dp"
+		app:anTabMode="scrollable"
+		app:anTabPaddingTop="5dp"
+		app:anTabSelectedTextColor="#f00"
+		app:anTabSelectedTextSize="20sp"
+		app:anTabTextColor="#000"
+		app:anTabTextSize="15sp" />
+
+
+	<androidx.viewpager.widget.ViewPager
+		android:id="@+id/aliViewPager"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+	<com.google.android.material.tabs.TabLayout
+		android:id="@+id/natureTableLayout"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:layout_marginTop="19.33dp"
+		android:layout_marginBottom="10.67dp"
+		app:tabBackground="@drawable/selector"
+		app:tabGravity="center"
+		app:tabIndicator="@drawable/ic_drawable_share_music"
+		app:tabIndicatorColor="#FF4600"
+		app:tabIndicatorFullWidth="false"
+		app:tabIndicatorHeight="5dp"
+		app:tabMode="scrollable"
+		app:tabPaddingEnd="0dp"
+		app:tabPaddingStart="0dp"
+		app:tabRippleColor="@android:color/transparent"
+		app:tabSelectedTextColor="#f00"
+		app:tabTextColor="#000" />
+	<!--app:tabBackground="@android:color/transparent" tabIndicatorHeight =2dp-->
+	<androidx.viewpager.widget.ViewPager
+		android:id="@+id/natureViewPager"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+</LinearLayout>

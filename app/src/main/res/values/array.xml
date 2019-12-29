@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_material_ux">
+        <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
+        <item>JustHttpsActivity.(JustNet网络请求</item>
+        <item>INATabLayoutActivity.(自定义TabLayout</item>
+        <item>TranslucentActivity.(显示一个像素的Activity</item>
+        <item>VideoActivity.(视频相关，含压缩，水印=</item>
+        <item>ExpandableActivity.(展开布局，优化显示特效</item>
+        <item>知乎控制</item>
+        <item>夜间模式</item>
+        <item>xiaotuanzi---占位1---</item>
+        <item>xiaotuanzi---占位2---</item>
+        <item>xiaotuanzi---占位3---</item>
+        <item>xiaotuanzi---占位4---</item>
+        <item>xiaotuanzi---占位5---</item>
+        <item>xiaotuanzi---占位6---</item>
+        <item>xiaotuanzi---占位7---</item>
+        <item>xiaotuanzi---占位8---</item>
+        <item>xiaotuanzi---占位9---</item>
+        <item>xiaotuanzi---占位10---</item>
+        <item>xiaotuanzi---占位11---</item>
+        <item>xiaotuanzi---占位12---</item>
+
+    </string-array>
+    <string-array name="main_an_scene">
+        <item>网络请求</item>
+        <item>权限操作</item>
+        <item>视频跳转</item>
+        <item>网页操作</item>
+        <item>xiaotuanzi---占位1---</item>
+        <item>xiaotuanzi---占位2---</item>
+        <item>xiaotuanzi---占位3---</item>
+        <item>xiaotuanzi---占位4---</item>
+        <item>xiaotuanzi---占位5---</item>
+        <item>xiaotuanzi---占位6---</item>
+        <item>xiaotuanzi---占位7---</item>
+        <item>xiaotuanzi---占位8---</item>
+        <item>xiaotuanzi---占位9---</item>
+        <item>xiaotuanzi---占位10---</item>
+        <item>xiaotuanzi---占位11---</item>
+        <item>xiaotuanzi---占位12---</item>
+    </string-array>
+    <string-array name="main_logical">
+        <item>xiaotuanzi---占位未开放测试1---</item>
+        <item>xiaotuanzi---占位未开放测试2---</item>
+        <item>xiaotuanzi---占位未开放测试3---</item>
+        <item>xiaotuanzi---占位未开放测试4---</item>
+        <item>xiaotuanzi---占位未开放测试5---</item>
+        <item>xiaotuanzi---占位未开放测试6---</item>
+        <item>xiaotuanzi---占位未开放测试7---</item>
+        <item>xiaotuanzi---占位未开放测试8---</item>
+        <item>xiaotuanzi---占位未开放测试---</item>
+        <item>xiaotuanzi---占位2---</item>
+        <item>xiaotuanzi---占位3---</item>
+        <item>xiaotuanzi---占位4---</item>
+        <item>xiaotuanzi---占位5---</item>
+        <item>xiaotuanzi---占位6---</item>
+        <item>xiaotuanzi---占位7---</item>
+        <item>xiaotuanzi---占位8---</item>
+        <item>xiaotuanzi---占位9---</item>
+        <item>xiaotuanzi---占位10---</item>
+        <item>xiaotuanzi---占位11---</item>
+        <item>xiaotuanzi---占位12---</item>
+    </string-array>
+    <string-array name="main_other">
+        <item>alidd框架说明</item>
+        <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
+        <item>VideoActivity.(视频相关，含压缩，水印=</item>
+        <item>ExpandableActivity.(展开布局，优化显示特效</item>
+    </string-array>
+</resources>

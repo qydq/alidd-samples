@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+//报错：    java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file "/data/app/com.sunsty.alidd-BzWOOOURZv45H3Cz7DMT4w==/base.
+// apk"],nativeLibraryDirectories=[/data/app/com.sunsty.alidd-BzWOOOURZv45H3Cz7DMT4w==/lib/arm64, /data/app/com.sunsty.alidd-BzWOOOURZv45H3Cz7DMT4w==/base.apk!
+// /lib/arm64-v8a, /system/lib64, /product/lib64]]] couldn't find "libavutil-54.so"
+// 第一种方法：
+//1.在main下面新建jniLibs并把.so文件复制到该目录下,并把jar放在lib目录下并添加到项目中。
+//2.这样做的话如果还不行就看build.gradle种android下的ndk支持的so库架构,如果跟下面的代码一样
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        ndk {
+            moduleName 'myffmpeg'
+//            ldLibs 'log', 'z', 'm'
+            // 设置支持的SO库架构
+//            abiFilters 'armeabi' ,'x86', 'armeabi-v7a', 'x86_64','arm64-v8a'
+
+            //则去掉'x86', 'armeabi-v7a', 'x86_64'这些架构然后编译
+            abiFilters 'armeabi' ,'arm64-v8a'//去掉后为：
+        }
+
+
+        sourceSets.main {
+            jni.srcDirs = [] ///jni.srcDirs = [ ]一定要加上，这样就不会自动编译了，用的是我们自己的mk文件
+//            jniLibs.srcDir "src/main/libs"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    api 'com.sunst.alidd:alidd:1.0.14'
+}
