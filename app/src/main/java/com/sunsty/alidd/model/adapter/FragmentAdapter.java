@@ -6,8 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-public class FragmentAdapter extends FragmentStatePagerAdapter {
-
+public class FragmentAdapter extends SmartFragmentStatePagerAdapter {
     private List<Fragment> mFragments;
     private List<String> mTitles;
 

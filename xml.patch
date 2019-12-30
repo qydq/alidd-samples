@@ -1,236 +1,0 @@
-Index: app/src/main/res/layout/activity_inatablayout.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_inatablayout.xml	(revision e919270b0726237c757f259f4a5197f35ca2eb08)
-+++ app/src/main/res/layout/activity_inatablayout.xml	(date 1577698555172)
-@@ -1,108 +1,85 @@
- <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
--	xmlns:app="http://schemas.android.com/apk/res-auto"
--	xmlns:tools="http://schemas.android.com/tools"
--	android:layout_width="match_parent"
--	android:layout_height="match_parent"
--	android:orientation="vertical"
--	tools:context=".view.activity.MainActivity">
--
--	<com.ali.view.dd.gif.GifImageView
--		android:layout_width="70dp"
--		android:layout_height="60dp"
--		android:onClick="shiping"
--		android:src="@drawable/drawable_gif_home" />
-+    xmlns:app="http://schemas.android.com/apk/res-auto"
-+    style="@style/an_match_match.V">
- 
--	<com.ali.view.dd.gif.GifImageView
--		android:layout_width="50dp"
--		android:layout_height="50dp"
--		android:layout_marginTop="20dp"
--		android:src="@drawable/drawable_2222" />
--
--	<ImageView
--		android:id="@+id/ivImageView"
--		android:layout_width="40dp"
--		android:layout_height="40dp"
--		android:background="@drawable/loading" />
--
--	<LinearLayout
--		android:layout_width="match_parent"
--		android:layout_height="wrap_content"
--		android:orientation="horizontal">
--
--		<ImageView
--			android:id="@+id/iv1"
--			android:layout_width="0dp"
--			android:layout_height="wrap_content"
--			android:layout_weight="1" />
--
--		<ImageView
--			android:id="@+id/iv2"
--			android:layout_width="0dp"
--			android:layout_height="wrap_content"
--			android:layout_weight="1" />
--
--		<ImageView
--			android:id="@+id/iv3"
--			android:layout_width="0dp"
--			android:layout_height="wrap_content"
--			android:layout_weight="1" />
--
--		<ImageView
--			android:id="@+id/iv4"
--			android:layout_width="0dp"
--			android:layout_height="wrap_content"
--			android:layout_weight="1" />
-+    <com.ali.view.dd.INABarLayout
-+        android:layout_width="match_parent"
-+        android:layout_height="wrap_content"
-+        app:anTxTitle="INATabLayoutActivity系列情景第一次使用案例复分析城西"
-+        app:open_meterialFits="true"
-+        app:open_night="true" />
- 
--	</LinearLayout>
--
--	<com.ali.view.dd.INATabLayout
--		android:id="@+id/anTablayout"
--		android:layout_width="match_parent"
--		android:layout_height="58dp"
--		android:background="@color/ColorNavajowhite"
--		app:anTabDisplayNum="4"
--		app:anTabDividerWidthWidthText="true"
--		app:anTabIndicatorColor="#FF4600"
--		app:anTabIndicatorHeight="2dp"
--		app:anTabMode="scrollable"
--		app:anTabPaddingTop="5dp"
--		app:anTabSelectedTextColor="#f00"
--		app:anTabSelectedTextSize="20sp"
--		app:anTabTextColor="#000"
--		app:anTabTextSize="15sp" />
-+    <!-- app:anTabTextAllCaps="false"====标题字母大小写转换功能，默认false小写,true自动转大写;或者在代码中调用tabLayout.setAllCaps(false)-->
-+    <!-- app:anTabSelectedTextSize="18sp"====用于设置选中项的字体大小;-->
-+    <!-- app:anTabTextSize="14sp"====用于设置未选中项的字体大小;-->
-+    <!-- app:anTabTextBold="false"====用于设置未选中项的字体是否是粗体字;默认false-->
-+    <!-- app:anTabTextColor="#000"====用于设置未选中项的字体颜色;-->
-+    <!-- app:anTabSelectedTextColor="@color/ColorWhite"====用于设置未选中项的字体颜色;-->
-+    <!-- app:anTabTextSelectedBold="true"====用于设置选中项的字体是否是粗体字;默认false;-->
-+    <!-- app:anTabDisplayNum="6"====设置屏幕范围内显示的Tab个数,注意显示的个数会受Adapter的ItemCount影响,adapter数目小于6，则值显示adapter数量;-->
-+    <!-- app:anTabBackgroundColor="@color/an_color_holo_light_blue"====设置Tab背景色;-->
-+    <!-- app:anTabSelectedBackgroundColor="@color/ColorWhite"====设置选中的Tab背景色;-->
-+    <!-- app:anTabIndicatorWidth="20dp"====设置指示器长度;注意不设置该值时指示器随Tab文本内容长度变化-->
-+    <!-- app:anTabDividerWidthWidthText="true"====设置指示器随Tab文本内容长度变化而变化,默认为true;-->
-+    <!-- app:anTabIndicator="@drawable/base_music"====设置指示器的资源文件;-->
-+    <!--分割线相关属性,默认无分割线-->
-+    <!--        app:anTabDividerWidth="2dp" 分割线宽度
-+        app:anTabDividerHeight="15dp" 分割线高度， 注意不设置xTabDividerHeight属性或者=0时则分割线高度占满
-+        app:anTabDividerColor="#000"  分割线颜色
-+        app:anTabDividerGravity="center"-->
-+    <!--动态设置属性
-+        tabLayout.setDividerSize("5","20"); //第二个参数为高度，如果设置为0时则分割线高度占满
-+        tabLayout.setDividerColor(Color.BLACK);
-+        tabLayout.setDividerGravity(DividerDrawable.CENTER);-->
-+    <com.ali.view.dd.INATabLayout
-+        android:id="@+id/anTablayout"
-+        android:layout_width="match_parent"
-+        android:layout_height="58dp"
-+        android:background="@color/holo_green_light"
-+        app:anTabDisplayNum="6"
-+        app:anTabDividerColor="#000"
-+        app:anTabDividerGravity="center"
-+        app:anTabDividerHeight="15dp"
-+        app:anTabDividerWidth="2dp"
-+        app:anTabIndicatorColor="#FF4600"
-+        app:anTabIndicatorHeight="2dp"
-+        app:anTabMode="scrollable"
-+        app:anTabPaddingTop="5dp"
-+        app:anTabSelectedTextColor="@color/ColorWhite"
-+        app:anTabSelectedTextSize="20sp"
-+        app:anTabTextAllCaps="true"
-+        app:anTabTextColor="#000"
-+        app:anTabTextSelectedBold="true"
-+        app:anTabTextSize="14sp" />
- 
- 
--	<androidx.viewpager.widget.ViewPager
--		android:id="@+id/aliViewPager"
--		android:layout_width="match_parent"
--		android:layout_height="150dp"
--		app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-+    <androidx.viewpager.widget.ViewPager
-+        android:id="@+id/aliViewPager"
-+        style="@style/an_match_auto"
-+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
- 
--	<com.google.android.material.tabs.TabLayout
--		android:id="@+id/natureTableLayout"
--		android:layout_width="match_parent"
--		android:layout_height="48dp"
--		android:layout_marginTop="19.33dp"
--		android:layout_marginBottom="10.67dp"
--		app:tabBackground="@drawable/selector"
--		app:tabGravity="center"
--		app:tabIndicator="@drawable/ic_drawable_share_music"
--		app:tabIndicatorColor="#FF4600"
--		app:tabIndicatorFullWidth="false"
--		app:tabIndicatorHeight="5dp"
--		app:tabMode="scrollable"
--		app:tabPaddingEnd="0dp"
--		app:tabPaddingStart="0dp"
--		app:tabRippleColor="@android:color/transparent"
--		app:tabSelectedTextColor="#f00"
--		app:tabTextColor="#000" />
--	<!--app:tabBackground="@android:color/transparent" tabIndicatorHeight =2dp-->
--	<androidx.viewpager.widget.ViewPager
--		android:id="@+id/natureViewPager"
--		android:layout_width="match_parent"
--		android:layout_height="match_parent"
--		app:layout_behavior="@string/appbar_scrolling_view_behavior" />
--
-+    <com.google.android.material.tabs.TabLayout
-+        android:id="@+id/natureTableLayout"
-+        android:layout_width="match_parent"
-+        android:layout_height="48dp"
-+        android:layout_marginTop="19.33dp"
-+        android:layout_marginBottom="10.67dp"
-+        app:tabBackground="@drawable/selector"
-+        app:tabGravity="center"
-+        app:tabIndicator="@drawable/ic_drawable_share_music"
-+        app:tabIndicatorColor="#FF4600"
-+        app:tabIndicatorFullWidth="false"
-+        app:tabIndicatorHeight="5dp"
-+        app:tabMode="scrollable"
-+        app:tabPaddingEnd="0dp"
-+        app:tabPaddingStart="0dp"
-+        app:tabRippleColor="@android:color/transparent"
-+        app:tabSelectedTextColor="#f00"
-+        app:tabTextColor="#000" />
-+    <!--app:tabBackground="@android:color/transparent" tabIndicatorHeight =2dp-->
-+    <androidx.viewpager.widget.ViewPager
-+        android:id="@+id/originalViewPager"
-+        style="@style/an_match_auto" />
- 
- </LinearLayout>
-\ No newline at end of file
-Index: app/src/main/res/drawable/loading.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/drawable/loading.xml	(revision e919270b0726237c757f259f4a5197f35ca2eb08)
-+++ app/src/main/res/drawable/loading.xml	(date 1577672997962)
-@@ -2,40 +2,40 @@
- <animation-list xmlns:android="http://schemas.android.com/apk/res/android"     android:oneshot="false">     <item-        android:drawable="@drawable/ic_drawable_share_wxcircle"+        android:drawable="@drawable/base_drawable_music2"         android:duration="30" />     <item         android:drawable="@drawable/base_drawable_add"         android:duration="30" />     <item-        android:drawable="@drawable/picture_icon_audio_bg"+        android:drawable="@drawable/ic_drawable_share_wxcircle"         android:duration="30" />     <item-        android:drawable="@drawable/picture_icon_checked"+        android:drawable="@drawable/ic_drawable_share_music"         android:duration="40" />     <item         android:drawable="@drawable/base_drawable_music"         android:duration="35" />     <item-        android:drawable="@drawable/picture_icon_video"+        android:drawable="@drawable/ic_drawable_share_url"         android:duration="30" />     <item-        android:drawable="@drawable/picture_icon_check"+        android:drawable="@drawable/ic_drawable_share_video"         android:duration="25" />     <item-        android:drawable="@drawable/picture_icon_video"+        android:drawable="@drawable/ic_drawable_share_wechat"         android:duration="20" />     <item-        android:drawable="@drawable/picture_icon_arrow_up"+        android:drawable="@drawable/ic_drawable_share_music"         android:duration="45" />     <item         android:drawable="@drawable/picture_icon_black_delete"         android:duration="50" />     <item-        android:drawable="@drawable/picture_icon_sel_qq"+        android:drawable="@drawable/ic_drawable_friends"         android:duration="55" />     <item-        android:drawable="@drawable/picture_icon_blue_org_normal"+        android:drawable="@drawable/ic_drawable_mail"         android:duration="60" />  </animation-list>
-\ No newline at end of file
-Index: app/src/main/res/layout/fragment_home1.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/fragment_home1.xml	(revision e919270b0726237c757f259f4a5197f35ca2eb08)
-+++ app/src/main/res/layout/fragment_home1.xml	(date 1577701259967)
-@@ -9,6 +9,7 @@
-     android:orientation="vertical">      <TextView+        android:id="@+id/content"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:gravity="center"Index: app/src/main/res/layout/fragment_home2.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/fragment_home2.xml	(revision e919270b0726237c757f259f4a5197f35ca2eb08)
-+++ app/src/main/res/layout/fragment_home2.xml	(date 1577701086544)
-@@ -1,7 +1,5 @@
- <?xml version="1.0" encoding="utf-8"?> <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-    xmlns:app="http://schemas.android.com/apk/res-auto"-    xmlns:tools="http://schemas.android.com/tools"     android:id="@+id/activity_main"     android:layout_width="match_parent"     android:layout_height="match_parent"@@ -9,6 +7,7 @@
-     android:orientation="vertical">      <TextView+        android:id="@+id/content"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:gravity="center"Index: app/src/main/res/layout/activity_main.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_main.xml	(revision e919270b0726237c757f259f4a5197f35ca2eb08)
-+++ app/src/main/res/layout/activity_main.xml	(date 1577674961363)
-@@ -23,7 +23,7 @@
-                 android:layout_width="80dp"
-                 android:layout_height="200dp"
-                 android:layout_gravity="center"
--                android:src="@drawable/ic_drawable_share_wxcircle" />
-+                android:src="@drawable/ic_drawable_copy_fav" />
- 
-             <!--?actionBarSize,,,,android:background="?attr/colorAccent":colorPrimary-->
-             <androidx.appcompat.widget.Toolbar

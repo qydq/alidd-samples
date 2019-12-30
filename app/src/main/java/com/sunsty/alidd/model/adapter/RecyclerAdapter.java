@@ -38,7 +38,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 int position = holder.getAdapterPosition();
 //                int position = holder.getLayoutPosition();
                 String person = list.get(position);
-                Toast.makeText(v.getContext(), person, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(v.getContext(), person, Toast.LENGTH_SHORT).show();
                 mItemClickListener.onItemClick(holder.itemView, position);
             }
         });

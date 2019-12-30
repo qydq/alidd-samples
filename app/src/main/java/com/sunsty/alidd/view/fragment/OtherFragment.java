@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ali.view.activity.AliwebViewActivity;
 import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
@@ -52,9 +53,13 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
 
     @Override
     public void onItemClick(View view, int position) {
+        Intent intent = new Intent();
         switch (position) {
             case 0: {
-                startActivity(new Intent(getContext(), AnimationGifActivity.class));
+                intent.setClass(getContext(), AliwebViewActivity.class);
+                intent.putExtra("url", "https://github.com/qydq/alidd-samples");
+                intent.putExtra("title", "Github官方alidd框架");
+                startActivity(intent);
                 break;
             }
             case 1: {

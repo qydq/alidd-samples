@@ -54,7 +54,7 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
     public void onItemClick(View view, int position) {
         switch (position) {
             case 0: {
-                startActivity(new Intent(getContext(), AnimationGifActivity.class));
+                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
                 break;
             }
             case 1: {
@@ -62,7 +62,7 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
                 break;
             }
             case 2: {
-                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
+                startActivity(new Intent(getContext(), AnimationGifActivity.class));
                 break;
             }
             case 3: {
