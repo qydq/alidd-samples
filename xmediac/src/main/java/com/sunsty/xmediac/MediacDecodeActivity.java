@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.ali.module.lib.PictureVideoPlayActivity;
 import com.ali.module.lib.config.PictureConfig;
+import com.ali.view.activity.PictureVideoPlayActivity;
 import com.sunsty.xmediac.util.VideoPlayer;
 
 import java.io.File;

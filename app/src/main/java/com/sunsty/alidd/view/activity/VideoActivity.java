@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.ali.module.lib.PictureVideoPlayActivity;
 import com.ali.module.lib.config.PictureConfig;
 import com.ali.take.LADialog;
 import com.ali.take.LAStorageFile;
@@ -22,7 +21,8 @@ import com.ali.take.LaPermissions;
 import com.ali.take.MediaHelper;
 import com.ali.take.callback.OnLoadVideoImageListener;
 import com.ali.take.webview.NestProgressBar;
-import com.ali.view.SuperActivity;
+import com.ali.view.AliActivity;
+import com.ali.view.activity.PictureVideoPlayActivity;
 import com.blankj.utilcode.util.FileUtils;
 import com.bumptech.glide.Glide;
 import com.sunst.alidd.RecordFileUtil;
@@ -32,7 +32,7 @@ import com.sunsty.alidd.R;
 
 import java.io.File;
 
-public class VideoActivity extends SuperActivity implements View.OnClickListener {
+public class VideoActivity extends AliActivity implements View.OnClickListener {
     private static final String TAG = "VideoActivity:";
     private ImageView ivThumbnailVideo;
     private ImageView ivVideoPlay;

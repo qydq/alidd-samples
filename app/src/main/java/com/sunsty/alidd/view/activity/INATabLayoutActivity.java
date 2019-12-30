@@ -1,26 +1,22 @@
 package com.sunsty.alidd.view.activity;
 
-import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ali.take.LAImageLoader;
 import com.ali.take.LAUi;
+import com.ali.take.LaLog;
+import com.ali.view.ParallaxActivity;
 import com.ali.view.dd.INATabLayout;
-import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.FragmentAdapter;
@@ -31,135 +27,152 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class INATabLayoutActivity extends AppCompatActivity {
-    private ImageView iv1, iv2, iv3, iv4, imageView;
-    private ViewPager aliViewPager, natureViewPager;
+public class INATabLayoutActivity extends ParallaxActivity {
+    private ViewPager aliViewPager, originalViewPager;
     private List<Fragment> aliFragments = new ArrayList<>();
-    private List<Fragment> natureFragments = new ArrayList<>();
-    private String[] strings = new String[]{"孙顺涛", "凤鸣九天", "sunst", "Get", "Post", "Object"};
+    private List<Fragment> originalFragments = new ArrayList<>();
 
+    private String[] originalTabArray = new String[]{"coverFirst", "coverSecond", "凤鸣九天的凤", "sunst", "Get", "Post", "Object", "星垂四野"};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        LaUi.getInstance().stopLoadGif();
+    public void initView() {
         setContentView(R.layout.activity_inatablayout);
-
-        imageView = findViewById(R.id.ivImageView);
-
-        iv1 = findViewById(R.id.iv1);
-        iv2 = findViewById(R.id.iv2);
-        iv3 = findViewById(R.id.iv3);
-        iv4 = findViewById(R.id.iv4);
         aliViewPager = findViewById(R.id.aliViewPager);
-        natureViewPager = findViewById(R.id.natureViewPager);
-
-        Glide.with(this).load(R.drawable.drawable_gif_home).into(iv1);
-        Glide.with(this).load(R.drawable.drawable_2222).into(iv2);
-        Glide.with(this).load(R.drawable.drawable_gif3).into(iv3);
-        Glide.with(this).load(R.drawable.drawable_gif_me).into(iv4);
-
-        //获取背景，并将其强转成AnimationDrawable
-        AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getBackground();
-
-        if (animationDrawable != null) {
-            animationDrawable.stop();
-            //判断是否在运行
-            if (!animationDrawable.isRunning()) {
-                //开启帧动画
-                animationDrawable.start();
-            }
-        }
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (animationDrawable != null) {
-                    animationDrawable.stop();
-                    //判断是否在运行
-                    if (!animationDrawable.isRunning()) {
-                        //开启帧动画
-                        animationDrawable.start();
-                    }
-                }
-            }
-        });
-
-
-        iv4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (animationDrawable != null) {
-                    animationDrawable.setVisible(true, true);//设置当前动画的第一帧，然后停止，可能联想之类的手机不支持
-//                    animationDrawable.selectDrawable(0);      //选择当前动画的第一帧，然后停止
-                    animationDrawable.stop();
-//                imageView.clearAnimation();
-                }
-            }
-        });
-
+        originalViewPager = findViewById(R.id.originalViewPager);
         initViewPager();
-
         initNatureTabLayout();
     }
 
     /**
-     * 方案一：原生设置
+     * ：alidd系列INATabLayout
+     * Author ：sunst
+     * link : https://zhihu.com/people/qydq
+     */
+    private void initViewPager() {
+        List<String> titles = new ArrayList<>();
+        titles.add("精选");
+        titles.add("热点");
+        titles.add("凤鸣喜欢的");
+        titles.add("剧集");
+        titles.add("sunst");
+        titles.add("电影");
+        titles.add("material");
+        titles.add("综艺");
+        titles.add("高清");
+        titles.add("四川");
+        titles.add("动漫");
+        titles.add("直播");
+        titles.add("漫画");
+        titles.add("体育");
+        for (int i = 0; i < titles.size(); i++) {
+            Fragment1 fragment1 = new Fragment1();
+            Bundle sendBundle = new Bundle();
+            sendBundle.putString("content", "alidd支持INATabLayout:position=" + i);
+            fragment1.setArguments(sendBundle);
+            aliFragments.add(fragment1);
+        }
+        FragmentAdapter adatper = new FragmentAdapter(getSupportFragmentManager(), aliFragments, titles);
+        aliViewPager.setAdapter(adatper);
+        aliViewPager.setOffscreenPageLimit(4);
+        INATabLayout tabLayout = findViewById(R.id.anTablayout);
+//        tabLayout.settabDisplayNum(6);
+        /*
+         *  给INATabLayout设置适配器，将TabLayout和ViewPager关联起来。
+         * */
+        tabLayout.setupWithViewPager(aliViewPager);
+        /*
+         *  默认选中position =2的数据（可选）
+         * */
+        Objects.requireNonNull(tabLayout.getTabAt(2)).select();
+        /*
+         * 初始全部选中（可选）
+         * */
+//        tabLayout.setSelected(true);
+        /*
+         *  监听器(可选）
+         * */
+        tabLayout.addOnTabSelectedListener(new INATabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(INATabLayout.Tab tab) {
+                LaLog.d(TAG + "=====onTabSelectedx:" + tab.getText());
+            }
+
+            @Override
+            public void onTabUnselected(INATabLayout.Tab tab) {
+                LaLog.d(TAG + "=====onTabUnselectedx:" + tab.getText());
+            }
+
+            @Override
+            public void onTabReselected(INATabLayout.Tab tab) {
+                LaLog.d(TAG + "=====onTabReselectedx:" + tab.getText());
+            }
+        });
+    }
+
+    /**
+     * Google原生TabLayout设置
+     * Author ：sunst
+     * link : https://zhihu.com/people/qydq
      */
     private void initNatureTabLayout() {
         TabLayout natureTableLayout = findViewById(R.id.natureTableLayout);
-        natureFragments.add(new Fragment1());
-        natureFragments.add(new Fragment2());
-        natureFragments.add(new Fragment1());
-        natureFragments.add(new Fragment2());
-        natureFragments.add(new Fragment1());
-        natureFragments.add(new Fragment2());
+        for (int i = 0; i < originalTabArray.length; i++) {
+            Fragment2 fragment2 = new Fragment2();
+            Bundle sendBundle = new Bundle();
+            sendBundle.putString("content", "Google原生TabLayout:position=" + i);
+            fragment2.setArguments(sendBundle);
+            originalFragments.add(fragment2);
+        }
 
-        NatureAdapter fragmentAdater = new NatureAdapter(getSupportFragmentManager());
-        natureViewPager.setAdapter(fragmentAdater);
-//        natureViewPager.setOffscreenPageLimit(4);
-        natureTableLayout.setupWithViewPager(natureViewPager);
+        OriginalAdapter fragmentAdater = new OriginalAdapter(getSupportFragmentManager());
+        originalViewPager.setAdapter(fragmentAdater);
+//        originalViewPager.setOffscreenPageLimit(4);
+        natureTableLayout.setupWithViewPager(originalViewPager);
         LAUi.getInstance().setIndicator(natureTableLayout, 0, 0);
 
+        originalViewPager.setOffscreenPageLimit(7);
 
-        natureViewPager.setOffscreenPageLimit(7);
-
-        natureTableLayout.addTab(natureTableLayout.newTab().setText("个性推荐").setIcon(R.drawable.drawable_gif2));
+        natureTableLayout.addTab(natureTableLayout.newTab().setText("个性推荐").setIcon(R.drawable.ic_drawable_share_wxcircle));
         natureTableLayout.addTab(natureTableLayout.newTab().setText("歌单"));
         natureTableLayout.addTab(natureTableLayout.newTab().setText("主播电台"));
         natureTableLayout.addTab(natureTableLayout.newTab().setText("排行榜"));
 
 
-        /**设置natureTableLayout全部不选中*/
+        /*
+         *  设置natureTableLayout全部不选中（可选）
+         * */
 //        for (int i = 0; i < titles.size(); i++) {
 //            natureTableLayout.addTab(natureTableLayout.newTab(), false);
 //        }
 
-
-        /**覆盖第一个tab显示*/
+        /*
+         *  覆盖第一个tab显示热点两个字（可选）
+         * */
 //        natureTableLayout.setSelectedTabIndicator(R.drawable.ailli_drawable_indicator);
         Objects.requireNonNull(natureTableLayout.getTabAt(0)).setCustomView(getview("热点", R.drawable.drawable_gif2));
+        Objects.requireNonNull(natureTableLayout.getTabAt(1)).setCustomView(getview("成都地铁覆盖", R.drawable.ic_drawable_copy_fav));
 
-
-        /**监听器*/
+        /*
+         *  监听器(可选）
+         * */
         natureTableLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Log.d("TAG", "BackMainActivity=====onTabSelected:" + tab.getText());
+                LaLog.d(TAG + "=====onTabSelected:" + tab.getText());
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                Log.d("TAG", "BackMainActivity=====onTabUnselected:" + tab.getText());
+                LaLog.d(TAG + "=====onTabUnselected:" + tab.getText());
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                Log.d("TAG", "BackMainActivity=====onTabReselected:" + tab.getText());
+                LaLog.d(TAG + "=====onTabReselected:" + tab.getText());
             }
         });
 
-        natureViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        originalViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -167,7 +180,7 @@ public class INATabLayoutActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                Log.d("TAG", "BackMainActivity=====onPageSelected: position=" + position);
+                LaLog.d(TAG + "=====onTabUnselected: position = " + position);
             }
 
             @Override
@@ -182,93 +195,38 @@ public class INATabLayoutActivity extends AppCompatActivity {
         TextView tv = view.findViewById(R.id.tvTitile);
         ImageView iv = view.findViewById(R.id.iv_choose);
 
-        LAImageLoader.getInstance().loadImage(this, icon, iv);
+//        LAImageLoader.getInstance().loadImage(this, icon, iv);
         tv.setText(title);
-        iv.setImageResource(icon);
+//        iv.setImageResource(icon);
+        iv.setBackgroundResource(icon);
         return view;
     }
 
     /**
-     * 方案二：ali系列TabLayout
+     * 原生最简单的适配器
+     * Author ：sunst
+     * link : https://zhihu.com/people/qydq
      */
-    private void initViewPager() {
-        List<String> titles = new ArrayList<>();
-        titles.add("孙顺涛");
-        titles.add("李凤鸣");
-        titles.add("中国");
-        titles.add("成都");
-        titles.add("四川");
-        titles.add("我爱你");
-        titles.add("永远");
-        titles.add("真不知道写啥了");
-        for (int i = 0; i < titles.size(); i++) {
-            if (i % 2 == 0) {
-                aliFragments.add(new Fragment2());
-            } else {
-                aliFragments.add(new Fragment1());
-            }
-        }
-        FragmentAdapter adatper = new FragmentAdapter(getSupportFragmentManager(), aliFragments, titles);
-        aliViewPager.setAdapter(adatper);
-        aliViewPager.setOffscreenPageLimit(4);
-        //将TabLayout和ViewPager关联起来。
-        INATabLayout tabLayout = findViewById(R.id.anTablayout);
-        //给TabLayout设置适配器
-        tabLayout.setupWithViewPager(aliViewPager);
-        /**默认选中position =2的数据*/
-        tabLayout.getTabAt(2).select();
-
-        /**
-         * 初始全部选中
-         * */
-//        tabLayout.setSelected(true);
-
-
-        /**监听器*/
-        tabLayout.addOnTabSelectedListener(new INATabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(INATabLayout.Tab tab) {
-                Log.d("TAG", "BackMainActivity=====onTabSelectedx:" + tab.getText());
-
-            }
-
-            @Override
-            public void onTabUnselected(INATabLayout.Tab tab) {
-                Log.d("TAG", "BackMainActivity=====onTabUnselectedx:" + tab.getText());
-
-            }
-
-            @Override
-            public void onTabReselected(INATabLayout.Tab tab) {
-                Log.d("TAG", "BackMainActivity=====onTabReselectedx:" + tab.getText());
-            }
-        });
-    }
-
-    public void shiping(View view) {
-        Toast.makeText(this, "点击", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, TranslucentActivity.class));
-    }
-
-    public class NatureAdapter extends FragmentPagerAdapter {
-        public NatureAdapter(FragmentManager fm) {
+    public class OriginalAdapter extends FragmentPagerAdapter {
+        OriginalAdapter(FragmentManager fm) {
             super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
         @Override
         public int getCount() {
-            return natureFragments.size();
+            return originalFragments.size();
         }
 
+        @NonNull
         @Override
         public Fragment getItem(int position) {
-            return natureFragments.get(position);
+            return originalFragments.get(position);
         }
 
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
-            return strings[position];
+            return originalTabArray[position];
         }
     }
 }
