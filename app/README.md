@@ -7,6 +7,8 @@ implementation 'com.sunst.alidd:alidd:1.0.7'
 import com.ali.take.GlideImageLoader;
 
 
+1.apk大小：7.5M == DownloadSize :6.4
+2.
 交&#8194;易&#8194;号：占位置
 
 # 二：视频类参考：

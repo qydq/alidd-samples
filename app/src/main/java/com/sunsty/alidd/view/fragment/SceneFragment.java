@@ -54,27 +54,27 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
     public void onItemClick(View view, int position) {
         switch (position) {
             case 0: {
-                startActivity(new Intent(getContext(), AnimationGifActivity.class));
-                break;
-            }
-            case 1: {
                 startActivity(new Intent(getContext(), JustHttpsActivity.class));
                 break;
             }
+            case 1: {
+//                startActivity(new Intent(getContext(), AnimationGifActivity.class));
+                break;
+            }
             case 2: {
-                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
+//                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
                 break;
             }
             case 3: {
-                startActivity(new Intent(getContext(), TranslucentActivity.class));
+//                startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
             }
             case 4: {
-                startActivity(new Intent(getContext(), VideoActivity.class));
+//                startActivity(new Intent(getContext(), VideoActivity.class));
                 break;
             }
             case 5: {
-                startActivity(new Intent(getContext(), ExpandableActivity.class));
+//                startActivity(new Intent(getContext(), ExpandableActivity.class));
                 break;
             }
         }

@@ -149,7 +149,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
          *  覆盖第一个tab显示热点两个字（可选）
          * */
 //        natureTableLayout.setSelectedTabIndicator(R.drawable.ailli_drawable_indicator);
-        Objects.requireNonNull(natureTableLayout.getTabAt(0)).setCustomView(getview("热点", R.drawable.drawable_gif2));
+        Objects.requireNonNull(natureTableLayout.getTabAt(0)).setCustomView(getview("热点", R.drawable.drawable_gif4));
         Objects.requireNonNull(natureTableLayout.getTabAt(1)).setCustomView(getview("成都地铁覆盖", R.drawable.ic_drawable_copy_fav));
 
         /*

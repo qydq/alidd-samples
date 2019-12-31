@@ -26,12 +26,12 @@ android {
 //            abiFilters 'armeabi' ,'x86', 'armeabi-v7a', 'x86_64','arm64-v8a'
 
             //则去掉'x86', 'armeabi-v7a', 'x86_64'这些架构然后编译
-            abiFilters 'armeabi' ,'arm64-v8a'//去掉后为：
+            abiFilters 'arm64' ,'arm64-v8a'//去掉后为：
         }
 
 
         sourceSets.main {
-            jni.srcDirs = [] ///jni.srcDirs = [ ]一定要加上，这样就不会自动编译了，用的是我们自己的mk文件
+            jni.srcDirs = [] //这样就不会自动编译了，用的是我们自己的mk文件
 //            jniLibs.srcDir "src/main/libs"
         }
     }

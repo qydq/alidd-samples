@@ -16,9 +16,7 @@ import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
-import com.sunsty.alidd.view.activity.AnimationGifActivity;
 import com.sunsty.alidd.view.activity.ExpandableActivity;
-import com.sunsty.alidd.view.activity.INATabLayoutActivity;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
 import com.sunsty.alidd.view.activity.VideoActivity;
 import com.sunsty.xmediac.MediacDecodeActivity;
@@ -63,19 +61,22 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
                 break;
             }
             case 1: {
-                startActivity(new Intent(getContext(), MediacDecodeActivity.class));
+                intent.setClass(getContext(), AliwebViewActivity.class);
+                intent.putExtra("url", "https://zhihu.com/people/qydq");
+                intent.putExtra("title", "知乎Bgwan（点击关注）");
+                startActivity(intent);
                 break;
             }
             case 2: {
-                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
+                startActivity(new Intent(getContext(), VideoActivity.class));
                 break;
             }
             case 3: {
-                startActivity(new Intent(getContext(), TranslucentActivity.class));
+                startActivity(new Intent(getContext(), MediacDecodeActivity.class));
                 break;
             }
             case 4: {
-                startActivity(new Intent(getContext(), VideoActivity.class));
+                startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
             }
             case 5: {

@@ -58,11 +58,12 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
                 break;
             }
             case 1: {
-                startActivity(new Intent(getContext(), JustHttpsActivity.class));
+                startActivity(new Intent(getContext(), AnimationGifActivity.class));
                 break;
             }
             case 2: {
-                startActivity(new Intent(getContext(), AnimationGifActivity.class));
+
+                startActivity(new Intent(getContext(), JustHttpsActivity.class));
                 break;
             }
             case 3: {
