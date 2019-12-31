@@ -1,0 +1,69 @@
+Index: app/src/main/res/layout/activity_animation_gif.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_animation_gif.xml	(revision e2359b1dedae68e47072d131e9169376a8e1f4ae)
++++ app/src/main/res/layout/activity_animation_gif.xml	(date 1577770610708)
+@@ -1,108 +1,117 @@
+ <?xml version="1.0" encoding="utf-8"?> <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-    xmlns:app="http://schemas.android.com/apk/res-auto"     xmlns:tools="http://schemas.android.com/tools"     android:layout_width="match_parent"     android:layout_height="match_parent"+    android:background="@color/ColorBlack"     android:orientation="vertical"     tools:context=".view.activity.MainActivity"> -    <com.ali.view.dd.gif.GifImageView-        android:layout_width="70dp"-        android:layout_height="60dp"-        android:onClick="shiping"-        android:src="@drawable/drawable_gif_home" />+    <ScrollView style="@style/an_match_match">++        <LinearLayout style="@style/an_match_wrap.V">++            <com.ali.view.dd.gif.GifImageView+                android:id="@+id/aliGifImageView3"+                style="@style/an_match_wrap"+                android:layout_marginTop="@dimen/an_dimen_margin" />++            <com.ali.view.dd.gif.GifImageView+                android:id="@+id/aliGifImageView4"+                style="@style/an_match_wrap" />++            <LinearLayout style="@style/an_match_wrap.H"> -    <com.ali.view.dd.gif.GifImageView-        android:layout_width="50dp"-        android:layout_height="50dp"-        android:layout_marginTop="20dp"-        android:src="@drawable/drawable_2222" />+                <com.ali.view.dd.gif.GifImageView+                    android:id="@+id/gifImageView"+                    style="@style/an_auto_wrap"+                    android:layout_marginLeft="@dimen/an_dimen_margin"+                    android:src="@drawable/drawable_gif1" /> -    <ImageView-        android:id="@+id/ivImageView"-        android:layout_width="40dp"-        android:layout_height="40dp"-        android:background="@drawable/loading" />+                <!--注意：drawable动画需要设置background不能是src -->+                <ImageView+                    android:id="@+id/originalImageView"+                    android:layout_width="40dp"+                    android:layout_height="40dp"+                    android:layout_gravity="center_vertical"+                    android:layout_marginLeft="@dimen/an_dimen_margin"+                    android:layout_marginRight="@dimen/an_dimen_margin"+                    android:background="@drawable/loading" />+            </LinearLayout>+ -    <LinearLayout-        android:layout_width="match_parent"-        android:layout_height="wrap_content"-        android:orientation="horizontal">+            <LinearLayout+                style="@style/an_match_wrap.H"+                android:layout_marginTop="@dimen/an_dimen_margin">++                <ImageView+                    android:id="@+id/ivKit5"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" />++                <ImageView+                    android:id="@+id/ivKit6"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" />++                <ImageView+                    android:id="@+id/ivKit7"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" />++                <ImageView+                    android:id="@+id/ivKit8"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" />++            </LinearLayout>++            <com.ali.view.dd.gif.GifImageView+                style="@style/an_match_wrap"+                android:layout_marginTop="@dimen/an_dimen_margin"+                android:src="@drawable/drawable_gif2" />++            <LinearLayout style="@style/an_match_wrap.H"> -        <ImageView-            android:id="@+id/iv1"-            android:layout_width="0dp"-            android:layout_height="wrap_content"-            android:layout_weight="1" />+                <ImageView+                    android:id="@+id/ivKit1"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" /> -        <ImageView-            android:id="@+id/iv2"-            android:layout_width="0dp"-            android:layout_height="wrap_content"-            android:layout_weight="1" />+                <ImageView+                    android:id="@+id/ivKit2"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" /> -        <ImageView-            android:id="@+id/iv3"-            android:layout_width="0dp"-            android:layout_height="wrap_content"-            android:layout_weight="1" />+                <ImageView+                    android:id="@+id/ivKit3"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" /> -        <ImageView-            android:id="@+id/iv4"-            android:layout_width="0dp"-            android:layout_height="wrap_content"-            android:layout_weight="1" />+                <ImageView+                    android:id="@+id/ivKit4"+                    android:layout_width="0dp"+                    android:layout_height="wrap_content"+                    android:layout_weight="1" /> -    </LinearLayout>+            </LinearLayout> -    <com.ali.view.dd.INATabLayout-        android:id="@+id/anTablayout"-        android:layout_width="match_parent"-        android:layout_height="58dp"-        android:background="@color/ColorNavajowhite"-        app:anTabDisplayNum="4"-        app:anTabDividerWidthWidthText="true"-        app:anTabIndicatorColor="#FF4600"-        app:anTabIndicatorHeight="2dp"-        app:anTabMode="scrollable"-        app:anTabPaddingTop="5dp"-        app:anTabSelectedTextColor="#f00"-        app:anTabSelectedTextSize="20sp"-        app:anTabTextColor="#000"-        app:anTabTextSize="15sp" />---    <androidx.viewpager.widget.ViewPager-        android:id="@+id/aliViewPager"-        android:layout_width="match_parent"-        android:layout_height="150dp"-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />--    <com.google.android.material.tabs.TabLayout-        android:id="@+id/natureTableLayout"-        android:layout_width="match_parent"-        android:layout_height="48dp"-        android:layout_marginTop="19.33dp"-        android:layout_marginBottom="10.67dp"-        app:tabBackground="@drawable/selector"-        app:tabGravity="center"-        app:tabIndicator="@drawable/base_drawable_music2"-        app:tabIndicatorColor="#FF4600"-        app:tabIndicatorFullWidth="false"-        app:tabIndicatorHeight="5dp"-        app:tabMode="scrollable"-        app:tabPaddingEnd="0dp"-        app:tabPaddingStart="0dp"-        app:tabRippleColor="@android:color/transparent"-        app:tabSelectedTextColor="#f00"-        app:tabTextColor="#000" />-    <!--app:tabBackground="@android:color/transparent" tabIndicatorHeight =2dp-->-    <androidx.viewpager.widget.ViewPager-        android:id="@+id/natureViewPager"-        android:layout_width="match_parent"-        android:layout_height="match_parent"-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />+            <com.ali.view.dd.gif.GifImageView+                android:id="@+id/aliGifImageView1"+                style="@style/an_match_wrap"+                android:layout_marginTop="@dimen/an_dimen_margin" /> -+            <com.ali.view.dd.gif.GifImageView+                android:id="@+id/aliGifImageView2"+                style="@style/an_match_wrap"+                android:layout_marginTop="@dimen/an_dimen_margin" />+        </LinearLayout>+    </ScrollView> </LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/loading.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/loading.xml	(revision e2359b1dedae68e47072d131e9169376a8e1f4ae)
++++ app/src/main/res/drawable/loading.xml	(date 1577764740018)
+@@ -2,7 +2,7 @@
+ <animation-list xmlns:android="http://schemas.android.com/apk/res/android"     android:oneshot="false">     <item-        android:drawable="@drawable/base_drawable_music2"+        android:drawable="@drawable/ic_picture_video_play"         android:duration="30" />     <item         android:drawable="@drawable/base_drawable_add"Index: xmediac/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- xmediac/src/main/AndroidManifest.xml	(revision e2359b1dedae68e47072d131e9169376a8e1f4ae)
++++ xmediac/src/main/AndroidManifest.xml	(date 1577788589527)
+@@ -4,7 +4,6 @@
+ 
+ <!--    <uses-sdk android:minSdkVersion="17" />-->
+ 
+-
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+Index: app/src/main/res/values/array.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/array.xml	(revision e2359b1dedae68e47072d131e9169376a8e1f4ae)
++++ app/src/main/res/values/array.xml	(date 1577789477068)
+@@ -24,10 +24,10 @@
+ 
+     </string-array>
+     <string-array name="main_an_scene">
+-        <item>网络请求</item>
+-        <item>权限操作</item>
+-        <item>视频跳转</item>
+-        <item>网页操作</item>
++        <item>网络请求1,anbase继承网络请求</item>
++        <item>权限操作2，alidd retrofit网络请求</item>
++        <item>芳芳</item>
++        <item>芳芳</item>
+         <item>xiaotuanzi---占位1---</item>
+         <item>xiaotuanzi---占位2---</item>
+         <item>xiaotuanzi---占位3---</item>
+@@ -65,8 +65,11 @@
+     </string-array>
+     <string-array name="main_other">
+         <item>alidd框架说明</item>
+-        <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
++        <item>我的知乎地址（点击关注Bgwan）</item>
+         <item>VideoActivity.(视频相关，含压缩，水印=</item>
+-        <item>ExpandableActivity.(展开布局，优化显示特效</item>
++        <item>当前视频测试代码2.(视频相关，含压缩，水印=</item>
++        <item>当前视频测试代码3.(test模块=</item>
++        <item>MediacDecodeActivity视频解码.</item>
++        <item>小团子</item>
+     </string-array>
+ </resources>

@@ -11,6 +11,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        ndk {
+            moduleName 'myffmpeg'
+//            ldLibs 'log', 'z', 'm'
+            // 设置支持的SO库cpu架构类型
+//            abiFilters 'armeabi' ,'x86',// 'armeabi-v7a', 'x86_64','arm64-v8a'
+            //则去掉'x86', 'armeabi-v7a', 'x86_64'这些架构然后编译
+//            abiFilters "armeabi-v7a", "x86" //'arm64-v8a'//去掉后为：//armeabi//
+        }
+        sourceSets.main {
+            jni.srcDirs = []
+        }
     }
     buildTypes {
         release {
