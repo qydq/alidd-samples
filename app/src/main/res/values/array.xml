@@ -24,10 +24,10 @@
 
     </string-array>
     <string-array name="main_an_scene">
-        <item>网络请求</item>
-        <item>权限操作</item>
-        <item>视频跳转</item>
-        <item>网页操作</item>
+        <item>网络请求1,anbase继承网络请求</item>
+        <item>权限操作2，alidd retrofit网络请求</item>
+        <item>芳芳</item>
+        <item>芳芳</item>
         <item>xiaotuanzi---占位1---</item>
         <item>xiaotuanzi---占位2---</item>
         <item>xiaotuanzi---占位3---</item>
@@ -65,8 +65,11 @@
     </string-array>
     <string-array name="main_other">
         <item>alidd框架说明</item>
-        <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
+        <item>我的知乎地址（点击关注Bgwan）</item>
         <item>VideoActivity.(视频相关，含压缩，水印=</item>
-        <item>ExpandableActivity.(展开布局，优化显示特效</item>
+        <item>当前视频测试代码2.(视频相关，含压缩，水印=</item>
+        <item>当前视频测试代码3.(test模块=</item>
+        <item>MediacDecodeActivity视频解码.</item>
+        <item>小团子</item>
     </string-array>
 </resources>
