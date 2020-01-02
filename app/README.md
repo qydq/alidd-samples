@@ -25,6 +25,13 @@ https://github.com/mabeijianxi/small-video-record/blob/master/document/README_CH
 
 
 
+
+https://www.jianshu.com/p/f7b0f5bab864
+
+https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+
+
+
 ##20191218新增技术
 （美颜效果）
 

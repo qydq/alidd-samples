@@ -19,7 +19,7 @@ import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
 import com.sunsty.alidd.view.activity.VideoActivity;
-import com.sunsty.xmediac.MediacDecodeActivity;
+import com.sunsty.xmediac.FFmpegRenderActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,36 +53,30 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
     public void onItemClick(View view, int position) {
         Intent intent = new Intent();
         switch (position) {
-            case 0: {
+            case 0:
                 intent.setClass(getContext(), AliwebViewActivity.class);
                 intent.putExtra("url", "https://github.com/qydq/alidd-samples");
                 intent.putExtra("title", "Github官方alidd框架");
                 startActivity(intent);
                 break;
-            }
-            case 1: {
+            case 1:
                 intent.setClass(getContext(), AliwebViewActivity.class);
                 intent.putExtra("url", "https://zhihu.com/people/qydq");
                 intent.putExtra("title", "知乎Bgwan（点击关注）");
                 startActivity(intent);
                 break;
-            }
-            case 2: {
+            case 2:
                 startActivity(new Intent(getContext(), VideoActivity.class));
                 break;
-            }
-            case 3: {
-                startActivity(new Intent(getContext(), MediacDecodeActivity.class));
+            case 3:
+                startActivity(new Intent(getContext(), FFmpegRenderActivity.class));
                 break;
-            }
-            case 4: {
+            case 4:
                 startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
-            }
-            case 5: {
+            case 5:
                 startActivity(new Intent(getContext(), ExpandableActivity.class));
                 break;
-            }
         }
     }
 }

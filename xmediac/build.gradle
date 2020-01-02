@@ -32,8 +32,8 @@ android {
             abiFilters 'armeabi' ,'arm64-v8a'//去掉后为：
         }
         sourceSets.main {
-            jni.srcDirs = [] //这样就不会自动编译了，用的是我们自己的mk文件
-//            jniLibs.srcDir "src/main/libs"
+//            jni.srcDirs = [] //这样就不会自动编译了，用的是我们自己的mk文件
+            jniLibs.srcDir "src/main/libs"
         }
     }
 
