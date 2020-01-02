@@ -1,22 +1,28 @@
 package com.sunsty.xmediac;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.ali.module.lib.config.PictureConfig;
+import com.ali.take.LaLog;
+import com.ali.view.AliActivity;
 import com.ali.view.activity.PictureVideoPlayActivity;
 import com.sunsty.xmediac.util.VideoPlayer;
 
 import java.io.File;
 import java.util.Arrays;
 
-public class FFmpegRenderActivity extends Activity implements View.OnClickListener {
+/**
+ * ffmpeg编码音视频处理
+ * author : sunst
+ * 说明： 过滤条件：ffmpegandroidplayer   , 解码，  当前帧
+ */
+public class FFmpegRenderActivity extends AliActivity implements View.OnClickListener {
     private VideoPlayer player;
 
     private Button btn_decode;//视频解码
@@ -26,10 +32,10 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
     private Button btn_play;//音视频同步播放用C实现
     private Button btn_transcoding_compress;//转码压缩
     private Button btn_addWatermark;//视频添加水印
+    private TextView tvStatus;//视频添加水印
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView() {
         setContentView(R.layout.activity_mediac_decode);
         btn_decode = findViewById(R.id.btn_decode);
         btn_render = findViewById(R.id.btn_render);
@@ -38,6 +44,7 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
         btn_play = findViewById(R.id.btn_play);
         btn_transcoding_compress = findViewById(R.id.btn_transcoding_compress);
         btn_addWatermark = findViewById(R.id.btn_addWatermark);
+        tvStatus = findViewById(R.id.tvStatus);
         player = new VideoPlayer();
 
         btn_decode.setOnClickListener(this);
@@ -52,13 +59,38 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_decode) {
-            doDecode();
+            showLoadding("正在解码视频...");
+            tvStatus.setText("正在解码视频...");
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            doDecode();
+                        }
+                    }).start();
+                }
+            }, 5000);
         } else if (id == R.id.btn_render) {
+            tvStatus.setText("视频播放...");
             Intent intent = new Intent(this, PictureVideoPlayActivity.class);
-            intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, "sdcard/sunst_native.mp4");
+            intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, "sdcard/sunseanative.mp4");
             startActivity(intent);
         } else if (id == R.id.btn_audio_decode) {
-            audioDecode();
+            showLoadding("正在解码音频...");
+            tvStatus.setText("正在解码音频...");
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            audioDecode();
+                        }
+                    }).start();
+                }
+            }, 5000);
         } else if (id == R.id.btn_audio_player) {
             audioPlayer();
         } else if (id == R.id.btn_play) {
@@ -66,7 +98,19 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
         } else if (id == R.id.btn_transcoding_compress) {
             transcodingCompress();
         } else if (id == R.id.btn_addWatermark) {
-            addWatermark();
+            showLoadding("正在添加水印...");
+            tvStatus.setText("正在添加水印...");
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addWatermark();
+                        }
+                    }).start();
+                }
+            }, 5000);
         }
     }
 
@@ -75,8 +119,6 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
      */
     public void doDecode() {
         //打印信息fmpegandroidplayer: 解码5200帧
-
-
         /*
         2020-01-02 11:48:28.397 824-3342/? E/LOGSERVER_UTILS: [Erecovery]readEvent: eRecEventManager readEvent 0
 2020-01-02 11:48:28.916 13144-13144/com.sunsty.alidd E/ffmpegandroidplayer: 视频的文件格式：mov,mp4,m4a,3gp,3g2,mj2
@@ -90,19 +132,21 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
 
         */
         String input = new File(Environment.getExternalStorageDirectory(), "sunst.mp4").getAbsolutePath();
-        String output = new File(Environment.getExternalStorageDirectory(), "小苹果_out.yuv").getAbsolutePath();
+        String output = new File(Environment.getExternalStorageDirectory(), "2020sun_dodecode_video_out.yuv").getAbsolutePath();
         VideoPlayer.decode(input, output);
-        Toast.makeText(this, "正在解码...", Toast.LENGTH_SHORT).show();
+        dismissLoadding();
+        tvStatus.setText("解码视频成功");
     }
 
     /**
      * 音频解码
      */
     public void audioDecode() {
-        String input = new File(Environment.getExternalStorageDirectory(), "说散就散.mp3").getAbsolutePath();
-        String output = new File(Environment.getExternalStorageDirectory(), "说散就散.pcm").getAbsolutePath();
+        String input = new File(Environment.getExternalStorageDirectory(), "追光者.mp3").getAbsolutePath();
+        String output = new File(Environment.getExternalStorageDirectory(), "2020sun_dodecode_audio_out.pcm").getAbsolutePath();
         player.audioDecode(input, output);
-        Toast.makeText(this, "正在解码...", Toast.LENGTH_SHORT).show();
+        dismissLoadding();
+        tvStatus.setText("解码音频成功");
     }
 
     /**
@@ -117,9 +161,8 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
         /**
          * 2.播放音频文件中的音频
          */
-        String input = new File(Environment.getExternalStorageDirectory(), "说散就散.mp3").getAbsolutePath();
+        String input = new File(Environment.getExternalStorageDirectory(), "追光者.mp3").getAbsolutePath();
         player.audioPlayer(input);
-        Log.d("Main", "正在播放");
     }
 
     /**
@@ -127,21 +170,20 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
      */
     public void play() {
         Intent intent = new Intent(this, PictureVideoPlayActivity.class);
-        intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, "sdcard/sunst_auto_lifangfang.mp4");
+        intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, "sdcard/2020sunwatermark.mp4");
         startActivity(intent);
     }
-
 
     /**
      * 转码压缩
      */
     public void transcodingCompress() {
-
         final File inputFile;
         final File outputFile;
         final File dic = Environment.getExternalStorageDirectory();
-        inputFile = new File(dic, "sunst.mp4");
-        outputFile = new File(dic, "告白气球.mp4");
+        inputFile = new File(dic, "sun_sea_native.mp4");
+//        inputFile = new File(dic, "sunst.avi");//将avi视频格式转成mp4，并且压缩
+        outputFile = new File(dic, "2020sun_ranscodingCompress.avi");
 
         new Thread(new Runnable() {
             @Override
@@ -165,38 +207,48 @@ public class FFmpegRenderActivity extends Activity implements View.OnClickListen
 
     }
 
+    /**
+     * 给视频加水印，加一个动态水印会踩很多坑 : 这里本神对参数进行一个小节： -y ，直接覆盖输入 ，
+     * -i后面接图片地址，非常温馨的技巧（此处的图片地址换成带透明通道的视频就可以合成动态视频遮罩），所以这个就能满足很多人的加合成双视频的需求了
+     * -filter_complex 参数是表示使用混合滤镜把图片叠加到视频上。
+     * -ignore_loop 这个参数的值为1则忽略gif文件本身的循环设置，为0的话则使用文件本身的设置，一般设置为1
+     * overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2 是将图片居中，当然这里的具体位置可以自己调，一般来说，加个水印简单就这样就可以了。
+     * 其他的，使用scale参数可以调整水印大小。
+     *
+     * 现在你可以随意添加任意大小位置的水印了。
+     * 那么，能不能再给力一点？我们使用两张图片叠加双重水印？ 这里你就关注本神知乎以后会找到相关文章的介绍。
+     * author ： sunst
+     * https://zhihu.com/people/qydq
+     * 请注意文中版权声明，欢迎关注和交流
+     */
     public void addWatermark() {
-
         //当前帧
-        File ipFile = new File(Environment.getExternalStorageDirectory(), "sunst1.mp4");
-        File opFile = new File(Environment.getExternalStorageDirectory(), "sunstoutsuper.mp4");
-        File wmFile = new File(Environment.getExternalStorageDirectory(), "sunst_super.gif");
-
+        File ipFile = new File(Environment.getExternalStorageDirectory(), "sunseanative.mp4");
+        File opFile = new File(Environment.getExternalStorageDirectory(), "2020sunwatermark.mp4");
+        File wmFile = new File(Environment.getExternalStorageDirectory(), "sunst.gif");
+//        File wmFile = new File(Environment.getExternalStorageDirectory(), "sunst.png");//加水印静态图片
 //        String str = "ffmpeg -i " + ipFile.getAbsolutePath() + " -i " + wmFile.getAbsolutePath() + " -filter_complex overlay=480:10 " + opFile.getAbsolutePath();
-        String str = "ffmpeg -i " + ipFile.getAbsolutePath() + " -ignore_loop " + "0" + " -i " + wmFile.getAbsolutePath() + " -filter_complex overlay=480:10 " + opFile.getAbsolutePath();
-        Log.d("命令行1:", "TAG----str" + str);
 
-        final String[] myGifWaterCommand = getWatermarkCommand(ipFile.getAbsolutePath(), wmFile.getAbsolutePath(), opFile.getAbsolutePath());
+        String str = "ffmpeg -i " + ipFile.getAbsolutePath() + " -ignore_loop " + "1" + " -i " + wmFile.getAbsolutePath() + " -filter_complex overlay=480:10 " + opFile.getAbsolutePath();
+        LaLog.d(TAG + "sunst----命令行1=" + str);
 
-        Log.d("命令行2:", Arrays.toString(myGifWaterCommand));
+//        final String[] myGifWaterCommand = getWatermarkCommand(ipFile.getAbsolutePath(), wmFile.getAbsolutePath(), opFile.getAbsolutePath());
+//        LaLog.d(TAG + "sunst----命令行2=" + Arrays.toString(myGifWaterCommand));
+//        final int gifArgc = myGifWaterCommand.length;
 
-        /**
-         * 网上搜索的加载视频的命令：
+        /*
+         * 网上搜索的加载视频的命令：（可参考，不一定正确）
          * ffmpeg -y -i video.mp4 -vf \"movie=logo.png [logo]; [in][logo] overlay=5:5 [out]\" -preset ultrafast out.mp4
          * */
         final String[] argv = str.split(" ");
-
-        Log.d("命令行3:", Arrays.toString(argv));
-
+        Log.d(TAG + "sunst----命令行3=", Arrays.toString(argv));
+//        [ffmpeg, -i, /storage/emulated/0/sunseanative.mp4, -ignore_loop, 0, -i, /storage/emulated/0/sunst.gif, -filter_complex, overlay=480:10, -y, /storage/emulated/0/2020sunwatermark.mp4]
+//        [ffmpeg, -i, /storage/emulated/0/sunseanative.mp4, -ignore_loop, 1, -i, /storage/emulated/0/sunst.gif, -filter_complex, overlay=480:10, /storage/emulated/0/2020sunwatermark.mp4]
         final int argc = argv.length;
+        player.ffmpegCmdUtil(argc, argv);
 
-        final int gifArgc = myGifWaterCommand.length;
-        new Thread() {
-            public void run() {
-                player.ffmpegCmdUtil(argc, argv);
-                Log.i("FFmpegRenderActivity", "------加水印完成-------");
-            }
-        }.start();
+        dismissLoadding();
+        tvStatus.setText("水印已成功加载完成");
     }
 
     private String[] getWatermarkCommand(String videoUrl, String gifwaterpath, String outputUrl) {

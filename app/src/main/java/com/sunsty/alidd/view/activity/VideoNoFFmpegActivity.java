@@ -115,7 +115,7 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.btnThumbnail1:
                 String filePath = "sdcard/sunst.mp4";//ok
-                String packagePath = "storage/emulated/0/Android/data/com.zbhd.hgb/files/Screen/1576495565357.mp4";//ok
+                String packagePath = "storage/emulated/0/Android/data/com.sunsty.alidd/files/Screen/1576495565357.mp4";//ok
                 File ipFile = new File(LAStorageFile.INSTANCE.getskStorageDirectoryFile(), "sunst.mp4");//ok
                 String filePathGetPath = ipFile.getPath();
                 String aPath = ipFile.getAbsolutePath();
