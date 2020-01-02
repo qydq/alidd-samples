@@ -81,7 +81,7 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_video);
+        setContentView(R.layout.activity_video_noffmpeg);
         laPermissions = new LaPermissions(this);
         mediaHelper = new MediaHelper(VideoNoFFmpegActivity.this);
         recordUtil = new RecordUtil(VideoNoFFmpegActivity.this);

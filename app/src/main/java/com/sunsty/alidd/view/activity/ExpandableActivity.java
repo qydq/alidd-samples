@@ -114,7 +114,7 @@ public class ExpandableActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video);
+        setContentView(R.layout.activity_video_noffmpeg);
         tvHttps = findViewById(R.id.tvHttps);
         natureIv = findViewById(R.id.natureIv);
 

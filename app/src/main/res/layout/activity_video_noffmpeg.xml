@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <LinearLayout
         android:id="@+id/llThumbnail"
         style="@style/an_match_wrap.H"
@@ -70,6 +69,7 @@
         android:textColor="#FFFFFF" />
 
     <RelativeLayout
+        android:id="@+id/rlVideoData"
         android:layout_width="match_parent"
         android:layout_height="129.6dp"
         android:layout_below="@+id/btnWater"
@@ -126,5 +126,11 @@
             android:layout_height="4dp"
             android:layout_alignParentBottom="true" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        style="@style/an_match_wrap"
+        android:layout_below="@+id/rlVideoData"
+        android:text="VideoNoFFmpegActivity.java" />
 
 </RelativeLayout>
