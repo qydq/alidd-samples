@@ -18,7 +18,7 @@ import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
-import com.sunsty.alidd.view.activity.VideoActivity;
+import com.sunsty.alidd.view.activity.VideoNoFFmpegActivity;
 import com.sunsty.xmediac.FFmpegRenderActivity;
 
 import java.util.Arrays;
@@ -31,7 +31,7 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_material_ux, container, false);
+        View view = inflater.inflate(R.layout.fragment_alidd, container, false);
         recyclerView = view.findViewById(R.id.recyclerview);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -66,7 +66,7 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
                 startActivity(intent);
                 break;
             case 2:
-                startActivity(new Intent(getContext(), VideoActivity.class));
+                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
                 break;
             case 3:
                 startActivity(new Intent(getContext(), FFmpegRenderActivity.class));

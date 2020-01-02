@@ -32,8 +32,8 @@ import com.sunsty.alidd.R;
 
 import java.io.File;
 
-public class VideoActivity extends AliActivity implements View.OnClickListener {
-    private static final String TAG = "VideoActivity:";
+public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickListener {
+    private static final String TAG = "VideoNoFFmpegActivity:";
     private ImageView ivThumbnailVideo;
     private ImageView ivVideoPlay;
     private LinearLayout llVideoControl;
@@ -55,7 +55,7 @@ public class VideoActivity extends AliActivity implements View.OnClickListener {
 
 
     private void handThumbnailVideoImage(Bitmap bitmap) {
-        Glide.with(VideoActivity.this).load(bitmap).into(ivThumbnailVideo);
+        Glide.with(VideoNoFFmpegActivity.this).load(bitmap).into(ivThumbnailVideo);
     }
 
     private void handThumbnailVideoImage(File bitmapFileDir) {
@@ -63,7 +63,7 @@ public class VideoActivity extends AliActivity implements View.OnClickListener {
     }
 
     private void handThumbnailVideoImage(String bitmapFilePath) {
-        Glide.with(VideoActivity.this).load(bitmapFilePath).into(ivThumbnailVideo);
+        Glide.with(VideoNoFFmpegActivity.this).load(bitmapFilePath).into(ivThumbnailVideo);
     }
 
     private void setVideoPreview() {
@@ -83,8 +83,8 @@ public class VideoActivity extends AliActivity implements View.OnClickListener {
     public void initView() {
         setContentView(R.layout.activity_video);
         laPermissions = new LaPermissions(this);
-        mediaHelper = new MediaHelper(VideoActivity.this);
-        recordUtil = new RecordUtil(VideoActivity.this);
+        mediaHelper = new MediaHelper(VideoNoFFmpegActivity.this);
+        recordUtil = new RecordUtil(VideoNoFFmpegActivity.this);
         nestProgressBar = findViewById(R.id.nestProgressBar);
 
         btnThumbnail1 = findViewById(R.id.btnThumbnail1);
@@ -201,7 +201,7 @@ public class VideoActivity extends AliActivity implements View.OnClickListener {
      * Author ：sunst
      */
     private void startCompressVideo() {
-        compressUtil.compressVideoMedium(VideoActivity.this, nativeVideoPath, new VideoCompressUtil.OnCompressListener() {
+        compressUtil.compressVideoMedium(VideoNoFFmpegActivity.this, nativeVideoPath, new VideoCompressUtil.OnCompressListener() {
             @Override
             public void onStart() {
                 LaLog.d(TAG, "--onStart: 开始压缩=");
@@ -303,18 +303,18 @@ public class VideoActivity extends AliActivity implements View.OnClickListener {
     private LaPermissions.PermissionGrant permissionGrant = new LaPermissions.PermissionGrant() {
         @Override
         public void onPermissionGranted(String... grantedPermissions) {
-            Toast.makeText(VideoActivity.this, " open this onPermissionGranted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(VideoNoFFmpegActivity.this, " open this onPermissionGranted", Toast.LENGTH_SHORT).show();
             startPhoneScreenRecord();
         }
 
         @Override
         public void onPermissionDenied(String... deniedPermissions) {
-            Toast.makeText(VideoActivity.this, " open this onPermissionDenied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(VideoNoFFmpegActivity.this, " open this onPermissionDenied", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onPermissionExist() {
-            Toast.makeText(VideoActivity.this, " open this onPermissionExist", Toast.LENGTH_SHORT).show();
+            Toast.makeText(VideoNoFFmpegActivity.this, " open this onPermissionExist", Toast.LENGTH_SHORT).show();
             startPhoneScreenRecord();
         }
     };

@@ -96,7 +96,7 @@ public class MainActivityConfict  {
 //                break;
 //            }
 //            case 4: {
-//                startActivity(new Intent(this, VideoActivity.class));
+//                startActivity(new Intent(this, VideoNoFFmpegActivity.class));
 //                break;
 //            }
 //            case 5: {

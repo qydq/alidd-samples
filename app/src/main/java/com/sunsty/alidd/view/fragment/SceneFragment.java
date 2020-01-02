@@ -15,12 +15,7 @@ import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
-import com.sunsty.alidd.view.activity.AnimationGifActivity;
-import com.sunsty.alidd.view.activity.ExpandableActivity;
-import com.sunsty.alidd.view.activity.INATabLayoutActivity;
 import com.sunsty.alidd.view.activity.JustHttpsActivity;
-import com.sunsty.alidd.view.activity.TranslucentActivity;
-import com.sunsty.alidd.view.activity.VideoActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +27,7 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_material_ux, container, false);
+        View view = inflater.inflate(R.layout.fragment_alidd, container, false);
         recyclerView = view.findViewById(R.id.recyclerview);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -70,7 +65,7 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
                 break;
             }
             case 4: {
-//                startActivity(new Intent(getContext(), VideoActivity.class));
+//                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
                 break;
             }
             case 5: {

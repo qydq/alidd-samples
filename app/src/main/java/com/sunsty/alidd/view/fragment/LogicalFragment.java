@@ -20,7 +20,7 @@ import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.INATabLayoutActivity;
 import com.sunsty.alidd.view.activity.JustHttpsActivity;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
-import com.sunsty.alidd.view.activity.VideoActivity;
+import com.sunsty.alidd.view.activity.VideoNoFFmpegActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +32,7 @@ public class LogicalFragment extends Fragment implements OnItemClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_material_ux, container, false);
+        View view = inflater.inflate(R.layout.fragment_alidd, container, false);
         recyclerView = view.findViewById(R.id.recyclerview);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -70,7 +70,7 @@ public class LogicalFragment extends Fragment implements OnItemClickListener {
                 break;
             }
             case 4: {
-                startActivity(new Intent(getContext(), VideoActivity.class));
+                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
                 break;
             }
             case 5: {

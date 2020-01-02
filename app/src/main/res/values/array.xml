@@ -64,10 +64,10 @@
         <item>xiaotuanzi---占位12---</item>
     </string-array>
     <string-array name="main_other">
-        <item>alidd框架说明</item>
+        <item>alidd框架说明（Github官网）</item>
         <item>我的知乎地址（点击关注Bgwan）</item>
-        <item>VideoActivity.(视频相关，含压缩，水印=</item>
-        <item>当前视频测试代码2.(视频相关，含压缩，水印=</item>
+        <item>视频压缩，屏幕录制（非FFmpeg）</item>
+        <item>视频转码压缩，水印，视频解码，音频解码，播放（C底层FFmpeg）=</item>
         <item>当前视频测试代码3.(test模块=</item>
         <item>MediacDecodeActivity视频解码.</item>
         <item>小团子</item>
