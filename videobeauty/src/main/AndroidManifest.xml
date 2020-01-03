@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cj.videoeditor" >
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application>
+        <activity android:name=".activity.VideoBeatyMainActivity"
+            android:hardwareAccelerated="true"/>
+        <activity android:name=".activity.RecordedActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.VideoSelectActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.BaseActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.PreviewActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AudioEditorActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.AudioPreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.AudioSelectActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AudioMixActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.VideoConnectActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MediaSelectVideoActivity"
+                  android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

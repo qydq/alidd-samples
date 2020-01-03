@@ -6,6 +6,7 @@
     <Button
         android:id="@+id/btn_decode"
         style="@style/an_match_wrap.Font"
+        android:layout_marginTop="@dimen/AppBarPatchMarginTop"
         android:background="@drawable/in_drawable_selector_shadow"
         android:stateListAnimator="@null"
         android:text="视频解码" />

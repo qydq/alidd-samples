@@ -66,9 +66,10 @@
     <string-array name="main_other">
         <item>alidd框架说明（Github官网）</item>
         <item>我的知乎地址（点击关注Bgwan）</item>
-        <item>视频压缩，屏幕录制（非FFmpeg）</item>
-        <item>视频转码压缩，水印，视频解码，音频解码，播放（C底层FFmpeg）=</item>
-        <item>当前视频测试代码3.(test模块=</item>
+        <item>视频情景1：压缩，屏幕录制（非FFmpeg）</item>
+        <item>视频情景2：转码压缩，水印，视频解码，音频解码，播放（C底层FFmpeg）</item>
+        <item>视频情景3：压缩，摄像头录制视频（可选配置）</item>
+        <item>启动一个像素的activity(test模块=</item>
         <item>MediacDecodeActivity视频解码.</item>
         <item>小团子</item>
     </string-array>

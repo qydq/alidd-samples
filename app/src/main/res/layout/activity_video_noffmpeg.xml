@@ -3,9 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <Button
+        android:id="@+id/btnScreenShot"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginTop="@dimen/AppBarPatchMarginTop"
+        android:background="@drawable/in_drawable_selector_shadow"
+        android:stateListAnimator="@null"
+        android:text="截取屏幕" />
+
+
     <LinearLayout
         android:id="@+id/llThumbnail"
         style="@style/an_match_wrap.H"
+        android:layout_below="@+id/btnScreenShot"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="30dp"
         android:layout_marginRight="@dimen/an_dimen_margin">
