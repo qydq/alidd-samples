@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.util.DisplayMetrics;
 
 import com.ali.AnApplication;
+import com.ali.AnConstants;
 
 import java.io.File;
 
@@ -60,12 +61,12 @@ public class Constants {
     }
 
     public static String getBaseFolder() {
-        String baseFolder = Environment.getExternalStorageDirectory() + "/Codec/";
+        String baseFolder = Environment.getExternalStorageDirectory() + File.separator + AnConstants.FOLDER_ROOT + File.separator;
         File f = new File(baseFolder);
         if (!f.exists()) {
             boolean b = f.mkdirs();
             if (!b) {
-                baseFolder = AnApplication.getInstance().getExternalFilesDir(null).getAbsolutePath() + "/";
+                baseFolder = AnApplication.getInstance().getExternalFilesDir(null).getAbsolutePath() + File.separator;
             }
         }
         return baseFolder;

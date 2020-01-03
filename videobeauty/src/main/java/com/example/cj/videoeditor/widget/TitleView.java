@@ -226,7 +226,7 @@ public class TitleView extends FrameLayout {
      * @param listener
      */
     public void setOnTitleClick(OnClickListener listener) {
-        tv_title_bar_title.setBackgroundResource(R.drawable.selector_title_bar_btn);
+        tv_title_bar_title.setBackgroundResource(R.drawable.in_drawable_selector_leftback);
         tv_title_bar_title.setOnClickListener(listener);
     }
 

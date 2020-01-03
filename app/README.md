@@ -8,8 +8,11 @@ import com.ali.take.GlideImageLoader;
 
 
 ## Debug版本apk大小统计对比
-1.2019年12月31号：  apk大小：7.5M ===  DownloadSize :6.4  （仅仅包含alidd-samples INATabLayout为例，推广引入alidd首发-使用案例）
-2.2020年01月02号：  apk大小13.4M  ==== DownloadSize : 12.2M  1.包含了视频2个情景系列 和 Gif加载动画，2.引入了几张大的资源gif图， 这是apk Size变大的原因
+1.2019年12月31号：  apk大小：7.5M ===  DownloadSize :6.4  （仅仅包含alidd-samples INATabLayout为例，推广引入alidd首发-使用案例）   === 当前项目大小 180M
+2.2020年01月02号：  apk大小13.4M  ==== DownloadSize : 12.2M  1.包含了视频2个情景系列 和 Gif加载动画，2.引入了几张大的资源gif图， 这是apk Size变大的原因   == 项目大小： 255M
+3.2020年01月02号：  apk大小16M  ==== DownloadSize : 14.7M  1.包含了视频滤镜的module videobeauty  == 项目大小： 259M
+4.
+综上：以上项目需要优化，减小体积
 
 李&#8194;芳&#8194;芳：爱&8194
 
@@ -99,6 +102,7 @@ https://www.jianshu.com/p/4f82b058c8ec（上面已有，这里总结性使用，
 （1）.普通视频滤镜。
 美颜效果的视频录制参考，当前应先集成该模块的美颜滤镜效果2020年01月
 
+(注意申请相机权限camera)
 （2）.奇特效果滤镜。
 
 3. 视频加水印：

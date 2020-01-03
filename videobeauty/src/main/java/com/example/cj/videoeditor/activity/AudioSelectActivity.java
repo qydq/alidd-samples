@@ -30,8 +30,8 @@ import java.util.List;
  * 本地音频选择界面
  */
 public class AudioSelectActivity extends BaseActivity implements View.OnClickListener {
-    public static final String TYPE_EX = "extractor_audio";//
-    public static final String TYPE_MIX = "mix_audio";//
+    public static final String TYPE_EX = "extractor_audio";
+    public static final String TYPE_MIX = "mix_audio";
     ListView mLv;
 
     List<Song> data;
@@ -49,7 +49,7 @@ public class AudioSelectActivity extends BaseActivity implements View.OnClickLis
 
     private void initView() {
         findViewById(R.id.btn_back).setOnClickListener(this);
-        mLv = (ListView) findViewById(R.id.music_lv);
+        mLv = findViewById(R.id.music_lv);
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

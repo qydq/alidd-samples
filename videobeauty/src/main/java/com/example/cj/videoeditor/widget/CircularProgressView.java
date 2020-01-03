@@ -13,31 +13,31 @@ import android.view.ViewGroup;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.example.cj.videoeditor.utils.DensityUtils;
+import com.ali.take.SizeUtils;
 
 
 /**
- * Description:
+ * Description: 进度条工具类
  */
 public class CircularProgressView extends AppCompatImageView {
 
-    private int mStroke=5;
-    private int mProcess=0;
-    private int mTotal=100;
-    private int mNormalColor=0xFFFFFFFF;
-    private int mSecondColor=0xFFFEE300;
-    private int mStartAngle=-90;
+    private int mStroke = 5;
+    private int mProcess = 0;
+    private int mTotal = 100;
+    private int mNormalColor = 0xFFFFFFFF;
+    private int mSecondColor = 0xFFFEE300;
+    private int mStartAngle = -90;
     private RectF mRectF;
 
     private Paint mPaint;
     private Drawable mDrawable;
 
     public CircularProgressView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public CircularProgressView(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public CircularProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -45,48 +45,48 @@ public class CircularProgressView extends AppCompatImageView {
         init();
     }
 
-    private void init(){
-        mStroke= DensityUtils.dp2px(getContext(),mStroke);
-        mPaint=new Paint();
+    private void init() {
+        mStroke = SizeUtils.dip2px(getContext(), mStroke);
+        mPaint = new Paint();
         mPaint.setColor(mNormalColor);
         mPaint.setStrokeWidth(mStroke);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setAntiAlias(true);
-        mDrawable=new Progress();
+        mDrawable = new Progress();
         setImageDrawable(mDrawable);
     }
 
-    public void setTotal(int total){
-        this.mTotal=total;
+    public void setTotal(int total) {
+        this.mTotal = total;
         mDrawable.invalidateSelf();
     }
 
-    public void setProcess(int process){
-        this.mProcess=process;
+    public void setProcess(int process) {
+        this.mProcess = process;
         post(new Runnable() {
             @Override
             public void run() {
                 mDrawable.invalidateSelf();
             }
         });
-        Log.e("wuwang","process-->"+process);
+        Log.e("wuwang", "process-->" + process);
     }
 
-    public int getProcess(){
+    public int getProcess() {
         return mProcess;
     }
 
-    public void setStroke(float dp){
-        this.mStroke= DensityUtils.dp2px(getContext(),dp);
+    public void setStroke(float dp) {
+        this.mStroke = (int) SizeUtils.dp2Px(getContext(), dp);
         mPaint.setStrokeWidth(mStroke);
         mDrawable.invalidateSelf();
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (getLayoutParams().width== ViewGroup.LayoutParams.WRAP_CONTENT){
+        if (getLayoutParams().width == ViewGroup.LayoutParams.WRAP_CONTENT) {
             super.onMeasure(heightMeasureSpec, heightMeasureSpec);
-        }else{
+        } else {
             super.onMeasure(widthMeasureSpec, widthMeasureSpec);
         }
     }
@@ -94,16 +94,16 @@ public class CircularProgressView extends AppCompatImageView {
     private class Progress extends Drawable {
         @Override
         public void draw(Canvas canvas) {
-            int width=getWidth();
-            int pd=mStroke/2+1;
-            if(mRectF==null){
-                mRectF=new RectF(pd,pd,width-pd,width-pd);
+            int width = getWidth();
+            int pd = mStroke / 2 + 1;
+            if (mRectF == null) {
+                mRectF = new RectF(pd, pd, width - pd, width - pd);
             }
             mPaint.setStyle(Paint.Style.STROKE);
             mPaint.setColor(mNormalColor);
-            canvas.drawCircle(width/2,width/2,width/2-pd,mPaint);
+            canvas.drawCircle(width / 2, width / 2, width / 2 - pd, mPaint);
             mPaint.setColor(mSecondColor);
-            canvas.drawArc(mRectF,mStartAngle,mProcess*360/(float)mTotal,false,mPaint);
+            canvas.drawArc(mRectF, mStartAngle, mProcess * 360 / (float) mTotal, false, mPaint);
         }
 
         @Override

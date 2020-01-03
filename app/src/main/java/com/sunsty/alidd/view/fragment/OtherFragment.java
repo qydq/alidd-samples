@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ali.view.activity.AliwebViewActivity;
 import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.example.cj.videoeditor.activity.VideoBeatyMainActivity;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
@@ -72,6 +73,8 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
                 break;
             case 4:
                 //todo :视频情景3：sunst
+                intent.setClass(getContext(), VideoBeatyMainActivity.class);
+                startActivity(intent);
                 break;
             case 5:
                 startActivity(new Intent(getContext(), TranslucentActivity.class));
