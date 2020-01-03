@@ -3,6 +3,8 @@ package com.sunsty.alidd.view.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.CountDownTimer;
+import android.os.Environment;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -25,12 +27,16 @@ import com.ali.view.AliActivity;
 import com.ali.view.activity.PictureVideoPlayActivity;
 import com.blankj.utilcode.util.FileUtils;
 import com.bumptech.glide.Glide;
+import com.sunst.alidd.OnScreenShotListener;
 import com.sunst.alidd.RecordFileUtil;
 import com.sunst.alidd.RecordUtil;
+import com.sunst.alidd.ScreenShotUtil;
 import com.sunst.alidd.VideoCompressUtil;
 import com.sunsty.alidd.R;
+import com.sunsty.xmediac.util.VideoPlayer;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickListener {
     private static final String TAG = "VideoNoFFmpegActivity:";
@@ -41,7 +47,7 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
     private TextView tvProgress;
     private NestProgressBar nestProgressBar;
     private Button btnThumbnail1, btnThumbnail2, btnPhoneScreen, btnPhoneCamera;
-    private Button btnWater, btnCompressNormal;
+    private Button btnWater, btnCompressNormal, btnScreenShot;
 
     private LaPermissions laPermissions;
     private MediaHelper mediaHelper;
@@ -52,6 +58,9 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
     private static final long ONECE_TIME = 1;
     private boolean recodding = false;
     private String nativeVideoPath = "sdcard/sunst.mp4";
+    private VideoPlayer player;
+
+    private TextView tvStatus;//视频添加水印
 
 
     private void handThumbnailVideoImage(Bitmap bitmap) {
@@ -87,7 +96,10 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
         recordUtil = new RecordUtil(VideoNoFFmpegActivity.this);
         nestProgressBar = findViewById(R.id.nestProgressBar);
 
+        player = new VideoPlayer();
+
         btnThumbnail1 = findViewById(R.id.btnThumbnail1);
+        tvStatus = findViewById(R.id.tvStatus);
         btnThumbnail2 = findViewById(R.id.btnThumbnail2);
         btnPhoneScreen = findViewById(R.id.btnPhoneScreen);
         btnPhoneCamera = findViewById(R.id.btnPhoneCamera);
@@ -99,12 +111,14 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
         llVideoControl = findViewById(R.id.llVideoControl);
         ivVideoPlay = findViewById(R.id.ivVideoPlay);
         ivThumbnailVideo = findViewById(R.id.ivThumbnailVideo);
+        btnScreenShot = findViewById(R.id.btnScreenShot);
 
         btnThumbnail1.setOnClickListener(this);
         btnThumbnail2.setOnClickListener(this);
         btnPhoneScreen.setOnClickListener(this);
         btnPhoneCamera.setOnClickListener(this);
         btnCompressNormal.setOnClickListener(this);
+        btnScreenShot.setOnClickListener(this);
         btnWater.setOnClickListener(this);
 
         llVideoControl.setOnClickListener(this);
@@ -133,6 +147,19 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
                 break;
             case R.id.btnPhoneCamera:
                 break;
+            case R.id.btnScreenShot:
+                ScreenShotUtil instance = ScreenShotUtil.getInstance();
+                instance.screenShot(this, new OnScreenShotListener() {
+                    @Override
+                    public void screenShot() {
+                        Bitmap bitmap = instance.getScreenShot();
+                        if (bitmap != null) {
+                            ivThumbnailVideo.setImageBitmap(bitmap);
+                        }
+                    }
+                });
+
+                break;
             case R.id.llVideoControl:
                 if (recodding) {
                     showToast("正在录屏中不能预览视频");
@@ -146,6 +173,19 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
                 startCompressVideo();
                 break;
             case R.id.btnWater:
+                showLoadding("正在添加水印...");
+                tvStatus.setText("正在添加水印...");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                addWatermark();
+                            }
+                        }).start();
+                    }
+                }, 5000);
                 break;
             default:
                 break;
@@ -210,7 +250,7 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
             @Override
             public void onEnd(String videoPath) {
                 LaLog.d(TAG, "--onEnd: 压缩结束=videoPath=" + videoPath);
-                if (FileUtils.isFileExists(videoPath)) {
+                if (LAStorageFile.INSTANCE.isFileExists(videoPath)) {
                     LaLog.d(TAG, "--onEnd: 准备重命名=");
                     boolean result = FileUtils.rename(videoPath, "alidd_sunst_compress.mp4");
                     if (result) {
@@ -290,6 +330,37 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
         setVideoPreview();
     }
 
+    /**
+     * 给视频加水印，加一个动态水印会踩很多坑 : 这里本神对参数进行一个小节： -y ，直接覆盖输入 ，
+     * -i后面接图片地址，非常温馨的技巧（此处的图片地址换成带透明通道的视频就可以合成动态视频遮罩），所以这个就能满足很多人的加合成双视频的需求了
+     * -filter_complex 参数是表示使用混合滤镜把图片叠加到视频上。
+     * -ignore_loop 这个参数的值为1则忽略gif文件本身的循环设置，为0的话则使用文件本身的设置，一般设置为1
+     * overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2 是将图片居中，当然这里的具体位置可以自己调，一般来说，加个水印简单就这样就可以了。
+     * 其他的，使用scale参数可以调整水印大小。
+     * <p>
+     * 现在你可以随意添加任意大小位置的水印了。
+     * 那么，能不能再给力一点？我们使用两张图片叠加双重水印？ 这里你就关注本神知乎以后会找到相关文章的介绍。
+     * author ： sunst
+     * https://zhihu.com/people/qydq
+     * 请注意文中版权声明，欢迎关注和交流
+     */
+    public void addWatermark() {
+        //当前帧
+        File ipFile = new File(Environment.getExternalStorageDirectory(), "sunseanative.mp4");
+        File opFile = new File(Environment.getExternalStorageDirectory(), "2020sunwatermark.mp4");
+        File wmFile = new File(Environment.getExternalStorageDirectory(), "sunst.png");//加水印静态图片
+        String str = "ffmpeg -i " + ipFile.getAbsolutePath() + " -i " + wmFile.getAbsolutePath() + " -filter_complex overlay=480:10 " + opFile.getAbsolutePath();
+
+        final String[] argv = str.split(" ");
+        LaLog.d(TAG + "sunst----命令行3=" + Arrays.toString(argv));
+//        [ffmpeg, -i, /storage/emulated/0/sunseanative.mp4, -ignore_loop, 0, -i, /storage/emulated/0/sunst.gif, -filter_complex, overlay=480:10, -y, /storage/emulated/0/2020sunwatermark.mp4]
+//        [ffmpeg, -i, /storage/emulated/0/sunseanative.mp4, -ignore_loop, 1, -i, /storage/emulated/0/sunst.gif, -filter_complex, overlay=480:10, /storage/emulated/0/2020sunwatermark.mp4]
+        final int argc = argv.length;
+        player.ffmpegCmdUtil(argc, argv);
+
+        dismissLoadding();
+        tvStatus.setText("水印已成功加载完成");
+    }
 
     /**
      * ina情景LaPermission权限申请

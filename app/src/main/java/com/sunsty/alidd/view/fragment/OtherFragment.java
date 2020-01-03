@@ -16,7 +16,6 @@ import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
-import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
 import com.sunsty.alidd.view.activity.VideoNoFFmpegActivity;
 import com.sunsty.xmediac.FFmpegRenderActivity;
@@ -72,10 +71,10 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), FFmpegRenderActivity.class));
                 break;
             case 4:
-                startActivity(new Intent(getContext(), TranslucentActivity.class));
+                //todo :视频情景3：sunst
                 break;
             case 5:
-                startActivity(new Intent(getContext(), ExpandableActivity.class));
+                startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
         }
     }

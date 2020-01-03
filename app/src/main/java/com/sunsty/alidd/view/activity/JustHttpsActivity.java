@@ -1,9 +1,11 @@
 package com.sunsty.alidd.view.activity;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -20,6 +22,7 @@ import com.ali.presenter.net.JustNetClient;
 import com.ali.take.Convert;
 import com.ali.take.LaLog;
 import com.ali.view.ParallaxActivity;
+import com.blankj.utilcode.util.AppUtils;
 import com.sunsty.alidd.R;
 
 import java.io.IOException;
@@ -218,6 +221,68 @@ public class JustHttpsActivity extends ParallaxActivity {
                     LaLog.d(TAG + "call error " + call.toString());
                 }
             });
+        }
+    }
+
+
+    /*
+     *通过sdk进行一个跳转*/
+    public static final String WX_PACKAGE = "com.tencent.mm"; // 微信包名
+    public static final String ZFB_PACKAGE = "com.eg.android.AlipayGphone"; // 支付宝包名
+
+    /**
+     * 是否安装微信 WXAPIFactory是微信官方sdk
+     */
+    public static boolean isInstallWx(Context context) {
+//        return WXAPIFactory.createWXAPI(context, "wxb613184aa8f5718a").isWXAppInstalled();
+        return AppUtils.isAppInstalled(WX_PACKAGE);
+    }
+
+    /**
+     * 是否安装支付宝
+     *
+     * @return true 为已经安装
+     */
+    public boolean isInstallAli(Context context) {
+        PackageManager manager = context.getPackageManager();
+        Intent action = new Intent(Intent.ACTION_VIEW);
+        action.setData(Uri.parse("alipays://"));
+        List<ResolveInfo> list = manager.queryIntentActivities(action, PackageManager.GET_RESOLVED_FILTER);
+        return null != list && list.size() > 0;
+//        return AppUtils.isAppInstalled(ZFB_PACKAGE);
+    }
+
+    /**
+     * 跳转微信
+     *
+     * @return 跳转成功返回 true
+     */
+    public static boolean appToWx() {
+//    Intent lan = mContext.getPackageManager().getLaunchIntentForPackage("com.tencent.mm");
+//    Intent intent = new Intent(Intent.ACTION_MAIN);
+//    intent.addCategory(Intent.CATEGORY_LAUNCHER);
+//    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//    intent.setComponent(Objects.requireNonNull(lan).getComponent());
+//    startActivity(intent);
+        if (AppUtils.isAppInstalled(WX_PACKAGE)) {
+            AppUtils.launchApp(WX_PACKAGE);
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 跳转支付宝
+     *
+     * @return 跳转成功返回 true
+     */
+    public boolean appToAli() {
+        if (AppUtils.isAppInstalled(ZFB_PACKAGE)) {
+            AppUtils.launchApp(ZFB_PACKAGE);
+            return true;
+        } else {
+            return true;
         }
     }
 }

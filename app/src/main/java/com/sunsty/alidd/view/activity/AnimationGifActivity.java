@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ali.module.lib.tools.ToastUtils;
 import com.ali.take.LAImageLoader;
+import com.ali.take.LAUi;
 import com.ali.view.dd.gif.GifDrawable;
 import com.ali.view.dd.gif.GifImageView;
 import com.bumptech.glide.Glide;
@@ -49,6 +50,8 @@ public class AnimationGifActivity extends AppCompatActivity {
         gifImageView.setOnClickListener(v -> ToastUtils.s(AnimationGifActivity.this, "909KB大Gif动图本地加载"));
 
         loadAliGif();
+
+        loadHttpImage();
     }
 
     private void loadAliGif() {
@@ -129,7 +132,10 @@ public class AnimationGifActivity extends AppCompatActivity {
 
     private void loadHttpImage() {
         String gifHttpUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578367575&di=ee76023b9d5791ff9bc044f810044a8b&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201707%2F08%2F20170708153157_YMBFU.gif";
-        LAImageLoader.getInstance().loadImage(this, gifHttpUrl, R.drawable.drawable_gif1, R.drawable.drawable_gif1, gifImageView);
+//        LAImageLoader.getInstance().loadImage(this, gifHttpUrl, R.drawable.drawable_gif1, R.drawable.drawable_gif1, gifImageView);
+
+        LAUi.getInstance().flushLoadGif(this, gifHttpUrl, gifImageView);
+
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.sunsty.xmediac;
 import android.content.Intent;
 import android.os.Environment;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -214,7 +213,7 @@ public class FFmpegRenderActivity extends AliActivity implements View.OnClickLis
      * -ignore_loop 这个参数的值为1则忽略gif文件本身的循环设置，为0的话则使用文件本身的设置，一般设置为1
      * overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2 是将图片居中，当然这里的具体位置可以自己调，一般来说，加个水印简单就这样就可以了。
      * 其他的，使用scale参数可以调整水印大小。
-     *
+     * <p>
      * 现在你可以随意添加任意大小位置的水印了。
      * 那么，能不能再给力一点？我们使用两张图片叠加双重水印？ 这里你就关注本神知乎以后会找到相关文章的介绍。
      * author ： sunst
@@ -241,7 +240,7 @@ public class FFmpegRenderActivity extends AliActivity implements View.OnClickLis
          * ffmpeg -y -i video.mp4 -vf \"movie=logo.png [logo]; [in][logo] overlay=5:5 [out]\" -preset ultrafast out.mp4
          * */
         final String[] argv = str.split(" ");
-        Log.d(TAG + "sunst----命令行3=", Arrays.toString(argv));
+        LaLog.d(TAG + "sunst----命令行3=" + Arrays.toString(argv));
 //        [ffmpeg, -i, /storage/emulated/0/sunseanative.mp4, -ignore_loop, 0, -i, /storage/emulated/0/sunst.gif, -filter_complex, overlay=480:10, -y, /storage/emulated/0/2020sunwatermark.mp4]
 //        [ffmpeg, -i, /storage/emulated/0/sunseanative.mp4, -ignore_loop, 1, -i, /storage/emulated/0/sunst.gif, -filter_complex, overlay=480:10, /storage/emulated/0/2020sunwatermark.mp4]
         final int argc = argv.length;

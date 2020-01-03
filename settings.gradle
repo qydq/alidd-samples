@@ -1,2 +1,2 @@
-include ':app', ':xrecord', ':xmediac'
+include ':app', ':xrecord', ':xmediac','videobeauty'
 rootProject.name='alidd-samples'

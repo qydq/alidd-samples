@@ -53,31 +53,24 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
     @Override
     public void onItemClick(View view, int position) {
         switch (position) {
-            case 0: {
+            case 0:
                 startActivity(new Intent(getContext(), INATabLayoutActivity.class));
                 break;
-            }
-            case 1: {
+            case 1:
                 startActivity(new Intent(getContext(), AnimationGifActivity.class));
                 break;
-            }
-            case 2: {
-
+            case 2:
                 startActivity(new Intent(getContext(), JustHttpsActivity.class));
                 break;
-            }
-            case 3: {
+            case 3:
                 startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
-            }
-            case 4: {
+            case 4:
                 startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
                 break;
-            }
-            case 5: {
+            case 5:
                 startActivity(new Intent(getContext(), ExpandableActivity.class));
                 break;
-            }
         }
     }
 }
