@@ -4,13 +4,14 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.DisplayMetrics;
 
+import com.ali.AnApplication;
 
 import java.io.File;
 
 /**
- * Created by cj on 2017/6/26 .
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  */
-
 public class Constants {
     /**
      * 屏幕宽高
@@ -64,7 +65,7 @@ public class Constants {
         if (!f.exists()) {
             boolean b = f.mkdirs();
             if (!b) {
-                baseFolder = MyApplication.getContext().getExternalFilesDir(null).getAbsolutePath() + "/";
+                baseFolder = AnApplication.getInstance().getExternalFilesDir(null).getAbsolutePath() + "/";
             }
         }
         return baseFolder;

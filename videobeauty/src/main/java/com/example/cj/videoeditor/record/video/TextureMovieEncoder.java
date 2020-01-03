@@ -25,6 +25,7 @@ import android.os.Message;
 import android.util.Log;
 
 
+import com.ali.AnApplication;
 import com.example.cj.videoeditor.filter.AFilter;
 import com.example.cj.videoeditor.filter.NoFilter;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
@@ -465,7 +466,7 @@ public class TextureMovieEncoder implements Runnable {
         }
     }
 //    private MagicFilterType type = MagicFilterType.NONE;
-    private AFilter mShowFilter=new NoFilter(MyApplication.getContext().getResources());
+    private AFilter mShowFilter=new NoFilter(AnApplication.getInstance().getResources());
 //    public void setFilter(MagicFilterType type) {
 //        this.type = type;
 //    }

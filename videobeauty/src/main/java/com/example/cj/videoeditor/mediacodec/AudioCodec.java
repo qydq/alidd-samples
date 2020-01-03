@@ -26,10 +26,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by cj on 2017/11/5.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * 音频相关的操作类
  */
-
 public class AudioCodec {
     final static int TIMEOUT_USEC = 0;
     private static Handler handler = new Handler(Looper.getMainLooper());

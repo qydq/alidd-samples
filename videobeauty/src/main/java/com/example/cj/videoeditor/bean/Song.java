@@ -1,7 +1,8 @@
 package com.example.cj.videoeditor.bean;
 
 /**
- * Created by cj on 2017/6/27.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc 歌曲的bean
  */
 

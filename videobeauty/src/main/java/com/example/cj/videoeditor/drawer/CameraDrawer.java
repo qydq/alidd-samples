@@ -26,7 +26,8 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
- * Created by cj on 2017/8/2.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc 管理图像绘制的类
  * 主要用于管理各种滤镜、画面旋转、视频编码录制等
  */

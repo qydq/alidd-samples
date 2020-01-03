@@ -22,7 +22,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 
-
+import com.ali.AnApplication;
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.filter.AFilter;
 import com.example.cj.videoeditor.filter.NoFilter;
@@ -104,9 +104,9 @@ class TextureRender {
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mTriangleVertices.put(mTriangleVerticesData).position(0);
         Matrix.setIdentityM(mSTMatrix, 0);
-        mShow = new NoFilter(MyApplication.getContext().getResources());
+        mShow = new NoFilter(AnApplication.getInstance().getResources());
         mShow.setMatrix(MatrixUtils.flip(MatrixUtils.getOriginalMatrix(), false, true));
-        rotationFilter = new RotationOESFilter(MyApplication.getContext().getResources());
+        rotationFilter = new RotationOESFilter(AnApplication.getInstance().getResources());
     }
 
     public int getTextureId() {

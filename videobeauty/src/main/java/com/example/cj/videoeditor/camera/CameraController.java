@@ -15,7 +15,8 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Created by cj on 2017/8/2.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc 相机的管理类 主要是Camera的一些设置
  * 包括预览和录制尺寸、闪光灯、曝光、聚焦、摄像头切换等
  */

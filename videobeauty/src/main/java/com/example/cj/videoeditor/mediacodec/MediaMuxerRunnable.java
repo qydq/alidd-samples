@@ -17,7 +17,8 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 /**
- * Created by cj on 2017/6/30.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc 音视频混合器，只要是将音视频的混合分成两条子线程进行处理
  * 音频线程AudioRunnable 进行音频的编解码 以及向混合器中写入数据
  * 视频线程VideoRunnable 进行视频的编解码 以及向混合器中写入数据

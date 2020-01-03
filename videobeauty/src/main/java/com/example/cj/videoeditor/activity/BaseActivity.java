@@ -1,24 +1,22 @@
 package com.example.cj.videoeditor.activity;
 
-import android.app.Activity;
-import android.os.Build;
 import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cj.videoeditor.widget.LoadingDialog;
 
 /**
- * Created by cj on 2017/10/16.
- * desc
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  */
-
-public class BaseActivity extends AppCompatActivity{
+public class BaseActivity extends AppCompatActivity {
     public LoadingDialog loading;
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (loading != null){
+        if (loading != null) {
             loading.dismiss();
         }
     }
@@ -67,7 +65,7 @@ public class BaseActivity extends AppCompatActivity{
      * @param cancelable 是否可取消  false 不可以  true 可以
      */
     public void showLoading(final String tips, final boolean cancelable) {
-        if (isDestroyed()){
+        if (isDestroyed()) {
             return;
         }
         endLoading();
@@ -116,7 +114,8 @@ public class BaseActivity extends AppCompatActivity{
             loading.dismiss();
         }
     }
-    public boolean isLoading(){
+
+    public boolean isLoading() {
         return loading != null && loading.isShowing();
     }
 }

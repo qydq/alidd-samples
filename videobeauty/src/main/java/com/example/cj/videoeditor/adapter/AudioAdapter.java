@@ -1,7 +1,6 @@
 package com.example.cj.videoeditor.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ali.take.LADateTime;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.bean.Song;
-import com.example.cj.videoeditor.utils.DateUtils;
 
 import java.util.List;
 
 
 /**
- * Created by cj on 2017/6/27.
- * desc
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  */
-
 public class AudioAdapter extends BaseAdapter{
     private List<Song> mData;
     private Context mContext;
@@ -67,7 +65,7 @@ public class AudioAdapter extends BaseAdapter{
         holder.audioName.setText(song.getName());
 
         holder.audioSize.setText(song.getSize());
-        holder.audioDuration.setText(DateUtils.covertToDate(song.getDuration()));
+        holder.audioDuration.setText(LADateTime.getInstance(mContext).getCurrentTimeInString("mm:ss"));
         if ("mp3".equals(song.getType())){
             holder.audioType.setImageResource(R.mipmap.img_mp3);
         }else if ("aac".equals(song.getType())){
@@ -75,7 +73,7 @@ public class AudioAdapter extends BaseAdapter{
         }else if ("wma".equals(song.getType())){
             holder.audioType.setImageResource(R.mipmap.img_wma);
         }else {
-            holder.audioType.setImageResource(R.mipmap.ic_launcher);
+            holder.audioType.setImageResource(R.drawable.ic_picture_no_data);
         }
 
         return convertView;

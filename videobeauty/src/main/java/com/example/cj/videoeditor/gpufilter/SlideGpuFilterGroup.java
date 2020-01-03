@@ -4,6 +4,7 @@ import android.opengl.GLES20;
 import android.view.MotionEvent;
 import android.widget.Scroller;
 
+import com.ali.AnApplication;
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 import com.example.cj.videoeditor.gpufilter.helper.MagicFilterFactory;
@@ -12,7 +13,8 @@ import com.example.cj.videoeditor.utils.EasyGlUtils;
 
 
 /**
- * Created by cj on 2017/7/20 0020.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * 滑动切换滤镜的控制类
  */
 
@@ -42,7 +44,7 @@ public class SlideGpuFilterGroup {
 
     public SlideGpuFilterGroup() {
         initFilter();
-        scroller = new Scroller(MyApplication.getContext());
+        scroller = new Scroller(AnApplication.getInstance());
     }
 
     private void initFilter() {

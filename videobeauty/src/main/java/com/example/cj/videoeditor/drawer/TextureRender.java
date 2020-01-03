@@ -25,6 +25,7 @@ import android.opengl.Matrix;
 import android.util.Log;
 
 
+import com.ali.AnApplication;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.filter.AFilter;
 import com.example.cj.videoeditor.filter.GroupFilter;
@@ -134,7 +135,7 @@ public class TextureRender {
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mTriangleVertices.put(mTriangleVerticesData).position(0);
         Matrix.setIdentityM(mSTMatrix, 0);
-        Resources resources = MyApplication.getContext().getResources();
+        Resources resources = AnApplication.getInstance().getResources();
         mShow = new NoFilter(resources);
         mShow.setMatrix(MatrixUtils.flip(MatrixUtils.getOriginalMatrix(), false, true));
         rotationFilter = new RotationOESFilter(resources);

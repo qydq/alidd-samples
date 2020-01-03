@@ -24,8 +24,8 @@ import java.util.List;
 public class VideoSelectAdapter extends CursorAdapter {
     MediaSelectVideoActivity activity;
 
-    List<String> coverList=new ArrayList();
-    List<String> pathList=new ArrayList();
+    List<String> coverList = new ArrayList();
+    List<String> pathList = new ArrayList();
 
     int maxSize = -1;  // 最大size
 
@@ -50,7 +50,6 @@ public class VideoSelectAdapter extends CursorAdapter {
     }
 
 
-
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         ViewHolder holder = new ViewHolder();
@@ -73,7 +72,7 @@ public class VideoSelectAdapter extends CursorAdapter {
             public void onClick(View v) {
                 // 判断是否超过大小  （粉丝发的大小有限制）
                 if (isToBigger(path)) {
-                    Toast.makeText(MyApplication.getContext(),"选择的视频不能超过" + maxSize + "M~",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "选择的视频不能超过" + maxSize + "M~", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -100,11 +99,11 @@ public class VideoSelectAdapter extends CursorAdapter {
         });
         holder.is_true.setImageResource(pathList.contains(path) ? R.mipmap.icon_choice_selected : R.mipmap.icon_choice_nor);
 
+//        LAImageLoader.getInstance().loadImage(this,uri,R.mipmap.editor_img_def_video,holder.pic);
         Glide.with(context)
                 .load(uri)
                 .placeholder(R.mipmap.editor_img_def_video)
                 .error(R.mipmap.editor_img_def_video)
-                .crossFade()
                 .into(holder.pic);
     }
 
@@ -112,6 +111,7 @@ public class VideoSelectAdapter extends CursorAdapter {
         String id = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns._ID));
         return Uri.withAppendedPath(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, id);
     }
+
     @Override
     public Object getItem(int position) {
         return super.getItem(position);

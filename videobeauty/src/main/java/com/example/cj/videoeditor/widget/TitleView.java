@@ -15,7 +15,8 @@ import com.example.cj.videoeditor.R;
 
 
 /**
- * Created by guohuan on 2016/2/20.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * 标题栏控件
  */
 @SuppressWarnings("unused")

@@ -5,12 +5,13 @@ import android.content.DialogInterface;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.R;
@@ -25,11 +26,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Created by cj on 2017/7/25.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc 视频录制
  * 主要包括 音视频录制、断点续录、对焦等功能
  */
-
 public class RecordedActivity extends BaseActivity implements View.OnClickListener, View.OnTouchListener, SensorControler.CameraFocusListener, SlideGpuFilterGroup.OnFilterChangeListener {
 
     private CameraView mCameraView;
@@ -42,7 +43,7 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
     private boolean pausing = false;
     private boolean recordFlag = false;//是否正在录制
 
-    private int WIDTH = 720,HEIGHT = 1280;
+    private int WIDTH = 720, HEIGHT = 1280;
 
     private long timeStep = 50;//进度条刷新的时间
     long timeCount = 0;//用于记录录制时间
@@ -76,6 +77,7 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
         mCapture.setTotal(maxTime);
         mCapture.setOnClickListener(this);
     }
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         mCameraView.onTouch(event);
@@ -97,11 +99,12 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
         }
         return true;
     }
+
     Camera.AutoFocusCallback callback = new Camera.AutoFocusCallback() {
         @Override
         public void onAutoFocus(boolean success, Camera camera) {
             //聚焦之后根据结果修改图片
-            Log.e("hero","----onAutoFocus===="+success);
+            Log.e("hero", "----onAutoFocus====" + success);
             if (success) {
                 mFocus.onFocusSuccess();
             } else {
@@ -111,6 +114,7 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
             }
         }
     };
+
     @Override
     public void onFocus() {
         if (mCameraView.getCameraId() == 1) {
@@ -119,6 +123,7 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
         Point point = new Point(Constants.screenWidth / 2, Constants.screenHeight / 2);
         mCameraView.onFocus(point, callback);
     }
+
     @Override
     public void onBackPressed() {
         if (recordFlag) {
@@ -132,12 +137,13 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
         mCameraView.onResume();
-        Toast.makeText(this,R.string.change_filter,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.change_filter, Toast.LENGTH_SHORT).show();
         if (recordFlag && autoPausing) {
             mCameraView.resume(true);
             autoPausing = false;
         }
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -147,15 +153,16 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
         }
         mCameraView.onPause();
     }
+
     @Override
     public void onFilterChange(final MagicFilterType type) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (type == MagicFilterType.NONE){
-                    Toast.makeText(RecordedActivity.this,"当前没有设置滤镜--"+type,Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(RecordedActivity.this,"当前滤镜切换为--"+type,Toast.LENGTH_SHORT).show();
+                if (type == MagicFilterType.NONE) {
+                    Toast.makeText(RecordedActivity.this, "当前没有设置滤镜--" + type, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(RecordedActivity.this, "当前滤镜切换为--" + type, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -164,47 +171,44 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_camera_switch:
-                mCameraView.switchCamera();
-                if (mCameraView.getCameraId() == 1){
-                    //前置摄像头 使用美颜
-                    mCameraView.changeBeautyLevel(3);
-                }else {
-                    //后置摄像头不使用美颜
-                    mCameraView.changeBeautyLevel(0);
-                }
-                break;
-            case R.id.mCapture:
-                if (!recordFlag) {
-                    executorService.execute(recordRunnable);
-                } else if (!pausing) {
-                    mCameraView.pause(false);
-                    pausing = true;
-                } else {
-                    mCameraView.resume(false);
-                    pausing = false;
-                }
-                break;
-            case R.id.btn_camera_beauty:
-
-                if (mCameraView.getCameraId() == 0){
-                    Toast.makeText(this, "后置摄像头 不使用美白磨皮功能", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                new AlertDialog.Builder(RecordedActivity.this)
-                        .setSingleChoiceItems(new String[]{"关闭", "1", "2", "3", "4", "5"}, mCameraView.getBeautyLevel(),
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        mCameraView.changeBeautyLevel(which);
-                                        dialog.dismiss();
-                                    }
-                                })
-                        .setNegativeButton("取消", null)
-                        .show();
-                break;
+        int id = v.getId();
+        if (id == R.id.btn_camera_switch) {
+            mCameraView.switchCamera();
+            if (mCameraView.getCameraId() == 1) {
+                //前置摄像头 使用美颜
+                mCameraView.changeBeautyLevel(3);
+            } else {
+                //后置摄像头不使用美颜
+                mCameraView.changeBeautyLevel(0);
+            }
+        } else if (id == R.id.mCapture) {
+            if (!recordFlag) {
+                executorService.execute(recordRunnable);
+            } else if (!pausing) {
+                mCameraView.pause(false);
+                pausing = true;
+            } else {
+                mCameraView.resume(false);
+                pausing = false;
+            }
+        } else if (id == R.id.btn_camera_beauty) {
+            if (mCameraView.getCameraId() == 0) {
+                Toast.makeText(this, "后置摄像头 不使用美白磨皮功能", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            new AlertDialog.Builder(RecordedActivity.this)
+                    .setSingleChoiceItems(new String[]{"关闭", "1", "2", "3", "4", "5"}, mCameraView.getBeautyLevel(),
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mCameraView.changeBeautyLevel(which);
+                                    dialog.dismiss();
+                                }
+                            })
+                    .setNegativeButton("取消", null)
+                    .show();
         }
     }
+
     Runnable recordRunnable = new Runnable() {
         @Override
         public void run() {
@@ -244,6 +248,7 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
             }
         }
     };
+
     private void recordComplete(final String path) {
         runOnUiThread(new Runnable() {
             @Override
@@ -253,7 +258,6 @@ public class RecordedActivity extends BaseActivity implements View.OnClickListen
             }
         });
     }
-
 
 
 }

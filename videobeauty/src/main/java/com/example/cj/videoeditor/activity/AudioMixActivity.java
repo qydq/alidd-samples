@@ -1,14 +1,14 @@
 package com.example.cj.videoeditor.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.R;
@@ -18,7 +18,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by cj on 2017/11/19.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * 音频混音的页面
  */
 
@@ -43,48 +44,44 @@ public class AudioMixActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.select_one:
-                Intent intent = new Intent(this,AudioSelectActivity.class);
-                intent.putExtra("type",AudioSelectActivity.TYPE_MIX);
-                startActivityForResult(intent,1001);
-                break;
-            case R.id.select_two:
-                Intent intent2 = new Intent(this,AudioSelectActivity.class);
-                intent2.putExtra("type",AudioSelectActivity.TYPE_MIX);
-                startActivityForResult(intent2,1002);
-                break;
-            case R.id.audio_mix:
-                if (TextUtils.isEmpty(audioPathOne) || TextUtils.isEmpty(audioPathTwo)){
-                    Toast.makeText(this,"请选择要混合的音频",Toast.LENGTH_SHORT).show();
-                    return;
+        int id = v.getId();
+        if (id == R.id.select_one) {
+            Intent intent = new Intent(this, AudioSelectActivity.class);
+            intent.putExtra("type", AudioSelectActivity.TYPE_MIX);
+            startActivityForResult(intent, 1001);
+        } else if (id == R.id.select_two) {
+            Intent intent2 = new Intent(this, AudioSelectActivity.class);
+            intent2.putExtra("type", AudioSelectActivity.TYPE_MIX);
+            startActivityForResult(intent2, 1002);
+        } else if (id == R.id.audio_mix) {
+            if (TextUtils.isEmpty(audioPathOne) || TextUtils.isEmpty(audioPathTwo)) {
+                Toast.makeText(this, "请选择要混合的音频", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!new File(audioPathOne).exists() || !new File(audioPathTwo).exists()) {
+                Toast.makeText(this, "本地文件不存在，请重新选择", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            final long l = System.currentTimeMillis();
+            showLoading("音频混合中...");
+            final String audioPath = Constants.getPath("audio/outputAudio/", "mix_audio_" + System.currentTimeMillis() + ".aac");
+            AudioCodec.audioMix(audioPathOne, audioPathTwo, audioPath, new AudioCodec.AudioDecodeListener() {
+                @Override
+                public void decodeOver() {
+                    Log.e("end", "----decodeOver");
+                    Toast.makeText(AudioMixActivity.this, "数据编码成功 文件保存位置为—>>" + audioPath, Toast.LENGTH_SHORT).show();
+                    long end = System.currentTimeMillis();
+                    Log.e("timee", "---音频混合消耗的时间----" + (end - l));
+                    endLoading();
                 }
-                if (!new File(audioPathOne).exists() || !new File(audioPathTwo).exists() ){
-                    Toast.makeText(this,"本地文件不存在，请重新选择",Toast.LENGTH_SHORT).show();
-                    return;
+
+                @Override
+                public void decodeFail() {
+                    Log.e("end", "----decodeFail");
+                    Toast.makeText(AudioMixActivity.this, "数据编码失败 please look at logcat—>>", Toast.LENGTH_SHORT).show();
+                    endLoading();
                 }
-                final long l = System.currentTimeMillis();
-                showLoading("音频混合中...");
-                final String audioPath =  Constants.getPath("audio/outputAudio/", "mix_audio_"+System.currentTimeMillis()+".aac");
-               AudioCodec.audioMix(audioPathOne, audioPathTwo, audioPath, new AudioCodec.AudioDecodeListener() {
-                   @Override
-                   public void decodeOver() {
-                       Log.e("end","----decodeOver");
-                       Toast.makeText(AudioMixActivity.this,"数据编码成功 文件保存位置为—>>"+audioPath,Toast.LENGTH_SHORT).show();
-                       long end = System.currentTimeMillis();
-                       Log.e("timee","---音频混合消耗的时间----"+(end - l));
-                       endLoading();
-                   }
-
-                   @Override
-                   public void decodeFail() {
-                       Log.e("end","----decodeFail");
-                       Toast.makeText(AudioMixActivity.this,"数据编码失败 please look at logcat—>>",Toast.LENGTH_SHORT).show();
-                       endLoading();
-                   }
-               });
-
-                break;
+            });
         }
     }
 

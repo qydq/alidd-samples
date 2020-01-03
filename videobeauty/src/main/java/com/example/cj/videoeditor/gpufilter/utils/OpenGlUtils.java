@@ -9,6 +9,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.util.Log;
 
+import com.ali.AnApplication;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 
 import java.io.BufferedReader;
@@ -215,7 +216,7 @@ public class OpenGlUtils {
 	}
 	
 	public static String readShaderFromRawResource(final int resourceId){
-		final InputStream inputStream = MyApplication.getContext().getResources().openRawResource(
+		final InputStream inputStream = AnApplication.getInstance().getResources().openRawResource(
 				resourceId);
 		final InputStreamReader inputStreamReader = new InputStreamReader(
 				inputStream);

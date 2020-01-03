@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/6/29 0029.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc：MediaPlayer的代理类 支持循环播放多个视频
  */
-
 public class MediaPlayerWrapper implements MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener {
     private MediaPlayer mCurMediaPlayer;    //current player
     private List<MediaPlayer> mPlayerList;  //player list

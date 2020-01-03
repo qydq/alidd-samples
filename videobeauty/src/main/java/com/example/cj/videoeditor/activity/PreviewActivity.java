@@ -5,18 +5,17 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.gpufilter.SlideGpuFilterGroup;
-import com.example.cj.videoeditor.gpufilter.filter.MagicAntiqueFilter;
-import com.example.cj.videoeditor.gpufilter.filter.MagicBeautyFilter;
 import com.example.cj.videoeditor.gpufilter.helper.MagicFilterType;
 import com.example.cj.videoeditor.media.MediaPlayerWrapper;
 import com.example.cj.videoeditor.media.VideoInfo;
@@ -28,10 +27,10 @@ import java.util.ArrayList;
 import java.util.concurrent.Executors;
 
 /**
- * Created by cj on 2017/10/16.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * desc: 循环播放选择的视频的页面，可以对视频设置水印和美白效果
  */
-
 public class PreviewActivity extends BaseActivity implements View.OnClickListener, MediaPlayerWrapper.IMediaCallback, SlideGpuFilterGroup.OnFilterChangeListener, View.OnTouchListener {
 
 
@@ -70,7 +69,7 @@ public class PreviewActivity extends BaseActivity implements View.OnClickListene
                     isPlaying = false;
                     break;
                 case VIDEO_CUT_FINISH:
-                    Toast.makeText(PreviewActivity.this, "视频保存地址   "+outputPath, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PreviewActivity.this, "视频保存地址   " + outputPath, Toast.LENGTH_SHORT).show();
                     endLoading();
                     finish();
                     //TODO　已经渲染完毕了　
@@ -106,6 +105,7 @@ public class PreviewActivity extends BaseActivity implements View.OnClickListene
         setLoadingCancelable(false);
 
     }
+
     private void initData() {
         Intent intent = getIntent();
         //选择的视频的本地播放地址
@@ -115,10 +115,11 @@ public class PreviewActivity extends BaseActivity implements View.OnClickListene
         mVideoView.setVideoPath(srcList);
         mVideoView.setIMediaCallback(this);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(this,R.string.change_filter,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.change_filter, Toast.LENGTH_SHORT).show();
         if (resumed) {
             mVideoView.start();
         }
@@ -142,60 +143,53 @@ public class PreviewActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onBackPressed() {
-        if(!isLoading()){
+        if (!isLoading()) {
             super.onBackPressed();
         }
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.iv_back:
-            case R.id.iv_close:
-                if (isLoading()){
-                    endLoading();
-                }
-                finish();
-                break;
-            case R.id.iv_beauty:
-                mVideoView.switchBeauty();
-                if (mBeauty.isSelected()){
-                    mBeauty.setSelected(false);
-                }else {
-                    mBeauty.setSelected(true);
-                }
-                break;
-            case R.id.iv_confirm:
-                if (isLoading()){
-                    return;
-                }
-                mVideoView.pause();
-                showLoading("视频处理中",false);
+        int id = v.getId();
+        if (id == R.id.iv_back || id == R.id.iv_close) {
+            if (isLoading()) {
+                endLoading();
+            }
+            finish();
+        } else if (id == R.id.iv_beauty) {
+            mVideoView.switchBeauty();
+            if (mBeauty.isSelected()) {
+                mBeauty.setSelected(false);
+            } else {
+                mBeauty.setSelected(true);
+            }
+        } else if (id == R.id.iv_confirm) {
+            if (isLoading()) {
+                return;
+            }
+            mVideoView.pause();
+            showLoading("视频处理中", false);
 
-                VideoClipper clipper = new VideoClipper();
-                if (mBeauty.isSelected()){
-                    clipper.showBeauty();
+            VideoClipper clipper = new VideoClipper();
+            if (mBeauty.isSelected()) {
+                clipper.showBeauty();
+            }
+            clipper.setInputVideoPath(mPath);
+            outputPath = Constants.getPath("video/clip/", System.currentTimeMillis() + "");
+            clipper.setFilterType(filterType);
+            clipper.setOutputVideoPath(outputPath);
+            clipper.setOnVideoCutFinishListener(new VideoClipper.OnVideoCutFinishListener() {
+                @Override
+                public void onFinish() {
+                    mHandler.sendEmptyMessage(VIDEO_CUT_FINISH);
                 }
-                clipper.setInputVideoPath(mPath);
-                outputPath = Constants.getPath("video/clip/", System.currentTimeMillis() + "");
-                clipper.setFilterType(filterType);
-                clipper.setOutputVideoPath(outputPath);
-                clipper.setOnVideoCutFinishListener(new VideoClipper.OnVideoCutFinishListener() {
-                    @Override
-                    public void onFinish() {
-                        mHandler.sendEmptyMessage(VIDEO_CUT_FINISH);
-                    }
-                });
-                try {
-                    Log.e("hero","-----PreviewActivity---clipVideo");
-                    clipper.clipVideo(0,mVideoView.getVideoDuration()*1000);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
-                break;
-
+            });
+            try {
+                Log.e("hero", "-----PreviewActivity---clipVideo");
+                clipper.clipVideo(0, mVideoView.getVideoDuration() * 1000);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -224,6 +218,7 @@ public class PreviewActivity extends BaseActivity implements View.OnClickListene
     public void onVideoChanged(VideoInfo info) {
 
     }
+
     private Runnable update = new Runnable() {
         @Override
         public void run() {
@@ -252,7 +247,7 @@ public class PreviewActivity extends BaseActivity implements View.OnClickListene
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(PreviewActivity.this,"滤镜切换为---"+type,Toast.LENGTH_SHORT).show();
+                Toast.makeText(PreviewActivity.this, "滤镜切换为---" + type, Toast.LENGTH_SHORT).show();
             }
         });
     }

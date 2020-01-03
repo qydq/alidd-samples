@@ -4,17 +4,16 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.R;
@@ -26,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by cj on 2017/11/19.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * 本地音频选择界面
  */
-
 public class AudioSelectActivity extends BaseActivity implements View.OnClickListener {
     public static final String TYPE_EX = "extractor_audio";//
-    public static final String TYPE_MIX= "mix_audio";//
+    public static final String TYPE_MIX = "mix_audio";//
     ListView mLv;
 
     List<Song> data;
@@ -57,20 +56,21 @@ public class AudioSelectActivity extends BaseActivity implements View.OnClickLis
                 Song song = data.get(position);
                 final String path = song.getPath();
                 Log.e("hero", "---select audio path " + path);
-                if (TYPE_EX.equals(type) || TextUtils.isEmpty(type)){
+                if (TYPE_EX.equals(type) || TextUtils.isEmpty(type)) {
                     showExDialog(path);
 
-                }else if (TYPE_MIX.equals(type)){
+                } else if (TYPE_MIX.equals(type)) {
                     Intent intent = new Intent();
-                    intent.putExtra("select_audio",path);
-                    setResult(101,intent);
+                    intent.putExtra("select_audio", path);
+                    setResult(101, intent);
                     finish();
                 }
 
             }
         });
     }
-    public void showExDialog(final String path){
+
+    public void showExDialog(final String path) {
         AlertDialog.Builder mDialog = new AlertDialog.Builder(AudioSelectActivity.this);
         mDialog.setMessage("音频转原始音频格式");
         mDialog.setPositiveButton("取消", new DialogInterface.OnClickListener() {
@@ -83,20 +83,20 @@ public class AudioSelectActivity extends BaseActivity implements View.OnClickLis
         mDialog.setNegativeButton("音频转PCM", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(!TextUtils.isEmpty(path)){
-                    final String path2 = Constants.getPath("audio/outputPCM/", "PCM_"+System.currentTimeMillis()+".pcm");
+                if (!TextUtils.isEmpty(path)) {
+                    final String path2 = Constants.getPath("audio/outputPCM/", "PCM_" + System.currentTimeMillis() + ".pcm");
                     dialog.dismiss();
-                    showLoading("音频解码中",false);
+                    showLoading("音频解码中", false);
                     AudioCodec.getPCMFromAudio(path, path2, new AudioCodec.AudioDecodeListener() {
                         @Override
                         public void decodeOver() {
-                            Toast.makeText(AudioSelectActivity.this,"解码完毕  PCM保存路径为----  "+path2,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AudioSelectActivity.this, "解码完毕  PCM保存路径为----  " + path2, Toast.LENGTH_SHORT).show();
                             endLoading();
                         }
 
                         @Override
                         public void decodeFail() {
-                            Toast.makeText(AudioSelectActivity.this,"解码失败   maybe same Exception ，please look at logcat  ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AudioSelectActivity.this, "解码失败   maybe same Exception ，please look at logcat  ", Toast.LENGTH_SHORT).show();
                             endLoading();
                         }
                     });
@@ -123,7 +123,7 @@ public class AudioSelectActivity extends BaseActivity implements View.OnClickLis
                         MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DURATION,
                         MediaStore.Audio.Media.ARTIST, MediaStore.Audio.Media.MIME_TYPE,
                         MediaStore.Audio.Media.SIZE, MediaStore.Audio.Media.DATA}
-                , MediaStore.Audio.Media.DURATION+">=?", new String[]{"20000"}, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
+                , MediaStore.Audio.Media.DURATION + ">=?", new String[]{"20000"}, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
         if (cursor.moveToFirst()) {
             Song song;
             do {
@@ -165,10 +165,8 @@ public class AudioSelectActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_back:
-                finish();
-                break;
+        if (v.getId() == R.id.btn_back) {
+            finish();
         }
     }
 }

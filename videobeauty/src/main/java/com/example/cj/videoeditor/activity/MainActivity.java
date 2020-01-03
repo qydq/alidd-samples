@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.cj.videoeditor.R;
 
@@ -28,20 +27,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.record_activity:
-                startActivity(new Intent(MainActivity.this , RecordedActivity.class));
-                break;
-            case R.id.select_activity:
-                VideoSelectActivity.openActivity(this);
-                break;
-            case R.id.audio_activity:
-                startActivity(new Intent(MainActivity.this , AudioEditorActivity.class));
-                break;
-            case R.id.video_connect:
-//                Toast.makeText(this,"该功能还未完成！！！",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this , VideoConnectActivity.class));
-                break;
+        int id = v.getId();
+        if (id == R.id.record_activity) {
+            startActivity(new Intent(MainActivity.this, RecordedActivity.class));
+        } else if (id == R.id.select_activity) {
+            VideoSelectActivity.openActivity(this);
+        } else if (id == R.id.audio_activity) {
+            startActivity(new Intent(MainActivity.this, AudioEditorActivity.class));
+        } else if (id == R.id.video_connect) {//                Toast.makeText(this,"该功能还未完成！！！",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, VideoConnectActivity.class));
         }
     }
 }

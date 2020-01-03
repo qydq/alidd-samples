@@ -29,7 +29,7 @@ public class VideoAdapter extends CursorAdapter {
 
     public VideoAdapter(Context context, Cursor c) {
         super(context, c);
-        retriever=new MediaMetadataRetriever();
+        retriever = new MediaMetadataRetriever();
     }
 
     public VideoAdapter(Context context, Cursor c, boolean autoRequery) {
@@ -49,9 +49,9 @@ public class VideoAdapter extends CursorAdapter {
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         ViewHolder holder = new ViewHolder();
         View content = View.inflate(context, R.layout.item_video_select, null);
-        holder.content=content;
-        holder.pic = (ImageView) content.findViewById(R.id.iv_media_video);
-        holder.dur = (TextView) content.findViewById(R.id.tv_duration);
+        holder.content = content;
+        holder.pic = content.findViewById(R.id.iv_media_video);
+        holder.dur = content.findViewById(R.id.tv_duration);
         content.setTag(holder);
         return content;
     }
@@ -62,19 +62,19 @@ public class VideoAdapter extends CursorAdapter {
         final Uri uri = getUri(cursor);
         final String path = cursor.getString(cursor
                 .getColumnIndex(MediaStore.Video.Media.DATA));
-        if(TextUtils.isEmpty(path)||!new File(path).exists()){
+        if (TextUtils.isEmpty(path) || !new File(path).exists()) {
             return;
         }
-        try{
+        try {
             retriever.setDataSource(path);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             view.setOnClickListener(null);
             return;
         }
 
         String duration = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
-        if(TextUtils.isEmpty(duration)||"null".equals(duration)){
+        if (TextUtils.isEmpty(duration) || "null".equals(duration)) {
             return;
         }
         int dur = Integer.parseInt(duration);
@@ -82,18 +82,14 @@ public class VideoAdapter extends CursorAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listener!=null){
-                    listener.onSelect(path,uri.toString());
+                if (listener != null) {
+                    listener.onSelect(path, uri.toString());
                 }
             }
         });
         holder.dur.setText(time);
-        Glide.with(context)
-                .load(uri)
-                .placeholder(R.mipmap.editor_img_def_video)
-                .error(R.mipmap.editor_img_def_video)
-                .crossFade()
-                .into(holder.pic);
+
+        Glide.with(context).load(uri).placeholder(R.mipmap.editor_img_def_video).error(R.mipmap.editor_img_def_video).into(holder.pic);
     }
 
     public Uri getUri(Cursor cursor) {

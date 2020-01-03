@@ -3,12 +3,12 @@ package com.example.cj.videoeditor.activity;
 import android.content.Intent;
 import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.R;
@@ -16,10 +16,10 @@ import com.example.cj.videoeditor.media.VideoInfo;
 import com.example.cj.videoeditor.mediacodec.MediaMuxerRunnable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by cj on 2018/6/3.
+ * Created by sunst 2020年1月3日,希望大家尊重版权和劳动成果，本开源精神 开源出来可以提供给大家使用和帮助，
+ * 但也请关注本人唯一知乎：https://zhihu.com/people/qydq 解锁更多内容
  * 视频拼接的类
  */
 
@@ -45,23 +45,18 @@ public class VideoConnectActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.select_one:
-                VideoSelectActivity.openActivityForResult(this, 100);
-                break;
-            case R.id.select_two:
-                VideoSelectActivity.openActivityForResult(this, 101);
-                break;
-            case R.id.video_connect:
-                if (TextUtils.isEmpty(path1) || TextUtils.isEmpty(path2)) {
-                    Toast.makeText(this, "请先选择视频", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                String[] data = {path1, path2};
-                setDataSource(data);
-
-
-                break;
+        int id = v.getId();
+        if (id == R.id.select_one) {
+            VideoSelectActivity.openActivityForResult(this, 100);
+        } else if (id == R.id.select_two) {
+            VideoSelectActivity.openActivityForResult(this, 101);
+        } else if (id == R.id.video_connect) {
+            if (TextUtils.isEmpty(path1) || TextUtils.isEmpty(path2)) {
+                Toast.makeText(this, "请先选择视频", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String[] data = {path1, path2};
+            setDataSource(data);
         }
     }
     private String outputPath;

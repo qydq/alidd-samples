@@ -2,6 +2,7 @@ package com.example.cj.videoeditor.gpufilter.filter;
 
 import android.opengl.GLES20;
 
+import com.ali.AnApplication;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 import com.example.cj.videoeditor.gpufilter.utils.OpenGlUtils;
@@ -47,8 +48,8 @@ public class MagicN1977Filter extends GPUImageFilter {
 		setFloat(mGLStrengthLocation, 1.0f);
 	    runOnDraw(new Runnable(){
 		    public void run(){
-		    	inputTextureHandles[0] = OpenGlUtils.loadTexture(MyApplication.getContext(), "filter/n1977map.png");
-				inputTextureHandles[1] = OpenGlUtils.loadTexture(MyApplication.getContext(), "filter/n1977blowout.png");
+		    	inputTextureHandles[0] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/n1977map.png");
+				inputTextureHandles[1] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/n1977blowout.png");
 		    }
 	    });
 	}

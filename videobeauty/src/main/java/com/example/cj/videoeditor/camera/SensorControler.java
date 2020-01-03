@@ -7,6 +7,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 
+import com.ali.AnApplication;
+
 import java.util.Calendar;
 
 /**
@@ -39,7 +41,7 @@ public class SensorControler implements SensorEventListener {
     private int foucsing = 1;  //1 表示没有被锁定 0表示被锁定
 
     private SensorControler() {
-        mSensorManager = (SensorManager) MyApplication.getContext().getSystemService(Activity.SENSOR_SERVICE);
+        mSensorManager = (SensorManager) AnApplication.getInstance().getSystemService(Activity.SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);// TYPE_GRAVITY
     }
 
