@@ -3,7 +3,7 @@
     <string-array name="main_material_ux">
         <item>INATabLayout为例，推广引入alidd首发-使用案例.(可扩展的TabLayout</item>
         <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
-        <item>JustHttpsActivity.(JustNet网络请求</item>
+        <item>StandardStoryActivity.(一个WEBVIEW的使用案例含LikeButton</item>
         <item>TranslucentActivity.(显示一个像素的Activity</item>
         <item>VideoActivity.(视频相关，含压缩，水印=</item>
         <item>ExpandableActivity.(展开布局，优化显示特效</item>
