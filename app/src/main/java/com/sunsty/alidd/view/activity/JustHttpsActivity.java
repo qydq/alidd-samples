@@ -23,12 +23,20 @@ import com.ali.take.Convert;
 import com.ali.take.LaLog;
 import com.ali.view.ParallaxActivity;
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.FileUtils;
 import com.sunsty.alidd.R;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
 
+import io.reactivex.functions.Action;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;

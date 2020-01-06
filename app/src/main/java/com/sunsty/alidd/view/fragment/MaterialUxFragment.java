@@ -18,7 +18,7 @@ import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.AnimationGifActivity;
 import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.INATabLayoutActivity;
-import com.sunsty.alidd.view.activity.JustHttpsActivity;
+import com.sunsty.alidd.view.activity.StandardStoryActivity;
 import com.sunsty.alidd.view.activity.TranslucentActivity;
 import com.sunsty.alidd.view.activity.VideoNoFFmpegActivity;
 
@@ -60,7 +60,7 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
                 startActivity(new Intent(getContext(), AnimationGifActivity.class));
                 break;
             case 2:
-                startActivity(new Intent(getContext(), JustHttpsActivity.class));
+                startActivity(new Intent(getContext(), StandardStoryActivity.class));
                 break;
             case 3:
                 startActivity(new Intent(getContext(), TranslucentActivity.class));

@@ -1,0 +1,243 @@
+Index: app/src/main/res/values/array.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/array.xml	(revision 839e04f1ed529c984871c6e0862a65ac3b9ed971)
++++ app/src/main/res/values/array.xml	(date 1578305410900)
+@@ -3,7 +3,7 @@
+     <string-array name="main_material_ux">
+         <item>INATabLayout为例，推广引入alidd首发-使用案例.(可扩展的TabLayout</item>
+         <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
+-        <item>JustHttpsActivity.(JustNet网络请求</item>
++        <item>StandardStoryActivity.(一个WEBVIEW的使用案例含LikeButton</item>
+         <item>TranslucentActivity.(显示一个像素的Activity</item>
+         <item>VideoActivity.(视频相关，含压缩，水印=</item>
+         <item>ExpandableActivity.(展开布局，优化显示特效</item>
+Index: app/src/main/res/layout/item_toast.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/item_toast.xml	(date 1578304838273)
++++ app/src/main/res/layout/item_toast.xml	(date 1578304838273)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    style="@style/an_wrap_wrap.V"
++    android:background="@drawable/base_drawable_loadingbg"
++    android:gravity="center_horizontal"
++    android:minWidth="148dp"
++    android:minHeight="92.1dp">
++
++    <ImageView
++        android:id="@+id/ivToast"
++        android:layout_width="18.07dp"
++        android:layout_height="19.97dp"
++        android:layout_marginTop="16dp"
++        android:src="@mipmap/img_wma" />
++
++    <TextView
++        android:id="@+id/tvToast"
++        style="@style/an_wrap_wrap"
++        android:layout_margin="@dimen/an_dimen_margin"
++        android:gravity="center"
++        android:includeFontPadding="false"
++        android:textColor="@color/ColorGreenyellow"
++        android:textSize="13.44sp" />
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/attrs.xml.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/attrs.xml.xml	(date 1578301557589)
++++ app/src/main/res/values/attrs.xml.xml	(date 1578301557589)
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <declare-styleable name="LikeButton">
++        <attr name="icon_type" format="string" />
++        <attr name="icon_size" format="dimension|reference" />
++        <attr name="like_drawable" format="reference" />
++        <attr name="unlike_drawable" format="reference" />
++        <attr name="dots_primary_color" format="color|reference" />
++        <attr name="dots_secondary_color" format="color|reference" />
++        <attr name="circle_start_color" format="color|reference" />
++        <attr name="circle_end_color" format="color|reference" />
++        <attr name="liked" format="boolean" />
++        <attr name="is_enabled" format="boolean" />
++        <attr name="anim_scale_factor" format="float" />
++    </declare-styleable>
++</resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/likeview.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/likeview.xml	(date 1578302035123)
++++ app/src/main/res/layout/likeview.xml	(date 1578302035123)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merge xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <com.sunsty.alidd.view.lilke.DotsView
++        android:id="@+id/dots"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_gravity="center" />
++
++    <com.sunsty.alidd.view.lilke.CircleView
++        android:id="@+id/circle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_gravity="center" />
++
++    <ImageView
++        android:id="@+id/icon"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_gravity="center" />
++
++</merge>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_story_detail.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_story_detail.xml	(date 1578307112189)
++++ app/src/main/res/layout/activity_story_detail.xml	(date 1578307112189)
+@@ -0,0 +1,118 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++    <!--    android:fitsSystemWindows="true"-->
++    <androidx.core.widget.NestedScrollView
++        android:id="@+id/nestedScrollView"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:scrollbars="vertical">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:orientation="vertical">
++
++            <View
++                android:layout_width="match_parent"
++                android:layout_height="?android:attr/actionBarSize"
++                android:background="?android:attr/colorPrimary" />
++
++            <RelativeLayout
++                android:id="@+id/rlTop"
++                android:layout_width="match_parent"
++                android:layout_height="200dp">
++
++                <ImageView
++                    android:id="@+id/image"
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:contentDescription="tringabout_image"
++                    android:scaleType="fitXY"
++                    android:src="@mipmap/img_wma" />
++
++                <View
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:alpha="0.15"
++                    android:background="#000000" />
++
++                <TextView
++                    android:id="@+id/tvTiTle"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_above="@+id/tvAuthor"
++                    android:gravity="center|left"
++                    android:padding="10dp"
++                    android:text="作者"
++                    android:textColor="?android:textColorSecondaryInverse"
++                    android:textSize="23dp" />
++
++                <TextView
++                    android:id="@+id/tvAuthor"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_alignParentRight="true"
++                    android:layout_alignParentBottom="true"
++                    android:gravity="center|right"
++                    android:paddingLeft="10dp"
++                    android:paddingRight="10dp"
++                    android:paddingBottom="10dp"
++                    android:text="作者"
++                    android:textColor="?android:textColorSecondaryInverse"
++                    android:textSize="13dp" />
++            </RelativeLayout>
++
++            <WebView
++                android:id="@+id/webView"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent" />
++
++
++        </LinearLayout>
++    </androidx.core.widget.NestedScrollView>
++
++    <!--    <include layout="@layout/common_load" />-->
++
++
++    <androidx.appcompat.widget.Toolbar
++        android:id="@+id/toolbar"
++        android:layout_width="match_parent"
++        android:layout_height="?android:attr/actionBarSize"
++        android:background="@color/ColorGreenyellow"
++        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
++
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginTop="@dimen/AppBarPatchMarginTop"
++            android:gravity="right"
++            android:orientation="horizontal">
++
++            <com.sunsty.alidd.view.lilke.LikeButton
++                android:id="@+id/likeCollect"
++                android:layout_width="50dp"
++                android:layout_height="match_parent"
++                app:icon_size="35dp"
++                app:like_drawable="@mipmap/icon_choice_selected"
++                app:unlike_drawable="@mipmap/icon_choice_nor" />
++
++            <com.sunsty.alidd.view.lilke.LikeButton
++                android:id="@+id/likeButton"
++                android:layout_width="50dp"
++                android:layout_height="match_parent"
++                android:layout_marginRight="5dp"
++                app:icon_size="25dp"
++                app:like_drawable="@mipmap/img_aac"
++                app:unlike_drawable="@mipmap/img_mp3" />
++        </LinearLayout>
++    </androidx.appcompat.widget.Toolbar>
++
++    <View
++        android:layout_width="match_parent"
++        android:layout_height="@dimen/AppBarPatchMarginTop"
++        android:background="@color/ColorWhite" />
++</RelativeLayout>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 839e04f1ed529c984871c6e0862a65ac3b9ed971)
++++ app/src/main/AndroidManifest.xml	(date 1578305991422)
+@@ -51,6 +51,9 @@
+         <activity android:name=".view.activity.INATabLayoutActivity" />         <activity android:name=".view.activity.MainActivityConfict" />         <activity+            android:name=".view.activity.StandardStoryActivity"+            android:theme="@style/TranslucentActivity_TEST" />+        <activity             android:name=".view.activity.TranslucentActivity"             android:theme="@style/TranslucentActivity" /> @@ -67,7 +70,7 @@
+                 </activity>-->         <activity             android:name="com.sunsty.xmediac.FFmpegRenderActivity"-            android:screenOrientation="portrait"/>+            android:screenOrientation="portrait" />         <activity             android:name="com.sunsty.xmediac.sdl.SDLActivity"             android:configChanges="keyboardHidden|orientation|screenSize"

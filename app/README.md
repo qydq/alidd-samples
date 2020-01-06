@@ -41,11 +41,23 @@ https://github.com/tangpeng/FFmpegDemo
 11.获取视频缩略图，(非常高效率的获取缩略图https://github.com/deepsadness/MediaMetadataRetrieverWrapper）
 
 
+# 三：网络以及其它模块
+1. 网络请求参考链接
+Retrofit解析及文件上传下载（前后台详细实现）:https://www.jianshu.com/p/1300fd8de07d
+解决Retrofit文件下载进度显示问题:https://blog.csdn.net/ljd2038/article/details/51189334
+Retrofit+Rxjava 下载文件(带进度显示):https://blog.csdn.net/a1018875550/article/details/51832700
+【Android】RxJava + Retrofit完成网络请求:https://segmentfault.com/a/1190000018253015
+【Android】Retrofit 2.0 的使用一、概述二、原理:https://cloud.tencent.com/developer/article/1119020
+【Android】Retrofit网络请求参数注解，@Path、@Query、@QueryMap...:https://www.jianshu.com/p/7687365aa946
+Android中Retrofit 2.0直接使用JSON进行数据交互:https://www.jb51.net/article/121947.htm
+https://bbs.csdn.net/topics/392380893?page=1
+Android Retrofit详解:https://www.jianshu.com/p/865e9ae667a0
+Retrofit打印请求地址以及返回的数据内容:https://blog.csdn.net/weixin_43115440/article/details/83306515
 
 
 ##20191218新增技术
 
-一：（美颜效果）
+其它：（美颜效果）
 1.　美颜效果的视频录制参考
 文章介绍：
 https://blog.csdn.net/qqchenjian318/article/details/78274901
@@ -79,6 +91,7 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 (16).统一修改系统的弹窗.,,修改同意的Dialog弹窗样式，，，，，，，
 (17)，视频模块的整合(很多内容，耗时比较久)
 *(18总结性的链接地址总结)https://www.jianshu.com/p/4f82b058c8ec
+（19）网络请求下载工具,完善alidd网络请求下载封装 一天之内搞定，并且准备发布alidd1.0.16版本）
 
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
