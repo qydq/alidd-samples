@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
     <!--    android:fitsSystemWindows="true"-->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -75,24 +76,31 @@
     </androidx.core.widget.NestedScrollView>
 
     <!--    <include layout="@layout/common_load" />-->
-
+    <View
+        android:id="@+id/lineTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/AppBarPatchMarginTop"
+        android:background="#cc268f"
+        android:visibility="gone" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/ColorGreenyellow"
+        android:layout_height="@dimen/AppBarAboveHeight"
+        android:background="#cc268f"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
+        <!--        android:layout_height="?android:attr/actionBarSize"
+        -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/AppBarPatchMarginTop"
             android:gravity="right"
+            android:background="@android:drawable/list_selector_background"
             android:orientation="horizontal">
 
-            <com.sunsty.alidd.view.lilke.LikeButton
+            <com.ali.view.dd.INALikeButton
                 android:id="@+id/likeCollect"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
@@ -100,7 +108,7 @@
                 app:like_drawable="@mipmap/icon_choice_selected"
                 app:unlike_drawable="@mipmap/icon_choice_nor" />
 
-            <com.sunsty.alidd.view.lilke.LikeButton
+            <com.ali.view.dd.INALikeButton
                 android:id="@+id/likeButton"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
@@ -111,8 +119,5 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/AppBarPatchMarginTop"
-        android:background="@color/ColorWhite" />
+
 </RelativeLayout>

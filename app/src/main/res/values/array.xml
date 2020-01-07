@@ -24,9 +24,10 @@
 
     </string-array>
     <string-array name="main_an_scene">
-        <item>网络请求1,anbase继承网络请求</item>
-        <item>权限操作2，alidd retrofit网络请求</item>
-        <item>芳芳</item>
+        <item>网络请求接口,获取公共数据anbase继承网络能力</item>
+        <item>网络请求下载带进度条文件(下载知乎日报apk,retrofit)</item>
+        <item>拍照TakePhoto系列</item>
+        <item>便捷申请权限操作LaPermission</item>
         <item>芳芳</item>
         <item>xiaotuanzi---占位1---</item>
         <item>xiaotuanzi---占位2---</item>
