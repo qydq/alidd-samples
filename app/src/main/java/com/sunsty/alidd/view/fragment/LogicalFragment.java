@@ -1,6 +1,5 @@
 package com.sunsty.alidd.view.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ali.module.lib.tools.ToastUtils;
+import com.ali.take.LADialog;
 import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
-import com.sunsty.alidd.view.activity.AnimationGifActivity;
-import com.sunsty.alidd.view.activity.ExpandableActivity;
-import com.sunsty.alidd.view.activity.INATabLayoutActivity;
-import com.sunsty.alidd.view.activity.JustHttpsActivity;
-import com.sunsty.alidd.view.activity.TranslucentActivity;
-import com.sunsty.alidd.view.activity.VideoNoFFmpegActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -53,30 +48,28 @@ public class LogicalFragment extends Fragment implements OnItemClickListener {
     @Override
     public void onItemClick(View view, int position) {
         switch (position) {
-            case 0: {
-                startActivity(new Intent(getContext(), AnimationGifActivity.class));
+            case 0:
+                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_drawable_copy_fav);
                 break;
-            }
-            case 1: {
-                startActivity(new Intent(getContext(), JustHttpsActivity.class));
+            case 1:
+                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_drawable_mail);
                 break;
-            }
-            case 2: {
-                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
+            case 2:
+                ToastUtils.s("我的测试对话框" + position);
                 break;
-            }
-            case 3: {
-                startActivity(new Intent(getContext(), TranslucentActivity.class));
+            case 3:
+                ToastUtils.s(getContext(), "我的测试对话框" + position);
                 break;
-            }
-            case 4: {
-                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
+            case 4:
+                ToastUtils.sc(getContext(), "我的测试对话框" + position);
                 break;
-            }
-            case 5: {
-                startActivity(new Intent(getContext(), ExpandableActivity.class));
+            case 5:
+                LADialog.INSTANCE.createDialog(getActivity()).show();
                 break;
-            }
+            case 6:
+                LADialog.INSTANCE.createDialog(getActivity(), false).show();
+            default:
+                break;
         }
     }
 }

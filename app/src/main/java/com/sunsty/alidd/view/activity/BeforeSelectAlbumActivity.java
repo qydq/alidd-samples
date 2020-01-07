@@ -19,7 +19,6 @@ import androidx.core.content.ContextCompat;
 
 import com.ali.model.entity.CropOptions;
 import com.ali.model.entity.TResult;
-import com.ali.presenter.net.JustNetClient;
 import com.ali.take.photo.compress.CompressConfig;
 import com.ali.take.photo.interfaces.TakePhoto;
 import com.ali.view.activity.TakePhotoActivity;
@@ -30,8 +29,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BackMainActivity extends TakePhotoActivity {
-    private JustNetClient biniNetClient;
+public class BeforeSelectAlbumActivity extends TakePhotoActivity {
     private Button btnPhoto;
     private Button btnPhotos;
     private Button btnUpdate;
@@ -53,7 +51,7 @@ public class BackMainActivity extends TakePhotoActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_before_album);
         if (Build.VERSION.SDK_INT >= 23) {  //6.0才用动态权限
             //申请相关权限
             initPermission();

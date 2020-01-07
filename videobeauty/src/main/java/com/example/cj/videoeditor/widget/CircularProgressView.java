@@ -77,7 +77,7 @@ public class CircularProgressView extends AppCompatImageView {
     }
 
     public void setStroke(float dp) {
-        this.mStroke = (int) SizeUtils.dp2Px(getContext(), dp);
+        this.mStroke = (int) SizeUtils.dp2px(getContext(), dp);
         mPaint.setStrokeWidth(mStroke);
         mDrawable.invalidateSelf();
     }

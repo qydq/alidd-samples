@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.ali.module.lib.config.PictureConfig;
+import com.ali.take.DataService;
+import com.ali.take.FileUtils;
 import com.ali.take.LADialog;
 import com.ali.take.LAStorageFile;
 import com.ali.take.LaLog;
@@ -25,7 +27,6 @@ import com.ali.take.callback.OnLoadVideoImageListener;
 import com.ali.take.webview.NestProgressBar;
 import com.ali.view.AliActivity;
 import com.ali.view.activity.PictureVideoPlayActivity;
-import com.blankj.utilcode.util.FileUtils;
 import com.bumptech.glide.Glide;
 import com.sunst.alidd.OnScreenShotListener;
 import com.sunst.alidd.RecordFileUtil;
@@ -252,12 +253,12 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
                 LaLog.d(TAG, "--onEnd: 压缩结束=videoPath=" + videoPath);
                 if (LAStorageFile.INSTANCE.isFileExists(videoPath)) {
                     LaLog.d(TAG, "--onEnd: 准备重命名=");
-                    boolean result = FileUtils.rename(videoPath, "alidd_sunst_compress.mp4");
+                    boolean result = FileUtils.getInstance().rename(videoPath, "alidd_sunst_compress.mp4");
                     if (result) {
                         LaLog.d(TAG, "--onEnd: 压缩结束=重命名成功=" + videoPath);
                         videoPath = RecordFileUtil.createFolder(mContext) + "/alidd_sunst_compress.mp4";
                         LaLog.d(TAG, "--onEnd: 压缩结束=重命名成功=videoPath=" + videoPath);
-                        String fileMD5 = FileUtils.getFileMD5ToString(videoPath);
+                        String fileMD5 = DataService.getInstance().md5service(videoPath);
                         if (!TextUtils.isEmpty(videoPath) && !TextUtils.isEmpty(fileMD5)) {
 //                            uploadVideoFile(nativeVideoPath);
                         }

@@ -84,7 +84,7 @@ public class MainActivityConfict  {
 //                break;
 //            }
 //            case 1: {
-//                startActivity(new Intent(this, JustHttpsActivity.class));
+//                startActivity(new Intent(this, HttpsRequestActivity.class));
 //                break;
 //            }
 //            case 2: {

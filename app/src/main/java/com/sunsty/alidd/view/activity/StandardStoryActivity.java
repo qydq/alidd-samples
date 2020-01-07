@@ -8,18 +8,20 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 
+import com.ali.take.LaLog;
 import com.ali.view.ParallaxActivity;
+import com.ali.view.callback.OnLikeListener;
+import com.ali.view.dd.INALikeButton;
 import com.sunsty.alidd.R;
-import com.sunsty.alidd.view.lilke.LikeButton;
-import com.sunsty.alidd.view.lilke.OnLikeListener;
 
 public class StandardStoryActivity extends ParallaxActivity implements NestedScrollView.OnScrollChangeListener {
     Toolbar toolbar;
     NestedScrollView nestedScrollView;
-    LikeButton likeCollect;
+    INALikeButton likeCollect;
     RelativeLayout rlTop;
-    LikeButton likeButton;
+    INALikeButton likeButton;
     WebView webView;
+    View lineTop;
 
     @Override
     public void initView() {
@@ -30,36 +32,34 @@ public class StandardStoryActivity extends ParallaxActivity implements NestedScr
         likeButton = findViewById(R.id.likeButton);
         webView = findViewById(R.id.webView);
         rlTop = findViewById(R.id.rlTop);
+        lineTop = findViewById(R.id.lineTop);
 
 //        initToolbar(toolbar, true);
 
         initToolbar(toolbar, "我的测试数据");
 
-
-        int imageHeight = getResources().getDimensionPixelOffset(R.dimen.an_dimen_margintop_max);
-
         nestedScrollView.setOnScrollChangeListener(this);
 
         likeCollect.setOnLikeListener(new OnLikeListener() {
             @Override
-            public void liked(LikeButton var1) {
+            public void liked(INALikeButton var1) {
                 showToast("1");
             }
 
             @Override
-            public void unLiked(LikeButton var1) {
+            public void unLiked(INALikeButton var1) {
                 showToast("0");
             }
         });
 
         likeButton.setOnLikeListener(new OnLikeListener() {
             @Override
-            public void liked(LikeButton var1) {
+            public void liked(INALikeButton var1) {
                 showToast("1");
             }
 
             @Override
-            public void unLiked(LikeButton var1) {
+            public void unLiked(INALikeButton var1) {
                 showToast("0");
             }
         });
@@ -71,7 +71,7 @@ public class StandardStoryActivity extends ParallaxActivity implements NestedScr
         toolbar.setTitle(title);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);//返回键可见
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,21 +113,30 @@ public class StandardStoryActivity extends ParallaxActivity implements NestedScr
     public void onScrollChange(NestedScrollView v, int x, int y, int oldX, int oldY) {
         rlTop.scrollTo(x, -y / 2);
         if (y < maxHeight) {
+            lineTop.setVisibility(View.GONE);
             toolbar.setAlpha(getAlphaForActionBar(y));
         } else {
-            if (lastY - y > 20) {
+            LaLog.d(TAG + "sunst---onScrollChange:y=" + y);
+            int lastYy = lastY - y;
+            LaLog.d(TAG + "sunst---onScrollChange:lastYy=" + lastYy);
+            int yLastY = y - lastY;
+            LaLog.d(TAG + "sunst---onScrollChange:yLastY=" + yLastY);
+
+            if (lastYy > 20) {
                 //上滑
                 lastY = y;
                 if (toolbar.getVisibility() == View.GONE) {
                     toolbar.setVisibility(View.VISIBLE);
+                    lineTop.setVisibility(View.GONE);
                 }
                 toolbar.setAlpha(1f);
-            } else if (y - lastY > 20) {
+            } else if (yLastY > 20) {
                 //下滑
                 lastY = y;
                 toolbar.setAlpha(0f);
                 if (toolbar.getVisibility() == View.VISIBLE) {
                     toolbar.setVisibility(View.GONE);
+                    lineTop.setVisibility(View.VISIBLE);
                 }
             }
         }

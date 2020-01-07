@@ -69,7 +69,7 @@ public class NotificationUtil {
      */
     public static void sendRecordEndNotice(Context context, Intent intent) {
         //参数：1：Context  2:一般不用 通常传入0  3：Intent  4:FLAG_CANCEL_CURRENT(),FLAG_NO_CREATE,FLAG_ONE_SHOT,FLAG_UPDATE_CURRENT
-        //PendingIntent pendingIntent=PendingIntent.getActivity(BackMainActivity.this,0,intent,0);//延迟跳转
+        //PendingIntent pendingIntent=PendingIntent.getActivity(BeforeSelectAlbumActivity.this,0,intent,0);//延迟跳转
         PendingIntent pendingIntent = PendingIntent.getActivity(context, END_RECORD, intent, PendingIntent.FLAG_UPDATE_CURRENT);//PendingIntent.FLAG_UPDATE_CURRE
 
         // 获取系统的通知管理器(必须设置channelId)

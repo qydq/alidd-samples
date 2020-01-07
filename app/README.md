@@ -14,7 +14,13 @@ import com.ali.take.GlideImageLoader;
 4.
 综上：以上项目需要优化，减小体积
 
+
+someTips:
+
 李&#8194;芳&#8194;芳：爱&8194
+context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+
+
 
 # 二：视频类参考：
 
@@ -93,7 +99,8 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 *(18总结性的链接地址总结)https://www.jianshu.com/p/4f82b058c8ec
 (19).alidd情景系列，  完成国际版的翻译工作，进一步压缩集成体积(备注：尽快完成2-3天）.
 （20）网络请求下载工具,完善alidd网络请求下载封装 一天之内搞定，并且准备发布alidd1.0.16版本）
-
+(21).检视ali所有的返回键控制情况，统一并处理为一直的效果(1天之内完成).
+(22).网络模块需要紧急修复CLEARTEXT communication to download.fir.im not permitted by network security policy，9.0系统出现的网络安全访问问题
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
 

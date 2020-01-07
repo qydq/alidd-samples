@@ -15,7 +15,9 @@ import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
-import com.sunsty.alidd.view.activity.JustHttpsActivity;
+import com.sunsty.alidd.view.activity.BeforeSelectAlbumActivity;
+import com.sunsty.alidd.view.activity.HttpsDownloadActivity;
+import com.sunsty.alidd.view.activity.HttpsRequestActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,30 +50,24 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
     @Override
     public void onItemClick(View view, int position) {
         switch (position) {
-            case 0: {
-                startActivity(new Intent(getContext(), JustHttpsActivity.class));
+            case 0:
+                startActivity(new Intent(getContext(), HttpsRequestActivity.class));
                 break;
-            }
-            case 1: {
-//                startActivity(new Intent(getContext(), AnimationGifActivity.class));
+            case 1:
+                startActivity(new Intent(getContext(), HttpsDownloadActivity.class));
                 break;
-            }
-            case 2: {
-//                startActivity(new Intent(getContext(), INATabLayoutActivity.class));
+            case 2:
+                startActivity(new Intent(getContext(), BeforeSelectAlbumActivity.class));
                 break;
-            }
-            case 3: {
+            case 3:
 //                startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
-            }
-            case 4: {
+            case 4:
 //                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
                 break;
-            }
-            case 5: {
+            case 5:
 //                startActivity(new Intent(getContext(), ExpandableActivity.class));
                 break;
-            }
         }
     }
 }

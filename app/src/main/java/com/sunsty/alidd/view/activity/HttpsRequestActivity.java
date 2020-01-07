@@ -21,22 +21,14 @@ import com.ali.presenter.net.JustNetApi;
 import com.ali.presenter.net.JustNetClient;
 import com.ali.take.Convert;
 import com.ali.take.LaLog;
+import com.ali.take.photo.IntentUtils;
 import com.ali.view.ParallaxActivity;
-import com.blankj.utilcode.util.AppUtils;
-import com.blankj.utilcode.util.FileUtils;
 import com.sunsty.alidd.R;
 
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 
-import io.reactivex.functions.Action;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,8 +36,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class JustHttpsActivity extends ParallaxActivity {
-    private static final String TAG = "JustHttpsActivity";
+public class HttpsRequestActivity extends ParallaxActivity {
+    private static final String TAG = "HttpsRequestActivity";
     private TextView tvHttps;
     private TextView tvZfb;
     private TextView tvWx;
@@ -61,7 +53,6 @@ public class JustHttpsActivity extends ParallaxActivity {
     /**
      * 检测是否安装支付宝
      *
-     * @param context
      * @return
      */
     public boolean isAliPayInstalled() {
@@ -74,7 +65,6 @@ public class JustHttpsActivity extends ParallaxActivity {
     /**
      * 检测是否安装微信
      *
-     * @param context
      * @return
      */
     public boolean isWeixinAvilible() {
@@ -93,7 +83,7 @@ public class JustHttpsActivity extends ParallaxActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_https);
+        setContentView(R.layout.activity_https_request);
         tvHttps = findViewById(R.id.tvHttps);
         tvZfb = findViewById(R.id.tvZfb);
         natureIv = findViewById(R.id.natureIv);
@@ -141,7 +131,7 @@ public class JustHttpsActivity extends ParallaxActivity {
                 .observableGet("json")
                 .compose(Convert.io_main())
                 .subscribe(this::hasData));
-//                startActivity(new Intent(BackMainActivity.this, WebViewActivity.class));
+//                startActivity(new Intent(BeforeSelectAlbumActivity.this, WebViewActivity.class));
     }
 
     public void hasData(ResponseBody responseBody) {
@@ -243,7 +233,7 @@ public class JustHttpsActivity extends ParallaxActivity {
      */
     public static boolean isInstallWx(Context context) {
 //        return WXAPIFactory.createWXAPI(context, "wxb613184aa8f5718a").isWXAppInstalled();
-        return AppUtils.isAppInstalled(WX_PACKAGE);
+        return IntentUtils.isAppInstalled(WX_PACKAGE);
     }
 
     /**
@@ -272,8 +262,8 @@ public class JustHttpsActivity extends ParallaxActivity {
 //    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //    intent.setComponent(Objects.requireNonNull(lan).getComponent());
 //    startActivity(intent);
-        if (AppUtils.isAppInstalled(WX_PACKAGE)) {
-            AppUtils.launchApp(WX_PACKAGE);
+        if (IntentUtils.isAppInstalled(WX_PACKAGE)) {
+            IntentUtils.launchApp(WX_PACKAGE);
             return true;
         } else {
             return true;
@@ -286,8 +276,8 @@ public class JustHttpsActivity extends ParallaxActivity {
      * @return 跳转成功返回 true
      */
     public boolean appToAli() {
-        if (AppUtils.isAppInstalled(ZFB_PACKAGE)) {
-            AppUtils.launchApp(ZFB_PACKAGE);
+        if (IntentUtils.isAppInstalled(ZFB_PACKAGE)) {
+            IntentUtils.launchApp(ZFB_PACKAGE);
             return true;
         } else {
             return true;

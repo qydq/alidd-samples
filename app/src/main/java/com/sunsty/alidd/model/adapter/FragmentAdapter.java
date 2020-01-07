@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.ali.model.adpater.SmartFragmentStatePagerAdapter;
+
 import java.util.List;
 
 public class FragmentAdapter extends SmartFragmentStatePagerAdapter {
