@@ -1,0 +1,272 @@
+Index: app/src/main/res/layout/activity_expandable.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_expandable.xml	(date 1578389227050)
++++ app/src/main/res/layout/activity_expandable.xml	(date 1578389227050)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    style="@style/an_match_match">
++
++    <TextView
++        android:id="@+id/tvStatus"
++        style="@style/an_match_wrap"
++        android:text="ExpandableActivity.java" />
++
++    <com.ali.view.dd.NestExpandableListView
++        android:id="@+id/nestExpandableListView"
++        android:layout_width="match_parent"
++        android:layout_below="@+id/tvStatus"
++        android:layout_height="match_parent" />
++
++
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/array.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/array.xml	(revision 957a555f1bbc80fd329e68ede88e7f27b501d67e)
++++ app/src/main/res/values/array.xml	(date 1578381558670)
+@@ -24,9 +24,10 @@
+ 
+     </string-array>
+     <string-array name="main_an_scene">
+-        <item>网络请求1,anbase继承网络请求</item>
+-        <item>权限操作2，alidd retrofit网络请求</item>
+-        <item>芳芳</item>
++        <item>网络请求接口,获取公共数据anbase继承网络能力</item>
++        <item>网络请求下载带进度条文件(下载知乎日报apk,retrofit)</item>
++        <item>拍照TakePhoto系列</item>
++        <item>便捷申请权限操作LaPermission</item>
+         <item>芳芳</item>
+         <item>xiaotuanzi---占位1---</item>
+         <item>xiaotuanzi---占位2---</item>
+Index: app/src/main/res/layout/activity_https_download.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_https_download.xml	(date 1578383319084)
++++ app/src/main/res/layout/activity_https_download.xml	(date 1578383319084)
+@@ -0,0 +1,36 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:paddingLeft="@dimen/activity_horizontal_margin"
++    android:paddingTop="@dimen/activity_vertical_margin"
++    android:paddingRight="@dimen/activity_horizontal_margin"
++    android:paddingBottom="@dimen/activity_vertical_margin">
++
++    <androidx.appcompat.widget.AppCompatButton
++        android:id="@+id/btn_download"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_centerVertical="true"
++        android:background="@color/colorPrimary"
++        android:drawableLeft="@drawable/ic_picture_arrow_down"
++        android:paddingLeft="20dp"
++        android:paddingRight="20dp"
++        android:text="Start Download"
++        android:textColor="@android:color/white" />
++
++    <ProgressBar
++        android:id="@+id/progress"
++        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/btn_download"
++        android:layout_marginTop="48dp" />
++
++    <TextView
++        android:id="@+id/progress_text"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/progress"
++        android:textAlignment="center" />
++</RelativeLayout>
+Index: videobeauty/src/main/res/drawable/t_progressbar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- videobeauty/src/main/res/drawable/t_progressbar.xml	(revision 957a555f1bbc80fd329e68ede88e7f27b501d67e)
++++ videobeauty/src/main/res/drawable/t_progressbar.xml	(date 1578360078461)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?><!-- 进度提示（转圈圈） -->
+ <animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:drawable="@mipmap/t_loading_2"
++    android:drawable="@drawable/ic_picture_progress"
+     android:pivotX="50%"
+     android:pivotY="50%" />
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_translucent.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_translucent.xml	(revision 957a555f1bbc80fd329e68ede88e7f27b501d67e)
++++ app/src/main/res/layout/activity_translucent.xml	(date 1578381099221)
+@@ -2,6 +2,7 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"     android:layout_width="match_parent"     android:layout_height="match_parent"+    android:background="@color/ColorBlack"     android:orientation="vertical">      <ImageViewIndex: app/src/main/res/layout/toolbar_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/toolbar_layout.xml	(revision 957a555f1bbc80fd329e68ede88e7f27b501d67e)
++++ app/src/main/res/layout/toolbar_layout.xml	(date 1578382249309)
+@@ -22,7 +22,7 @@
+             android:layout_height="0dp"             android:layout_weight="1"             android:padding="5dp"-            android:text="主标题"+            android:text="Zhihu"             android:textColor="#000000"             android:textSize="15sp" /> @@ -31,7 +31,7 @@
+             android:layout_height="0dp"             android:layout_weight="1"             android:padding="5dp"-            android:text="副标题"+            android:text="sunst"             android:textSize="13sp" />      </LinearLayout>Index: app/src/main/res/xml/network_security_config.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/xml/network_security_config.xml	(date 1578386162289)
++++ app/src/main/res/xml/network_security_config.xml	(date 1578386162289)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<network-security-config>
++    <base-config cleartextTrafficPermitted="true" />
++</network-security-config>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_https_request.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_https_request.xml	(date 1578381183465)
++++ app/src/main/res/layout/activity_https_request.xml	(date 1578381183465)
+@@ -0,0 +1,40 @@
++<?xml version="1.0" encoding="utf-8"?>+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"+    android:layout_width="match_parent"+    android:layout_height="match_parent"+    android:orientation="vertical">++    <TextView+        android:id="@+id/tvHttps"+        android:layout_width="match_parent"+        android:layout_height="wrap_content"+        android:layout_marginTop="30dp"+        android:text="https request click" />++    <TextView+        android:id="@+id/tvZfb"+        style="@style/an_match_wrap.Font"+        android:layout_marginLeft="@dimen/an_dimen_margin"+        android:layout_marginTop="10dp"+        android:layout_marginRight="@dimen/an_dimen_margin"+        android:background="@drawable/em_button_register_bg"+        android:text="检测是否安装支付宝"+        android:textColor="#FFFFFF" />++    <TextView+        android:id="@+id/tvWx"+        style="@style/an_match_wrap.Font"+        android:layout_marginLeft="@dimen/an_dimen_margin"+        android:layout_marginTop="10dp"+        android:layout_marginRight="@dimen/an_dimen_margin"+        android:background="@drawable/em_button_register_bg"+        android:text="检测是否安装微信"+        android:textColor="#FFFFFF" />++    <ImageView+        android:id="@+id/natureIv"+        android:layout_width="80dp"+        android:layout_height="80dp"+        android:background="@color/an_color_wheel_out" />++</LinearLayout>Index: app/src/main/res/layout/activity_before_album.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_before_album.xml	(date 1578392178955)
++++ app/src/main/res/layout/activity_before_album.xml	(date 1578392178955)
+@@ -0,0 +1,33 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    tools:context=".view.activity.MainActivity">
++
++    <TextView
++        android:id="@+id/tvTitle"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="Hello World!" />
++
++    <Button
++        android:id="@+id/btnCamera"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="拍照" />
++
++    <Button
++        android:id="@+id/btnSelectAlbum"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="从相册获取" />
++
++    <ImageView
++        android:id="@+id/ivPhoto"
++        android:layout_width="match_parent"
++        android:layout_height="300dp"
++        android:src="@drawable/ic_picture_placeholder" />
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_story_detail.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_story_detail.xml	(revision 957a555f1bbc80fd329e68ede88e7f27b501d67e)
++++ app/src/main/res/layout/activity_story_detail.xml	(date 1578380165855)
+@@ -2,7 +2,8 @@
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+-    android:layout_height="match_parent">
++    android:layout_height="match_parent"
++    android:fitsSystemWindows="false">
+     <!--    android:fitsSystemWindows="true"-->
+     <androidx.core.widget.NestedScrollView
+         android:id="@+id/nestedScrollView"
+@@ -75,24 +76,31 @@
+     </androidx.core.widget.NestedScrollView>
+ 
+     <!--    <include layout="@layout/common_load" />-->
+-
++    <View
++        android:id="@+id/lineTop"
++        android:layout_width="match_parent"
++        android:layout_height="@dimen/AppBarPatchMarginTop"
++        android:background="#cc268f"
++        android:visibility="gone" />
+ 
+     <androidx.appcompat.widget.Toolbar
+         android:id="@+id/toolbar"
+         android:layout_width="match_parent"
+-        android:layout_height="?android:attr/actionBarSize"
+-        android:background="@color/ColorGreenyellow"
++        android:layout_height="@dimen/AppBarAboveHeight"
++        android:background="#cc268f"
+         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+-
++        <!--        android:layout_height="?android:attr/actionBarSize"
++        -->
+ 
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_marginTop="@dimen/AppBarPatchMarginTop"
+             android:gravity="right"
++            android:background="@android:drawable/list_selector_background"
+             android:orientation="horizontal">
+ 
+-            <com.sunsty.alidd.view.lilke.LikeButton
++            <com.ali.view.dd.INALikeButton
+                 android:id="@+id/likeCollect"
+                 android:layout_width="50dp"
+                 android:layout_height="match_parent"
+@@ -100,7 +108,7 @@
+                 app:like_drawable="@mipmap/icon_choice_selected"
+                 app:unlike_drawable="@mipmap/icon_choice_nor" />
+ 
+-            <com.sunsty.alidd.view.lilke.LikeButton
++            <com.ali.view.dd.INALikeButton
+                 android:id="@+id/likeButton"
+                 android:layout_width="50dp"
+                 android:layout_height="match_parent"
+@@ -111,8 +119,5 @@
+         </LinearLayout>
+     </androidx.appcompat.widget.Toolbar>
+ 
+-    <View
+-        android:layout_width="match_parent"
+-        android:layout_height="@dimen/AppBarPatchMarginTop"
+-        android:background="@color/ColorWhite" />
++
+ </RelativeLayout>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 957a555f1bbc80fd329e68ede88e7f27b501d67e)
++++ app/src/main/AndroidManifest.xml	(date 1578386237596)
+@@ -15,7 +15,6 @@
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> -     <uses-feature         android:glEsVersion="0x00020000"         android:required="false" />@@ -29,6 +28,7 @@
+         android:allowBackup="true"         android:icon="@drawable/ic_drawable_copy_fav"         android:label="@string/app_name"+        android:networkSecurityConfig="@xml/network_security_config"         android:roundIcon="@drawable/ic_drawable_copy_fav"         android:supportsRtl="true"         android:theme="@style/TranslucentActivity"@@ -45,9 +45,10 @@
+          <activity android:name=".view.activity.VideoNoFFmpegActivity" />         <activity android:name=".view.activity.AnimationGifActivity" />-        <activity android:name=".view.activity.BackMainActivity" />+        <activity android:name=".view.activity.BeforeSelectAlbumActivity" />         <activity android:name=".view.activity.ExpandableActivity" />-        <activity android:name=".view.activity.JustHttpsActivity" />+        <activity android:name=".view.activity.HttpsRequestActivity" />+        <activity android:name=".view.activity.HttpsDownloadActivity" />         <activity android:name=".view.activity.INATabLayoutActivity" />         <activity android:name=".view.activity.MainActivityConfict" />         <activity@@ -82,11 +83,14 @@
+         <activity             android:name="com.sunst.alidd.ScreenRecordActivity"             android:theme="@style/anTranslucentTheme" />+         <service             android:name="com.sunst.alidd.ScreenRecordService"             android:enabled="true"             android:foregroundServiceType="mediaProjection"             tools:targetApi="q" />+        <service android:name="com.ali.take.NetDownloadService" />+     </application>  </manifest>
+\ No newline at end of file
