@@ -16,9 +16,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.ali.presenter.callback.JustNetApi;
 import com.ali.presenter.net.JustAsyncManager;
 import com.ali.presenter.net.JustNetClient;
-import com.ali.presenter.net.callback.JustNetApi;
 import com.ali.take.Convert;
 import com.ali.take.LaLog;
 import com.ali.take.photo.IntentUtils;

@@ -65,7 +65,7 @@ public class AudioAdapter extends BaseAdapter{
         holder.audioName.setText(song.getName());
 
         holder.audioSize.setText(song.getSize());
-        holder.audioDuration.setText(LADateTime.getInstance(mContext).getCurrentTimeInString("mm:ss"));
+        holder.audioDuration.setText(LADateTime.getInstance().getCurrentTimeInString("mm:ss"));
         if ("mp3".equals(song.getType())){
             holder.audioType.setImageResource(R.mipmap.img_mp3);
         }else if ("aac".equals(song.getType())){

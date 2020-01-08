@@ -4,18 +4,20 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.ali.AnConstants;
 import com.ali.model.entity.CropOptions;
+import com.ali.model.entity.TImage;
 import com.ali.model.entity.TResult;
+import com.ali.take.FileUtils;
+import com.ali.take.LAStorageFile;
 import com.ali.take.LaLog;
 import com.ali.take.photo.compress.CompressConfig;
 import com.ali.take.photo.interfaces.TakePhoto;
@@ -29,7 +31,9 @@ import java.util.List;
 
 public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
     private Button btnSelectAlbum;
+    private Button btnSelectAlbumCrop;
     private Button btnCamera;
+    private Button btnCameraCrop;
 
     private ImageView ivPhoto;
     private TextView textView;
@@ -42,21 +46,34 @@ public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
 
     //TakePhoto
     private TakePhoto takePhoto;
-    private CropOptions cropOptions;    //裁剪参数
-    private CompressConfig compressConfig;  //压缩参数
     private Uri imageUri;       //图片保存路径
+    private boolean isSigleImage = false;
 
 
-    private void btnCamera() {
+    //仅仅拍照不裁剪ok
+    private void onlyCapture() {
+        isSigleImage = true;
         imageUri = getImageCropUri();
-        LaLog.d("sunst888---btnCamera : imageUri=" + imageUri);
-        //拍照并裁剪
-//        takePhoto.onPickFromCaptureWithCrop(imageUri, cropOptions);//ok
-        //仅仅拍照不裁剪
+        LaLog.d("sunst888---onlyCapture : imageUri=" + imageUri);
         takePhoto.onPickFromCapture(imageUri);
     }
 
+    //拍照并裁剪ok
+    private void captureOfCrop() {
+        isSigleImage = true;
+        imageUri = getImageCropUri();
+        //(2)设置压缩、裁剪参数
+        //设置裁剪参数
+        CropOptions cropOptions = new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(false).create();
+        //设置压缩参数
+//        CompressConfig compressConfig = new CompressConfig.Builder().setMaxSize(50 * 1024).setMaxPixel(800).create();
+//        takePhoto.onEnableCompress(compressConfig, false);
+        LaLog.d("sunst888---captureOfCrop : imageUri=" + imageUri);
+        takePhoto.onPickFromCaptureWithCrop(imageUri, cropOptions);
+    }
+
     private void btnSelectAlbum() {
+        isSigleImage = false;
         /*
          * 配置参数设置
          * */
@@ -68,16 +85,20 @@ public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
                 .enableReserveRaw(false)//拍照压缩后是否显示原图
                 .create();
         takePhoto.onEnableCompress(config, false);//是否显示进度条
-
-
         takePhoto.onPickMultiple(3);   //3张图片
-//        takePhoto.onPickFromGallery();//根据需求这里面放最大图片数 一张图片takePhoto.onPickFromGallery();
+//        takePhoto.onPickFromGallery();
+    }
+
+    //从相册中选取图片并裁剪
+    private void btnSelectAlbumCrop() {
+        isSigleImage = true;
         imageUri = getImageCropUri();
         LaLog.d("sunst888---btnSelectAlbum : imageUri=" + imageUri);
-//                //从相册中选取图片并裁剪
-//                takePhoto.onPickFromGalleryWithCrop(imageUri, cropOptions);
-//                //从相册中选取不裁剪
-//                takePhoto.onPickFromGallery();
+        //设置裁剪参数
+        CropOptions cropOptions = new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(false).create();
+        takePhoto.onPickFromGalleryWithCrop(imageUri, cropOptions);
+        //从相册中选取不裁剪
+//        takePhoto.onPickFromGallery();//根据需求这里面放最大图片数 一张图片takePhoto.onPickFromGallery();
     }
 
     private void initPermission() {
@@ -98,13 +119,34 @@ public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
 
     @Override
     public void takeSuccess(TResult result) {
-        LaLog.d("sunst888---takeSuccess : " + result.getImage().getOriginalPath());
-        String iconPath = result.getImage().getOriginalPath();
-        //Toast显示图片路径
-        Toast.makeText(this, "imagePath:" + iconPath, Toast.LENGTH_SHORT).show();
-        Glide.with(this).load(iconPath).into(ivPhoto);
+        LaLog.d("sunst888---takeSuccess : " + result.getImage().toString());
+        //(1)（获取到一张照片）仅仅拍照不裁剪 会拿到image.originapath
+        //(2)（获取到一张拍照）拍照裁剪 会拿到image.originapth
+
+        //(3)从相册选中图片，配置参数，获取到images.compressPath
+
+        StringBuilder resultSuccess = new StringBuilder();
+        String cameraOriginalPath = result.getImage().getOriginalPath();
+        String cameraCompressPath = result.getImage().getCompressPath();
+        resultSuccess.append("cameraOriginalPath=").append(cameraOriginalPath).append("\n");
+        resultSuccess.append("cameraCompressPath=").append(cameraCompressPath).append("\n");
+        resultSuccess.append("-----------------------").append("\n");
+        ArrayList<TImage> images = result.getImages();
+        for (TImage image : images) {
+            String albumOriginalPath = image.getOriginalPath();
+            resultSuccess.append("albumOriginalPath=").append(albumOriginalPath).append("\n");
+            String albumCompressPath = image.getCompressPath();
+            resultSuccess.append("albumCompressPath=").append(albumCompressPath).append("\n");
+        }
+        if (isSigleImage) {
+            Glide.with(this).load(imageUri).into(ivPhoto);
+        } else {
+            Glide.with(this).load(cameraCompressPath).into(ivPhoto);
+        }
+        textView.setText(resultSuccess);
     }
-// 图片压缩失败:null is compress failures picturePath:null
+
+    // 图片压缩失败:null is compress failures picturePath:null
     @Override
     public void takeFail(TResult result, String msg) {
         LaLog.d("sunst888---takeFail : " + msg);
@@ -121,32 +163,30 @@ public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
         if (Build.VERSION.SDK_INT >= 23) {  //6.0才用动态申请相关权限
             initPermission();
         }
-        //设置压缩、裁剪参数
 
-        ////获取TakePhoto实例
+        //(1)获取TakePhoto实例
         takePhoto = getTakePhoto();
-        //设置裁剪参数
-        cropOptions = new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(false).create();
-        //设置压缩参数
-        compressConfig = new CompressConfig.Builder().setMaxSize(50 * 1024).setMaxPixel(800).create();
-        takePhoto.onEnableCompress(compressConfig, false);    //设置为需要压缩
 
-        btnSelectAlbum = (Button) findViewById(R.id.btnSelectAlbum);
-        btnCamera = (Button) findViewById(R.id.btnCamera);
+        btnSelectAlbum = findViewById(R.id.btnSelectAlbum);
+        btnCamera = findViewById(R.id.btnCamera);
+        btnCameraCrop = findViewById(R.id.btnCameraCrop);
+        btnSelectAlbumCrop = findViewById(R.id.btnSelectAlbumCrop);
 
-        ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
-        textView = (TextView) findViewById(R.id.tvTitle);
+        ivPhoto = findViewById(R.id.ivPhoto);
+        textView = findViewById(R.id.tvTitle);
 
-        btnCamera.setOnClickListener(v -> btnCamera());
+        btnCamera.setOnClickListener(v -> onlyCapture());
+        btnCameraCrop.setOnClickListener(v -> captureOfCrop());
+
         btnSelectAlbum.setOnClickListener(v -> btnSelectAlbum());
+        btnSelectAlbumCrop.setOnClickListener(v -> btnSelectAlbumCrop());
     }
 
 
     //获得照片的输出保存Uri
     private Uri getImageCropUri() {
-        File file = new File(Environment.getExternalStorageDirectory(), "/temp/" + System.currentTimeMillis() + ".jpg");
-        if (!file.getParentFile().exists()) file.getParentFile().mkdirs();
-        return Uri.fromFile(file);
+        File cropFile = LAStorageFile.INSTANCE.fouceTouchFile(FileUtils.getInstance().getPwdTempFolder(), FileUtils.getInstance().getCreateFileSuffixName(AnConstants.FILE_SUFFIX_PNG));
+        return Uri.fromFile(cropFile);
     }
 
     @Override

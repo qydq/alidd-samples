@@ -1,10 +1,7 @@
 package com.sunsty.alidd.view.activity;
 
-import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ali.take.LAUi;
+import com.ali.view.ParallaxActivity;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.fragment.LogicalFragment;
@@ -28,7 +26,7 @@ import java.util.List;
  * </p>
  * Created by Sunst on 2017/7/22.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ParallaxActivity {
     private String[] strings = new String[]{"material ux", "aN情景s", "逻辑相关", "其它"};
     private List<Fragment> nativeFragments = new ArrayList<>();
     private ViewPager nativeViewPager;
@@ -41,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initView() {
         setContentView(R.layout.activity_main);
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -85,6 +82,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             return strings[position];
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!getSupportFragmentManager().popBackStackImmediate()) {
+            finish();
         }
     }
 }
