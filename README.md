@@ -1,15 +1,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [alidd1.0.15](#alidd1015)
+- [alidd1.0.17](#alidd1017)
   - [情景能力# Ability](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
     - [主要能力](#%E4%B8%BB%E8%A6%81%E8%83%BD%E5%8A%9B)
     - [第二能力](#%E7%AC%AC%E4%BA%8C%E8%83%BD%E5%8A%9B)
   - [集成方式# Binaries](#%E9%9B%86%E6%88%90%E6%96%B9%E5%BC%8F-binaries)
   - [模块介绍# Details Module](#%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D-details-module)
     - [an情景系列（material-ux）](#an%E6%83%85%E6%99%AF%E7%B3%BB%E5%88%97material-ux)
-    - [an情景系列（aN情景s）](#an%E6%83%85%E6%99%AF%E7%B3%BB%E5%88%97an%E6%83%85%E6%99%AFs)
+    - [an情景系列（scene-mode）](#an%E6%83%85%E6%99%AF%E7%B3%BB%E5%88%97scene-mode)
       - [效果图（待上传](#%E6%95%88%E6%9E%9C%E5%9B%BE%E5%BE%85%E4%B8%8A%E4%BC%A0)
   - [混淆配置# proguard-rules](#%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE-proguard-rules)
   - [常见错误# Easy Mistake](#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF-easy-mistake)
@@ -17,21 +17,23 @@
     - [错误2: More than one file was found with OS independent path 'META-INF/rxjava.properties'](#%E9%94%99%E8%AF%AF2-more-than-one-file-was-found-with-os-independent-path-meta-infrxjavaproperties)
     - [错误3： Manifest merger failed : Attribute meta-data#android.support.FILE_PROVIDER_PATHS@](#%E9%94%99%E8%AF%AF3-manifest-merger-failed--attribute-meta-dataandroidsupportfile_provider_paths)
   - [版本日志# Version LOG](#%E7%89%88%E6%9C%AC%E6%97%A5%E5%BF%97-version-log)
-    - [*1.0.1](#101)
-    - [*1.0.2](#102)
+    - [1.0.1*](#101)
+    - [1.0.2*](#102)
     - [1.0.3](#103)
     - [1.0.4](#104)
-    - [*1.0.5](#105)
+    - [1.0.5*](#105)
     - [1.0.6](#106)
-    - [*1.0.7](#107)
+    - [1.0.7*](#107)
     - [1.0.8](#108)
-    - [*1.0.9](#109)
+    - [1.0.9*](#109)
     - [1.0.10](#1010)
     - [1.0.11](#1011)
-    - [*1.0.12](#1012)
-    - [*1.0.13](#1013)
-    - [*1.0.14](#1014)
+    - [1.0.12*](#1012)
+    - [1.0.13*](#1013)
+    - [1.0.14*](#1014)
     - [1.0.15](#1015)
+    - [1.0.16](#1016)
+    - [1.0.17](#1017)
   - [其它说明](#%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E)
     - [1.关于自定义apk名说明](#1%E5%85%B3%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89apk%E5%90%8D%E8%AF%B4%E6%98%8E)
     - [2.关于其它](#2%E5%85%B3%E4%BA%8E%E5%85%B6%E5%AE%83)
@@ -40,15 +42,15 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# alidd1.0.15
-[![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-samples/blob/master/LICENSE)
+# alidd1.0.17
+[![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/master/LICENSE)
 [![Download](https://api.bintray.com/packages/qydq/maven/alidd/images/download.svg)](https://bintray.com/qydq/maven/alidd/_latestVersion)
-[![Release Version](https://img.shields.io/badge/release-1.0.15-red.svg)](https://github.com/qydq/small-video-record/releases)
+[![Release Version](https://img.shields.io/badge/release-1.0.17-red.svg)](https://github.com/qydq/small-video-record/releases)
 [![](https://img.shields.io/badge/Author-sunst-blue.svg)](https://www.zhihu.com/people/qydq)
 
 一款针对Android平台下快速集成**便捷开发**框架**alidd**，```an情景```系列```alidd框架```部分基于原项目[an框架click](https://github.com/qydq/an-aw-base)（基础的an-base）仓库优化而来，其目1是为小团子fang升级一款音乐聊天软件```[安妮暂定]3.0版本```，现在开放出来，希望用得着的朋友点个star.
 >20190609再次确定命名dd.JUST.
->alidd一直维护，周1-6工作，有bug提[issues]([https://github.com/qydq/alidd-samples/issues](https://github.com/qydq/alidd-samples/issues))（或在知乎上给我留言，**问题描述清楚**就行]，一般修复好周7当晚更新.
+>alidd一直维护，周1-6工作，有bug提[issues]([https://github.com/qydq/alidd-samples/issues](https://github.com/qydq/alidd-sample/issues))（或在知乎上给我留言，**问题描述清楚**就行]，一般修复好周7当晚更新.
 
 专注于物联网领域，世界的通信标准从今开始改变，手机也可以是路由器，成功于视频直播，标准并不一定是Http/s，也可以是Bluetooth.
 
@@ -91,9 +93,9 @@ dependencies {
 ```
 
 ## 模块介绍# Details Module
-```alidd-samples.apk```包含4个tab，```an情景```系列```alidd```框架的使用主要是```material-ux```和```aN情景s```，如
+```alidd-samples.apk```包含4个tab，```an情景```系列```alidd```框架的使用主要是```material-ux```和```scene mode```，如
 
->```网络请求```类似该功能放置在```aN情景s```页  <br/>
+>```网络请求```类似该功能放置在```scene mode```页  <br/>
 >```NATabLayout```控件类符合material design在```material-ux```中，具体如图：（待补）
 
 其它两个tab页是个人当前测试的一些逻辑性，功能性代码，如视频编解码，获取网络一些数据列表，这部分代码仅供参考，关于```alidd情景```更多的api可以查看帮助文档.
@@ -119,7 +121,7 @@ gifDrawable.setLoopCount(5); //设置具体播放次数
 gifDrawable.setLoopCount(0); //设置无限循环播放
 ————————————————
 ```
-### an情景系列（aN情景s）
+### an情景系列（scene-mode）
 #### 效果图（待上传
 ## 混淆配置# proguard-rules
 混淆规则一定要看：[**Android App代码混淆解决方案click**](https://zhuanlan.zhihu.com/p/34559807)
@@ -215,7 +217,7 @@ implementation('me.imid.swipebacklayout.lib:library:1.1.0') {
 **⚠️注意**
 版本更新日志严格跟随代码提交内容，方便日后查阅相关记录.
 
-### *1.0.1
+### 1.0.1*
    implementation'com.sunst:alidd:1.0.1'
 alidd的初始版本，从an-aw-base重构而来，alidd框架1.0.1（及以下的版本）支持的android最低版本为，minSdkVersion=19
 
@@ -240,7 +242,7 @@ advancedluban      : 'me.shaohui.advancedluban:library:1.3.2',
 nineoldandroids    : 'com.nineoldandroids:library:2.4.0',
 ————————————————
 ```
-### *1.0.2
+### 1.0.2*
    implementation'com.sunst:alidd:1.0.2'
 本次主要是添加androidx，移除升级修复相关第三方库等内容.
 **更新1：**
@@ -305,7 +307,7 @@ iorxandroid2 : 'io.reactivex.rxjava2:rxandroid:2.1.1',//20190703
 新增```网络2异步请求```http情景，提供JustNetClient对网络异步请求.
 ### 1.0.4
 修复```网络2异步请求```-已知bug.
-### *1.0.5
+### 1.0.5*
    implementation'com.sunst.alidd:alidd:1.0.1'
 修复```网络2异步请求```-已知bug，支持JustRxManager对网络异步请求能力.
 ### 1.0.6
@@ -313,13 +315,13 @@ iorxandroid2 : 'io.reactivex.rxjava2:rxandroid:2.1.1',//20190703
 2.开始支持GIF图片加持，添加Gif图片的显示加载回调，能够监听到Gif播放的次数OnGifListener==.  <br/>
 3.支持GIF图片的GifImageView，并且提供GlideImageLoader完善glide加载gif存在的一些问题（如图片抖动）.  <br/>
 4.```ina情景```INAStepProgressView进度条加持.
-### *1.0.7
+### 1.0.7*
 修复Gif不显示的已知bug，优化了GIF加载显示速度的问题，此处感谢```koral--/android-gif-drawable```.
 ### 1.0.8
 1.新增INATableLayout，，此处感谢```AndroidKun/XTabLayout```.  <br/>
 2.优化新增INAStepProgressView已知性能问题.  <br/>
 3.修复一些已知问题.
-### *1.0.9
+### 1.0.9*
 本次版本为重大版本升级，涉及近400多个文件的变化，项目架构增```JUST模块```，优化```dd```，规范命名；其次涉及图片选择，并且结合takephoto模块，其它修复一些已知问题.  <br/>
 **更新1：**
 修复```网络请求JustNetClient```已知问题，优化了GIF加载GifImageView显示（```AppCompactImageView```），针对```1.0.8版本```添加了```INATableLayout```直接设置指示栏图标为drawable对象，且同时支持颜色设置.  <br/>
@@ -331,12 +333,12 @@ iorxandroid2 : 'io.reactivex.rxjava2:rxandroid:2.1.1',//20190703
 修复```网络2异步请求```-已知bug，提供变换能力；LA大写部分.
 ### 1.0.11
 优化```UCrop```裁剪工具，防止文件冲突找不到ali情景系列包，重命名. 发布优化版本.
-### *1.0.12
+### 1.0.12*
 继承```1.0.12```版本之前的版本后apk会增加13.4M左右；当前优化后```1.0.12```版本，apk大小仅仅增加1.8M；后期不新增需求，目标控制在1M以内.
-### *1.0.13
+### 1.0.13*
 1.优化SwipeMenuRecyclerView，material design，名字变更为SwipeRecyclerView.<br/>
 2.修复一些已知问题.
-### *1.0.14
+### 1.0.14*
 年前的一个版本，```1.0.14```，知乎中准备更新```alidd-samples```第一个参考，暂时以INATabLayout为例子引入alidd情景.<br/>
 **更新1：**
 修复PictureSelector中存在的问题，统一FileUtils处理文件.<br/>
@@ -344,6 +346,10 @@ iorxandroid2 : 'io.reactivex.rxjava2:rxandroid:2.1.1',//20190703
 修复一些已知问题，INA系列增加inaexpandablelistview，修复一些获取网络视频第一帧图片时的报错问题，完善mediahelper，lastorge增加文件大小获取.
 ### 1.0.15
 2020年前第一个对外的```正式版本```，**首次**在知乎中以```INATabLayout```为例推广本```an情景```系列```alidd框架 ```的使用，提供完整的```api帮助文档```，完整的```示例apk以及源代码```，完整的构建标准体系.
+### 1.0.16
+2020年后第一个版本，修改<br/>1.添加inalikebutton控件.<br/>2.主要修复网络下载文件的框架，需要重新优化命名.<br/>3.添加一个AboutPage页面关于本人我.<br/>4.资源文件，toast，文件操作，跳转类参考.<br/>
+### 1.0.17
+9.0系统出现的网络安全访问问题```网络下载工具不支持http```-已知bug已修复，完成国际化支持操作，对图片选择控件添加国外语言支持，同时修复返回键统一处理，这里考虑要不要移除xutils3以减轻依赖的大小，这次稳定在1.8M.
 ## 其它说明
 ### 1.关于自定义apk名说明
 ```Groovy
