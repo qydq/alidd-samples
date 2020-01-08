@@ -1,6 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+**Table of Contents**
 
 - [alidd1.0.17](#alidd1017)
   - [情景能力# Ability](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
@@ -34,6 +34,7 @@
     - [1.0.15](#1015)
     - [1.0.16](#1016)
     - [1.0.17](#1017)
+    - [1.0.18](#1018)
   - [其它说明](#%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E)
     - [1.关于自定义apk名说明](#1%E5%85%B3%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89apk%E5%90%8D%E8%AF%B4%E6%98%8E)
     - [2.关于其它](#2%E5%85%B3%E4%BA%8E%E5%85%B6%E5%AE%83)
@@ -350,6 +351,8 @@ iorxandroid2 : 'io.reactivex.rxjava2:rxandroid:2.1.1',//20190703
 2020年后第一个版本，修改<br/>1.添加inalikebutton控件.<br/>2.主要修复网络下载文件的框架，需要重新优化命名.<br/>3.添加一个AboutPage页面关于本人我.<br/>4.资源文件，toast，文件操作，跳转类参考.<br/>
 ### 1.0.17
 9.0系统出现的网络安全访问问题```网络下载工具不支持http```-已知bug已修复，完成国际化支持操作，对图片选择控件添加国外语言支持，同时修复返回键统一处理，这里考虑要不要移除xutils3以减轻依赖的大小，这次稳定在1.8M.
+### 1.0.18
+移除xutils3依赖的大小，修复已知问题
 ## 其它说明
 ### 1.关于自定义apk名说明
 ```Groovy
