@@ -1,148 +1,0 @@
-Index: app/src/main/AndroidManifest.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/AndroidManifest.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/AndroidManifest.xml	(date 1578479397419)
-@@ -30,14 +30,11 @@
-         android:label="@string/app_name"         android:roundIcon="@drawable/ic_drawable_copy_fav"         android:supportsRtl="true"-        android:theme="@style/TranslucentActivity"+        android:theme="@style/ParallaxAppTheme"         tools:replace="android:theme,android:name">-        <activity-            android:name=".view.activity.MainActivity"-            android:theme="@style/TranslucentActivity_TEST">+        <activity android:name=".view.activity.MainActivity">             <intent-filter>                 <action android:name="android.intent.action.MAIN" />-                 <category android:name="android.intent.category.LAUNCHER" />             </intent-filter>         </activity>@@ -45,14 +42,13 @@
-         <activity android:name=".view.activity.VideoNoFFmpegActivity" />         <activity android:name=".view.activity.AnimationGifActivity" />         <activity android:name=".view.activity.BeforeSelectAlbumActivity" />+         <activity android:name=".view.activity.ExpandableActivity" />         <activity android:name=".view.activity.HttpsRequestActivity" />         <activity android:name=".view.activity.HttpsDownloadActivity" />         <activity android:name=".view.activity.INATabLayoutActivity" />         <activity android:name=".view.activity.MainActivityConfict" />-        <activity-            android:name=".view.activity.StandardStoryActivity"-            android:theme="@style/TranslucentActivity_TEST" />+        <activity android:name=".view.activity.StandardStoryActivity" />         <activity             android:name=".view.activity.TranslucentActivity"             android:theme="@style/TranslucentActivity" />Index: app/src/main/res/values/colors.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/values/colors.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/res/values/colors.xml	(date 1578479076189)
-@@ -2,5 +2,6 @@
- <resources>
-     <color name="colorPrimary">#008577</color>
-     <color name="colorPrimaryDark">#00574B</color>
--    <color name="colorAccent">#D81B60</color>
-+    <color name="colorAccent">#cc268f</color>
-+
- </resources>
-\ No newline at end of file
-Index: app/src/main/res/layout/activity_main.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_main.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/res/layout/activity_main.xml	(date 1578479076187)
-Index: app/src/main/res/layout/activity_https_download.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_https_download.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/res/layout/activity_https_download.xml	(date 1578479076186)
-@@ -1,11 +1,7 @@
- <?xml version="1.0" encoding="utf-8"?>
- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="match_parent"
--    android:layout_height="match_parent"
--    android:paddingLeft="@dimen/activity_horizontal_margin"
--    android:paddingTop="@dimen/activity_vertical_margin"
--    android:paddingRight="@dimen/activity_horizontal_margin"
--    android:paddingBottom="@dimen/activity_vertical_margin">
-+    android:layout_height="match_parent">
- 
-     <androidx.appcompat.widget.AppCompatButton
-         android:id="@+id/btn_download"
-Index: app/src/main/res/values/styles.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/values/styles.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/res/values/styles.xml	(date 1578479173994)
-@@ -26,14 +26,6 @@
-         <item name="textAllCaps">false</item>
-     </style>
- 
--    <!--<item name="android:statusBarColor">@color/colorAccent</item>-->
--    <style name="TranslucentActivity_TEST" parent="Theme.AppCompat.Light.NoActionBar">
--        <item name="android:windowIsTranslucent">true</item>
--        <item name="android:windowTranslucentStatus">false</item>
--        <item name="android:windowBackground">@color/colorAccent</item>
--        <item name="android:statusBarColor">@android:color/transparent</item>
--    </style>
--
-     <style name="TranslucentActivity" parent="Theme.AppCompat.Light.NoActionBar">
-         <item name="android:windowIsTranslucent">true</item>
-     </style>
-Index: app/src/main/res/layout/activity_before_album.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_before_album.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/res/layout/activity_before_album.xml	(date 1578479076185)
-@@ -1,33 +1,45 @@
- <?xml version="1.0" encoding="utf-8"?>
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
--    xmlns:tools="http://schemas.android.com/tools"
--    android:layout_width="match_parent"
--    android:layout_height="match_parent"
--    android:orientation="vertical"
--    tools:context=".view.activity.MainActivity">
--
--    <TextView
--        android:id="@+id/tvTitle"
--        android:layout_width="wrap_content"
--        android:layout_height="wrap_content"
--        android:text="Hello World!" />
-+    style="@style/an_match_match.V"
-+    android:background="@color/ColorWhite">
- 
-     <Button
-         android:id="@+id/btnCamera"
-         android:layout_width="match_parent"
-+        android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-         android:layout_height="wrap_content"
-         android:text="拍照" />
- 
-+
-+    <Button
-+        android:id="@+id/btnCameraCrop"
-+        android:layout_width="match_parent"
-+        android:layout_height="wrap_content"
-+        android:text="拍照并裁剪" />
-+
-     <Button
-         android:id="@+id/btnSelectAlbum"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:text="从相册获取" />
- 
-+    <Button
-+        android:id="@+id/btnSelectAlbumCrop"
-+        android:layout_width="match_parent"
-+        android:layout_height="wrap_content"
-+        android:text="从相册获取并裁剪" />
-+
-     <ImageView
-         android:id="@+id/ivPhoto"
-         android:layout_width="match_parent"
-         android:layout_height="300dp"
-         android:src="@drawable/ic_picture_placeholder" />
- 
-+    <TextView
-+        android:id="@+id/tvTitle"
-+        android:layout_width="wrap_content"
-+        android:layout_height="wrap_content"
-+        android:text="小团子!" />
-+
-+
- </LinearLayout>
-\ No newline at end of file
-Index: app/src/main/res/layout/fragment_alidd.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/fragment_alidd.xml	(revision c777581b5687d2170a270ed5c7a3c82f4a774b48)
-+++ app/src/main/res/layout/fragment_alidd.xml	(date 1578479076188)
-@@ -10,6 +10,8 @@
-     <androidx.recyclerview.widget.RecyclerView         android:id="@+id/recyclerview"         style="@style/an_match_match"+        android:overScrollMode="never"+        android:scrollbars="none"         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"         app:layout_behavior="@string/appbar_scrolling_view_behavior" /> 

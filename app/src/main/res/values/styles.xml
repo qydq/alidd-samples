@@ -26,14 +26,6 @@
         <item name="textAllCaps">false</item>
     </style>
 
-    <!--<item name="android:statusBarColor">@color/colorAccent</item>-->
-    <style name="TranslucentActivity_TEST" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowBackground">@color/colorAccent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
     <style name="TranslucentActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
     </style>
