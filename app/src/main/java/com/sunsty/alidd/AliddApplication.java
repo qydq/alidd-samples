@@ -15,10 +15,4 @@ public class AliddApplication extends AnApplication {
         Log.e("thread","  线程值  "+Thread.currentThread());
         Constants.init(this);
     }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
 }

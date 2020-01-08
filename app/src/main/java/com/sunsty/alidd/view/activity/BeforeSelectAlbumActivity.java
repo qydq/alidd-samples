@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +19,7 @@ import com.ali.model.entity.TResult;
 import com.ali.take.LaLog;
 import com.ali.take.photo.compress.CompressConfig;
 import com.ali.take.photo.interfaces.TakePhoto;
-import com.ali.view.activity.TakePhotoActivity;
+import com.ali.view.activity.AliTakePhotoActivity;
 import com.bumptech.glide.Glide;
 import com.sunsty.alidd.R;
 
@@ -28,7 +27,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BeforeSelectAlbumActivity extends TakePhotoActivity {
+public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
     private Button btnSelectAlbum;
     private Button btnCamera;
 
@@ -47,32 +46,6 @@ public class BeforeSelectAlbumActivity extends TakePhotoActivity {
     private CompressConfig compressConfig;  //压缩参数
     private Uri imageUri;       //图片保存路径
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_before_album);
-        if (Build.VERSION.SDK_INT >= 23) {  //6.0才用动态申请相关权限
-            initPermission();
-        }
-        //设置压缩、裁剪参数
-
-        ////获取TakePhoto实例
-        takePhoto = getTakePhoto();
-        //设置裁剪参数
-        cropOptions = new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(false).create();
-        //设置压缩参数
-        compressConfig = new CompressConfig.Builder().setMaxSize(50 * 1024).setMaxPixel(800).create();
-        takePhoto.onEnableCompress(compressConfig, false);    //设置为需要压缩
-
-        btnSelectAlbum = findViewById(R.id.btnSelectAlbum);
-        btnCamera = findViewById(R.id.btnCamera);
-
-        ivPhoto = findViewById(R.id.ivPhoto);
-        textView = findViewById(R.id.tvTitle);
-
-        btnCamera.setOnClickListener(v -> btnCamera());
-        btnSelectAlbum.setOnClickListener(v -> btnSelectAlbum());
-    }
 
     private void btnCamera() {
         imageUri = getImageCropUri();
@@ -140,6 +113,32 @@ public class BeforeSelectAlbumActivity extends TakePhotoActivity {
     @Override
     public void takeCancel() {
         super.takeCancel();
+    }
+
+    @Override
+    public void initView() {
+        setContentView(R.layout.activity_before_album);
+        if (Build.VERSION.SDK_INT >= 23) {  //6.0才用动态申请相关权限
+            initPermission();
+        }
+        //设置压缩、裁剪参数
+
+        ////获取TakePhoto实例
+        takePhoto = getTakePhoto();
+        //设置裁剪参数
+        cropOptions = new CropOptions.Builder().setAspectX(1).setAspectY(1).setWithOwnCrop(false).create();
+        //设置压缩参数
+        compressConfig = new CompressConfig.Builder().setMaxSize(50 * 1024).setMaxPixel(800).create();
+        takePhoto.onEnableCompress(compressConfig, false);    //设置为需要压缩
+
+        btnSelectAlbum = (Button) findViewById(R.id.btnSelectAlbum);
+        btnCamera = (Button) findViewById(R.id.btnCamera);
+
+        ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
+        textView = (TextView) findViewById(R.id.tvTitle);
+
+        btnCamera.setOnClickListener(v -> btnCamera());
+        btnSelectAlbum.setOnClickListener(v -> btnSelectAlbum());
     }
 
 

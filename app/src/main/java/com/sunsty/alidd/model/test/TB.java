@@ -1,6 +1,6 @@
 package com.sunsty.alidd.model.test;
 
-import com.ali.presenter.net.JustNetApi;
+import com.ali.presenter.net.callback.JustNetApi;
 
 public class TB {
 

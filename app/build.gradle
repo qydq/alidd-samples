@@ -45,5 +45,4 @@ dependencies {
     implementation project(':xmediac')
     implementation project(':videobeauty')
 //    implementation 'com.blankj:utilcodex:1.26.0'
-    implementation 'com.android.support:multidex:1.0.3'
 }

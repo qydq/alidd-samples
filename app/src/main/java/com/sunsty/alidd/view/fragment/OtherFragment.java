@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.activity.AliwebViewActivity;
+import com.ali.view.activity.AliWebViewActivity;
 import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.example.cj.videoeditor.activity.VideoBeatyMainActivity;
@@ -54,13 +54,13 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
         Intent intent = new Intent();
         switch (position) {
             case 0:
-                intent.setClass(getContext(), AliwebViewActivity.class);
+                intent.setClass(getContext(), AliWebViewActivity.class);
                 intent.putExtra("url", "https://github.com/qydq/alidd-samples");
                 intent.putExtra("title", "Github官方alidd框架");
                 startActivity(intent);
                 break;
             case 1:
-                intent.setClass(getContext(), AliwebViewActivity.class);
+                intent.setClass(getContext(), AliWebViewActivity.class);
                 intent.putExtra("url", "https://zhihu.com/people/qydq");
                 intent.putExtra("title", "知乎Bgwan（点击关注）");
                 startActivity(intent);
