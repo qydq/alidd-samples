@@ -15,12 +15,12 @@ import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
+import com.sunsty.alidd.view.activity.AliParallaxActivity;
 import com.sunsty.alidd.view.activity.AnimationGifActivity;
 import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.INATabLayoutActivity;
 import com.sunsty.alidd.view.activity.StandardStoryActivity;
-import com.sunsty.alidd.view.activity.TranslucentActivity;
-import com.sunsty.alidd.view.activity.VideoNoFFmpegActivity;
+import com.sunsty.alidd.view.activity.DefaultRefActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -63,13 +63,13 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
                 startActivity(new Intent(getContext(), StandardStoryActivity.class));
                 break;
             case 3:
-                startActivity(new Intent(getContext(), TranslucentActivity.class));
+                startActivity(new Intent(getContext(), AliParallaxActivity.class));
                 break;
             case 4:
-                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
+                startActivity(new Intent(getContext(), ExpandableActivity.class));
                 break;
             case 5:
-                startActivity(new Intent(getContext(), ExpandableActivity.class));
+                startActivity(new Intent(getContext(), DefaultRefActivity.class));
                 break;
         }
     }

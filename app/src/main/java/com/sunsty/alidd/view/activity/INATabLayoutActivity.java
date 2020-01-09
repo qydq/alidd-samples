@@ -1,5 +1,6 @@
 package com.sunsty.alidd.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.ali.take.LAUi;
 import com.ali.take.LaLog;
 import com.ali.view.ParallaxActivity;
+import com.ali.view.activity.AliWebViewActivity;
 import com.ali.view.dd.INATabLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;
@@ -39,8 +41,18 @@ public class INATabLayoutActivity extends ParallaxActivity {
         setContentView(R.layout.activity_inatablayout);
         aliViewPager = findViewById(R.id.aliViewPager);
         originalViewPager = findViewById(R.id.originalViewPager);
-        initViewPager();
+        initINATabLayout();
         initNatureTabLayout();
+
+        getInaBarlayout().setOnRightLlClickListener(v -> gotoIntorduce());
+        getInaBarlayout().setRightIvVisibility(View.INVISIBLE);
+    }
+
+    private void gotoIntorduce() {
+        Intent intent = new Intent(this, AliWebViewActivity.class);
+        intent.putExtra("url", "https://zhuanlan.zhihu.com/p/100098139");
+        intent.putExtra("title", "Github官方alidd框架");
+        startActivity(intent);
     }
 
     /**
@@ -48,7 +60,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
      * Author ：sunst
      * link : https://zhihu.com/people/qydq
      */
-    private void initViewPager() {
+    private void initINATabLayout() {
         List<String> titles = new ArrayList<>();
         titles.add("精选");
         titles.add("热点");

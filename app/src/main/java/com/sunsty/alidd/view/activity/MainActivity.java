@@ -1,5 +1,7 @@
 package com.sunsty.alidd.view.activity;
 
+import android.view.View;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +12,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.ali.take.LAUi;
 import com.ali.view.ParallaxActivity;
+import com.ali.view.recyclerview.recyclerview.AppBarStateChangeListener;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.fragment.LogicalFragment;
@@ -32,6 +36,8 @@ public class MainActivity extends ParallaxActivity {
     private ViewPager nativeViewPager;
 
     protected Toolbar mToolbar;
+    protected AppBarLayout appBarLayout;
+    protected View toolbarInner;
     protected ActionBar mActionBar;
 
     protected boolean displayHomeAsUpEnabled() {
@@ -41,15 +47,21 @@ public class MainActivity extends ParallaxActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_main);
+        fitStatusBar(false, true);//设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
         mToolbar = findViewById(R.id.toolbar);
+        appBarLayout = findViewById(R.id.appBarLayout);
+        toolbarInner = findViewById(R.id.toolbarInner);
         setSupportActionBar(mToolbar);
         mActionBar = getSupportActionBar();
         if (displayHomeAsUpEnabled()) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        appBarListener();
+
         nativeViewPager = findViewById(R.id.natureViewPager);
         TabLayout natureTableLayout = findViewById(R.id.natureTableLayout);
+        toolbarInner.findViewById(R.id.iv).setOnClickListener(v -> showToast("1.前两个模块属于alidd情景系列；2.后两个模块属于非alidd情景系列."));
 
         nativeFragments.add(new MaterialUxFragment());
         nativeFragments.add(new SceneFragment());
@@ -90,5 +102,30 @@ public class MainActivity extends ParallaxActivity {
         if (!getSupportFragmentManager().popBackStackImmediate()) {
             finish();
         }
+    }
+
+    private boolean barTop = false;
+
+    private void appBarListener() {
+        appBarLayout.addOnOffsetChangedListener(new AppBarStateChangeListener() {
+            @Override
+            public void onStateChanged(AppBarLayout appBarLayout, State state) {
+                /*      if (state === State.COLLAPSED) {
+                          //下面的方法会出现监听不到的情况，所以这里变成折叠状态，最好再设置一次透明度
+                          blankView.visibility = View.VISIBLE
+                      }else{
+                          blankView.visibility = View.GONE
+                      }*/
+                if (state == AppBarStateChangeListener.State.COLLAPSED) {
+                    barTop = true;
+                    /*滑动到上面了*/
+//                    appBarLayout.setBackgroundColor(getResources().getColor(R.color.ColorWhite));
+                } else {
+                    barTop = false;
+                    /*没有展开了*/
+//                    appBarLayout.setBackgroundColor(getResources().getColor(R.color.ColorBlack));
+                }
+            }
+        });
     }
 }

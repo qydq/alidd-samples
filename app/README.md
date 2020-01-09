@@ -101,6 +101,8 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 （20）网络请求下载工具,完善alidd网络请求下载封装 一天之内搞定，并且准备发布alidd1.0.16版本）
 (21).检视ali所有的返回键控制情况，统一并处理为一直的效果(1天之内完成).
 (22).网络模块需要紧急修复CLEARTEXT communication to download.fir.im not permitted by network security policy，9.0系统出现的网络安全访问问题
+(23).INATablayout，新增一些属性（右可见，右右可见， 左边可见，中间不可见，字体大小），修复material错误命名，back事件（暂留），考虑是否需要增加an_match_match.VBG----HBG.
+(24).新增几个圆角，enable，并且再统一一下drawable中selector，修改并且完善AboutPage，随后发布1.0.19(1.0系列最后一个版本）
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
 
