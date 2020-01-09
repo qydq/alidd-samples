@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="false">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="@color/colorAccent"
+            android:background="#9c27b0"
+            app:contentScrim="@drawable/backgroup_top"
             app:layout_collapseMode="parallax"
             app:layout_collapseParallaxMultiplier="0.1"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -29,11 +30,14 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="58dp"
+                android:layout_height="@dimen/AppBarAboveHeight"
+                android:layout_marginTop="@dimen/AppBarPatchMarginTop"
                 android:background="@android:color/transparent"
                 app:layout_scrollFlags="scroll|enterAlways" />
 
-            <include layout="@layout/toolbar_layout" />
+            <include
+                android:id="@+id/toolbarInner"
+                layout="@layout/toolbar_layout" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

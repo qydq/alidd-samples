@@ -4,11 +4,14 @@
     style="@style/an_match_match.V">
 
     <com.ali.view.dd.INABarLayout
+        android:id="@+id/inaBarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:anTxRight="使用方法"
         app:anTxTitle="INATabLayoutActivity系列情景第一次使用案例复分析城西"
         app:open_meterialFits="true"
-        app:open_night="true" />
+        app:open_night="true"
+        app:showRLl="true" />
 
     <!-- app:anTabTextAllCaps="false"====标题字母大小写转换功能，默认false小写,true自动转大写;或者在代码中调用tabLayout.setAllCaps(false)-->
     <!-- app:anTabSelectedTextSize="18sp"====用于设置选中项的字体大小;-->

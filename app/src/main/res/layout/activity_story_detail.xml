@@ -32,7 +32,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="tringabout_image"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/img_wma" />
+                    android:src="@drawable/backgroup_top" />
 
                 <View
                     android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp"
-                    android:text="作者"
+                    android:text="sunst"
                     android:textColor="?android:textColorSecondaryInverse"
                     android:textSize="13dp" />
             </RelativeLayout>
@@ -69,7 +69,8 @@
             <WebView
                 android:id="@+id/webView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@color/ColorWhite" />
 
 
         </LinearLayout>
@@ -96,8 +97,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-            android:gravity="right"
             android:background="@android:drawable/list_selector_background"
+            android:gravity="right"
             android:orientation="horizontal">
 
             <com.ali.view.dd.INALikeButton
