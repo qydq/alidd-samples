@@ -5,7 +5,7 @@
         <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
         <item>StandardStoryActivity.(一个WEBVIEW的使用案例含INALikeButton</item>
         <item>android简单实现仿iOS侧滑返回到上一个界面的三种方式-之（ParallelActivity）</item>
-        <item>ExpandableActivity.(展开布局，优化显示特效</item>
+        <item>一个特别的ExpandableListView视觉效果（仿cardView实现）</item>
         <item>知乎控制</item>
         <item>夜间模式</item>
         <item>xiaotuanzi---占位1---</item>
@@ -26,6 +26,7 @@
         <item>网络请求接口,获取公共数据anbase继承网络能力</item>
         <item>网络请求下载带进度条文件(下载知乎日报apk,retrofit)</item>
         <item>拍照TakePhoto系列</item>
+        <item>拍照PictureSelector（仿微信相册选择拍照）</item>
         <item>便捷申请权限操作LaPermission</item>
         <item>芳芳</item>
         <item>xiaotuanzi---占位1---</item>

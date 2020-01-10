@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_match_wrap.V"
+    android:background="@color/ColorWhite">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <RelativeLayout
+        style="@style/an_style_button_height"
+        android:background="@drawable/shaper_expandable">
+
+        <TextView
+            android:id="@+id/parent_textview_id"
+            style="@style/an_wrap_wrap.Font"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:paddingLeft="10dp"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/parent_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_picture_wechat_up" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+</LinearLayout>

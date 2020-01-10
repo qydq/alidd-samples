@@ -1,17 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/an_match_match">
+<com.ali.view.dd.INAShrinkScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_match_match"
+    android:background="@color/ColorWhite">
 
-    <TextView
-        android:id="@+id/tvStatus"
-        style="@style/an_match_wrap"
-        android:text="ExpandableActivity.java" />
+    <RelativeLayout style="@style/an_match_match">
 
-    <com.ali.view.dd.NestExpandableListView
-        android:id="@+id/nestExpandableListView"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/tvStatus"
-        android:layout_height="match_parent" />
+        <LinearLayout
+            android:id="@+id/llTop"
+            style="@style/an_match_wrap.H"
+            android:layout_marginTop="@dimen/AppBarPatchMarginTop">
+
+            <Button
+                android:id="@+id/btnControl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打开第三个Tab" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置Tab之间互斥" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            style="@style/an_match_wrap"
+            android:layout_below="@+id/llTop"
+            android:layout_marginLeft="@dimen/an_dimen_margin_small"
+            android:text="ExpandableActivity.java" />
 
 
-</RelativeLayout>
+        <!-- android:groupIndicator="@null"  去掉系统自带的展开图标-->
+        <com.ali.view.dd.NestExpandableListView
+            android:id="@+id/nestExpandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvStatus"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:childDivider="@android:color/transparent"
+            android:colorControlHighlight="@android:color/transparent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.1dp"
+            android:scrollbars="none" />
+
+        <!--        android:childDivider="@android:color/transparent"
+            android:colorControlHighlight="@android:color/transparent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="1.1dp"-->
+
+    </RelativeLayout>
+</com.ali.view.dd.INAShrinkScrollView>

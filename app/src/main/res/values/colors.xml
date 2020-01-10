@@ -3,5 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#cc268f</color>
+    <!--<color name="colorAccent">@color/ColorTransparent</color>-->
 
 </resources>
