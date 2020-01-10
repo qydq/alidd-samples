@@ -19,8 +19,11 @@ someTips:
 
 李&#8194;芳&#8194;芳：爱&8194
 context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+gif
 
-
+以后的标题都叫：（1）android利用alidd情景框架便捷实现夜间模式使用案列;
+               （2）android利用alidd情景框架快速加载动画实现的套路;
+               （3）android特别的ExpandableListView视觉效果（仿cardView）利用alidd便捷实现;
 
 # 二：视频类参考：
 
@@ -103,6 +106,7 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 (22).网络模块需要紧急修复CLEARTEXT communication to download.fir.im not permitted by network security policy，9.0系统出现的网络安全访问问题
 (23).INATablayout，新增一些属性（右可见，右右可见， 左边可见，中间不可见，字体大小），修复material错误命名，back事件（暂留），考虑是否需要增加an_match_match.VBG----HBG.
 (24).新增几个圆角，enable，并且再统一一下drawable中selector，修改并且完善AboutPage，随后发布1.0.19(1.0系列最后一个版本）
+(25).临时发现一个bug，设置夜间模式的主题，application中写错误了Settheme()，改为setDayniththem(),并且夜间模式，日间模式颜色需要调控(并且新增一个IntentUtils曾对跳转)
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
 

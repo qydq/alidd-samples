@@ -18,6 +18,7 @@ import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.BeforeSelectAlbumActivity;
 import com.sunsty.alidd.view.activity.HttpsDownloadActivity;
 import com.sunsty.alidd.view.activity.HttpsRequestActivity;
+import com.sunsty.alidd.view.activity.picture.SimpleActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -60,7 +61,7 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), BeforeSelectAlbumActivity.class));
                 break;
             case 3:
-//                startActivity(new Intent(getContext(), TranslucentActivity.class));
+                startActivity(new Intent(getContext(), SimpleActivity.class));
                 break;
             case 4:
 //                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));

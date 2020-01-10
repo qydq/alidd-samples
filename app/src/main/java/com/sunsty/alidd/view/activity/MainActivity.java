@@ -104,6 +104,12 @@ public class MainActivity extends ParallaxActivity {
         }
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.aim_common_left_in, R.anim.aim_common_right_out);
+    }
+
     private boolean barTop = false;
 
     private void appBarListener() {
@@ -120,10 +126,12 @@ public class MainActivity extends ParallaxActivity {
                     barTop = true;
                     /*滑动到上面了*/
 //                    appBarLayout.setBackgroundColor(getResources().getColor(R.color.ColorWhite));
+                    fitStatusBar(false, true);//设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
                 } else {
                     barTop = false;
                     /*没有展开了*/
 //                    appBarLayout.setBackgroundColor(getResources().getColor(R.color.ColorBlack));
+                    fitStatusBar(true, true);//设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
                 }
             }
         });
