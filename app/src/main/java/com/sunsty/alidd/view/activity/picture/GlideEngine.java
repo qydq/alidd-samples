@@ -28,7 +28,7 @@ public class GlideEngine implements ImageEngine {
                 .override(200, 200)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .placeholder(placeholderId)
+//                .placeholder(longImageView.)
                 .load(url)
                 .into(imageView);
     }
@@ -66,7 +66,7 @@ public class GlideEngine implements ImageEngine {
 
     @Override
     public void loadGridImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView) {
-
+        Glide.with(context).load(url).into(imageView);
     }
 
     private GlideEngine() {

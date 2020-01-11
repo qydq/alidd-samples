@@ -11,16 +11,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ali.module.lib.tools.ToastUtils;
 import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.AliParallaxActivity;
 import com.sunsty.alidd.view.activity.AnimationGifActivity;
+import com.sunsty.alidd.view.activity.DefaultRefActivity;
 import com.sunsty.alidd.view.activity.ExpandableActivity;
 import com.sunsty.alidd.view.activity.INATabLayoutActivity;
 import com.sunsty.alidd.view.activity.StandardStoryActivity;
-import com.sunsty.alidd.view.activity.DefaultRefActivity;
+import com.sunsty.alidd.view.activity.SwipeRecycleActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -69,7 +71,13 @@ public class MaterialUxFragment extends Fragment implements OnItemClickListener 
                 startActivity(new Intent(getContext(), ExpandableActivity.class));
                 break;
             case 5:
+                startActivity(new Intent(getContext(), SwipeRecycleActivity.class));
+                break;
+            case 6:
                 startActivity(new Intent(getContext(), DefaultRefActivity.class));
+                break;
+            default:
+                ToastUtils.s(getContext(), createDataList().get(position));
                 break;
         }
     }

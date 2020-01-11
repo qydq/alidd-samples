@@ -25,6 +25,16 @@ gif
                （2）android利用alidd情景框架快速加载动画实现的套路;
                （3）android特别的ExpandableListView视觉效果（仿cardView）利用alidd便捷实现;
 
+Git命令：git log --pretty=oneline 文件名
+git log --pretty=oneline frameworks/base/packages/SystemUI/AndroidManifest.xml
+34b7ac981a39193ca78e0d4673ce66515c23988d     [add a new feature to show the battery voltage value and level]     1.Support show the level of
+c1d6879f098775f1d703dfcfe814c4d726be47ad [Create MT6753-6M AP source repository]
+每一行最前面的那一长串数字就是每次提交形成的哈希值，接下来使用git show即可显示具体的某次的改动的修改。
+it show 命令查看具体的修改详情了。如：
+git show <git提交版本号> <文件名>
+git show 34b7ac981a39193ca78e0d4673ce66515c23988d frameworks/base/packages/SystemUI/AndroidManifest.xml
+注释：按N和Ctrl+N进行上下搜索结果切换
+
 # 二：视频类参考：
 
 1.android-gif是播放Gif图片。
@@ -107,6 +117,10 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 (23).INATablayout，新增一些属性（右可见，右右可见， 左边可见，中间不可见，字体大小），修复material错误命名，back事件（暂留），考虑是否需要增加an_match_match.VBG----HBG.
 (24).新增几个圆角，enable，并且再统一一下drawable中selector，修改并且完善AboutPage，随后发布1.0.19(1.0系列最后一个版本）
 (25).临时发现一个bug，设置夜间模式的主题，application中写错误了Settheme()，改为setDayniththem(),并且夜间模式，日间模式颜色需要调控(并且新增一个IntentUtils曾对跳转)
+(26).增加两个通用的布局文件， （参考samples中，item_parent，item_child布局，并且定一个标准(周末完成）
+(27).pictureseletor被迫更新版本号控制，（因为最低版本api=17  或者19 ,但是很多还是17的版本 ，， 到底要不要兼容，发布1.0.19 还是发布 1.1.0版本来被迫更新（ 资源文件是否进一步优化） 这些内容都需要完成。
+(28).DataServer中 ，copyClipboad复制需要返回对应的结果状态.
+(29).从1.0.19开始考虑是否提供aar的形式出来，（否定， 如果当有一天下载不了的时候再提供相应的版本出来，但是应该做好记录，对应低版本关系)
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
 
