@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ColorWhite"
-    android:orientation="vertical"
-    tools:context=".view.activity.picture.MainActivity">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/ColorGray">
+        android:background="@color/ColorTransparent">
 
         <ImageView
             android:id="@+id/left_back"
@@ -54,11 +51,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
+        android:background="@color/ColorWhite"
         android:overScrollMode="never" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/ColorWhite"
         android:scrollbars="none">
 
         <LinearLayout

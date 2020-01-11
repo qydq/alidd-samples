@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/an_dimen_padding_left"
+        android:text="1. 侧滑删除和侧滑菜单只能二选一，所以有侧滑删除就不能有侧滑菜单，关闭侧滑删除时可以滑出侧滑菜单。\n2. 这里的HeadView可以删除，如果不想删除，请看自定义拖拽参数"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_compat"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/an_dimen_native_list"
+        android:layout_gravity="center_horizontal"
+        android:text="侧滑删除"
+        app:switchPadding="@dimen/an_dimen_padding_left"/>
+
+</LinearLayout>

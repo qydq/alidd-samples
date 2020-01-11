@@ -53,11 +53,11 @@
         <!--是否改变图片列表界面状态栏字体颜色为黑色-->
         <item name="picture.statusFontColor">true</item>
         <!--返回键图标-->
-        <item name="picture.leftBack.icon">@drawable/ic_picture_back</item>
+        <item name="picture.leftBack.icon">@drawable/base_drawable_backarrow_click</item>
         <!--标题下拉箭头-->
-        <item name="picture.arrow_down.icon">@drawable/ic_picture_arrow_down</item>
+        <item name="picture.arrow_down.icon">@drawable/ic_orange_arrow_down</item>
         <!--标题上拉箭头-->
-        <item name="picture.arrow_up.icon">@drawable/ic_picture_arrow_up</item>
+        <item name="picture.arrow_up.icon">@drawable/ic_orange_arrow_up</item>
         <!--标题文字颜色-->
         <item name="picture.title.textColor">@color/ColorBlack</item>
         <!--标题栏右边文字-->
@@ -86,7 +86,7 @@
         <!--预览界面底部背景色-->
         <item name="picture.ac_preview.bottom.bg">@color/picture_color_fa</item>
         <!--预览界面返回箭头-->
-        <item name="picture.preview.leftBack.icon">@drawable/ic_picture_arrow_up</item>
+        <item name="picture.preview.leftBack.icon">@drawable/base_drawable_backarrow_click</item>
         <!--裁剪页面标题背景色-->
         <item name="picture.crop.toolbar.bg">@color/ColorWhite</item>
         <!--裁剪页面状态栏颜色-->
@@ -109,9 +109,9 @@
         <!--返回键图标-->
         <item name="picture.leftBack.icon">@drawable/ic_picture_back</item>
         <!--标题下拉箭头-->
-        <item name="picture.arrow_down.icon">@drawable/ic_picture_arrow_down</item>
+        <item name="picture.arrow_down.icon">@drawable/ic_orange_arrow_down</item>
         <!--标题上拉箭头-->
-        <item name="picture.arrow_up.icon">@drawable/ic_picture_arrow_up</item>
+        <item name="picture.arrow_up.icon">@drawable/ic_orange_arrow_up</item>
         <!--标题文字颜色-->
         <item name="picture.title.textColor">@color/ColorWhite</item>
         <!--标题栏右边文字-->
@@ -161,11 +161,11 @@
         <!--是否改变图片列表界面状态栏字体颜色为黑色-->
         <item name="picture.statusFontColor">true</item>
         <!--返回键图标-->
-        <item name="picture.leftBack.icon">@drawable/ic_picture_arrow_up</item>
+        <item name="picture.leftBack.icon">@drawable/ic_back_arrow</item>
         <!--标题下拉箭头-->
-        <item name="picture.arrow_down.icon">@drawable/ic_picture_arrow_down</item>
+        <item name="picture.arrow_down.icon">@drawable/ic_orange_arrow_down</item>
         <!--标题上拉箭头-->
-        <item name="picture.arrow_up.icon">@drawable/ic_picture_arrow_up</item>
+        <item name="picture.arrow_up.icon">@drawable/ic_orange_arrow_up</item>
         <!--标题文字颜色-->
         <item name="picture.title.textColor">#53575e</item>
         <!--标题栏右边文字-->
@@ -194,7 +194,7 @@
         <!--预览界面底部背景色-->
         <item name="picture.ac_preview.bottom.bg">@color/picture_color_fa</item>
         <!--预览界面返回箭头-->
-        <item name="picture.preview.leftBack.icon">@drawable/ic_picture_arrow_up</item>
+        <item name="picture.preview.leftBack.icon">@drawable/ic_back_arrow</item>
         <!--裁剪页面标题背景色-->
         <item name="picture.crop.toolbar.bg">@color/ColorWhite</item>
         <!--裁剪页面状态栏颜色-->
