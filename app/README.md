@@ -6,6 +6,18 @@ implementation 'com.sunst.alidd:alidd:1.0.7'
 //胜 ： just import like this
 import com.ali.take.GlideImageLoader;
 
+下一个版本：
+
+implementation 'com.sunst.alidin:alidin:1.0.7'
+
+
+
+implementation 'com.sunsty.bear:bear:1.0.7'
+
+implementation 'com.sunsti.bearli:bearli:1.0.7'
+
+艾哩帝
+
 
 ## Debug版本apk大小统计对比
 1.2019年12月31号：  apk大小：7.5M ===  DownloadSize :6.4  （仅仅包含alidd-samples INATabLayout为例，推广引入alidd首发-使用案例）   === 当前项目大小 180M
@@ -107,17 +119,32 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 （13）。ExpandalbleLayout  ==== ok
 （14）。activity跳转的工具
 (15)。文件获取 第一帧图片需要try =catch  == ok
-(16).统一修改系统的弹窗.,,修改同意的Dialog弹窗样式，，，，，，，
+(16).统一修改系统的弹窗.,,修改同意的Dialog弹窗样式，，，，，，，  ===ok
 (17)，视频模块的整合(很多内容，耗时比较久)
 *(18总结性的链接地址总结)https://www.jianshu.com/p/4f82b058c8ec
 (19).alidd情景系列，  完成国际版的翻译工作，进一步压缩集成体积(备注：尽快完成2-3天）.
-（20）网络请求下载工具,完善alidd网络请求下载封装 一天之内搞定，并且准备发布alidd1.0.16版本）
+（20）网络请求下载工具,完善alidd网络请求下载封装 一天之内搞定，并且准备发布alidd1.0.16版本）   ==ok
 (21).检视ali所有的返回键控制情况，统一并处理为一直的效果(1天之内完成).
-(22).网络模块需要紧急修复CLEARTEXT communication to download.fir.im not permitted by network security policy，9.0系统出现的网络安全访问问题
-(23).INATablayout，新增一些属性（右可见，右右可见， 左边可见，中间不可见，字体大小），修复material错误命名，back事件（暂留），考虑是否需要增加an_match_match.VBG----HBG.
+(22).网络模块需要紧急修复CLEARTEXT communication to download.fir.im not permitted by network security policy，9.0系统出现的网络安全访问问题  ==ok
+(23).INATablayout，新增一些属性（右可见，右右可见， 左边可见，中间不可见，字体大小），修复material错误命名，back事件（暂留），考虑是否需要增加an_match_match.VBG----HBG. ==ok
 (24).新增几个圆角，enable，并且再统一一下drawable中selector，修改并且完善AboutPage，随后发布1.0.19(1.0系列最后一个版本）
-(25).临时发现一个bug，设置夜间模式的主题，application中写错误了Settheme()，改为setDayniththem(),并且夜间模式，日间模式颜色需要调控(并且新增一个IntentUtils曾对跳转)
-(26).增加两个通用的布局文件， （参考samples中，item_parent，item_child布局，并且定一个标准(周末完成）
+     目前新增了一个，但是未完成，细想drawable系列的选择有严重冲突的可能性，所以这里发布1.0.19版本以后，需要重构，下面列举（
+        这里改的地方比较多，，，，
+
+        a:对于选择器, 有一种是可以点击的改变点击效果， 有一种是不可以点击的时候的默认背景，那么这种在命名方面，(选择器，则移除drawable名名，)如
+
+        in_selector.xml
+        in_selector_clear.xml   =========  对应 ：base_drawable_clear;;;base_drawable_clear_click;;;enable
+        in_selector_ll.xml      =========  对应 ： an_color_ll_white;;;an_color_ll_select;;;an_color_ll_noselect;;;
+
+
+        b:所有的图片，也就是png,jpg，都命名为 ,,base_drawable_xxx.png;; ic_drawable_xxx.webp;;ic_picture_xxx.png
+
+
+
+     ）
+(25).临时发现一个bug，设置夜间模式的主题，application中写错误了Settheme()，改为setDayniththem(),并且夜间模式，日间模式颜色需要调控(并且新增一个IntentUtils曾对跳转) ==ok
+(26).增加两个通用的布局文件， （参考samples中，item_parent，item_child布局，并且定一个标准(周末完成） ==ok
 (27).pictureseletor被迫更新版本号控制，（因为最低版本api=17  或者19 ,但是很多还是17的版本 ，， 到底要不要兼容，发布1.0.19 还是发布 1.1.0版本来被迫更新（ 资源文件是否进一步优化） 这些内容都需要完成。
 (28).DataServer中 ，copyClipboad复制需要返回对应的结果状态.
 (29).从1.0.19开始考虑是否提供aar的形式出来，（否定， 如果当有一天下载不了的时候再提供相应的版本出来，但是应该做好记录，对应低版本关系)

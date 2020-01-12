@@ -16,6 +16,53 @@
             android:layout_marginTop="@dimen/AppBarPatchMarginTop"
             android:text="----------------分割线-----------" />
 
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:text="标准总测试" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:enabled="false"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:text="标准总测试--不可点击" />
+
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:enabled="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:text="标准总测试--可点击" />
+
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:focusable="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:text="标准总测试--ffalse" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:focusable="true"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:text="标准总测试--ftrue" />
+
         <Button
             style="@style/an_match_wrap.Font"
             android:layout_marginLeft="@dimen/an_dimen_margin"
