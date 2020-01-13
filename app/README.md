@@ -133,9 +133,15 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 
         a:对于选择器, 有一种是可以点击的改变点击效果， 有一种是不可以点击的时候的默认背景，那么这种在命名方面，(选择器，则移除drawable名名，)如
 
-        in_selector.xml
+        (state_pressed=true : state_enabled=true (默认): state_enabled=false :
+
+        in_selector.xml   ============
+
         in_selector_clear.xml   =========  对应 ：base_drawable_clear;;;base_drawable_clear_click;;;enable
-        in_selector_ll.xml      =========  对应 ： an_color_ll_white;;;an_color_ll_select;;;an_color_ll_noselect;;;
+
+        in_selector_ll.xml      =========  普通颜色，对应 ： an_color_ll_white;;;an_color_ll_select;;;an_color_ll_noselect;;;
+
+        in_selector_ll_shape.xml      =========  资源文件，对应 ： an_color_ll_white;;;an_color_ll_select;;;an_color_ll_noselect;;;
 
 
         b:所有的图片，也就是png,jpg，都命名为 ,,base_drawable_xxx.png;; ic_drawable_xxx.webp;;ic_picture_xxx.png
