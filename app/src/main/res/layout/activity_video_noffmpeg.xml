@@ -8,7 +8,7 @@
         android:id="@+id/btnScreenShot"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-        android:background="@drawable/in_drawable_selector_shadow"
+        android:background="@drawable/in_selector_shadow"
         android:stateListAnimator="@null"
         android:text="截取屏幕" />
 
@@ -44,7 +44,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/in_drawable_selector_md_shape"
+        android:background="@drawable/in_selector_md_shape"
         android:text="手机屏幕录制视频" />
 
     <Button
@@ -54,7 +54,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/in_drawable_selector_md_shape_oppose"
+        android:background="@drawable/in_selector_md_shape_oppose"
         android:text="摄像头录制视频" />
 
     <Button

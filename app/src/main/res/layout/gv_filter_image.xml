@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="center"
-                android:src="@drawable/in_drawable_selector_clear" />
+                android:src="@drawable/in_selector_clear" />
         </LinearLayout>
 
         <TextView

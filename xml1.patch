@@ -1,330 +1,0 @@
-Index: app/src/main/res/drawable/selector.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/drawable/selector.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/drawable/selector.xml	(date 1578889762311)
-@@ -1,21 +1,43 @@
- <?xml version="1.0" encoding="utf-8"?> <selector xmlns:android="http://schemas.android.com/apk/res/android">-    <item android:drawable="@color/ColorWhite" />+    <!--根据enable测试结果-->+    <item android:drawable="@color/ColorRed" android:state_pressed="true" /><!--ok保留===按下状态，如一个按钮触摸或者点击。-->+++  -    <item android:drawable="@drawable/tab_selected" android:state_pressed="true" /><!--按下状态，如一个按钮触摸或者点击。-->+     <item android:drawable="@color/btn_green_pressed" android:state_focused="true" /><!--取得焦点状态，比如用户选择了一个文本框。-->     <item android:drawable="@color/ColorBlueviolet" android:state_hovered="true" /><!--光标悬停状态，通常与focused state相同，它是4.0的新特性-->     <item android:drawable="@color/ColorBlack" android:state_selected="true" /><!--选中状态-->-    <item android:drawable="@drawable/base_drawable_check_on" android:state_enabled="true" /><!--能够接受触摸或者点击事件XXX-->++++<!--    <item android:drawable="@drawable/base_drawable_pressed" android:state_enabled="true" />&lt;!&ndash;ok保留===能够接受触摸或者点击事件XXX&ndash;&gt;-->+++     <item android:drawable="@drawable/ic_picture_sel" android:state_checked="true" /><!--被checked了，如：一个RadioButton可以被check了。-->  -    <item android:drawable="@drawable/in_drawable_ll_pressed" android:state_pressed="false" /><!--按下状态，如一个按钮触摸或者点击。-->-    <item android:drawable="@color/ColorGreenyellow" android:state_focused="false" /><!--取得焦点状态，比如用户选择了一个文本框。-->-    <item android:drawable="@color/an_color_holo_light_blue" android:state_hovered="false" /><!--光标悬停状态，通常与focused state相同，它是4.0的新特性-->-    <item android:drawable="@color/an_color_holo_deep_black" android:state_selected="false" /><!--选中状态-->-    <item android:drawable="@drawable/base_drawable_check_off" android:state_enabled="false" /><!--能够接受触摸或者点击事件XXX-->-    <item android:drawable="@drawable/ic_picture_sel_qq" android:state_checked="false" /><!--被checked了，如：一个RadioButton可以被check了。-->+    <!--分割线-->++++ +    <item android:drawable="@color/picture_color_grey" android:state_enabled="false" /><!--ok保留===顺序5：能够接受触摸或者点击事件XXX-->++++    <item android:drawable="@drawable/in_drawable_ll_pressed" android:state_pressed="false" /><!--ok保留===顺序1： 按下状态，如一个按钮触摸或者点击。-->++++    <item android:drawable="@color/ColorGreenyellow" android:state_focused="false" /><!--顺序2：取得焦点状态，比如用户选择了一个文本框。-->+    <item android:drawable="@color/an_color_holo_light_blue" android:state_hovered="false" /><!--顺序3：光标悬停状态，通常与focused state相同，它是4.0的新特性-->+    <item android:drawable="@color/an_color_holo_deep_black" android:state_selected="false" /><!--顺序4：选中状态-->++    <item android:drawable="@drawable/ic_picture_sel_qq" android:state_checked="false" /><!--顺序6：被checked了，如：一个RadioButton可以被check了。--> </selector>
-\ No newline at end of file
-Index: app/src/main/res/layout/activity_video_noffmpeg.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_video_noffmpeg.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/layout/activity_video_noffmpeg.xml	(date 1578896345242)
-@@ -8,7 +8,7 @@
-         android:id="@+id/btnScreenShot"
-         style="@style/an_match_wrap.Font"
-         android:layout_marginTop="@dimen/AppBarPatchMarginTop"
--        android:background="@drawable/in_drawable_selector_shadow"
-+        android:background="@drawable/in_selector_shadow"
-         android:stateListAnimator="@null"
-         android:text="截取屏幕" />
- 
-@@ -44,7 +44,7 @@
-         android:layout_marginLeft="@dimen/an_dimen_margin"
-         android:layout_marginTop="10dp"
-         android:layout_marginRight="@dimen/an_dimen_margin"
--        android:background="@drawable/in_drawable_selector_md_shape"
-+        android:background="@drawable/in_selector_md_shape"
-         android:text="手机屏幕录制视频" />
- 
-     <Button
-@@ -54,7 +54,7 @@
-         android:layout_marginLeft="@dimen/an_dimen_margin"
-         android:layout_marginTop="10dp"
-         android:layout_marginRight="@dimen/an_dimen_margin"
--        android:background="@drawable/in_drawable_selector_md_shape_oppose"
-+        android:background="@drawable/in_selector_md_shape_oppose"
-         android:text="摄像头录制视频" />
- 
-     <Button
-Index: app/src/main/res/layout/activity_parallax.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_parallax.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/layout/activity_parallax.xml	(date 1578896302007)
-@@ -23,45 +23,53 @@
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
-             android:background="@drawable/selector"
--            android:text="标准总测试" />
-+            android:stateListAnimator="@null"
-+            android:text="ok:标准总测试"
-+            android:textAllCaps="false" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
--            android:enabled="false"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
-             android:background="@drawable/selector"
--            android:text="标准总测试--不可点击" />
-+            android:enabled="false"
-+            android:text="ok:标准总测试--不可点击"
-+            android:textAllCaps="false" />
- 
- 
-         <Button
-             style="@style/an_match_wrap.Font"
--            android:enabled="true"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
-             android:background="@drawable/selector"
--            android:text="标准总测试--可点击" />
-+            android:enabled="true"
-+            android:text="ok:标准总测试--可点击"
-+            android:textAllCaps="false" />
- 
- 
-         <Button
-             style="@style/an_match_wrap.Font"
--            android:focusable="true"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
-             android:background="@drawable/selector"
--            android:text="标准总测试--ffalse" />
-+            android:clickable="false"
-+            android:focusable="false"
-+            android:text="标准总测试--ffalse"
-+            android:textAllCaps="false" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
--            android:focusable="true"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
-             android:background="@drawable/selector"
--            android:text="标准总测试--ftrue" />
-+            android:clickable="true"
-+            android:focusable="true"
-+            android:text="标准总测试--ftrue"
-+            android:textAllCaps="false" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-@@ -92,33 +100,33 @@
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector"
--            android:text="按钮测试1：in_drawable_selector" />
-+            android:background="@drawable/in_selector"
-+            android:text="按钮测试1：in_selector" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector_md"
-+            android:background="@drawable/in_selector_md"
-             android:stateListAnimator="@null"
--            android:text="按钮测试2：in_drawable_selector_md" />
-+            android:text="按钮测试2：in_selector_md" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector_md_shape"
--            android:text="按钮测试3：in_drawable_selector_md_shape" />
-+            android:background="@drawable/in_selector_md_shape"
-+            android:text="按钮测试3：in_selector_md_shape" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector_md_shape_oppose"
--            android:text="按钮测试4：in_drawable_selector_md_shape_oppose" />
-+            android:background="@drawable/in_selector_md_shape_oppose"
-+            android:text="按钮测试4：in_selector_md_shape_oppose" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-@@ -134,23 +142,23 @@
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector_shadow"
--            android:text="按钮测试6：in_drawable_selector_shadow" />
-+            android:background="@drawable/in_selector_shadow"
-+            android:text="按钮测试6：in_selector_shadow" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector_ll"
--            android:text="按钮测试7：in_drawable_selector_ll" />
-+            android:background="@drawable/in_selector_ll"
-+            android:text="按钮测试7：in_selector_ll" />
- 
-         <Button
-             style="@style/an_match_wrap.Font"
-             android:layout_marginLeft="@dimen/an_dimen_margin"
-             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
-             android:layout_marginRight="@dimen/an_dimen_margin"
--            android:background="@drawable/in_drawable_selector_ll_shape"
--            android:text="按钮测试8：in_drawable_selector_ll_shape" />
-+            android:background="@drawable/in_selector_ll_shape"
-+            android:text="按钮测试8：in_selector_ll_shape" />
-     </LinearLayout>
- </com.ali.view.swipelayout.widget.StickyNestedScrollView>
-\ No newline at end of file
-Index: app/src/main/res/layout/gv_filter_image.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/gv_filter_image.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/layout/gv_filter_image.xml	(date 1578896424220)
-@@ -28,7 +28,7 @@
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:scaleType="center"
--                android:src="@drawable/in_drawable_selector_clear" />
-+                android:src="@drawable/in_selector_clear" />
-         </LinearLayout>
- 
-         <TextView
-Index: app/src/main/res/layout/activity_inatablayout.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_inatablayout.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/layout/activity_inatablayout.xml	(date 1578896520250)
-@@ -9,7 +9,7 @@
-         android:layout_height="wrap_content"
-         app:anTxRight="使用方法"
-         app:anTxTitle="INATabLayoutActivity系列情景第一次使用案例复分析城西"
--        app:open_meterialFits="true"
-+        app:open_material="true"
-         app:open_night="true"
-         app:showRLl="true" />
- 
-Index: app/src/main/res/layout/item_recycleview.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/item_recycleview.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/layout/item_recycleview.xml	(date 1578896406918)
-@@ -2,7 +2,7 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"     android:layout_width="match_parent"     android:layout_height="50dp"-    android:background="@drawable/in_drawable_selector_ll"+    android:background="@drawable/in_selector_ll"     android:gravity="center_vertical">      <TextView@@ -23,4 +23,4 @@
-         android:ellipsize="end"         android:maxLines="2"         android:text="an情景系列alidd框架首发内容，晴关注知乎bgwan系列专栏的文章介绍，具体在an情景专栏，有使用问题请在评论或者私信我留言，该专栏介绍alidd的使用，具体不会分析源码设置，源码相关的内容晴异到Android开发专栏中查看" />-</LinearLayout>
-\ No newline at end of file
-+</LinearLayout>Index: videobeauty/src/main/res/layout/view_titlebar.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- videobeauty/src/main/res/layout/view_titlebar.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ videobeauty/src/main/res/layout/view_titlebar.xml	(date 1578896382370)
-@@ -14,7 +14,7 @@
-         android:layout_height="44dp"
-         android:layout_centerVertical="true"
-         android:contentDescription="@null"
--        android:src="@drawable/in_drawable_selector_leftback" />
-+        android:src="@drawable/in_selector_leftback" />
- 
-     <TextView
-         android:id="@+id/tv_title_bar_left"
-Index: videobeauty/src/main/res/layout/activity_music_select.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- videobeauty/src/main/res/layout/activity_music_select.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ videobeauty/src/main/res/layout/activity_music_select.xml	(date 1578896440078)
-@@ -22,7 +22,7 @@
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_centerVertical="true"
--            android:src="@drawable/in_drawable_selector_leftback" />
-+            android:src="@drawable/in_selector_leftback" />
-     </RelativeLayout>
- 
-     <ListView
-Index: xmediac/src/main/res/layout/activity_mediac_decode.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- xmediac/src/main/res/layout/activity_mediac_decode.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ xmediac/src/main/res/layout/activity_mediac_decode.xml	(date 1578896474864)
-@@ -7,7 +7,7 @@
-         android:id="@+id/btn_decode"
-         style="@style/an_match_wrap.Font"
-         android:layout_marginTop="@dimen/AppBarPatchMarginTop"
--        android:background="@drawable/in_drawable_selector_shadow"
-+        android:background="@drawable/in_selector_shadow"
-         android:stateListAnimator="@null"
-         android:text="视频解码" />
- 
-@@ -15,7 +15,7 @@
-         android:id="@+id/btn_render"
-         style="@style/an_match_wrap.Font"
-         android:layout_marginTop="10dp"
--        android:background="@drawable/in_drawable_selector_md_shape"
-+        android:background="@drawable/in_selector_md_shape"
-         android:stateListAnimator="@null"
-         android:text="视频播放" />
- 
-@@ -23,7 +23,7 @@
-         android:id="@+id/btn_audio_decode"
-         style="@style/an_match_wrap.Font"
-         android:layout_marginTop="10dp"
--        android:background="@drawable/in_drawable_selector_shadow"
-+        android:background="@drawable/in_selector_shadow"
-         android:stateListAnimator="@null"
-         android:text="音频解码" />
- 
-@@ -31,7 +31,7 @@
-         android:id="@+id/btn_audio_player"
-         style="@style/an_match_wrap.Font"
-         android:layout_marginTop="10dp"
--        android:background="@drawable/in_drawable_selector_md_shape"
-+        android:background="@drawable/in_selector_md_shape"
-         android:stateListAnimator="@null"
-         android:text="音频播放" />
- 
-@@ -55,7 +55,7 @@
-         android:id="@+id/btn_addWatermark"
-         style="@style/an_match_wrap.Font"
-         android:layout_marginTop="10dp"
--        android:background="@drawable/in_drawable_selector_shadow"
-+        android:background="@drawable/in_selector_shadow"
-         android:stateListAnimator="@null"
-         android:text="视频添加水印" />
- 
-Index: app/src/main/res/layout/item_swipe_recycleview.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/item_swipe_recycleview.xml	(revision 673671d818a9122b459605184158c262cef291e9)
-+++ app/src/main/res/layout/item_swipe_recycleview.xml	(date 1578896399521)
-@@ -2,7 +2,7 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
--    android:background="@drawable/in_drawable_selector_ll"
-+    android:background="@drawable/in_selector_ll"
-     android:gravity="center_vertical"
-     android:paddingTop="@dimen/an_dimen_margin_ssmall"
-     android:paddingBottom="@dimen/an_dimen_margin_ssmall">

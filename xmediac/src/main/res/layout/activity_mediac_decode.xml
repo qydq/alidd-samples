@@ -7,7 +7,7 @@
         android:id="@+id/btn_decode"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-        android:background="@drawable/in_drawable_selector_shadow"
+        android:background="@drawable/in_selector_shadow"
         android:stateListAnimator="@null"
         android:text="视频解码" />
 
@@ -15,7 +15,7 @@
         android:id="@+id/btn_render"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="10dp"
-        android:background="@drawable/in_drawable_selector_md_shape"
+        android:background="@drawable/in_selector_md_shape"
         android:stateListAnimator="@null"
         android:text="视频播放" />
 
@@ -23,7 +23,7 @@
         android:id="@+id/btn_audio_decode"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="10dp"
-        android:background="@drawable/in_drawable_selector_shadow"
+        android:background="@drawable/in_selector_shadow"
         android:stateListAnimator="@null"
         android:text="音频解码" />
 
@@ -31,7 +31,7 @@
         android:id="@+id/btn_audio_player"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="10dp"
-        android:background="@drawable/in_drawable_selector_md_shape"
+        android:background="@drawable/in_selector_md_shape"
         android:stateListAnimator="@null"
         android:text="音频播放" />
 
@@ -55,7 +55,7 @@
         android:id="@+id/btn_addWatermark"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="10dp"
-        android:background="@drawable/in_drawable_selector_shadow"
+        android:background="@drawable/in_selector_shadow"
         android:stateListAnimator="@null"
         android:text="视频添加水印" />
 

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/in_drawable_selector_leftback" />
+            android:src="@drawable/in_selector_leftback" />
     </RelativeLayout>
 
     <ListView

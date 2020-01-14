@@ -14,7 +14,7 @@
         android:layout_height="44dp"
         android:layout_centerVertical="true"
         android:contentDescription="@null"
-        android:src="@drawable/in_drawable_selector_leftback" />
+        android:src="@drawable/in_selector_leftback" />
 
     <TextView
         android:id="@+id/tv_title_bar_left"
