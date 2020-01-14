@@ -3,8 +3,6 @@ package com.sunsty.alidd;
 import android.content.Context;
 import android.util.Log;
 
-import androidx.multidex.MultiDex;
-
 import com.ali.AnApplication;
 import com.example.cj.videoeditor.Constants;
 

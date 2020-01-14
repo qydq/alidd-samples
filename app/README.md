@@ -8,13 +8,16 @@ import com.ali.take.GlideImageLoader;
 
 下一个版本：
 
-implementation 'com.sunst.alidin:alidin:1.0.7'
+justli 1.1.0
+implementation 'com.sunsta.justli:justli:1.1.0'  ( 胜　)
+
+ImageCompleteCallback
+
+implementation 'com.sunsty.bear:bear:1.0.7'
 
 
 
 implementation 'com.sunsty.bear:bear:1.0.7'
-
-implementation 'com.sunsti.bearli:bearli:1.0.7'
 
 艾哩帝
 

@@ -20,8 +20,8 @@ import com.ali.presenter.callback.JustNetApi;
 import com.ali.presenter.net.JustAsyncManager;
 import com.ali.presenter.net.JustNetClient;
 import com.ali.take.Convert;
+import com.ali.take.Intents;
 import com.ali.take.LaLog;
-import com.ali.take.photo.IntentUtils;
 import com.ali.view.ParallaxActivity;
 import com.sunsty.alidd.R;
 
@@ -233,7 +233,7 @@ public class HttpsRequestActivity extends ParallaxActivity {
      */
     public static boolean isInstallWx(Context context) {
 //        return WXAPIFactory.createWXAPI(context, "wxb613184aa8f5718a").isWXAppInstalled();
-        return IntentUtils.isAppInstalled(WX_PACKAGE);
+        return Intents.isAppInstalled(WX_PACKAGE);
     }
 
     /**
@@ -262,8 +262,8 @@ public class HttpsRequestActivity extends ParallaxActivity {
 //    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //    intent.setComponent(Objects.requireNonNull(lan).getComponent());
 //    startActivity(intent);
-        if (IntentUtils.isAppInstalled(WX_PACKAGE)) {
-            IntentUtils.launchApp(WX_PACKAGE);
+        if (Intents.isAppInstalled(WX_PACKAGE)) {
+            Intents.launchApp(WX_PACKAGE);
             return true;
         } else {
             return true;
@@ -276,8 +276,8 @@ public class HttpsRequestActivity extends ParallaxActivity {
      * @return 跳转成功返回 true
      */
     public boolean appToAli() {
-        if (IntentUtils.isAppInstalled(ZFB_PACKAGE)) {
-            IntentUtils.launchApp(ZFB_PACKAGE);
+        if (Intents.isAppInstalled(ZFB_PACKAGE)) {
+            Intents.launchApp(ZFB_PACKAGE);
             return true;
         } else {
             return true;

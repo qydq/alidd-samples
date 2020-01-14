@@ -203,9 +203,9 @@ public class INATabLayoutActivity extends ParallaxActivity {
     }
 
     private View getview(String title, int icon) {
-        View view = LayoutInflater.from(this).inflate(R.layout.view_item_normal_listview, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.item_item, null);
         TextView tv = view.findViewById(R.id.tvTitile);
-        ImageView iv = view.findViewById(R.id.iv_choose);
+        ImageView iv = view.findViewById(R.id.ivRight);
 
 //        LAImageLoader.getInstance().loadImage(this, icon, iv);
         tv.setText(title);
