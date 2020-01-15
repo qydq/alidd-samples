@@ -29,6 +29,27 @@
         android:text="检测是否安装微信"
         android:textColor="#FFFFFF" />
 
+
+    <TextView
+        android:id="@+id/httpValueRequest"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/em_button_register_bg"
+        android:text="请求下载参数"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/httpUpload"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/em_button_register_bg"
+        android:text="球球上传文件"
+        android:textColor="#FFFFFF" />
+
     <ImageView
         android:id="@+id/natureIv"
         android:layout_width="wrap_content"

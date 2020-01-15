@@ -25,6 +25,7 @@
     </string-array>
     <string-array name="main_an_scene">
         <item>网络请求接口,获取公共数据anbase继承网络能力</item>
+        <item>网络请求接口,带请求参数（含上传文件能力）</item>
         <item>网络请求下载带进度条文件(下载知乎日报apk,retrofit)</item>
         <item>拍照TakePhoto系列</item>
         <item>拍照PictureSelector（仿微信相册选择拍照）</item>
@@ -72,7 +73,7 @@
         <item>视频情景2：转码压缩，水印，视频解码，音频解码，播放（C底层FFmpeg）</item>
         <item>视频情景3：压缩，摄像头录制视频（可选配置）</item>
         <item>启动一个像素的activity(test模块=</item>
-        <item>MediacDecodeActivity视频解码.</item>
+        <item>人脸识别模块.</item>
         <item>小团子</item>
     </string-array>
 
