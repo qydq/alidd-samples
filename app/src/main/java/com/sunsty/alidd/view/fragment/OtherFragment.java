@@ -79,6 +79,9 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
             case 5:
                 startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
+            case 6:
+                startActivity(new Intent(getContext(), TranslucentActivity.class));
+                break;
         }
     }
 }

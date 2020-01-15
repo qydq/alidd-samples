@@ -11,6 +11,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        manifestPlaceholders = [
+                "OCR_API_KEY" : "26f1f6a0d4d7cb0dd0e9b28f4cedef83"    //OCR密钥
+        ]
+
         ndk {
             moduleName 'myffmpeg'
             abiFilters "armeabi-v7a", "x86" //'arm64-v8a'//去掉后为：//armeabi//
@@ -25,9 +30,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (outputFileName.endsWith('.apk')) {
+                outputFileName = "alidd-samples-${defaultConfig.versionName}.apk"
+            }
+        }
     }
 }
 
@@ -45,4 +64,13 @@ dependencies {
     implementation project(':xmediac')
     implementation project(':videobeauty')
 //    implementation 'com.blankj:utilcodex:1.26.0'
+
+    /**
+     * standard:  人脸识别
+     * */
+    implementation 'com.rmtheis:tess-two:9.1.0'
+
+    /*ocr 识别*/
+    implementation(name: 'library-multi-image-selector-1.0.5-SNAPSHOT', ext: 'aar')
+    implementation(name: 'library-ocr-1.0.5-SNAPSHOT', ext: 'aar')
 }

@@ -15,11 +15,12 @@ ImageCompleteCallback
 
 implementation 'com.sunsty.bear:bear:1.0.7'
 
-
-
 implementation 'com.sunsty.bear:bear:1.0.7'
 
-艾哩帝
+发现一个好用的库：demo大师 可以关注一下
+http://www.demodashi.com/mydemo/buy.html
+
+所有的禁止使用databind
 
 
 ## Debug版本apk大小统计对比
@@ -87,6 +88,18 @@ Android中Retrofit 2.0直接使用JSON进行数据交互:https://www.jb51.net/ar
 https://bbs.csdn.net/topics/392380893?page=1
 Android Retrofit详解:https://www.jianshu.com/p/865e9ae667a0
 Retrofit打印请求地址以及返回的数据内容:https://blog.csdn.net/weixin_43115440/article/details/83306515
+
+# 四：人脸识别demo
+
+1.(Android离线身份证等图片文字识别)==https://www.jianshu.com/p/21d5442a8358?utm_campaign
+https://github.com/itlwy/TextOcrExample
+
+2.Android Ocr文字识别 身份证识别 实时扫描(对于python人脸识别）
+https://blog.csdn.net/weixin_41632509/article/details/79799971
+
+理论知识介绍：
+https://blog.csdn.net/findhappy117/article/details/79367413
+
 
 
 ##20191218新增技术
@@ -157,6 +170,11 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 (27).pictureseletor被迫更新版本号控制，（因为最低版本api=17  或者19 ,但是很多还是17的版本 ，， 到底要不要兼容，发布1.0.19 还是发布 1.1.0版本来被迫更新（ 资源文件是否进一步优化） 这些内容都需要完成。
 (28).DataServer中 ，copyClipboad复制需要返回对应的结果状态.
 (29).从1.0.19开始考虑是否提供aar的形式出来，（否定， 如果当有一天下载不了的时候再提供相应的版本出来，但是应该做好记录，对应低版本关系)
+(30).集成该框架有很多错误的地方需要修改， 需要重新优化mainfest.xml (并且需要更新一份justli使用文档， 注意事项)如：
+
+不能添加：useLibrary 'org.apache.http.legacy'
+
+
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
 

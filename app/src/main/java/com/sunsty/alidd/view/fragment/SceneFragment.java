@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ali.module.lib.tools.ToastUtils;
 import com.ali.view.callback.OnItemClickListener;
 import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
@@ -55,16 +56,16 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), HttpsRequestActivity.class));
                 break;
             case 1:
-                startActivity(new Intent(getContext(), HttpsDownloadActivity.class));
+                ToastUtils.s(getContext(), "暂未开放");
                 break;
             case 2:
-                startActivity(new Intent(getContext(), BeforeSelectAlbumActivity.class));
+                startActivity(new Intent(getContext(), HttpsDownloadActivity.class));
                 break;
             case 3:
-                startActivity(new Intent(getContext(), SimpleActivity.class));
+                startActivity(new Intent(getContext(), BeforeSelectAlbumActivity.class));
                 break;
             case 4:
-//                startActivity(new Intent(getContext(), VideoNoFFmpegActivity.class));
+                startActivity(new Intent(getContext(), SimpleActivity.class));
                 break;
             case 5:
 //                startActivity(new Intent(getContext(), ExpandableActivity.class));
