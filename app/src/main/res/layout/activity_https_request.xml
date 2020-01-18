@@ -50,6 +50,7 @@
         android:text="球球上传文件"
         android:textColor="#FFFFFF" />
 
+
     <ImageView
         android:id="@+id/natureIv"
         android:layout_width="wrap_content"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    style="@style/an_match_match.HBG"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:lineSpacingMultiplier="1.5"
+        android:padding="10dp"
+        android:text="本示例进来的时候就会获取权限。\n技术支持：\nhttps://github.com/qydq/idcardOCR"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:id="@+id/colortx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:lineSpacingMultiplier="1.5"
+        android:padding="10dp"
+        android:text="颜色渐变"
+        android:textIsSelectable="true" />
+
+</LinearLayout>

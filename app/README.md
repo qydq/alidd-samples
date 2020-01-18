@@ -8,15 +8,21 @@ import com.ali.take.GlideImageLoader;
 
 下一个版本：
 
-justli 1.1.0
-implementation 'com.sunsta.justli:justli:1.1.0'  ( 胜　)
+liest 1.1.0 ok
 
-ImageCompleteCallback
+implementation 'com.sunsta.justli:justli:1.1.0'  ( pass　)
 
+implementation 'com.sunsta.liest:liest:1.1.0'  ( 胜　)
+
+implementation 'com.sunsty.bear:bear:1.0.7'   pass
+
+
+alidd
 implementation 'com.sunsty.bear:bear:1.0.7'
 
-implementation 'com.sunsty.bear:bear:1.0.7'
+liest1.1.0
 
+app
 发现一个好用的库：demo大师 可以关注一下
 http://www.demodashi.com/mydemo/buy.html
 
