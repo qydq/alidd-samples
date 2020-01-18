@@ -100,6 +100,12 @@ https://blog.csdn.net/weixin_41632509/article/details/79799971
 理论知识介绍：
 https://blog.csdn.net/findhappy117/article/details/79367413
 
+3.完整可用的二代身份证识别(需要获取key
+https://github.com/XieZhiFa/IdCardOCR
+
+4.二维码扫描的一个工具下载
+https://github.com/banketree/Scan-Android.git
+
 
 
 ##20191218新增技术

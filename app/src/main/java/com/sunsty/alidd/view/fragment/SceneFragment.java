@@ -17,6 +17,7 @@ import com.ali.view.swipelayout.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.BeforeSelectAlbumActivity;
+import com.sunsty.alidd.view.activity.EsayPermissionActivity;
 import com.sunsty.alidd.view.activity.HttpsDownloadActivity;
 import com.sunsty.alidd.view.activity.HttpsRequestActivity;
 import com.sunsty.alidd.view.activity.picture.SimpleActivity;
@@ -68,7 +69,7 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), SimpleActivity.class));
                 break;
             case 5:
-//                startActivity(new Intent(getContext(), ExpandableActivity.class));
+                startActivity(new Intent(getContext(), EsayPermissionActivity.class));
                 break;
         }
     }
