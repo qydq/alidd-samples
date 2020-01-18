@@ -23,6 +23,36 @@ http://www.demodashi.com/mydemo/buy.html
 所有的禁止使用databind
 
 
+#2020年成都地区专属系列架构（未开放）：
+1.依赖关系
+compile 'com.sunsta.livery:livery:1.1.0'
+
+2.包名统一：
+com.ali
+model  =====  mode
+module (save) ====modu==
+
+3.项目结构：
+ali ------
+---uxalic(***资源文件，公共可用-utils,callback，dependence)
+com.ali.very.LivUx,LivBitmap,LivSize,LivUxText,
+com.ali.callback.OnItemClickListener
+
+---livery(***提供对外，AndroidManifest.xml)
+com.ali.AnApplication
+com.ali.view.INASwipeLayout
+com.ali.view.activity.PictureSelector
+---picture(***module支持， =========or ==
+even just empty
+com.ali.module.PictureTask
+com.ali.
+---thpart(***后期可扩展，第三方支持)
+
+---samples
+
+
+
+
 ## Debug版本apk大小统计对比
 1.2019年12月31号：  apk大小：7.5M ===  DownloadSize :6.4  （仅仅包含alidd-samples INATabLayout为例，推广引入alidd首发-使用案例）   === 当前项目大小 180M
 2.2020年01月02号：  apk大小13.4M  ==== DownloadSize : 12.2M  1.包含了视频2个情景系列 和 Gif加载动画，2.引入了几张大的资源gif图， 这是apk Size变大的原因   == 项目大小： 255M
@@ -179,8 +209,8 @@ https://github.com/qqchenjian318/VideoEditor-For-Android
 (30).集成该框架有很多错误的地方需要修改， 需要重新优化mainfest.xml (并且需要更新一份justli使用文档， 注意事项)如：
 
 不能添加：useLibrary 'org.apache.http.legacy'
-
-
+(31).完成文字选择颜色demo代码，（多个选择，后回家过年）,alidd框架考虑去掉AliApplication
+(32).https://www.cnblogs.com/hh8888-log/p/10300972.html(下载文件含断点续传)
 
 ## 临时新增视频(功能点非常多和杂乱)编解码模块（非alidd-框架系列==属于其它模块）整合.
 

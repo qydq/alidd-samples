@@ -27,7 +27,7 @@ public class SimpleActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent;
         switch (v.getId()) {
             case R.id.btn_activity:
-                intent = new Intent(SimpleActivity.this, MainActivity.class);
+                intent = new Intent(SimpleActivity.this, MainPictureActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_fragment:

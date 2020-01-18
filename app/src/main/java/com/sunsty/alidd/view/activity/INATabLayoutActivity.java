@@ -1,6 +1,5 @@
 package com.sunsty.alidd.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +13,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.ali.take.Intents;
 import com.ali.take.LAUi;
 import com.ali.take.LaLog;
 import com.ali.view.ParallaxActivity;
-import com.ali.view.activity.AliWebViewActivity;
 import com.ali.view.dd.INATabLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;
@@ -44,19 +43,12 @@ public class INATabLayoutActivity extends ParallaxActivity {
         initINATabLayout();
         initNatureTabLayout();
 
-        getInaBarlayout().setOnRightLlClickListener(v -> gotoIntorduce());
+        getInaBarlayout().setOnRightLlClickListener(v -> Intents.startAliWebViewActivity(this, "Github官方alidd框架", "https://zhuanlan.zhihu.com/p/100098139"));
         getInaBarlayout().setRightIvVisibility(View.INVISIBLE);
     }
 
-    private void gotoIntorduce() {
-        Intent intent = new Intent(this, AliWebViewActivity.class);
-        intent.putExtra("url", "https://zhuanlan.zhihu.com/p/100098139");
-        intent.putExtra("title", "Github官方alidd框架");
-        startActivity(intent);
-    }
-
     /**
-     * ：alidd系列INATabLayout
+     * standard ：an情景系列livery框架INATabLayout使用.
      * Author ：sunst
      * link : https://zhihu.com/people/qydq
      */
@@ -122,7 +114,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
     }
 
     /**
-     * Google原生TabLayout设置
+     * standard ：Google原生TabLayout设置
      * Author ：sunst
      * link : https://zhihu.com/people/qydq
      */
@@ -215,7 +207,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
     }
 
     /**
-     * 原生最简单的适配器
+     * standard ：原生最简单的适配器
      * Author ：sunst
      * link : https://zhihu.com/people/qydq
      */

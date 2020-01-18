@@ -42,9 +42,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+public class MainPictureActivity extends AppCompatActivity implements View.OnClickListener,
         RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
-    private final static String TAG = MainActivity.class.getSimpleName();
+    private final static String TAG = MainPictureActivity.class.getSimpleName();
     private List<LocalMedia> selectList = new ArrayList<>();
     private RecyclerView recyclerView;
     private GridImageAdapter adapter;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+        setContentView(R.layout.activity_main_pic);
         themeId = R.style.picture_default_style;
         getDefaultStyle();
         minus = findViewById(R.id.minus);
@@ -103,9 +103,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cb_crop.setOnCheckedChangeListener(this);
         cb_crop_circular.setOnCheckedChangeListener(this);
         cb_compress.setOnCheckedChangeListener(this);
-        FullyGridLayoutManager manager = new FullyGridLayoutManager(MainActivity.this, 4, GridLayoutManager.VERTICAL, false);
+        FullyGridLayoutManager manager = new FullyGridLayoutManager(MainPictureActivity.this, 4, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
-        adapter = new GridImageAdapter(MainActivity.this, onAddPicClickListener);
+        adapter = new GridImageAdapter(MainPictureActivity.this, onAddPicClickListener);
         adapter.setList(selectList);
         adapter.setSelectMax(maxSelectNum);
         recyclerView.setAdapter(adapter);
@@ -117,18 +117,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 switch (mediaType) {
                     case PictureConfig.TYPE_VIDEO:
                         // 预览视频
-                        PictureSelector.create(MainActivity.this).externalPictureVideo(media.getPath());
+                        PictureSelector.create(MainPictureActivity.this).externalPictureVideo(media.getPath());
                         break;
                     case PictureConfig.TYPE_AUDIO:
                         // 预览音频
-                        PictureSelector.create(MainActivity.this).externalPictureAudio(media.getPath());
+                        PictureSelector.create(MainPictureActivity.this).externalPictureAudio(media.getPath());
                         break;
                     default:
                         // 预览图片 可自定长按保存路径
 //                        PictureWindowAnimationStyle animationStyle = new PictureWindowAnimationStyle();
 //                        animationStyle.activityPreviewEnterAnimation = R.anim.picture_anim_up_in;
 //                        animationStyle.activityPreviewExitAnimation = R.anim.picture_anim_down_out;
-                        PictureSelector.create(MainActivity.this)
+                        PictureSelector.create(MainPictureActivity.this)
                                 //.themeStyle(themeId) // xml设置主题
                                 .setPictureStyle(mPictureParameterStyle)// 动态自定义相册主题
                                 //.setPictureWindowAnimationStyle(animationStyle)// 自定义页面启动动画
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 清空图片缓存，包括裁剪、压缩后的图片 注意:必须要在上传完成后调用 必须要获取权限
         if (PermissionChecker.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            PictureFileUtils.deleteCacheDirFile(MainActivity.this, PictureMimeType.ofImage());
+            PictureFileUtils.deleteCacheDirFile(MainPictureActivity.this, PictureMimeType.ofImage());
         } else {
             PermissionChecker.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PictureConfig.APPLY_STORAGE_PERMISSIONS_CODE);
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             boolean mode = cb_mode.isChecked();
             if (mode) {
                 // 进入相册 以下是例子：不需要的api可以不写
-                PictureSelector.create(MainActivity.this)
+                PictureSelector.create(MainPictureActivity.this)
                         .openGallery(chooseMode)// 全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
                         .loadImageEngine(GlideEngine.createGlideEngine())// 外部传入图片加载引擎，必传项
                         .theme(themeId)// 主题样式设置 具体参考 values/styles   用法：R.style.picture.white.style v2.3.3后 建议使用setPictureStyle()动态方式
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
             } else {
                 // 单独拍照
-                PictureSelector.create(MainActivity.this)
+                PictureSelector.create(MainPictureActivity.this)
                         .openCamera(chooseMode)// 单独拍照，也可录像或也可音频 看你传入的类型是图片or视频
                         .theme(themeId)// 主题样式设置 具体参考 values/styles
                         .loadImageEngine(GlideEngine.createGlideEngine())// 外部传入图片加载引擎，必传项
@@ -465,10 +465,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 裁剪主题
         mCropParameterStyle = new PictureCropParameterStyle(
-                ContextCompat.getColor(MainActivity.this, R.color.ColorLightgrey),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorLightgrey),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorLightgrey),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorLightgrey),
                 Color.parseColor("#393a3e"),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorWhite),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorWhite),
                 mPictureParameterStyle.isChangeStatusBarFontColor);
     }
 
@@ -520,9 +520,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 裁剪主题
         mCropParameterStyle = new PictureCropParameterStyle(
-                ContextCompat.getColor(MainActivity.this, R.color.ColorWhite),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorWhite),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorBlack),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorWhite),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorWhite),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorBlack),
                 mPictureParameterStyle.isChangeStatusBarFontColor);
     }
 
@@ -574,9 +574,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 裁剪主题
         mCropParameterStyle = new PictureCropParameterStyle(
-                ContextCompat.getColor(MainActivity.this, R.color.ColorBlueviolet),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorBlueviolet),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorWhite),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorBlueviolet),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorBlueviolet),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorWhite),
                 mPictureParameterStyle.isChangeStatusBarFontColor);
     }
 
@@ -628,9 +628,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // 裁剪主题
         mCropParameterStyle = new PictureCropParameterStyle(
-                ContextCompat.getColor(MainActivity.this, R.color.ColorWhite),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorWhite),
-                ContextCompat.getColor(MainActivity.this, R.color.ColorBlack),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorWhite),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorWhite),
+                ContextCompat.getColor(MainPictureActivity.this, R.color.ColorBlack),
                 mPictureParameterStyle.isChangeStatusBarFontColor);
     }
 
@@ -677,9 +677,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // 存储权限
                 for (int i = 0; i < grantResults.length; i++) {
                     if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                        PictureFileUtils.deleteCacheDirFile(MainActivity.this, PictureMimeType.ofImage());
+                        PictureFileUtils.deleteCacheDirFile(MainPictureActivity.this, PictureMimeType.ofImage());
                     } else {
-                        Toast.makeText(MainActivity.this,
+                        Toast.makeText(MainPictureActivity.this,
                                 getString(R.string.picture_jurisdiction), Toast.LENGTH_SHORT).show();
                     }
                 }
