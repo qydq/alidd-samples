@@ -20,6 +20,7 @@ import com.sunsty.alidd.view.activity.BeforeSelectAlbumActivity;
 import com.sunsty.alidd.view.activity.EsayPermissionActivity;
 import com.sunsty.alidd.view.activity.HttpsDownloadActivity;
 import com.sunsty.alidd.view.activity.HttpsRequestActivity;
+import com.sunsty.alidd.view.activity.download.DownloadActivity;
 import com.sunsty.alidd.view.activity.picture.SimpleActivity;
 
 import java.util.Arrays;
@@ -57,7 +58,9 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), HttpsRequestActivity.class));
                 break;
             case 1:
-                ToastUtils.s(getContext(), "暂未开放");
+                startActivity(new Intent(getContext(), DownloadActivity.class));
+
+//                ToastUtils.s(getContext(), "暂未开放");
                 break;
             case 2:
                 startActivity(new Intent(getContext(), HttpsDownloadActivity.class));
