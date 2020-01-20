@@ -1,0 +1,64 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 30e1584289930d224e06b66bfb22769d7e2aa9b4)
++++ app/src/main/AndroidManifest.xml	(date 1579504649309)
+@@ -64,6 +64,7 @@
+         <activity android:name=".view.activity.DefaultRefActivity" />         <activity android:name=".view.activity.AliParallaxActivity" />         <activity android:name=".view.activity.HttpsRequestActivity" />+        <activity android:name=".view.activity.download.DownloadActivity" />         <activity android:name=".view.activity.HttpsDownloadActivity" />         <activity android:name=".view.activity.INATabLayoutActivity" />         <activity android:name=".view.activity.SwipeRecycleActivity" />Index: app/src/main/res/layout/activity_https_download.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_https_download.xml	(revision 30e1584289930d224e06b66bfb22769d7e2aa9b4)
++++ app/src/main/res/layout/activity_https_download.xml	(date 1579503960096)
+@@ -1,8 +1,10 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:background="@color/ColorWhite">
++    android:background="@color/ColorWhite"
++    android:orientation="vertical">
+ 
+     <androidx.appcompat.widget.AppCompatButton
+         android:id="@+id/btn_download"
+@@ -30,4 +32,34 @@
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/progress"
+         android:textAlignment="center" />
+-</RelativeLayout>
++
++    <Button
++        android:id="@+id/btnStartDownload"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="btnStartDownload"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <Button
++        android:id="@+id/btnPauseDownload"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="btnPauseDownload"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <Button
++        android:id="@+id/btnCancelDownload"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="btnCancelDownload"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++</LinearLayout>
