@@ -12,7 +12,7 @@ liest 1.1.0 ok
 
 implementation 'com.sunsta.justli:justli:1.1.0'  ( pass　)
 
-implementation 'com.sunsta.liest:liest:1.1.0'  ( 胜　)
+compile 'com.sunsta.livery:livery:1.1.0'
 
 implementation 'com.sunsty.bear:bear:1.0.7'   pass
 

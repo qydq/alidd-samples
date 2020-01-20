@@ -1,494 +1,0 @@
-Index: app/src/main/AndroidManifest.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/AndroidManifest.xml	(revision 48b9dc4c294447f702684f712a55b66e02930890)
-+++ app/src/main/AndroidManifest.xml	(date 1579337544395)
-@@ -43,12 +43,16 @@
-             android:name="com.ali.module.lib.PictureFileProvider"             android:authorities="${applicationId}.provider"             android:exported="false"-            android:grantUriPermissions="true">+            android:grantUriPermissions="true"+            tools:replace="name,authorities,exported,grantUriPermissions">             <meta-data                 android:name="android.support.FILE_PROVIDER_PATHS"-                android:resource="@xml/file_paths" />+                android:resource="@xml/base_fileprovider_takephoto"+                tools:replace="name,resource" />         </provider> +        <!--file_paths-->+         <activity android:name=".view.activity.MainActivity">             <intent-filter>                 <action android:name="android.intent.action.MAIN" />@@ -59,6 +63,7 @@
-         <activity android:name=".view.activity.VideoNoFFmpegActivity" />         <activity android:name=".view.activity.AnimationGifActivity" />         <activity android:name=".view.activity.BeforeSelectAlbumActivity" />+        <activity android:name=".view.activity.EsayPermissionActivity" />          <activity android:name=".view.activity.ExpandableActivity" />         <activity android:name=".view.activity.DefaultRefActivity" />@@ -103,7 +108,7 @@
-             android:value="2.1" />          <activity-            android:name="com.sunsty.alidd.view.activity.picture.MainActivity"+            android:name="com.sunsty.alidd.view.activity.picture.MainPictureActivity"             android:screenOrientation="portrait" />         <activity             android:name="com.sunsty.alidd.view.activity.picture.PhotoFragmentActivity"@@ -216,7 +221,6 @@
-             android:enabled="true"             android:foregroundServiceType="mediaProjection"             tools:targetApi="q" />-     </application>  </manifest>
-\ No newline at end of file
-Index: app/src/main/res/values/array.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/values/array.xml	(revision 48b9dc4c294447f702684f712a55b66e02930890)
-+++ app/src/main/res/values/array.xml	(date 1579332125564)
-@@ -1,7 +1,7 @@
- <?xml version="1.0" encoding="utf-8"?>
- <resources>
-     <string-array name="main_material_ux">
--        <item>INATabLayout为例，推广引入alidd首发-使用案例.(可扩展的TabLayout</item>
-+        <item>。✔INATabLayout为例，推广引入alidd首发-使用案例.(可扩展的TabLayout</item>
-         <item>AnimationGifActivity.(动画GIF加载显示，对比，效率</item>
-         <item>StandardStoryActivity.(一个WEBVIEW的使用案例含INALikeButton</item>
-         <item>android简单实现仿iOS侧滑返回到上一个界面的三种方式-之（ParallelActivity）</item>
-Index: app/src/main/res/layout/activity_esaypermission.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_esaypermission.xml	(date 1579329565436)
-+++ app/src/main/res/layout/activity_esaypermission.xml	(date 1579329565436)
-@@ -0,0 +1,28 @@
-+<?xml version="1.0" encoding="utf-8"?>+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"+    android:id="@+id/activity_main"+    style="@style/an_match_match.HBG"+    android:gravity="center"+    android:orientation="vertical">++    <TextView+        android:id="@+id/content"+        android:layout_width="wrap_content"+        android:layout_height="wrap_content"+        android:autoLink="all"+        android:lineSpacingMultiplier="1.5"+        android:padding="10dp"+        android:text="本示例进来的时候就会获取权限。\n技术支持：\nhttps://github.com/qydq/idcardOCR"+        android:textIsSelectable="true" />++    <TextView+        android:id="@+id/colortx"+        android:layout_width="wrap_content"+        android:layout_height="wrap_content"+        android:autoLink="all"+        android:lineSpacingMultiplier="1.5"+        android:padding="10dp"+        android:text="颜色渐变"+        android:textIsSelectable="true" />++</LinearLayout>
-\ No newline at end of file
-Index: app/src/main/res/layout/fragment_home1.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/fragment_home1.xml	(revision 48b9dc4c294447f702684f712a55b66e02930890)
-+++ app/src/main/res/layout/fragment_home1.xml	(date 1579320162910)
-@@ -1,7 +1,5 @@
- <?xml version="1.0" encoding="utf-8"?> <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-    xmlns:app="http://schemas.android.com/apk/res-auto"-    xmlns:tools="http://schemas.android.com/tools"     android:id="@+id/activity_main"     android:layout_width="match_parent"     android:layout_height="match_parent"@@ -12,7 +10,10 @@
-         android:id="@+id/content"         android:layout_width="wrap_content"         android:layout_height="wrap_content"-        android:gravity="center"-        android:text="1" />+        android:autoLink="all"+        android:lineSpacingMultiplier="1.5"+        android:padding="10dp"+        android:text="本示例仅识别中国二代身份正反面及驾驶证信息。\n技术支持：\nhttps://github.com/qydq/idcardOCR"+        android:textIsSelectable="true" />  </LinearLayout>
-\ No newline at end of file
-Index: app/src/main/res/layout/activity_https_request.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_https_request.xml	(revision 48b9dc4c294447f702684f712a55b66e02930890)
-+++ app/src/main/res/layout/activity_https_request.xml	(date 1579338956622)
-@@ -50,6 +50,7 @@
-         android:text="球球上传文件"
-         android:textColor="#FFFFFF" />
- 
-+
-     <ImageView
-         android:id="@+id/natureIv"
-         android:layout_width="wrap_content"
-Index: app/src/main/res/layout/activity_main_pic.xml
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>UTF-8
-===================================================================
---- app/src/main/res/layout/activity_main_pic.xml	(date 1579331778051)
-+++ app/src/main/res/layout/activity_main_pic.xml	(date 1579331778051)
-@@ -0,0 +1,421 @@
-+<?xml version="1.0" encoding="utf-8"?>
-+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-+    android:layout_width="match_parent"
-+    android:layout_height="match_parent"
-+    android:orientation="vertical">
-+
-+    <RelativeLayout
-+        android:id="@+id/rl_title"
-+        android:layout_width="match_parent"
-+        android:layout_height="48dp"
-+        android:background="@color/ColorTransparent">
-+
-+        <ImageView
-+            android:id="@+id/left_back"
-+            android:layout_width="wrap_content"
-+            android:layout_height="match_parent"
-+            android:layout_centerVertical="true"
-+            android:background="@color/ColorTransparent"
-+            android:padding="15dp"
-+            android:src="@drawable/ic_picture_back"
-+            android:visibility="visible" />
-+
-+        <TextView
-+            android:id="@+id/tv_title"
-+            android:layout_width="wrap_content"
-+            android:layout_height="wrap_content"
-+            android:layout_centerInParent="true"
-+            android:layout_centerVertical="true"
-+            android:ellipsize="end"
-+            android:maxEms="11"
-+            android:text="@string/app_name"
-+            android:textColor="@color/ColorWhite"
-+            android:textSize="18sp" />
-+
-+        <TextView
-+            android:id="@+id/tv_right"
-+            android:layout_width="48dp"
-+            android:layout_height="match_parent"
-+            android:layout_alignParentRight="true"
-+            android:layout_centerVertical="true"
-+            android:layout_marginRight="5dp"
-+            android:gravity="center"
-+            android:text=""
-+            android:textColor="@color/ColorWhite"
-+            android:textSize="15sp" />
-+    </RelativeLayout>
-+
-+    <androidx.recyclerview.widget.RecyclerView
-+        android:id="@+id/recycler"
-+        android:layout_width="match_parent"
-+        android:layout_height="wrap_content"
-+        android:layout_marginLeft="5dp"
-+        android:layout_marginTop="5dp"
-+        android:background="@color/ColorWhite"
-+        android:overScrollMode="never" />
-+
-+    <ScrollView
-+        android:layout_width="match_parent"
-+        android:layout_height="wrap_content"
-+        android:background="@color/ColorWhite"
-+        android:scrollbars="none">
-+
-+        <LinearLayout
-+            android:layout_width="match_parent"
-+            android:layout_height="wrap_content"
-+            android:orientation="vertical">
-+
-+            <include layout="@layout/layout_number" />
-+
-+            <RadioGroup
-+                android:id="@+id/rgb_style"
-+                android:layout_width="match_parent"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:orientation="vertical">
-+
-+                <RadioButton
-+                    android:id="@+id/rb_default_style"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:checked="true"
-+                    android:text="默认样式"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_white_style"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="样式一"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_num_style"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="样式二"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_sina_style"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="样式三"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+            </RadioGroup>
-+
-+            <CheckBox
-+                android:id="@+id/cb_voice"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="是否开启点击声音"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <RadioGroup
-+                android:id="@+id/rgb_langue"
-+                android:layout_width="match_parent"
-+                android:layout_height="wrap_content"
-+                android:orientation="horizontal">
-+
-+                <RadioButton
-+                    android:id="@+id/rb_zh"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:checked="true"
-+                    android:text="中文"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_tw"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="繁体"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_us"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="英语"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_ka"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="韩语"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_de"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="德语"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_fr"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:text="法语"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+            </RadioGroup>
-+
-+            <RadioGroup
-+                android:id="@+id/rgb_photo_mode"
-+                android:layout_width="match_parent"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:orientation="horizontal">
-+
-+                <RadioButton
-+                    android:id="@+id/rb_all"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:checked="true"
-+                    android:text="全部"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_image"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="图片"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_video"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="视频"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_audio"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="音频"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+            </RadioGroup>
-+
-+
-+            <CheckBox
-+                android:id="@+id/cb_mode"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="相册or单独拍照"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_choose_mode"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="单选or多选"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_isCamera"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="显示or隐藏拍摄"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+
-+            <CheckBox
-+                android:id="@+id/cb_isGif"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="是否显示Gif图片"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_preview_img"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="是否预览图片"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_preview_video"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="是否预览视频"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_preview_audio"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="是否预览音频"
-+                android:textColor="#53575e"
-+                android:textSize="14sp"
-+                android:visibility="gone" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_compress"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="是否压缩图片"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_crop"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="是否裁剪图片"
-+                android:textColor="#53575e"
-+                android:textSize="14sp" />
-+
-+            <RadioGroup
-+                android:id="@+id/rgb_crop"
-+                android:layout_width="match_parent"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:orientation="horizontal"
-+                android:visibility="gone">
-+
-+                <RadioButton
-+                    android:id="@+id/rb_crop_default"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:checked="true"
-+                    android:text="默认"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_crop_1to1"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="1:1"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_crop_3to4"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="3:4"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_crop_3to2"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="3:2"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+                <RadioButton
-+                    android:id="@+id/rb_crop_16to9"
-+                    android:layout_width="wrap_content"
-+                    android:layout_height="wrap_content"
-+                    android:layout_marginLeft="5dp"
-+                    android:text="16:9"
-+                    android:textColor="#53575e"
-+                    android:textSize="14sp" />
-+
-+            </RadioGroup>
-+
-+            <CheckBox
-+                android:id="@+id/cb_crop_circular"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="圆形头像裁剪模式"
-+                android:textColor="#53575e"
-+                android:textSize="14sp"
-+                android:visibility="gone" />
-+
-+
-+            <CheckBox
-+                android:id="@+id/cb_showCropGrid"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="是否显示裁剪框网格"
-+                android:textColor="#53575e"
-+                android:textSize="14sp"
-+                android:visibility="gone" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_showCropFrame"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:checked="true"
-+                android:gravity="center_vertical"
-+                android:text="是否显示裁剪边框"
-+                android:textColor="#53575e"
-+                android:textSize="14sp"
-+                android:visibility="gone" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_styleCrop"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="裁剪框or图片拖动"
-+                android:textColor="#53575e"
-+                android:textSize="14sp"
-+                android:visibility="gone" />
-+
-+            <CheckBox
-+                android:id="@+id/cb_hide"
-+                android:layout_width="wrap_content"
-+                android:layout_height="wrap_content"
-+                android:gravity="center_vertical"
-+                android:text="是否显示裁剪菜单栏"
-+                android:textColor="#53575e"
-+                android:textSize="14sp"
-+                android:visibility="gone" />
-+        </LinearLayout>
-+    </ScrollView>
-+</LinearLayout>
