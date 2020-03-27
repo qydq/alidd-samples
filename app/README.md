@@ -33,7 +33,16 @@ http://www.demodashi.com/mydemo/buy.html
 1.依赖关系
 compile 'com.sunsta.livery:livery:1.1.0'
 
+===livery(项目名)
+======a（个人原始+ucrop）
+com.sunlia.
+======li（拍照选择的库）
+com.sunlia.
+======very（提供出去的）
+com.sunlia.
+
 2.包名统一：
+
 com.ali
 model  =====  mode
 module (save) ====modu==
