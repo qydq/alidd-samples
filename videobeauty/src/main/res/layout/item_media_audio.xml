@@ -10,7 +10,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:padding="4dp"
-        android:src="@drawable/ic_drawable_copy_fav" />
+        android:src="@drawable/ic_color_copy_fav" />
 
     <TextView
         android:id="@+id/audio_name"

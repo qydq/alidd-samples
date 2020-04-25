@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.ali.module.lib.tools.ToastUtils;
+import com.ali.faster.ToastUtils;
 import com.sunsty.alidd.R;
 
 import java.io.File;

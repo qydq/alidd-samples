@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.ali.view.swipelayout.ExpandableAdapter;
+import com.ali.layout.swipe.ExpandableAdapter;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.activity.swipe.expanded.entity.Group;
 import com.sunsty.alidd.view.activity.swipe.expanded.entity.GroupMember;

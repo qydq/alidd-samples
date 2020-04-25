@@ -3,7 +3,7 @@ package com.sunsty.alidd.view.activity;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.ali.take.LATextView;
+import com.ali.faster.LATextView;
 import com.ali.view.ParallaxActivity;
 import com.ali.view.activity.AliWebViewActivity;
 import com.sunsty.alidd.R;

@@ -4,22 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.ali.view.callback.OnItemClickListener;
-import com.ali.view.swipelayout.SwipeRecyclerView;
-import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.ali.callback.OnItemClickListener;
+import com.ali.layout.swipe.SwipeRecyclerView;
+import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.activity.swipe.ExpandedAdapter;
 import com.sunsty.alidd.view.activity.swipe.expanded.entity.Group;
 import com.sunsty.alidd.view.activity.swipe.expanded.entity.GroupMember;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ListActivity extends AppCompatActivity {

@@ -16,11 +16,11 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.SwipeMenu;
-import com.ali.view.swipelayout.SwipeMenuCreator;
-import com.ali.view.swipelayout.SwipeMenuItem;
-import com.ali.view.swipelayout.SwipeRecyclerView;
-import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.ali.layout.swipe.SwipeMenu;
+import com.ali.layout.swipe.SwipeMenuCreator;
+import com.ali.layout.swipe.SwipeMenuItem;
+import com.ali.layout.swipe.SwipeRecyclerView;
+import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 
 import java.util.ArrayList;
@@ -72,7 +72,7 @@ public class MenuActivity extends AppCompatActivity {
                 int height = ViewGroup.LayoutParams.MATCH_PARENT;
 
                 SwipeMenuItem closeItem = new SwipeMenuItem(MenuActivity.this).setBackground(R.drawable.selector_purple)
-                    .setImage(R.drawable.ic_picture_close)
+                    .setImage(R.drawable.picture_icon_close)
                     .setWidth(width)
                     .setHeight(height);
                 swipeLeftMenu.addMenuItem(closeItem); // 添加菜单到左侧。

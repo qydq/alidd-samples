@@ -26,7 +26,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:paddingRight="10dp"
-            android:src="@drawable/ic_picture_wechat_up" />
+            android:src="@drawable/picture_icon_wechat_up" />
 
     </RelativeLayout>
 

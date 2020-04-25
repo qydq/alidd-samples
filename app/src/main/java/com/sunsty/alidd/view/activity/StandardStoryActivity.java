@@ -8,10 +8,10 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
 
-import com.ali.take.LaLog;
+import com.ali.callback.OnLikeListener;
+import com.ali.faster.LaLog;
+import com.ali.layout.INALikeButton;
 import com.ali.view.ParallaxActivity;
-import com.ali.view.callback.OnLikeListener;
-import com.ali.view.dd.INALikeButton;
 import com.sunsty.alidd.R;
 
 public class StandardStoryActivity extends ParallaxActivity implements NestedScrollView.OnScrollChangeListener {

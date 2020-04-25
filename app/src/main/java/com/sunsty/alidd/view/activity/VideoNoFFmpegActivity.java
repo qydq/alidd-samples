@@ -15,18 +15,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.ali.module.lib.config.PictureConfig;
-import com.ali.take.DataService;
-import com.ali.take.FileUtils;
-import com.ali.take.LADialog;
-import com.ali.take.LAStorageFile;
-import com.ali.take.LaLog;
-import com.ali.take.LaPermissions;
-import com.ali.take.MediaHelper;
-import com.ali.take.callback.OnLoadVideoImageListener;
-import com.ali.take.webview.NestProgressBar;
+import com.ali.PictureVideoPlayActivity;
+import com.ali.config.PictureConfig;
+import com.ali.faster.DataService;
+import com.ali.faster.FileUtils;
+import com.ali.faster.LADialog;
+import com.ali.faster.LAStorageFile;
+import com.ali.faster.LaLog;
+import com.ali.faster.LaPermissions;
+import com.ali.faster.MediaHelper;
+import com.ali.faster.callback.OnLoadVideoImageListener;
+import com.ali.faster.webview.NestProgressBar;
 import com.ali.view.AliActivity;
-import com.ali.view.activity.PictureVideoPlayActivity;
 import com.bumptech.glide.Glide;
 import com.sunst.alidd.OnScreenShotListener;
 import com.sunst.alidd.RecordFileUtil;
@@ -79,7 +79,7 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
     private void setVideoPreview() {
         llVideoControl.setVisibility(View.VISIBLE);
         tvVideoStatus.setText("预览视频");
-        ivVideoPlay.setImageResource(R.drawable.base_drawable_music_play);
+        ivVideoPlay.setImageResource(R.drawable.ic_play);
         recodding = false;
     }
 
@@ -296,7 +296,7 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
 
             llVideoControl.setVisibility(View.VISIBLE);
             tvVideoStatus.setText("正在录制中...");
-            ivVideoPlay.setImageResource(R.drawable.base_drawable_music_play);
+            ivVideoPlay.setImageResource(R.drawable.ic_play);
             btnPhoneScreen.setText("手机屏幕停止录制");
         }
     };

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.SwipeRecyclerView;
+import com.ali.layout.swipe.SwipeRecyclerView;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.BaseAliAdapter;
 

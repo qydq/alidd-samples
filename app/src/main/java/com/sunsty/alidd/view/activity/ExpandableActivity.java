@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ali.module.lib.tools.ToastUtils;
-import com.ali.view.dd.NestExpandableListView;
+import com.ali.faster.ToastUtils;
+import com.ali.layout.NestExpandableListView;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.ExpandableAdapter;
 

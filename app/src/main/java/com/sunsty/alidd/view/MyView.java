@@ -5,10 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
-import com.ali.take.LAScreen;
+import com.ali.faster.LAScreen;
 import com.sunsty.alidd.take.IDCard.Card;
 import com.sunsty.alidd.take.IDCard.Faculae;
 import com.sunsty.alidd.take.IDCard.IDCardQuality;
@@ -116,5 +115,24 @@ public class MyView extends View {
         float result1 = (float) Math.sqrt(value1);
         float result2 = (float) Math.sqrt(value2);
         float mean = (result0 + result1 + result2) / 3.0f;
+    }
+
+
+    /*个人测试冒泡排序*/
+    public static void maoPao(int[] arr){
+        int temp;
+        boolean flag;
+        for(int i=0;i<arr.length-1;i++){
+            flag = false;
+            for(int j = arr.length-1;j>i;j--){
+                if(arr[j]<arr[j-1]){
+                    temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                    flag = true;
+                }
+            }
+            if(!flag) break;
+        }
     }
 }

@@ -13,9 +13,9 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.ali.view.callback.OnItemClickListener;
-import com.ali.view.swipelayout.SwipeRecyclerView;
-import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.ali.callback.OnItemClickListener;
+import com.ali.layout.swipe.SwipeRecyclerView;
+import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.SwipeRecyclerAdapter;
 

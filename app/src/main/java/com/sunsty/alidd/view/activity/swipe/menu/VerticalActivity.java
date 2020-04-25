@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.SwipeMenu;
-import com.ali.view.swipelayout.SwipeMenuCreator;
-import com.ali.view.swipelayout.SwipeMenuItem;
+import com.ali.layout.swipe.SwipeMenu;
+import com.ali.layout.swipe.SwipeMenuCreator;
+import com.ali.layout.swipe.SwipeMenuItem;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.BaseAliAdapter;
 import com.sunsty.alidd.view.activity.swipe.BaseActivity;
@@ -61,7 +61,7 @@ public class VerticalActivity extends BaseActivity {
             {
                 SwipeMenuItem addItem = new SwipeMenuItem(VerticalActivity.this).setBackground(
                     R.drawable.selector_green)
-                    .setImage(R.drawable.base_drawable_add)
+                    .setImage(R.drawable.base_image_add)
                     .setWidth(width)
                     .setHeight(0)
                     .setWeight(1);
@@ -69,7 +69,7 @@ public class VerticalActivity extends BaseActivity {
 
                 SwipeMenuItem closeItem = new SwipeMenuItem(VerticalActivity.this).setBackground(
                     R.drawable.selector_red)
-                    .setImage(R.drawable.ic_picture_close)
+                    .setImage(R.drawable.picture_icon_close)
                     .setWidth(width)
                     .setHeight(0)
                     .setWeight(1);
@@ -80,7 +80,7 @@ public class VerticalActivity extends BaseActivity {
             {
                 SwipeMenuItem deleteItem = new SwipeMenuItem(VerticalActivity.this).setBackground(
                     R.drawable.selector_red)
-                    .setImage(R.drawable.ic_picture_delete)
+                    .setImage(R.drawable.picture_icon_delete)
                     .setText("删除")
                     .setTextColor(Color.WHITE)
                     .setWidth(width)

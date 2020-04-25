@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ali.take.LADateTime;
+import com.ali.faster.LADateTime;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.bean.Song;
 
@@ -73,7 +73,7 @@ public class AudioAdapter extends BaseAdapter{
         }else if ("wma".equals(song.getType())){
             holder.audioType.setImageResource(R.mipmap.img_wma);
         }else {
-            holder.audioType.setImageResource(R.drawable.ic_picture_no_data);
+            holder.audioType.setImageResource(R.drawable.picture_icon_no_data);
         }
 
         return convertView;

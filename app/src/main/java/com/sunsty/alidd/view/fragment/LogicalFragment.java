@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.module.lib.tools.ToastUtils;
-import com.ali.take.LADialog;
-import com.ali.view.callback.OnItemClickListener;
-import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.ali.callback.OnItemClickListener;
+import com.ali.faster.LADialog;
+import com.ali.faster.ToastUtils;
+import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 
@@ -49,10 +49,10 @@ public class LogicalFragment extends Fragment implements OnItemClickListener {
     public void onItemClick(View view, int position) {
         switch (position) {
             case 0:
-                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_drawable_copy_fav);
+                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_color_copy_fav);
                 break;
             case 1:
-                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_drawable_mail);
+                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_white_mail);
                 break;
             case 2:
                 ToastUtils.s("我的测试对话框" + position);

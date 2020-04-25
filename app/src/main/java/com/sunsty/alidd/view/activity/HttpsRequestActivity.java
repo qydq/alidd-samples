@@ -15,15 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-
-import com.ali.presenter.callback.JustNetApi;
-import com.ali.presenter.net.JustAsyncManager;
-import com.ali.presenter.net.JustNetClient;
-import com.ali.presenter.net.JustNetException;
-import com.ali.take.Convert;
-import com.ali.take.FileUtils;
-import com.ali.take.Intents;
-import com.ali.take.LaLog;
+import com.ali.faster.Convert;
+import com.ali.faster.FileUtils;
+import com.ali.faster.Intents;
+import com.ali.faster.LaLog;
+import com.ali.presenter.callback.BaseNetApi;
+import com.ali.presenter.net.InternetAsyncManager;
+import com.ali.presenter.net.InternetClient;
+import com.ali.presenter.net.InternetException;
 import com.bumptech.glide.Glide;
 import com.sunsty.alidd.BuildConfig;
 import com.sunsty.alidd.R;
@@ -132,7 +131,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
 
     @SuppressWarnings("unchecked")
     private void justNetRequest() {
-        JustAsyncManager justManager = new JustAsyncManager();
+        InternetAsyncManager justManager = new InternetAsyncManager();
 
 //        ((BiniNetApi)JustNet.getInstance().just("https://baidu.com/",BiniNetApi.class)).observableGet();
 //        ((BiniNetApi)JustNet.getInstance().just(BiniNetApi.class)).observableGet();
@@ -140,7 +139,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
 //        JustNet.getInstance().justWith("https://192.168.0.11").observableGet("json");
 //        JustNet.getInstance().justWith().observableGet("json");
 
-        justManager.add(((JustNetApi<ResponseBody>) JustNetClient.init().just("https://www.wanandroid.com/banner/", JustNetApi.class))
+        justManager.add(((BaseNetApi<ResponseBody>) InternetClient.init().just("https://www.wanandroid.com/banner/", BaseNetApi.class))
                 .observableGet("json")
                 .compose(Convert.io_main())
                 .subscribe(this::hasData));
@@ -169,7 +168,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
                 //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
                 .baseUrl("https://www.wanandroid.com/banner/")
                 .build();
-        JustNetApi api = retrofit.create(JustNetApi.class);
+        BaseNetApi api = retrofit.create(BaseNetApi.class);
         Call<ResponseBody> call = api.tGetWith("json");
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -204,7 +203,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
      * 验证ok2
      */
     private void turnBiniNet() {
-        JustNetApi api = JustNetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(JustNetApi.class);
+        BaseNetApi api = InternetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(BaseNetApi.class);
 
         Call<ResponseBody> call = api.callHttpGetWith("json");
         if (call != null) {
@@ -303,9 +302,9 @@ public class HttpsRequestActivity extends NewBaseActivity {
         Map<String, Object> map = new HashMap<>();
         map.put("phonenumber", phoneUmber);
         map.put("task", "GO_GCACTION");
-        NewUploadApi api = JustNetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(NewUploadApi.class);
+        NewUploadApi api = InternetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(NewUploadApi.class);
 
-        new JustAsyncManager().add(api.getSmsCode(map).compose(Convert.io_main()).subscribe(result -> logcall.success("成功!"), throwable -> logcall.failure("稍后再试")));
+        new InternetAsyncManager().add(api.getSmsCode(map).compose(Convert.io_main()).subscribe(result -> logcall.success("成功!"), throwable -> logcall.failure("稍后再试")));
 
     }
 
@@ -322,11 +321,11 @@ public class HttpsRequestActivity extends NewBaseActivity {
         File mFile = new File(realFilePath);
         RequestBody mRequestBody = RequestBody.create(MediaType.parse("image/*"), mFile);
         HashMap<String, RequestBody> map = new HashMap<>();
-        NewUploadApi api = JustNetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(NewUploadApi.class);
+        NewUploadApi api = InternetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(NewUploadApi.class);
 
         map.put("files" + "\"; filename=\"" + mFile.getName() + "", mRequestBody);
         // map.put("files" + "\"; filename=\"" + mFile1.getName() + "", mRequestBody1);
-        new JustAsyncManager().add(api.uploadFiles(map).compose(Convert.io_main()).subscribe(new Consumer<ResponseBody>() {
+        new InternetAsyncManager().add(api.uploadFiles(map).compose(Convert.io_main()).subscribe(new Consumer<ResponseBody>() {
             @Override
             public void accept(ResponseBody o) throws Exception {
                 Glide.with(HttpsRequestActivity.this).load(mFile).into(natureIv);
@@ -339,7 +338,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
 //                    showToast("上传成功");
 //                }
             }
-        }, new JustNetException() {
+        }, new InternetException() {
             @Override
             public void onError(int errorCode, String errorMsg) {
                 showToast("网络异常，请重新上传");
@@ -364,7 +363,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
 //        }
         videoMap.put("md5", "mymd5");
         videoMap.put("videoName", "videoName");
-        NewUploadApi api = JustNetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(NewUploadApi.class);
+        NewUploadApi api = InternetClient.init().getRetrofit("https://www.wanandroid.com/banner/").create(NewUploadApi.class);
 
         /*第二个参数*/
         JSONObject jsonObject = new JSONObject(videoMap);
@@ -379,7 +378,7 @@ public class HttpsRequestActivity extends NewBaseActivity {
                         //todo
 //                        handUploadResult();
                     }
-                }, new JustNetException() {
+                }, new InternetException() {
                     @Override
                     public void onError(int errorCode, String errorMsg) {
                         showToast("网络异常，请重新上传");

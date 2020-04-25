@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.sunsty.alidd"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -29,6 +29,13 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res', 'src/main/res/colors'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -49,5 +56,5 @@ dependencies {
      * standard:  人脸识别
      * */
 //    implementation 'com.rmtheis:tess-two:9.1.0'
-    implementation 'com.sunsta.livery:livery:1.1.0'
+//    implementation 'com.sunsta.livery:livery:1.1.3'
 }

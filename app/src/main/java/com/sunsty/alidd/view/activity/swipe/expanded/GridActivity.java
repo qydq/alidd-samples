@@ -14,9 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.ali.view.callback.OnItemClickListener;
-import com.ali.view.swipelayout.SwipeRecyclerView;
-import com.ali.view.swipelayout.widget.BorderItemDecoration;
+import com.ali.callback.OnItemClickListener;
+import com.ali.layout.swipe.SwipeRecyclerView;
+import com.ali.layout.swipe.widget.BorderItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.activity.swipe.BaseActivity;
 import com.sunsty.alidd.view.activity.swipe.ExpandedAdapter;

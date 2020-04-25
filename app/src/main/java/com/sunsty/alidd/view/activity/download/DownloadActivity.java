@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.ali.module.lib.tools.ToastUtils;
+import com.ali.faster.ToastUtils;
 import com.sunsty.alidd.R;
 
 public class DownloadActivity extends AppCompatActivity implements View.OnClickListener {

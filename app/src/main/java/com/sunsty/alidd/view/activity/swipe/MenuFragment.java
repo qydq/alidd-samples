@@ -12,14 +12,14 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.ali.view.callback.OnItemClickListener;
-import com.ali.view.swipelayout.OnItemMenuClickListener;
-import com.ali.view.swipelayout.SwipeMenu;
-import com.ali.view.swipelayout.SwipeMenuBridge;
-import com.ali.view.swipelayout.SwipeMenuCreator;
-import com.ali.view.swipelayout.SwipeMenuItem;
-import com.ali.view.swipelayout.SwipeRecyclerView;
-import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.ali.callback.OnItemClickListener;
+import com.ali.layout.swipe.OnItemMenuClickListener;
+import com.ali.layout.swipe.SwipeMenu;
+import com.ali.layout.swipe.SwipeMenuBridge;
+import com.ali.layout.swipe.SwipeMenuCreator;
+import com.ali.layout.swipe.SwipeMenuItem;
+import com.ali.layout.swipe.SwipeRecyclerView;
+import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.SwipeRecyclerAdapter;
 
@@ -109,13 +109,13 @@ public class MenuFragment extends Fragment {
             int height = ViewGroup.LayoutParams.MATCH_PARENT;
 
             SwipeMenuItem addItem = new SwipeMenuItem(getContext()).setBackground(R.drawable.selector_green)
-                    .setImage(R.drawable.base_drawable_add)
+                    .setImage(R.drawable.base_image_add)
                     .setWidth(width)
                     .setHeight(height);
             swipeLeftMenu.addMenuItem(addItem); // 添加菜单到左侧。
 
             SwipeMenuItem closeItem = new SwipeMenuItem(getContext()).setBackground(R.drawable.selector_green)
-                    .setImage(R.drawable.ic_picture_close)
+                    .setImage(R.drawable.picture_icon_close)
                     .setWidth(width)
                     .setHeight(height);
             swipeRightMenu.addMenuItem(closeItem); // 添加菜单到右侧。

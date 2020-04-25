@@ -15,9 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.ali.faster.DataService;
+import com.ali.faster.NetDownloadService;
 import com.ali.model.entity.Download;
-import com.ali.take.DataService;
-import com.ali.take.NetDownloadService;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.take.EasyPermission;
 

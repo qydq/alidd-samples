@@ -11,9 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.module.lib.tools.ToastUtils;
-import com.ali.view.callback.OnItemClickListener;
-import com.ali.view.swipelayout.widget.DefaultItemDecoration;
+import com.ali.callback.OnItemClickListener;
+import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
 import com.sunsty.alidd.view.activity.BeforeSelectAlbumActivity;
@@ -21,7 +20,6 @@ import com.sunsty.alidd.view.activity.EsayPermissionActivity;
 import com.sunsty.alidd.view.activity.HttpsDownloadActivity;
 import com.sunsty.alidd.view.activity.HttpsRequestActivity;
 import com.sunsty.alidd.view.activity.download.DownloadActivity;
-import com.sunsty.alidd.view.activity.picture.SimpleActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -69,7 +67,7 @@ public class SceneFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), BeforeSelectAlbumActivity.class));
                 break;
             case 4:
-                startActivity(new Intent(getContext(), SimpleActivity.class));
+//                startActivity(new Intent(getContext(), SimpleActivity.class));
                 break;
             case 5:
                 startActivity(new Intent(getContext(), EsayPermissionActivity.class));

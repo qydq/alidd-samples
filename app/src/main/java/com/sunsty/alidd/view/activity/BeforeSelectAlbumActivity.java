@@ -13,14 +13,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.ali.AnConstants;
+import com.ali.callback.TakePhoto;
 import com.ali.model.entity.CropOptions;
 import com.ali.model.entity.TImage;
 import com.ali.model.entity.TResult;
-import com.ali.take.FileUtils;
-import com.ali.take.LAStorageFile;
-import com.ali.take.LaLog;
-import com.ali.take.photo.compress.CompressConfig;
-import com.ali.take.photo.interfaces.TakePhoto;
+import com.ali.faster.FileUtils;
+import com.ali.faster.LAStorageFile;
+import com.ali.faster.LaLog;
+import com.ali.faster.photo.compress.CompressConfig;
 import com.ali.view.activity.AliTakePhotoActivity;
 import com.bumptech.glide.Glide;
 import com.sunsty.alidd.R;
@@ -206,5 +206,10 @@ public class BeforeSelectAlbumActivity extends AliTakePhotoActivity {
                 //全部权限通过，可以进行下一步操作。。。
             }
         }
+    }
+
+    @Override
+    public void onVoice(String type, String words) {
+
     }
 }

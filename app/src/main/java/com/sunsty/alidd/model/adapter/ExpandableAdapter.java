@@ -89,9 +89,9 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
         groupViewHolder.parentTitle.setText(groupPosition + 1 + "." + groups[groupPosition]);
         //如果是展开状态，
         if (isExpanded) {
-            groupViewHolder.parent_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_picture_wechat_up));
+            groupViewHolder.parent_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.picture_icon_wechat_up));
         } else {
-            groupViewHolder.parent_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_picture_wechat_down));
+            groupViewHolder.parent_image.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.picture_icon_wechat_down));
         }
         return convertView;
     }

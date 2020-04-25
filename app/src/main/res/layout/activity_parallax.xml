@@ -84,7 +84,7 @@
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/em_button_login_bg"
+            android:background="@drawable/in_selector_em_button_login"
             android:text="按钮测试-1：em_button_login_bg" />
 
         <Button
@@ -92,7 +92,7 @@
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/em_context_menu_item_bg"
+            android:background="@drawable/in_selector_em_menu_item"
             android:text="按钮测试0：em_context_menu_item_bg" />
 
         <Button
@@ -133,7 +133,7 @@
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/em_button_register_bg"
+            android:background="@drawable/in_selector_em_button_register"
             android:text="按钮测试5：em_button_register_bg"
             android:textColor="#FFFFFF" />
 

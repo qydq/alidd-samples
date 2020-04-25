@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.SwipeMenuLayout;
+import com.ali.layout.swipe.SwipeMenuLayout;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.BaseAliAdapter;
 import com.sunsty.alidd.view.activity.swipe.BaseActivity;

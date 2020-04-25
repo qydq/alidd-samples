@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.touch.OnItemMoveListener;
-import com.ali.view.swipelayout.touch.OnItemMovementListener;
+import com.ali.layout.swipe.touch.OnItemMoveListener;
+import com.ali.layout.swipe.touch.OnItemMovementListener;
 import com.sunsty.alidd.R;
 
 import java.util.Collections;

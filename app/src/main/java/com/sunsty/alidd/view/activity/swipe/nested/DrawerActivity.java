@@ -10,12 +10,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.ali.view.swipelayout.OnItemMenuClickListener;
-import com.ali.view.swipelayout.SwipeMenu;
-import com.ali.view.swipelayout.SwipeMenuBridge;
-import com.ali.view.swipelayout.SwipeMenuCreator;
-import com.ali.view.swipelayout.SwipeMenuItem;
-import com.ali.view.swipelayout.SwipeRecyclerView;
+import com.ali.layout.swipe.OnItemMenuClickListener;
+import com.ali.layout.swipe.SwipeMenu;
+import com.ali.layout.swipe.SwipeMenuBridge;
+import com.ali.layout.swipe.SwipeMenuCreator;
+import com.ali.layout.swipe.SwipeMenuItem;
+import com.ali.layout.swipe.SwipeRecyclerView;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.activity.swipe.BaseActivity;
 
@@ -69,7 +69,7 @@ public class DrawerActivity extends BaseActivity {
             // 只添加Item右侧的菜单。
             {
                 SwipeMenuItem closeItem = new SwipeMenuItem(DrawerActivity.this).setBackground(
-                        R.drawable.selector_purple).setImage(R.drawable.ic_picture_close).setWidth(width).setHeight(height);
+                        R.drawable.selector_purple).setImage(R.drawable.picture_icon_close).setWidth(width).setHeight(height);
                 swipeRightMenu.addMenuItem(closeItem); // 添加菜单到左侧。
 
                 SwipeMenuItem addItem = new SwipeMenuItem(DrawerActivity.this).setBackground(R.drawable.selector_green)

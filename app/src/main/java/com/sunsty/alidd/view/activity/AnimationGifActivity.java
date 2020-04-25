@@ -7,11 +7,9 @@ import android.widget.MediaController;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ali.module.lib.tools.ToastUtils;
-import com.ali.take.LAImageLoader;
-import com.ali.take.LAUi;
-import com.ali.view.dd.gif.GifDrawable;
-import com.ali.view.dd.gif.GifImageView;
+import com.ali.engine.gif.GifDrawable;
+import com.ali.engine.gif.GifImageView;
+import com.ali.faster.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.sunsty.alidd.R;
 

@@ -10,9 +10,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ali.take.LAUi;
+import com.ali.faster.LAUi;
+import com.ali.listener.AppBarStateChangeListener;
 import com.ali.view.ParallaxActivity;
-import com.ali.view.recyclerview.recyclerview.AppBarStateChangeListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;

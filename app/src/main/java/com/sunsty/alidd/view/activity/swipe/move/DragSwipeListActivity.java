@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.touch.OnItemMoveListener;
+import com.ali.layout.swipe.touch.OnItemMoveListener;
 import com.sunsty.alidd.R;
 
 import java.util.Collections;

@@ -3,8 +3,8 @@ package com.sunsty.alidd.view.activity.download;
 import android.os.AsyncTask;
 import android.os.Environment;
 
-import com.ali.take.FileUtils;
-import com.ali.take.LAStorageFile;
+import com.ali.faster.FileUtils;
+import com.ali.faster.LAStorageFile;
 
 import java.io.File;
 import java.io.IOException;

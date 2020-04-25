@@ -24,7 +24,7 @@
         <Button
             android:id="@+id/btnThumbnail1"
             style="@style/an_auto_wrap.Font"
-            android:background="@drawable/em_button_register_bg"
+            android:background="@drawable/in_selector_em_button_register"
             android:text="获取本地视频第一帧"
             android:textColor="#FFFFFF" />
 
@@ -32,7 +32,7 @@
             android:id="@+id/btnThumbnail2"
             style="@style/an_auto_wrap.Font"
             android:layout_marginLeft="@dimen/an_dimen_margin_small"
-            android:background="@drawable/em_button_register_bg"
+            android:background="@drawable/in_selector_em_button_register"
             android:text="获取网络视频第一帧" />
     </LinearLayout>
 
@@ -64,7 +64,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:text="视频普通压缩"
         android:textColor="#FFFFFF" />
 
@@ -75,7 +75,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:text="视频加水印"
         android:textColor="#FFFFFF" />
 
@@ -111,7 +111,7 @@
                 android:layout_width="28.13dp"
                 android:layout_height="28.13dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/base_drawable_music_play" />
+                android:src="@drawable/base_image_music_play" />
 
             <TextView
                 android:id="@+id/tvVideoStatus"

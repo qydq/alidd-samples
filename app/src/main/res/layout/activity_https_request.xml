@@ -15,7 +15,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:text="检测是否安装支付宝"
         android:textColor="#FFFFFF" />
 
@@ -25,7 +25,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:text="检测是否安装微信"
         android:textColor="#FFFFFF" />
 
@@ -36,7 +36,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:text="请求下载参数"
         android:textColor="#FFFFFF" />
 
@@ -46,7 +46,7 @@
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:text="球球上传文件"
         android:textColor="#FFFFFF" />
 

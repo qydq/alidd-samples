@@ -33,7 +33,7 @@
         android:id="@+id/ivPhoto"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/ic_picture_placeholder" />
+        android:src="@drawable/picture_icon_placeholder" />
 
     <TextView
         android:id="@+id/tvTitle"

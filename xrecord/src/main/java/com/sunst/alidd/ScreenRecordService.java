@@ -56,7 +56,7 @@ public class ScreenRecordService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         //todo theres is icon
         Log.e("ScreenRecordService", "onStartCommand: ");
-        createNotificationChannel(R.drawable.base_drawable_backarrow);
+        createNotificationChannel(R.drawable.base_image_arrowback);
 
         try {
             resultCode = intent.getIntExtra("resultCode", -1);

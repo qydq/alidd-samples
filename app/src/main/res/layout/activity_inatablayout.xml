@@ -70,7 +70,7 @@
         android:layout_marginBottom="10.67dp"
         app:tabBackground="@drawable/selector"
         app:tabGravity="center"
-        app:tabIndicator="@drawable/ic_drawable_share_music"
+        app:tabIndicator="@drawable/picture_btn_music_shape"
         app:tabIndicatorColor="#FF4600"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="5dp"

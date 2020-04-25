@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ali.module.lib.config.PictureConfig;
-import com.ali.take.LaLog;
+import com.ali.PictureVideoPlayActivity;
+import com.ali.config.PictureConfig;
+import com.ali.faster.LaLog;
 import com.ali.view.AliActivity;
-import com.ali.view.activity.PictureVideoPlayActivity;
 import com.sunsty.xmediac.util.VideoPlayer;
 
 import java.io.File;

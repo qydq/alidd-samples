@@ -13,11 +13,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.ali.take.Intents;
-import com.ali.take.LAUi;
-import com.ali.take.LaLog;
+import com.ali.faster.Intents;
+import com.ali.faster.LAUi;
+import com.ali.faster.LaLog;
+import com.ali.layout.INATabLayout;
 import com.ali.view.ParallaxActivity;
-import com.ali.view.dd.INATabLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.FragmentAdapter;
@@ -136,7 +136,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
 
         originalViewPager.setOffscreenPageLimit(7);
 
-        natureTableLayout.addTab(natureTableLayout.newTab().setText("个性推荐").setIcon(R.drawable.ic_drawable_share_wxcircle));
+        natureTableLayout.addTab(natureTableLayout.newTab().setText("个性推荐").setIcon(R.drawable.ic_color_wxcircle));
         natureTableLayout.addTab(natureTableLayout.newTab().setText("歌单"));
         natureTableLayout.addTab(natureTableLayout.newTab().setText("主播电台"));
         natureTableLayout.addTab(natureTableLayout.newTab().setText("排行榜"));
@@ -154,7 +154,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
          * */
 //        natureTableLayout.setSelectedTabIndicator(R.drawable.ailli_drawable_indicator);
         Objects.requireNonNull(natureTableLayout.getTabAt(0)).setCustomView(getview("热点", R.drawable.drawable_gif4));
-        Objects.requireNonNull(natureTableLayout.getTabAt(1)).setCustomView(getview("成都地铁覆盖", R.drawable.ic_drawable_copy_fav));
+        Objects.requireNonNull(natureTableLayout.getTabAt(1)).setCustomView(getview("成都地铁覆盖", R.drawable.ic_color_copy_fav));
 
         /*
          *  监听器(可选）

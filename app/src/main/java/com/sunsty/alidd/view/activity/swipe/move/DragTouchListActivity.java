@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.view.swipelayout.touch.OnItemMoveListener;
+import com.ali.layout.swipe.touch.OnItemMoveListener;
 import com.sunsty.alidd.model.adapter.BaseAliAdapter;
 import com.sunsty.alidd.view.activity.swipe.DragTouchAdapter;
 

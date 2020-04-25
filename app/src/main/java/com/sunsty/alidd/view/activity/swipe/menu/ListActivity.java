@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.ali.view.swipelayout.OnItemMenuClickListener;
-import com.ali.view.swipelayout.SwipeMenu;
-import com.ali.view.swipelayout.SwipeMenuBridge;
-import com.ali.view.swipelayout.SwipeMenuCreator;
-import com.ali.view.swipelayout.SwipeMenuItem;
-import com.ali.view.swipelayout.SwipeRecyclerView;
+import com.ali.layout.swipe.OnItemMenuClickListener;
+import com.ali.layout.swipe.SwipeMenu;
+import com.ali.layout.swipe.SwipeMenuBridge;
+import com.ali.layout.swipe.SwipeMenuCreator;
+import com.ali.layout.swipe.SwipeMenuItem;
+import com.ali.layout.swipe.SwipeRecyclerView;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.view.activity.swipe.BaseActivity;
 
@@ -46,13 +46,13 @@ public class ListActivity extends BaseActivity {
             // 添加左侧的，如果不添加，则左侧不会出现菜单。
             {
                 SwipeMenuItem addItem = new SwipeMenuItem(ListActivity.this).setBackground(R.drawable.selector_green)
-                        .setImage(R.drawable.base_drawable_add)
+                        .setImage(R.drawable.base_image_add)
                         .setWidth(width)
                         .setHeight(height);
                 swipeLeftMenu.addMenuItem(addItem); // 添加菜单到左侧。
 
                 SwipeMenuItem closeItem = new SwipeMenuItem(ListActivity.this).setBackground(R.drawable.selector_red)
-                        .setImage(R.drawable.ic_picture_close)
+                        .setImage(R.drawable.picture_icon_close)
                         .setWidth(width)
                         .setHeight(height);
                 swipeLeftMenu.addMenuItem(closeItem); // 添加菜单到左侧。
@@ -61,7 +61,7 @@ public class ListActivity extends BaseActivity {
             // 添加右侧的，如果不添加，则右侧不会出现菜单。
             {
                 SwipeMenuItem deleteItem = new SwipeMenuItem(ListActivity.this).setBackground(R.drawable.selector_red)
-                        .setImage(R.drawable.ic_picture_delete)
+                        .setImage(R.drawable.picture_icon_delete)
                         .setText("删除")
                         .setTextColor(Color.WHITE)
                         .setWidth(width)

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.ali.take.LATextView;
+import com.ali.faster.LATextView;
 import com.ali.view.ParallaxActivity;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.take.EasyPermission;

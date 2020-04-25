@@ -39,7 +39,7 @@
         android:id="@+id/btn_play"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="10dp"
-        android:background="@drawable/em_button_login_bg"
+        android:background="@drawable/in_selector_em_button_login"
         android:stateListAnimator="@null"
         android:text="音视频同步播放用C实现" />
 
@@ -47,7 +47,7 @@
         android:id="@+id/btn_transcoding_compress"
         style="@style/an_match_wrap.Font"
         android:layout_marginTop="10dp"
-        android:background="@drawable/em_button_register_bg"
+        android:background="@drawable/in_selector_em_button_register"
         android:stateListAnimator="@null"
         android:text="转码压缩" />
 

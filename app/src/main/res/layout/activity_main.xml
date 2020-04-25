@@ -24,7 +24,7 @@
                 android:layout_width="80dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_drawable_copy_fav" />
+                android:src="@drawable/ic_color_copy_fav" />
 
             <!--?actionBarSize,,,,android:background="?attr/colorAccent":colorPrimary-->
             <androidx.appcompat.widget.Toolbar
@@ -55,7 +55,7 @@
             android:layout_marginBottom="0.67dp"
             android:background="@color/ColorWhite"
             app:tabGravity="center"
-            app:tabIndicator="@drawable/ic_drawable_share_music"
+            app:tabIndicator="@drawable/base_image_music"
             app:tabIndicatorColor="#FF4600"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorHeight="5dp"

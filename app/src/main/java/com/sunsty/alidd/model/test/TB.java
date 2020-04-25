@@ -1,7 +1,7 @@
 package com.sunsty.alidd.model.test;
 
 
-import com.ali.presenter.callback.JustNetApi;
+import com.ali.presenter.callback.BaseNetApi;
 
 public class TB {
 
@@ -13,7 +13,7 @@ public class TB {
 //        FixedApi fixedApi5 = (FixedApi) A.getInstance().genericInstance(FixedApi.class);
 
 //        FixedApi fixedApi6 = A.<FixedApi>genericInstance().genericInstance(FixedApi.class);
-        JustNetApi fixedApi7 = A.<JustNetApi>genericInstance().getGenericClass();
+        BaseNetApi fixedApi7 = A.<BaseNetApi>genericInstance().getGenericClass();
 
         if (fixedApi7 != null) {
             System.out.println(fixedApi7.toString());
