@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ali.callback.OnItemClickListener;
 import com.ali.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsty.alidd.R;
 import com.sunsty.alidd.model.adapter.RecyclerAdapter;
