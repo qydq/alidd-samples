@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.ali.faster.SizeUtils;
+import com.sunsta.bear.faster.SizeUtils;
 
 
 /**

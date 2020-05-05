@@ -2,10 +2,10 @@ package com.example.cj.videoeditor.gpufilter.filter;
 
 import android.opengl.GLES20;
 
-import com.ali.AnApplication;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 import com.example.cj.videoeditor.gpufilter.utils.OpenGlUtils;
+import com.sunsta.bear.AnApplication;
 
 
 public class MagicFreudFilter extends GPUImageFilter {
@@ -60,7 +60,7 @@ public class MagicFreudFilter extends GPUImageFilter {
 		setFloat(mGLStrengthLocation, 1.0f);
 	    runOnDraw(new Runnable(){
 		    public void run(){
-		    	inputTextureHandles[0] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/freud_rand.png");
+		    	inputTextureHandles[0] = OpenGlUtils.loadTexture(AnApplication.getApplication(), "filter/freud_rand.png");
 		    }
 	    });
 	}

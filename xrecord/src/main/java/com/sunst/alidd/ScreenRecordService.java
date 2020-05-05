@@ -87,7 +87,7 @@ public class ScreenRecordService extends Service {
          * and there are no new start intents to deliver to it, then take the service out of the
          * started state and don't recreate until a future explicit call to Context.startService(Intent).
          * The service will not receive a onStartCommand(Intent, int, int) call with a null Intent
-         * because it will not be re-started if there are no pending Intents to deliver.
+         * because it will not be re-started if there are no pending FasterIntents to deliver.
          */
         return Service.START_NOT_STICKY;
     }

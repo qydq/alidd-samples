@@ -4,12 +4,12 @@ import android.opengl.GLES20;
 import android.view.MotionEvent;
 import android.widget.Scroller;
 
-import com.ali.AnApplication;
 import com.example.cj.videoeditor.Constants;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 import com.example.cj.videoeditor.gpufilter.helper.MagicFilterFactory;
 import com.example.cj.videoeditor.gpufilter.helper.MagicFilterType;
 import com.example.cj.videoeditor.utils.EasyGlUtils;
+import com.sunsta.bear.AnApplication;
 
 
 /**
@@ -44,7 +44,7 @@ public class SlideGpuFilterGroup {
 
     public SlideGpuFilterGroup() {
         initFilter();
-        scroller = new Scroller(AnApplication.getInstance());
+        scroller = new Scroller(AnApplication.getApplication());
     }
 
     private void initFilter() {

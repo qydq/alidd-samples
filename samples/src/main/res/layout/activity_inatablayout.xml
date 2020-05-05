@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/an_match_match.V">
+
+    <com.sunsta.bear.layout.INABarLayout
+        android:id="@+id/inaBarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:anTxRight="使用方法"
+        app:anTxTitle="INATabLayoutActivity系列情景第一次使用案例复分析城西"
+        app:open_material="true"
+        app:open_night="true"
+        app:showRLl="true" />
+
+    <!-- app:anTabTextAllCaps="false"====标题字母大小写转换功能，默认false小写,true自动转大写;或者在代码中调用tabLayout.setAllCaps(false)-->
+    <!-- app:anTabSelectedTextSize="18sp"====用于设置选中项的字体大小;-->
+    <!-- app:anTabTextSize="14sp"====用于设置未选中项的字体大小;-->
+    <!-- app:anTabTextBold="false"====用于设置未选中项的字体是否是粗体字;默认false-->
+    <!-- app:anTabTextColor="#000"====用于设置未选中项的字体颜色;-->
+    <!-- app:anTabSelectedTextColor="@color/ColorWhite"====用于设置未选中项的字体颜色;-->
+    <!-- app:anTabTextSelectedBold="true"====用于设置选中项的字体是否是粗体字;默认false;-->
+    <!-- app:anTabDisplayNum="6"====设置屏幕范围内显示的Tab个数,注意显示的个数会受Adapter的ItemCount影响,adapter数目小于6，则值显示adapter数量;-->
+    <!-- app:anTabBackgroundColor="@color/an_color_holo_light_blue"====设置Tab背景色;-->
+    <!-- app:anTabSelectedBackgroundColor="@color/ColorWhite"====设置选中的Tab背景色;-->
+    <!-- app:anTabIndicatorWidth="20dp"====设置指示器长度;注意不设置该值时指示器随Tab文本内容长度变化-->
+    <!-- app:anTabDividerWidthWidthText="true"====设置指示器随Tab文本内容长度变化而变化,默认为true;-->
+    <!-- app:anTabIndicator="@drawable/base_music"====设置指示器的资源文件;-->
+    <!--分割线相关属性,默认无分割线-->
+    <!--        app:anTabDividerWidth="2dp" 分割线宽度
+        app:anTabDividerHeight="15dp" 分割线高度， 注意不设置xTabDividerHeight属性或者=0时则分割线高度占满
+        app:anTabDividerColor="#000"  分割线颜色
+        app:anTabDividerGravity="center"-->
+    <!--动态设置属性
+        tabLayout.setDividerSize("5","20"); //第二个参数为高度，如果设置为0时则分割线高度占满
+        tabLayout.setDividerColor(Color.BLACK);
+        tabLayout.setDividerGravity(DividerDrawable.CENTER);-->
+    <com.sunsta.bear.layout.INATabLayout
+        android:id="@+id/anTablayout"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@color/holo_green_light"
+        app:anTabDisplayNum="6"
+        app:anTabDividerColor="#000"
+        app:anTabDividerGravity="center"
+        app:anTabDividerHeight="15dp"
+        app:anTabDividerWidth="2dp"
+        app:anTabIndicatorColor="#FF4600"
+        app:anTabIndicatorHeight="2dp"
+        app:anTabMode="scrollable"
+        app:anTabPaddingTop="5dp"
+        app:anTabSelectedTextColor="@color/ColorWhite"
+        app:anTabSelectedTextSize="20sp"
+        app:anTabTextAllCaps="true"
+        app:anTabTextColor="#000"
+        app:anTabTextSelectedBold="true"
+        app:anTabTextSize="14sp" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/aliViewPager"
+        style="@style/an_match_auto"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/natureTableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="19.33dp"
+        android:layout_marginBottom="10.67dp"
+        app:tabBackground="@drawable/selector"
+        app:tabGravity="center"
+        app:tabIndicator="@drawable/picture_btn_music_shape"
+        app:tabIndicatorColor="#FF4600"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="5dp"
+        app:tabMode="scrollable"
+        app:tabPaddingEnd="0dp"
+        app:tabPaddingStart="0dp"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="#f00"
+        app:tabTextColor="#000" />
+    <!--app:tabBackground="@android:color/transparent" tabIndicatorHeight =2dp-->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/originalViewPager"
+        style="@style/an_match_auto" />
+
+</LinearLayout>

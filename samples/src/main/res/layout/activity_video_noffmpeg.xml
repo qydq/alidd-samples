@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/btnScreenShot"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginTop="@dimen/AppBarPatchMarginTop"
+        android:background="@drawable/in_selector_shadow"
+        android:stateListAnimator="@null"
+        android:text="截取屏幕" />
+
+
+    <LinearLayout
+        android:id="@+id/llThumbnail"
+        style="@style/an_match_wrap.H"
+        android:layout_below="@+id/btnScreenShot"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/an_dimen_margin">
+
+        <Button
+            android:id="@+id/btnThumbnail1"
+            style="@style/an_auto_wrap.Font"
+            android:background="@drawable/in_selector_em_button_register"
+            android:text="获取本地视频第一帧"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnThumbnail2"
+            style="@style/an_auto_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin_small"
+            android:background="@drawable/in_selector_em_button_register"
+            android:text="获取网络视频第一帧" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnPhoneScreen"
+        style="@style/an_match_wrap.Font"
+        android:layout_below="@+id/llThumbnail"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_md_shape"
+        android:text="手机屏幕录制视频" />
+
+    <Button
+        android:id="@+id/btnPhoneCamera"
+        style="@style/an_match_wrap.Font"
+        android:layout_below="@+id/btnPhoneScreen"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_md_shape_oppose"
+        android:text="摄像头录制视频" />
+
+    <Button
+        android:id="@+id/btnCompressNormal"
+        style="@style/an_match_wrap.Font"
+        android:layout_below="@+id/btnPhoneCamera"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_em_button_register"
+        android:text="视频普通压缩"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnWater"
+        style="@style/an_match_wrap.Font"
+        android:layout_below="@+id/btnCompressNormal"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_em_button_register"
+        android:text="视频加水印"
+        android:textColor="#FFFFFF" />
+
+    <RelativeLayout
+        android:id="@+id/rlVideoData"
+        android:layout_width="match_parent"
+        android:layout_height="129.6dp"
+        android:layout_below="@+id/btnWater"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:alpha="0.7"
+        android:background="@color/ColorBlack"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivThumbnailVideo"
+            android:layout_width="match_parent"
+            android:layout_height="129.6dp"
+            android:alpha="0.9"
+            android:background="@drawable/image_select"
+            android:minWidth="120dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:id="@+id/llVideoControl"
+            style="@style/an_wrap_wrap.V"
+            android:layout_centerInParent="true"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/ivVideoPlay"
+                android:layout_width="28.13dp"
+                android:layout_height="28.13dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/base_image_music_play" />
+
+            <TextView
+                android:id="@+id/tvVideoStatus"
+                style="@style/an_wrap_wrap"
+                android:layout_marginTop="6dp"
+                android:gravity="center_horizontal"
+                android:text="正在录制中..."
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvProgress"
+            style="@style/an_wrap_wrap"
+            android:layout_above="@+id/nestProgressBar"
+            android:layout_centerInParent="true"
+            android:text="69%"
+            android:textColor="@color/ColorWhite"
+            android:textSize="12sp" />
+
+        <com.sunsta.bear.faster.webview.NestProgressBar
+            android:id="@+id/nestProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        style="@style/an_match_wrap"
+        android:layout_below="@+id/rlVideoData"
+        android:text="VideoNoFFmpegActivity.java" />
+
+</RelativeLayout>

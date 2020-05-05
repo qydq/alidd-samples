@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">alidd-samples</string>
+    <array name="types">
+        <item>身份证</item>
+        <item>驾驶证</item>
+    </array>
+    <array name="saveImage">
+        <item>保存识别图</item>
+        <item>不保存识别图</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

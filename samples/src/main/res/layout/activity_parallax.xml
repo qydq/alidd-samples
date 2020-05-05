@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sunsta.bear.layout.swipe.widget.StickyNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/an_match_match"
+    android:background="?attr/anBackground">
+    <!--android:stateListAnimator="@null" 可以去除按钮点击投影-->
+    <LinearLayout style="@style/an_match_match.V">
+
+        <TextView
+            android:id="@+id/tvMark"
+            style="@style/an_match_wrap"
+            android:layout_marginTop="@dimen/AppBarPatchMarginTop"
+            android:text="AliParallaxActivity.java &#8194;&#8194; 提示：android:stateListAnimator=@null可以去除按钮点击投影..&#8194;（click：点击可以在知乎查看（android简单实现仿iOS侧滑返回到上一个界面的三种方式）详细使用）" />
+
+        <TextView
+            style="@style/an_match_wrap"
+            android:layout_marginTop="@dimen/AppBarPatchMarginTop"
+            android:text="----------------分割线-----------" />
+
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:stateListAnimator="@null"
+            android:text="ok:标准总测试"
+            android:textAllCaps="false" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:enabled="false"
+            android:text="ok:标准总测试--不可点击"
+            android:textAllCaps="false" />
+
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:enabled="true"
+            android:text="ok:标准总测试--可点击"
+            android:textAllCaps="false" />
+
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:clickable="false"
+            android:focusable="false"
+            android:text="标准总测试--ffalse"
+            android:textAllCaps="false" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="标准总测试--ftrue"
+            android:textAllCaps="false" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="?attr/selectableItemBackground"
+            android:text="按钮测试-2  &#8194;系统默认material：selectableItemBackground" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_em_button_login"
+            android:text="按钮测试-1：em_button_login_bg" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_em_menu_item"
+            android:text="按钮测试0：em_context_menu_item_bg" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector"
+            android:text="按钮测试1：in_selector" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/AppBarPatchMarginTop"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_md"
+            android:stateListAnimator="@null"
+            android:text="按钮测试2：in_selector_md" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_md_shape"
+            android:text="按钮测试3：in_selector_md_shape" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_md_shape_oppose"
+            android:text="按钮测试4：in_selector_md_shape_oppose" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_em_button_register"
+            android:text="按钮测试5：em_button_register_bg"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_shadow"
+            android:text="按钮测试6：in_selector_shadow" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_ll"
+            android:text="按钮测试7：in_selector_ll" />
+
+        <Button
+            style="@style/an_match_wrap.Font"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
+            android:layout_marginRight="@dimen/an_dimen_margin"
+            android:background="@drawable/in_selector_ll_shape"
+            android:text="按钮测试8：in_selector_ll_shape" />
+    </LinearLayout>
+</com.sunsta.bear.layout.swipe.widget.StickyNestedScrollView>

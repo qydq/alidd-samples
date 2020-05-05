@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_material_ux">
+        <item>(OK)livery首发使用情景-INATabLayout.(可扩展的TabLayout</item>
+        <item>(OK)material design 情景系列示例md</item>
+        <item>(OK)导航栏navigation 情景系列示例pager</item>
+        <item>(OK)高效加载gif动画使用示例</item>
+
+        <item>(OK)一个WebView加载标签使用情景结合，INALikeButton案例</item>
+        <item>(OK)简单实现侧滑返回到上一个界面的三种方式-之（ParallelActivity）</item>
+        <item>(OK)一个特别的ExpandableListView视觉效果（仿cardView实现）</item>
+        <item>(OK)material swipeRv 情景系列案例swipe</item>
+        <item>知乎控制</item>
+        <item>夜间模式</item>
+        <item>Livery1---</item>
+        <item>Livery2---</item>
+        <item>Livery3---</item>
+        <item>Livery4---</item>
+        <item>Livery5---</item>
+        <item>Livery6---</item>
+        <item>Livery7---</item>
+
+    </string-array>
+    <string-array name="main_an_scene">
+        <item>网络请求接口,获取公共数据anbase继承网络能力</item>
+        <item>网络请求接口,带请求参数（含上传文件能力）</item>
+        <item>网络请求下载带进度条文件(下载知乎日报apk,retrofit)</item>
+        <item>拍照TakePhoto系列</item>
+        <item>拍照PictureSelector（仿微信相册选择拍照）</item>
+        <item>便捷申请权限操作LaPermission</item>
+        <item>芳芳</item>
+        <item>Livery1---</item>
+        <item>Livery2---</item>
+        <item>Livery3---</item>
+        <item>Livery4---</item>
+        <item>Livery5---</item>
+        <item>Livery6---</item>
+        <item>Livery7---</item>
+        <item>Livery8---</item>
+        <item>Livery9---</item>
+        <item>Livery10---</item>
+        <item>Livery11---</item>
+        <item>Livery12---</item>
+    </string-array>
+    <string-array name="main_logical">
+        <item>Livery未开放测试1---</item>
+        <item>Livery未开放测试2---</item>
+        <item>Livery未开放测试3---</item>
+        <item>Livery未开放测试4---</item>
+        <item>Livery未开放测试5---</item>
+        <item>Livery未开放测试6---</item>
+        <item>Livery未开放测试7---</item>
+        <item>Livery未开放测试8---</item>
+        <item>Livery未开放测试---</item>
+        <item>Livery2---</item>
+        <item>Livery3---</item>
+        <item>Livery4---</item>
+        <item>Livery5---</item>
+        <item>Livery6---</item>
+        <item>Livery7---</item>
+        <item>Livery8---</item>
+        <item>Livery9---</item>
+        <item>Livery10---</item>
+        <item>Livery11---</item>
+        <item>Livery12---</item>
+    </string-array>
+    <string-array name="main_other">
+        <item>alidd框架说明（Github官网）</item>
+        <item>我的知乎地址（点击关注Bgwan）</item>
+        <item>视频情景1：压缩，屏幕录制（非FFmpeg）</item>
+        <item>视频情景2：转码压缩，水印，视频解码，音频解码，播放（C底层FFmpeg）</item>
+        <item>视频情景3：压缩，摄像头录制视频（可选配置）</item>
+        <item>启动一个像素的activity(test模块=</item>
+        <item>人脸识别模块.</item>
+        <item>小团子</item>
+    </string-array>
+
+    <string-array name="test_data">
+        <item>我喜欢你是寂静的，</item>
+        <item>仿佛你消失了一样。</item>
+        <item>你从远处聆听我，</item>
+        <item>我的声音却无法企及你。</item>
+        <item>好像你的双眼已飞离远去，</item>
+        <item>如同一个吻，封缄了你的嘴。</item>
+        <item>如同所有的事物充满了我的灵魂，</item>
+        <item>你从所有的事物中浮现，</item>
+        <item>充满了我的灵魂。</item>
+        <item>你像我的灵魂，一只梦的蝴蝶。</item>
+        <item>你如同忧郁这个字。</item>
+        <item>我喜欢你是寂静的，好像你已远去。</item>
+        <item>你听起来像在悲叹，一只如鸽悲鸣的蝴蝶。</item>
+        <item>你从远处听见我，我的声音无法企及你。</item>
+        <item>让我在你的沉默中安静无声。</item>
+        <item>并且让我借你的沉默与你说话，</item>
+        <item>你的沉默明亮如灯，简单如指环。</item>
+        <item>你就像黑夜，拥有寂静与群星。</item>
+        <item>你的沉默就是星星的沉默，遥远而明亮。</item>
+        <item>我喜欢你是寂静的，仿佛你消失了一样，</item>
+        <item>遥远且哀伤，仿佛你已经死了。</item>
+        <item>彼时，一个字，一个微笑，已经足够。</item>
+        <item>而我会觉得幸福，因那不是真的而觉得幸福。</item>
+    </string-array>
+</resources>

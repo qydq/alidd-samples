@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.DisplayMetrics;
 
-import com.ali.AnApplication;
-import com.ali.AnConstants;
+import com.sunsta.bear.AnApplication;
+import com.sunsta.bear.AnConstants;
 
 import java.io.File;
 
@@ -66,7 +66,7 @@ public class Constants {
         if (!f.exists()) {
             boolean b = f.mkdirs();
             if (!b) {
-                baseFolder = AnApplication.getInstance().getExternalFilesDir(null).getAbsolutePath() + File.separator;
+                baseFolder = AnApplication.getApplication().getExternalFilesDir(null).getAbsolutePath() + File.separator;
             }
         }
         return baseFolder;

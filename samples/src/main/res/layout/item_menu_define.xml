@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sunsta.bear.layout.swipe.SwipeMenuLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:minHeight="?actionBarSize"
+    swipe:contentViewId="@+id/content_view"
+    swipe:leftViewId="@+id/left_view"
+    swipe:rightViewId="@+id/right_view">
+
+    <LinearLayout
+        android:id="@id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/an_dimen_padding_left"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="布局中的可点击View"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@id/left_view"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/an_dimen_padding_left"
+        android:text="左面Button"/>
+
+    <Button
+        android:id="@id/right_view"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/an_dimen_padding_left"
+        android:text="右面Button"/>
+</com.sunsta.bear.layout.swipe.SwipeMenuLayout>

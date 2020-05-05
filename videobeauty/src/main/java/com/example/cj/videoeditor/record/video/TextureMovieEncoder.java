@@ -24,13 +24,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-
-import com.ali.AnApplication;
 import com.example.cj.videoeditor.filter.AFilter;
 import com.example.cj.videoeditor.filter.NoFilter;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 import com.example.cj.videoeditor.gpufilter.basefilter.MagicCameraInputFilter;
 import com.example.cj.videoeditor.record.gles.EglCore;
+import com.sunsta.bear.AnApplication;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -466,7 +465,7 @@ public class TextureMovieEncoder implements Runnable {
         }
     }
 //    private MagicFilterType type = MagicFilterType.NONE;
-    private AFilter mShowFilter=new NoFilter(AnApplication.getInstance().getResources());
+    private AFilter mShowFilter=new NoFilter(AnApplication.getApplication().getResources());
 //    public void setFilter(MagicFilterType type) {
 //        this.type = type;
 //    }

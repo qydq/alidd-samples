@@ -1,0 +1,30 @@
+ext {
+    currentVersion = '1.0.0'
+
+    cfgs = [
+            applicationId    : "com.sunsta.damo",
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.2",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+
+            versionCode      : 2,
+            versionName      : "1.0.2",
+
+            //library
+            bearGroupId      : "com.sunsta.bear",
+            bearVersionCode  : 111,
+            bearVersionName  : "1.1.11",
+
+            liveryGroupId    : "com.sunsta.livery",
+            liveryVersionCode: 111,
+            liveryVersionName: "1.1.11",
+    ]
+
+    plugins = [
+            library    : 'com.android.library',
+            application: 'com.android.application',
+            maven      : 'com.github.dcendents.android-maven',
+            bintray    : 'com.qydq.bintray'
+    ]
+}

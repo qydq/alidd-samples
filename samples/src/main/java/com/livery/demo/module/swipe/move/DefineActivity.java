@@ -1,0 +1,166 @@
+package com.livery.demo.module.swipe.move;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Toast;
+
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.sunsta.bear.layout.swipe.touch.OnItemMoveListener;
+import com.sunsta.bear.layout.swipe.touch.OnItemMovementListener;
+import com.livery.demo.R;
+
+import java.util.Collections;
+
+/**
+ * 自定义拖拽规则的。
+ */
+public class DefineActivity extends BaseDragActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        View header = getLayoutInflater().inflate(R.layout.layout_header_switch, mRecyclerView, false);
+        mRecyclerView.addHeaderView(header);
+
+        SwitchCompat switchCompat = header.findViewById(R.id.switch_compat);
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // 控制是否可以侧滑删除。
+                mRecyclerView.setItemViewSwipeEnabled(isChecked);
+            }
+        });
+
+        mRecyclerView.setLongPressDragEnabled(true); // 长按拖拽，默认关闭。
+        mRecyclerView.setItemViewSwipeEnabled(false); // 滑动删除，默认关闭。
+
+        // 自定义拖拽控制参数。
+        mRecyclerView.setOnItemMovementListener(mItemMovementListener);
+    }
+
+    /**
+     * Item移动参数回调监听，这里自定义Item怎样移动。
+     */
+    private OnItemMovementListener mItemMovementListener = new OnItemMovementListener() {
+        @Override
+        public int onDragFlags(RecyclerView recyclerView, RecyclerView.ViewHolder targetViewHolder) {
+            int adapterPosition = targetViewHolder.getAdapterPosition();
+            if (adapterPosition == 0) { // 这里让HeaderView不能拖拽。
+                return OnItemMovementListener.INVALID;// 返回无效的方向。
+            }
+
+            // 真实的Position：通过ViewHolder拿到的position都需要减掉HeadView的数量。
+            int position = adapterPosition - mRecyclerView.getHeaderCount();
+
+            // 假如让普通Item的第一个不能拖拽。
+            if (position == 0) {
+                return OnItemMovementListener.INVALID;// 返回无效的方向。
+            }
+
+            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+            if (layoutManager instanceof GridLayoutManager) {
+                // Grid可以上下左右拖拽。
+                return OnItemMovementListener.LEFT | OnItemMovementListener.UP | OnItemMovementListener.RIGHT |
+                    OnItemMovementListener.DOWN;
+            } else if (layoutManager instanceof LinearLayoutManager) {
+                LinearLayoutManager linearLayoutManager = (LinearLayoutManager)layoutManager;
+
+                // 横向List只能左右拖拽。
+                if (linearLayoutManager.getOrientation() == LinearLayoutManager.HORIZONTAL) {
+                    return (OnItemMovementListener.LEFT | OnItemMovementListener.RIGHT);
+                }
+                // 竖向List只能上下拖拽。
+                else {
+                    return OnItemMovementListener.UP | OnItemMovementListener.DOWN;
+                }
+            }
+            return OnItemMovementListener.INVALID;// 返回无效的方向。
+        }
+
+        @Override
+        public int onSwipeFlags(RecyclerView recyclerView, RecyclerView.ViewHolder targetViewHolder) {
+            int adapterPosition = targetViewHolder.getAdapterPosition();
+            if (adapterPosition == 0) { // 这里让HeaderView不能侧滑删除。
+                return OnItemMovementListener.INVALID;// 返回无效的方向。
+            }
+
+            // 真实的Position：通过ViewHolder拿到的position都需要减掉HeadView的数量。
+            int position = adapterPosition - mRecyclerView.getHeaderCount();
+
+            // 假如让普通Item的第一个不能侧滑删除。
+            if (position == 0) {
+                return OnItemMovementListener.INVALID;// 返回无效的方向。
+            }
+
+            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+            if (layoutManager instanceof GridLayoutManager) {
+                LinearLayoutManager manager = (LinearLayoutManager)layoutManager;
+                // 横向Grid上下侧滑。
+                if (manager.getOrientation() == LinearLayoutManager.HORIZONTAL) {
+                    return ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                }
+                // 竖向Grid左右侧滑。
+                else {
+                    return ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+                }
+            } else if (layoutManager instanceof LinearLayoutManager) {
+                LinearLayoutManager manager = (LinearLayoutManager)layoutManager;
+                // 横向List上下侧滑。
+                if (manager.getOrientation() == LinearLayoutManager.HORIZONTAL) {
+                    return OnItemMovementListener.UP | OnItemMovementListener.DOWN;
+                }
+                // 竖向List左右侧滑。
+                else {
+                    return OnItemMovementListener.LEFT | OnItemMovementListener.RIGHT;
+                }
+            }
+            return OnItemMovementListener.INVALID;// 其它均返回无效的方向。
+        }
+    };
+
+
+    @Override
+    protected OnItemMoveListener getItemMoveListener() {
+        return new OnItemMoveListener() {
+            @Override
+            public boolean onItemMove(RecyclerView.ViewHolder srcHolder, RecyclerView.ViewHolder targetHolder) {
+                // 想让不同的ViewType之间可以拖拽，就是去掉这个判断。
+                if (srcHolder.getItemViewType() != targetHolder.getItemViewType()) return false;
+
+                // 添加了HeadView时，通过ViewHolder拿到的position都需要减掉HeadView的数量。
+                int fromPosition = srcHolder.getAdapterPosition() - mRecyclerView.getHeaderCount();
+                int toPosition = targetHolder.getAdapterPosition() - mRecyclerView.getHeaderCount();
+
+                if (toPosition == 0) {// 保证第一个不被挤走。
+                    return false;
+                }
+                if (fromPosition < toPosition) {
+                    for (int i = fromPosition; i < toPosition; i++)
+                        Collections.swap(mDataList, i, i + 1);
+                } else {
+                    for (int i = fromPosition; i > toPosition; i--)
+                        Collections.swap(mDataList, i, i - 1);
+                }
+
+                mAdapter.notifyItemMoved(fromPosition, toPosition);
+
+                return true;// 返回true表示处理了并可以换位置，返回false表示你没有处理并不能换位置。
+            }
+
+            @Override
+            public void onItemDismiss(RecyclerView.ViewHolder srcHolder) {
+                int position = srcHolder.getAdapterPosition() - mRecyclerView.getHeaderCount();
+                mDataList.remove(position);
+                mAdapter.notifyItemRemoved(position);
+                Toast.makeText(DefineActivity.this, "现在的第" + position + "条被删除。", Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
+}

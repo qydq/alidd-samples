@@ -2,10 +2,10 @@ package com.example.cj.videoeditor.gpufilter.filter;
 
 import android.opengl.GLES20;
 
-import com.ali.AnApplication;
 import com.example.cj.videoeditor.R;
 import com.example.cj.videoeditor.gpufilter.basefilter.GPUImageFilter;
 import com.example.cj.videoeditor.gpufilter.utils.OpenGlUtils;
+import com.sunsta.bear.AnApplication;
 
 
 public class MagicBrannanFilter extends GPUImageFilter {
@@ -55,11 +55,11 @@ public class MagicBrannanFilter extends GPUImageFilter {
 		setFloat(mGLStrengthLocation, 1.0f);
 	    runOnDraw(new Runnable(){
 		    public void run(){
-		    	inputTextureHandles[0] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/brannan_process.png");
-				inputTextureHandles[1] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/brannan_blowout.png");
-				inputTextureHandles[2] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/brannan_contrast.png");
-				inputTextureHandles[3] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/brannan_luma.png");
-				inputTextureHandles[4] = OpenGlUtils.loadTexture(AnApplication.getInstance(), "filter/brannan_screen.png");
+		    	inputTextureHandles[0] = OpenGlUtils.loadTexture(AnApplication.getApplication(), "filter/brannan_process.png");
+				inputTextureHandles[1] = OpenGlUtils.loadTexture(AnApplication.getApplication(), "filter/brannan_blowout.png");
+				inputTextureHandles[2] = OpenGlUtils.loadTexture(AnApplication.getApplication(), "filter/brannan_contrast.png");
+				inputTextureHandles[3] = OpenGlUtils.loadTexture(AnApplication.getApplication(), "filter/brannan_luma.png");
+				inputTextureHandles[4] = OpenGlUtils.loadTexture(AnApplication.getApplication(), "filter/brannan_screen.png");
 		    }
 	    });
 	}
