@@ -94,7 +94,7 @@ public class AliddApplication extends AnApplication {
 >```NATabLayout```控件类符合material design在```material-ux```中，具体如图：（待补）
 
 其它两个tab页是个人当前测试的一些逻辑性，功能性代码，如视频编解码，获取网络一些数据列表，这部分代码仅供参考，关于```livery情景```更多的api可以查看帮助文档.
-![](https://github.com/qydq/alidd-samples/blob/master/screen/livery_api?raw=true)
+![](https://github.com/qydq/alidd-samples/blob/master/screen/livery_api.png?raw=true)
 
 下面是部份```Details Module```的介绍，更多内容可以从本人知乎an情景专栏中获取.
 ### 部分情景能力演示
