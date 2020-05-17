@@ -69,7 +69,7 @@
 - [x] 快速集成实现你的导航栏工具
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
-&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.12apk**](https://github.com/qydq/alidd-samples/raw/master/samples/apk/demo_livery1.1.11.apk)&#8194;&#8194;&#8194;&#8194;
+&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.12apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.12.apk)&#8194;&#8194;&#8194;&#8194;
 ## 集成方式# Binaries
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
 ```Groovy
@@ -221,7 +221,7 @@ exclude 'META-INF/rxjava.properties'
 
 ### apk下载及其说明
 
-[最新版本(demo_livery1.1.11apk)](https://github.com/qydq/alidd-samples/raw/master/samples/apk/demo_livery1.1.11.apk)
+[最新版本(demo_livery1.1.12apk)](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.12.apk)
 
 alidd-samples项目(project)概况：
 
@@ -231,7 +231,7 @@ alidd-samples项目(project)概况：
 |**v1.0.19** *`(2020/01/02)`*| 255M |   13.4M |12.2M  |1.包含了视频2个情景系列 和Gif加载动画<br/>2.引入了几张大	      的资源gif图， 这是apk Size变大的原因    |
 |**v1.1.10** *`(2020/03/26)`*| 259M |  16M    | 14.7M |1.包含了视频滤镜的module videobeauty<br/>2.包含导航栏，新增md设计   |
 
-说明：alidd-samples项目，是为了方便开发者快速集成livery提供的源代码；demo_livery1.1.11.apk，后面的版本是属于livery情景框架的版本号，非demo版本号（当前demo_apk版本暂时只为1.0).
+说明：alidd-samples项目，是为了方便开发者快速集成livery提供的源代码；demo_livery1.1.12.apk，后面的版本是属于livery情景框架的版本号，非demo版本号（当前demo_apk版本暂时只为1.0).
 
 
 ### 1.0.x版本总述
