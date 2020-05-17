@@ -69,7 +69,7 @@
 - [x] 快速集成实现你的导航栏工具
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
-&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.12apk**](https://github.com/qydq/alidd-samples/raw/master/samples/apk/demo_livery1.1.11.apk)&#8194;&#8194;&#8194;&#8194;
+&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.12apk**](https://github.com/qydq/alidd-samples/raw/master/samples/apk/demo_livery1.1.11.apk)&#8194;&#8194;&#8194;&#8194;
 ## 集成方式# Binaries
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
 ```Groovy
