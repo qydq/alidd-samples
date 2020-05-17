@@ -86,7 +86,7 @@ public class MainFragment extends Fragment implements OnItemClickListener {
                 mFLayout.setAlpha(percent);
             }
         });
-        ivBackground.setOnClickListener(view1 -> ToastUtils.sl("本页面视频播放功能，正在开发种,ing，敬请期待."));
+        ivBackground.setOnClickListener(view1 -> ToastUtils.showSelfLongToast("本页面视频播放功能，正在开发种,ing，敬请期待."));
         return view;
     }
 

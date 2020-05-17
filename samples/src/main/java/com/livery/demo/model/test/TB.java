@@ -1,7 +1,7 @@
 package com.livery.demo.model.test;
 
 
-import com.sunsta.bear.presenter.BaseNetApi;
+import com.sunsta.bear.presenter.BaseInternetApi;
 
 public class TB {
 
@@ -13,7 +13,7 @@ public class TB {
 //        FixedApi fixedApi5 = (FixedApi) A.getInstance().genericInstance(FixedApi.class);
 
 //        FixedApi fixedApi6 = A.<FixedApi>genericInstance().genericInstance(FixedApi.class);
-        BaseNetApi fixedApi7 = A.<BaseNetApi>genericInstance().getGenericClass();
+        BaseInternetApi fixedApi7 = A.<BaseInternetApi>genericInstance().getGenericClass();
 
         if (fixedApi7 != null) {
             System.out.println(fixedApi7.toString());

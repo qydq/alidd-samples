@@ -49,13 +49,13 @@ public class LogicalFragment extends Fragment implements OnItemClickListener {
     public void onItemClick(View view, int position) {
         switch (position) {
             case 0:
-                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_color_copy_fav);
+                ToastUtils.showSelfToast("我的测试对话框" + position, R.drawable.ic_color_copy_fav);
                 break;
             case 1:
-                ToastUtils.s("我的测试对话框" + position, R.drawable.ic_white_mail);
+                ToastUtils.showSelfToast("我的测试对话框" + position, R.drawable.ic_white_mail);
                 break;
             case 2:
-                ToastUtils.s("我的测试对话框" + position);
+                ToastUtils.showSelfToast("我的测试对话框" + position);
                 break;
             case 3:
                 ToastUtils.s(getContext(), "我的测试对话框" + position);

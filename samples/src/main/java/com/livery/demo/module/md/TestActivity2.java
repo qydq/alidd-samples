@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
@@ -12,10 +13,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.livery.demo.R;
 import com.livery.demo.view.fragment.Fragment1;
 import com.livery.demo.view.fragment.Fragment2;
@@ -30,6 +34,7 @@ public class TestActivity2 extends AliActivity implements View.OnClickListener {
     private String[] strings = new String[]{"列表1", "列表2"};
     private List<Fragment> nativeFragments = new ArrayList<>();
     private ViewPager nativeViewPager;
+    private ViewPager2 nativeViewPager2;
 
     protected Toolbar mToolbar;
     protected AppBarLayout appBarLayout;
@@ -41,6 +46,7 @@ public class TestActivity2 extends AliActivity implements View.OnClickListener {
     private TextView tvTitle, tvJoin, tvFan, tvFanNumber, tvPost, tvPostNumber, tvTitle2;
     private ImageView ivHead, ivBack1, ivBack2;
     protected FloatingActionButton fab;
+    protected TabLayout natureTableLayout;
 
     protected boolean displayHomeAsUpEnabled() {
         return false;
@@ -77,13 +83,39 @@ public class TestActivity2 extends AliActivity implements View.OnClickListener {
         appBarListener();
 
         nativeViewPager = findViewById(R.id.natureViewPager);
-        TabLayout natureTableLayout = findViewById(R.id.natureTableLayout);
+        nativeViewPager2 = findViewById(R.id.natureViewPager);
+        natureTableLayout = findViewById(R.id.natureTableLayout);
 // toolbarInner.findViewById(R.id.iv).setOnClickListener(v -> showToast("1.前两个模块属于alidd情景系列；2.后两个模块属于非alidd情景系列."));
 
 // mToolbar.setNavigationIcon(R.drawable.base_drawable_backarrow_click);
 
         nativeFragments.add(new Fragment1());
         nativeFragments.add(new Fragment2());
+//        initViewPager1();
+        initViewPager2();
+
+    }
+
+    private void initViewPager2() {
+        nativeViewPager2.setAdapter(new FragmentStateAdapter(this) {
+            @Override
+            public int getItemCount() {
+                return nativeFragments.size();
+            }
+
+            @NonNull
+            @Override
+            public Fragment createFragment(int position) {
+                return nativeFragments.get(position);
+            }
+        });
+        nativeViewPager2.setOffscreenPageLimit(1);
+        new TabLayoutMediator(natureTableLayout, nativeViewPager2, (tab, position) -> {
+            tab.setText(strings[position]);
+        }).attach();
+    }
+
+    private void initViewPager1() {
         NatureAdapter fragmentAdater = new NatureAdapter(getSupportFragmentManager());
         nativeViewPager.setAdapter(fragmentAdater);
 // natureViewPager.setOffscreenPageLimit(4);

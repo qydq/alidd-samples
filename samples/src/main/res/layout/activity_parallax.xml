@@ -100,7 +100,7 @@
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/in_selector"
+            android:background="@drawable/in_selector_color"
             android:text="按钮测试1：in_selector" />
 
         <Button

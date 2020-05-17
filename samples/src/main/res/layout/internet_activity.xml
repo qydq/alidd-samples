@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/an_dimen_padding">
+
+    <LinearLayout
+        style="@style/an_match_match.H"
+        android:layout_marginTop="30dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_em_button_login"
+            android:text="2：写一个Manger获取转换后的json"
+            android:textAllCaps="false"
+            android:textColor="?android:textColorLink"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <include layout="@layout/an_item_oneline" />
+
+    <LinearLayout
+        style="@style/an_match_wrap.H"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:text="3：获取原始ResponseBody-livery"
+            android:textAllCaps="false"
+            android:textColor="?colorAccent"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_em_logout_special"
+            android:text="4：获取ReplyMode-livery提供转换"
+            android:textAllCaps="false"
+            android:textColor="?android:editTextColor"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <include layout="@layout/an_item_oneline" />
+
+    <LinearLayout
+        style="@style/an_match_wrap.H"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector"
+            android:gravity="start"
+            android:text="5：addDispose获取原始ResponseBody-livery"
+            android:textAllCaps="false"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_md"
+            android:text="6：addDispose获取ReplyMode-livery"
+            android:textAllCaps="false"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <include layout="@layout/an_item_oneline" />
+
+    <LinearLayout
+        style="@style/an_match_wrap.H"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_em_button_register"
+            android:gravity="left"
+            android:text="7：其它测试"
+            android:textAllCaps="false"
+            android:textColor="?android:colorButtonNormal"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnOther"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_opp_md"
+            android:text="Other：(带请求参数?)addDispose获取ReplyMode"
+            android:textAllCaps="false"
+            android:textColor="?android:textColorLink"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <include layout="@layout/an_item_oneline" />
+
+    <LinearLayout
+        style="@style/an_match_wrap.H"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_ll"
+            android:text="8：(带请求参数)addDispose获取原始ResponseBody"
+            android:textAllCaps="false"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_opp_md"
+            android:text="9：(带请求参数推流地址)addDispose获取ResponseBody"
+            android:textAllCaps="false"
+            android:textColor="?android:textColorLink"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <include layout="@layout/an_item_oneline" />
+
+    <LinearLayout
+        style="@style/an_match_wrap.H"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_md_shape_oppose"
+            android:text="10：上传文件"
+            android:textAllCaps="false"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/an_dimen_margin"
+            android:layout_weight="1"
+            android:background="@drawable/in_selector_em_menu_item"
+            android:text="11：下载文件apk并安装"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorControlNormal"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <include layout="@layout/an_item_oneline" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:background="?selectableItemBackground"
+        android:lineSpacingMultiplier="1.5"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:text="数据:点击后请求\nhttps://github.com/qydq/idcardOCR"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:id="@+id/tvZfb"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_em_button_register"
+        android:text="检测是否安装支付宝"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvWx"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_em_button_register"
+        android:text="检测是否安装微信"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/httpUpload"
+        style="@style/an_match_wrap.Font"
+        android:layout_marginLeft="@dimen/an_dimen_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="@dimen/an_dimen_margin"
+        android:background="@drawable/in_selector_em_button_register"
+        android:text="球球上传文件"
+        android:textColor="#FFFFFF" />
+
+
+    <ImageView
+        android:id="@+id/natureIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgwan" />
+
+</LinearLayout>

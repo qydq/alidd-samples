@@ -130,7 +130,7 @@ public class AnimationGifActivity extends AppCompatActivity {
 
     private void loadHttpImage() {
         String gifHttpUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578367575&di=ee76023b9d5791ff9bc044f810044a8b&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201707%2F08%2F20170708153157_YMBFU.gif";
-//        LAImageLoader.getInstance().loadImage(this, gifHttpUrl, R.drawable.drawable_gif1, R.drawable.drawable_gif1, gifImageView);
+//        GlideEngine.getInstance().loadImage(this, gifHttpUrl, R.drawable.drawable_gif1, R.drawable.drawable_gif1, gifImageView);
 
 //        LAUi.getInstance().flushLoadGif(this, gifHttpUrl, gifImageView);
 

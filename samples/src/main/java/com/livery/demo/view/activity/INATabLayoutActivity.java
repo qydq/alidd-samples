@@ -199,7 +199,7 @@ public class INATabLayoutActivity extends ParallaxActivity {
         TextView tv = view.findViewById(R.id.tvTitile);
         ImageView iv = view.findViewById(R.id.ivRight);
 
-//        LAImageLoader.getInstance().loadImage(this, icon, iv);
+//        GlideEngine.getInstance().loadImage(this, icon, iv);
         tv.setText(title);
 //        iv.setImageResource(icon);
         iv.setBackgroundResource(icon);

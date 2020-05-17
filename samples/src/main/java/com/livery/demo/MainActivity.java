@@ -5,7 +5,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.livery.demo.model.adapter.MainAdapter;
 import com.sunsta.bear.faster.LaLog;
 import com.sunsta.bear.view.ParallaxActivity;
-
 import com.sunsta.livery.engine.MaterialMode;
 import com.sunsta.livery.engine.NavigationController;
 import com.sunsta.livery.engine.PageNavigationView;
@@ -34,9 +33,9 @@ public class MainActivity extends ParallaxActivity {
         ViewPager viewPager = findViewById(R.id.viewPager);
 
         mNavigationController = pageBottomTabLayout.material()
-                .addItem(R.drawable.pager_ic_ondemand_video_black_24dp, "Movies & TV", navigationColors[0])
+                .addItem(R.drawable.pager_ic_book_black_24dp, "小红", navigationColors[0])
                 .addItem(R.drawable.pager_ic_audiotrack_black_24dp, "livery", navigationColors[1])
-                .addItem(R.drawable.pager_ic_book_black_24dp, "Books", navigationColors[2])
+                .addItem(R.drawable.pager_ic_ondemand_video_black_24dp, "Movies & TV", navigationColors[2])
                 .addItem(R.drawable.pager_ic_news_black_24dp, "About", navigationColors[3])
                 .setDefaultColor(0x89FFFFFF)//未选中状态的颜色
                 .setMode(MaterialMode.CHANGE_BACKGROUND_COLOR | MaterialMode.HIDE_TEXT)//这里可以设置样式模式，总共可以组合出4种效果
@@ -52,6 +51,11 @@ public class MainActivity extends ParallaxActivity {
             @Override
             public void onSelected(int index, int old) {
                 LaLog.i(TAG, "selected: " + index + " old: " + old);
+                if (index == 1) {
+                    fitStatusBar(true, true);
+                } else {
+                    fitStatusBar(false, true);
+                }
             }
 
             @Override

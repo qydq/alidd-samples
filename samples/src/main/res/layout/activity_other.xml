@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.livery.demo.view.activity.picture.SimpleActivity">
+    tools:context="com.luck.pictureselector.com.livery.demo.module.pic.SimpleActivity">
 
     <Button
         android:id="@+id/btn_activity"

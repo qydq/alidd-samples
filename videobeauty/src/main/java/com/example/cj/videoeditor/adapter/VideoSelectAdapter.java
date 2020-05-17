@@ -99,7 +99,7 @@ public class VideoSelectAdapter extends CursorAdapter {
         });
         holder.is_true.setImageResource(pathList.contains(path) ? R.mipmap.icon_choice_selected : R.mipmap.icon_choice_nor);
 
-//        LAImageLoader.getInstance().loadImage(this,uri,R.mipmap.editor_img_def_video,holder.pic);
+//        GlideEngine.getInstance().loadImage(this,uri,R.mipmap.editor_img_def_video,holder.pic);
         Glide.with(context)
                 .load(uri)
                 .placeholder(R.mipmap.editor_img_def_video)

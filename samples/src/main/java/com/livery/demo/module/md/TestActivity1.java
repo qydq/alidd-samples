@@ -19,7 +19,7 @@ import com.livery.demo.R;
 import com.livery.demo.view.fragment.LogicalFragment;
 import com.livery.demo.view.fragment.MainFragment;
 import com.livery.demo.view.fragment.OtherFragment;
-import com.livery.demo.view.fragment.SceneFragment;
+import com.livery.demo.view.fragment.SecondFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,7 @@ public class TestActivity1 extends ParallaxActivity {
         toolbarInner.findViewById(R.id.iv).setOnClickListener(v -> showToast("1.前两个模块属于alidd情景系列；2.后两个模块属于非alidd情景系列."));
 
         nativeFragments.add(new MainFragment());
-        nativeFragments.add(new SceneFragment());
+        nativeFragments.add(new SecondFragment());
         nativeFragments.add(new LogicalFragment());
         nativeFragments.add(new OtherFragment());
         NatureAdapter fragmentAdater = new NatureAdapter(getSupportFragmentManager());

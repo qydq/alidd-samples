@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">alidd-samples</string>
+    <string name="app_name">小红</string>
     <array name="types">
         <item>身份证</item>
         <item>驾驶证</item>
@@ -11,4 +11,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="app_drag_delete">拖动到此处删除</string>
+    <string name="app_let_go_drag_delete">松手即可删除</string>
+    <string name="app_wechat_send">发送</string>
+    <string name="app_wechat_send_num">发送(%1$d/%2$d)</string>
 </resources>

@@ -16,7 +16,7 @@ import androidx.annotation.RequiresApi;
 import com.sunsta.bear.faster.LATextView;
 import com.sunsta.bear.view.ParallaxActivity;
 import com.livery.demo.R;
-import com.livery.demo.take.EasyPermission;
+import com.sunsta.bear.faster.EasyPermission;
 
 import java.util.List;
 

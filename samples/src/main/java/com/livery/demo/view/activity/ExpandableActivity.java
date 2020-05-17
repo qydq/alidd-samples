@@ -16,7 +16,7 @@ import com.livery.demo.R;
 import com.livery.demo.model.adapter.ExpandableAdapter;
 
 public class ExpandableActivity extends AppCompatActivity {
-    private static final String TAG = "HttpsRequestActivity";
+    private static final String TAG = "InternetActivity";
     private NestExpandableListView nestExpandableListView;
     /*alidd有一个ExpandableAdpater不要导包错误*/
     private ExpandableAdapter adapter;

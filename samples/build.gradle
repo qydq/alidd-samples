@@ -61,7 +61,7 @@ dependencies {
     /**
      * mark：livery库，这里使用implementation
      * */
-    implementation 'com.sunsta.livery:livery:1.1.11'
+    implementation 'com.sunsta.livery:livery:1.1.12'
 
 
     /**
@@ -77,9 +77,15 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'  //1.0.5及以前版本的老用户升级需谨慎，API改动过大
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2'  //没有使用特殊Header，可以不加这行
 
+    /**
+     * mark：引用远程livery库，等同与本地库livery
+     * */
+//    api 'com.sunsta.livery:livery:1.1.4'
+
 //    implementation 'com.blankj:utilcodex:1.26.0'
     /**
      * standard:  人脸识别
      * */
 //    implementation 'com.rmtheis:tess-two:9.1.0'
+//    implementation 'com.sunsta.livery:livery:1.1.4'
 }

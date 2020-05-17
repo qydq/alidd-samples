@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.livery.demo.view.activity.picture.PhotoFragmentActivity">
+    tools:context="com.luck.pictureselector.com.livery.demo.module.pic.PhotoFragmentActivity">
 
     <FrameLayout
         android:id="@+id/tab_content"

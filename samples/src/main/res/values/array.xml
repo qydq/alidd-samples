@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="main_material_ux">
-        <item>(OK)livery首发使用情景-INATabLayout.(可扩展的TabLayout</item>
+        <item>(OK)livery首发使用情景-INATabLayout(可扩展的TabLayout</item>
         <item>(OK)material design 情景系列示例md</item>
         <item>(OK)导航栏navigation 情景系列示例pager</item>
         <item>(OK)高效加载gif动画使用示例</item>
@@ -18,17 +18,18 @@
         <item>Livery4---</item>
         <item>Livery5---</item>
         <item>Livery6---</item>
-        <item>Livery7---</item>
-
     </string-array>
+
     <string-array name="main_an_scene">
-        <item>网络请求接口,获取公共数据anbase继承网络能力</item>
-        <item>网络请求接口,带请求参数（含上传文件能力）</item>
-        <item>网络请求下载带进度条文件(下载知乎日报apk,retrofit)</item>
+        <item>网络1：anbase0.1.1(初始xUtils3)网络请求能力-（注：最新版本1.1.1已移除xutils）</item>
+        <item>(OK)livery 原始Retrofit获取网络数据（livery提供api)示例参考</item>
+        <item>(OK)livery使用InternetClient通用请求网络-获取公共数据</item>
+        <item>(OK)livery首发实现网络请求上传文件，下载文件(进度控制，请求参数，上传文件能力)</item>
+
         <item>拍照TakePhoto系列</item>
         <item>拍照PictureSelector（仿微信相册选择拍照）</item>
-        <item>便捷申请权限操作LaPermission</item>
-        <item>芳芳</item>
+        <item>(OK)便捷申请权限操作LaPermission示例faster</item>
+        <item>(OK)文件文件夹，情景系列示例faster</item>
         <item>Livery1---</item>
         <item>Livery2---</item>
         <item>Livery3---</item>
@@ -38,10 +39,8 @@
         <item>Livery7---</item>
         <item>Livery8---</item>
         <item>Livery9---</item>
-        <item>Livery10---</item>
-        <item>Livery11---</item>
-        <item>Livery12---</item>
     </string-array>
+
     <string-array name="main_logical">
         <item>Livery未开放测试1---</item>
         <item>Livery未开放测试2---</item>

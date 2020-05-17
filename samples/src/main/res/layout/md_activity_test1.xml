@@ -239,8 +239,14 @@
                 app:tabRippleColor="@android:color/transparent"
                 app:tabSelectedTextColor="#f00"
                 app:tabTextColor="#000" />
-
+<!--
             <androidx.viewpager.widget.ViewPager
+                android:id="@+id/natureViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never" />-->
+
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/natureViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

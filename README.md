@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [sunst0069](https://github.com/qydq)*
 
-- [android快速集成基础框架 - Livery```1.1.11```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery1111)
+- [android快速集成基础框架 - Livery```1.1.12```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery1112)
   - [情景能力# Ability](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
     - [1：主要能力](#1%E4%B8%BB%E8%A6%81%E8%83%BD%E5%8A%9B)
     - [2：最新版本能力](#2%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E8%83%BD%E5%8A%9B)
@@ -24,20 +24,22 @@
     - [1.1.x](#11x)
   - [其它说明](#%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E)
     - [关于自定义apk名说明](#%E5%85%B3%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89apk%E5%90%8D%E8%AF%B4%E6%98%8E)
+    - [关于应用内apk自动安装说明](#%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E5%86%85apk%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E)
   - [致谢](#%E8%87%B4%E8%B0%A2)
   - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# android快速集成基础框架 - Livery```1.1.11```
+
+# android快速集成基础框架 - Livery```1.1.12```
 
 [![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/master/LICENSE)
 [![Download](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
-[![JCenter](https://img.shields.io/badge/%20JCenter%20-1.1.11-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
+[![JCenter](https://img.shields.io/badge/%20JCenter%20-1.1.12-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
 ![@sunst](https://avatars0.githubusercontent.com/u/20716264?s=60&u=ec068ee954f943483fbf1516803dcd5b77520ad3&v=4)
 
 [![MinSdk](https://img.shields.io/badge/%20MinSdk%20-%2021%2B%20-f0ad4e.svg)](https://android-arsenal.com/api?level=21)
-[![Release Version](https://img.shields.io/badge/release-1.1.11-red.svg)](https://github.com/qydq/small-video-record/releases)
+[![Release Version](https://img.shields.io/badge/release-1.1.12-red.svg)](https://github.com/qydq/small-video-record/releases)
 [![](https://img.shields.io/badge/Author-sunst-blue.svg)](https://www.zhihu.com/people/qydq)
 
 [***中文API帮助文档1.1下载`密码:xeq0`)***](https://pan.baidu.com/s/1yczO3lh4p8Njc_rdb9Fe5g) 一款针对Android平台下快速集成**便捷开发**框架**livery**，```an情景```系列```livery框架```部分基于原项目[an框架](https://github.com/qydq/an-aw-base)（基础的an-base）仓库优化而来，其目1是为小团子fang升级一款音乐聊天软件```[安妮暂定]3.0版本```，现在开放出来，希望用得着的朋友点个star.
@@ -67,12 +69,12 @@
 - [x] 快速集成实现你的导航栏工具
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
-&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.11apk**](https://github.com/qydq/alidd-samples/raw/master/samples/apk/demo_livery1.1.11.apk)&#8194;&#8194;&#8194;&#8194;
+&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.12apk**](https://github.com/qydq/alidd-samples/raw/master/samples/apk/demo_livery1.1.11.apk)&#8194;&#8194;&#8194;&#8194;
 ## 集成方式# Binaries
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
 ```Groovy
 dependencies {
-  implementation'com.sunsta.livery:livery:1.1.11'
+  implementation'com.sunsta.livery:livery:1.1.12'
 }
 ```
 第2步骤（可选）：如果使用`网络2请求`，在你的`XxxApplication`中继承`AnApplication`，然后在`onCreate()`方法中初始化"Livery网络2"，如下参考：
@@ -300,6 +302,38 @@ outputFileName = apkName + "_Debug" +time + ".apk"
   }
 
  }
+}
+```
+### 关于应用内apk自动安装说明
+```Groovy
+#---------------------------4.(应用内apk安装)个人其它说明区-sunst（请关注知乎Bgwan）---------------------
+private Intent getInstallIntent() {
+String fileName = savePath + appName + ".apk";
+Uri uri = null;
+Intent intent = new Intent(Intent.ACTION_VIEW);
+try {
+if (Build.VERSION.SDK_INT >= 24) {//7.0 Android N
+//com.xxx.xxx.fileprovider为上述manifest中provider所配置相同
+uri = FileProvider.getUriForFile(mContext, "你自己的包名.fileprovider", new File(fileName));
+
+intent.setAction(Intent.ACTION_INSTALL_PACKAGE);
+intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//7.0以后，系统要求授予临时uri读取权限，安装完毕以后，系统会自动收回权限，该过程没有用户交互
+} else {//7.0以下
+uri = Uri.fromFile(new File(fileName));
+intent.setAction(Intent.ACTION_VIEW);
+intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+}
+intent.setDataAndType(uri, "application/vnd.android.package-archive");
+startActivity(intent);
+return intent;
+} catch (IllegalArgumentException e) {
+e.printStackTrace();
+} catch (ActivityNotFoundException e) {
+e.printStackTrace();
+} catch (Exception e) {
+e.printStackTrace();
+}
+return intent;
 }
 ```
 ## 致谢
