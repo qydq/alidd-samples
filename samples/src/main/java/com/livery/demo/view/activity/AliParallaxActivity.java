@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.sunsta.bear.faster.LATextView;
 import com.sunsta.bear.view.ParallaxActivity;
-import com.sunsta.bear.view.activity.AliWebViewActivity;
+import com.sunsta.bear.view.activity.AliWebActivity;
 import com.livery.demo.R;
 
 public class AliParallaxActivity extends ParallaxActivity {
@@ -18,7 +18,7 @@ public class AliParallaxActivity extends ParallaxActivity {
     }
 
     private void gotoIntorduce() {
-        Intent intent = new Intent(this, AliWebViewActivity.class);
+        Intent intent = new Intent(this, AliWebActivity.class);
         intent.putExtra("url", "https://zhuanlan.zhihu.com/p/26089356");
         intent.putExtra("title", "Github官方alidd框架");
         startActivity(intent);

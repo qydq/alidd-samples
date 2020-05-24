@@ -5,72 +5,76 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.livery.demo.MainActivity;
 import com.livery.demo.R;
-import com.livery.demo.take.PosterDialog;
 import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.engine.DownloadService;
 import com.sunsta.bear.faster.FileUtils;
+import com.sunsta.bear.faster.LADialog;
 import com.sunsta.bear.faster.LAStorageFile;
 import com.sunsta.bear.faster.LaLog;
 import com.sunsta.bear.faster.MyDialog;
 import com.sunsta.bear.faster.ToastUtils;
 import com.sunsta.bear.layout.INAStartAnimationView;
+import com.sunsta.bear.view.AliActivity;
+import com.sunsta.bear.view.activity.AliWebActivity;
 
 import java.io.File;
 
-import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
-import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
 import static com.livery.demo.module.internet.OrignalRetrofitActivity.Http_Full_Download_Url;
 
-public class FolderActivity extends AppCompatActivity {
+public class FolderActivity extends AliActivity {
     private RelativeLayout relativeLayout;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+    public void initView() {
         setContentView(R.layout.activity_folder);
-        relativeLayout = findViewById(R.id.relativeLayout);
-        INAStartAnimationView INAStartAnimationView = new INAStartAnimationView(this);
-        INAStartAnimationView.setImage(R.drawable.ic_color_camera);
-        INAStartAnimationView.show(relativeLayout);
+        RelativeLayout relativeLayout = findViewById(R.id.relativeLayout);
+
+        Activity activity = FolderActivity.this;
+        while (activity.getParent() != null) {
+            activity = activity.getParent();
+        }
+
+//        launchTimer(2000);
+
+        if (null != relativeLayout) {
+            INAStartAnimationView openingStartAnimation = new INAStartAnimationView(this);
+            openingStartAnimation.setImage(R.drawable.ic_color_camera);
+            openingStartAnimation.show(relativeLayout);
+
+            relativeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    startActivity(new Intent(FolderActivity.this, PhotoActivity.class));
+                    dialog2(v);
+                }
+            });
+        }
 
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ToastUtils.s(FolderActivity.this, "我是测试的数据，时间到");
-// showDialog();
-            }
-        }, 2000);
+        //        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                ToastUtils.s(FolderActivity.this, "我是测试的数据，时间到");
+//// showDialog();
+//            }
+//        }, 2000);
 
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(FolderActivity.this, UpDownloadActivity.class));
-            }
-        });
 
         int currentMode = AppCompatDelegate.getDefaultNightMode();
-
-// int currentNightMode = newConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+//        int currentNightMode = currentMode & Configuration.UI_MODE_NIGHT_MASK;
         if (currentMode == Configuration.UI_MODE_NIGHT_NO) {
             LaLog.d("当前为非夜间模式" + currentMode);
         } else {
@@ -78,43 +82,14 @@ public class FolderActivity extends AppCompatActivity {
         }
     }
 
-//    @Override
-//    public void initView() {
-//        setContentView(R.layout.activity_folder);
-//        RelativeLayout relativeLayout = findViewById(R.id.relativeLayout);
-//
-//
-//
-//
-//        Activity activity = FolderActivity.this;
-//        while (activity.getParent() != null) {
-//            activity = activity.getParent();
-//        }
-//
-//        if (null != relativeLayout) {
-//
-//            OpeningStartAnimation openingStartAnimation = new OpeningStartAnimation(this);
-//            openingStartAnimation.setImage(R.drawable.ic_color_camera);
-//            openingStartAnimation.show(relativeLayout);
-//
-//            relativeLayout.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    startActivity(new Intent(FolderActivity.this, MainPicActivity.class));
-//                }
-//            });
-//        }
-//    }
-
-//    @Override
-//    public void onAsyncTimer() {
-//        // MyDialog myDialog = new MyDialog(activity);
-//        ToastUtils.s(FolderActivity.this, "我是测试的数据，时间到");
-//    }
+    @Override
+    public void onLaunchedTimer() {
+        ToastUtils.s(FolderActivity.this, "我是测试的数据，时间到");
+    }
 
     // 蒙层
     public void showDialog() {
-        final Dialog dialog = new Dialog(this, R.style.custom_dialog);
+        final Dialog dialog = new Dialog(this, R.style.an_dialog_middle_pure_image);
         TextView textView = new TextView(this);
         textView.setText("getString(R.string.isFirstShopHint)");
         textView.setTextSize(18);
@@ -135,8 +110,8 @@ public class FolderActivity extends AppCompatActivity {
         WindowManager windowManager = getWindowManager();
         Display display = windowManager.getDefaultDisplay();
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = (int) (display.getWidth()); // 设置宽度
-        lp.height = (int) (display.getHeight());
+        lp.width = (display.getWidth()); // 设置宽度
+        lp.height = (display.getHeight());
         dialog.getWindow().setAttributes(lp);
 // dialog.getWindow().setGravity(80);
     }
@@ -258,12 +233,17 @@ public class FolderActivity extends AppCompatActivity {
     }
 
     public void closeNight(View view) {
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
+//        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
+        setDayTheme();
     }
 
     public void openNight(View view) {
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
-// AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+//        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+        setNightTheme();
+    }
+
+    public void dialog3(View view) {
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
     }
 
     @Override
@@ -298,21 +278,42 @@ public class FolderActivity extends AppCompatActivity {
         myDialog.show();
     }
 
-    private PosterDialog posterDialog;
-
     public void dialog2(View view) {
-        PosterDialog.PosterBuilder posterBuilder = new PosterDialog.PosterBuilder(FolderActivity.this, "https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
-        posterDialog = posterBuilder.setOnPosterSelectListener(new PosterDialog.PosterBuilder.setOnPosterSelectListener() {
-            @Override
-            public void cancelClick() {
-                posterDialog.dismiss();
-            }
+//        MyDialog myDialog = new MyDialog(FolderActivity.this, R.style.an_dialog_middle_pure_image, LADialog.STYLE.middle_pure_image);
+//        myDialog.setImageUrl("https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
+////        myDialog.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
+////        myDialog.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_16-05-2015/49737-beautiful-asian-banged-hard.gif");
+//        myDialog.show();
 
-            @Override
-            public void posterJump() {
-                ToastUtils.s(FolderActivity.this, "点击提交");
-            }
-        }).create();
-        posterDialog.show();
+        //一般来说需要定义一个显示对话框级别的顺序， 不能定义的话，则自己+1操作
+        LADialog.INSTANCE.attach(1, LADialog.STYLE.lodding_animation, FolderActivity.this);
+//        LADialog.INSTANCE.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
+
+//        LADialog.INSTANCE.attach(2, LADialog.STYLE.middle_download_center, FolderActivity.this);
+//        LADialog.INSTANCE.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
+
+//        LADialog.INSTANCE.attach(3, LADialog.STYLE.middle_pure_image, FolderActivity.this);
+//        LADialog.INSTANCE.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showToast("我是个人测试");
+//                gotoIntorduce();
+//            }
+//        });
+//        LADialog.INSTANCE.setImageUrl("http://p7.urlpic.club/pic1893/upload/image/20190220/22008351726.jpg");
+//
+//        LADialog.INSTANCE.attach(4, LADialog.STYLE.middle_pure_image, FolderActivity.this);
+//        LADialog.INSTANCE.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_16-05-2015/49737-beautiful-asian-banged-hard.gif");
+//
+//        LADialog.INSTANCE.attach(5, LADialog.STYLE.fullscreen_dowoload_bottom, FolderActivity.this);
+//        LADialog.INSTANCE.setImageUrl("https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
+        LADialog.INSTANCE.launch();
+    }
+
+    private void gotoIntorduce() {
+        Intent intent = new Intent(this, AliWebActivity.class);
+        intent.putExtra("url", "https://zhuanlan.zhihu.com/p/26089356");
+        intent.putExtra("title", "Github官方alidd框架");
+        startActivity(intent);
     }
 }

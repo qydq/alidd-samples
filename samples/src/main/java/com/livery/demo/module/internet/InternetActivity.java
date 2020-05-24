@@ -19,7 +19,6 @@ import com.livery.demo.model.TBaseResponseMode;
 import com.livery.demo.net.ApiInternetImpl;
 import com.livery.demo.net.LiveryInternetApi;
 import com.sunsta.bear.faster.Convert;
-import com.sunsta.bear.faster.LaPermissions;
 import com.sunsta.bear.presenter.callback.ObserverStringCallback;
 import com.sunsta.bear.presenter.net.InternetAsyncManager;
 import com.sunsta.bear.presenter.net.InternetClient;
@@ -51,7 +50,6 @@ public class InternetActivity extends AliActivity implements View.OnClickListene
 
 
     public static final String MESSAGE_PROGRESS = "message_progress";
-    private LaPermissions inaPermissions;
     private Handler mHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(@NonNull Message msg) {
@@ -64,7 +62,6 @@ public class InternetActivity extends AliActivity implements View.OnClickListene
     @Override
     public void initView() {
         setContentView(R.layout.internet_activity);
-        inaPermissions = new LaPermissions(InternetActivity.this);
         tvContent = findViewById(R.id.tvContent);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);

@@ -8,12 +8,12 @@
         android:layout_height="10dp" />
 
     <RelativeLayout
-        style="@style/an_style_button_height"
+        style="@style/an_selector_layout"
         android:background="@drawable/shaper_expandable">
 
         <TextView
             android:id="@+id/parent_textview_id"
-            style="@style/an_wrap_wrap.Font"
+            style="@style/an_wrap_wrap.Text"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:paddingLeft="10dp"

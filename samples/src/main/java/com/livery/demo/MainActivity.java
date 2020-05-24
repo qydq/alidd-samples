@@ -25,7 +25,7 @@ public class MainActivity extends ParallaxActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_main_main);
+        setContentView(R.layout.activity_main);
         //标准注释1：设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
         fitStatusBar(false, true);
 
@@ -34,7 +34,7 @@ public class MainActivity extends ParallaxActivity {
 
         mNavigationController = pageBottomTabLayout.material()
                 .addItem(R.drawable.pager_ic_book_black_24dp, "小红", navigationColors[0])
-                .addItem(R.drawable.pager_ic_audiotrack_black_24dp, "livery", navigationColors[1])
+                .addItem(R.drawable.pager_ic_audiotrack_black_24dp, "Livery", navigationColors[1])
                 .addItem(R.drawable.pager_ic_ondemand_video_black_24dp, "Movies & TV", navigationColors[2])
                 .addItem(R.drawable.pager_ic_news_black_24dp, "About", navigationColors[3])
                 .setDefaultColor(0x89FFFFFF)//未选中状态的颜色
@@ -51,7 +51,7 @@ public class MainActivity extends ParallaxActivity {
             @Override
             public void onSelected(int index, int old) {
                 LaLog.i(TAG, "selected: " + index + " old: " + old);
-                if (index == 1) {
+                if (index == 1 || index == 2) {
                     fitStatusBar(true, true);
                 } else {
                     fitStatusBar(false, true);

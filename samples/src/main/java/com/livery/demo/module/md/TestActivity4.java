@@ -33,7 +33,7 @@ public class TestActivity4 extends AliActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.md_activity_test3);
+        setContentView(R.layout.md_activity_test4);
 // ViewUtils.setImmersionStateMode(this);
 
         recyclerView = findViewById(R.id.recyclerview);

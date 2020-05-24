@@ -6,7 +6,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sunsta.bear.layout.swipe.touch.OnItemMoveListener;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 import com.livery.demo.module.swipe.DragTouchAdapter;
 
 import java.util.Collections;
@@ -30,7 +30,7 @@ public class DragTouchListActivity extends BaseDragActivity {
     }
 
     @Override
-    protected BaseAliAdapter createAdapter() {
+    protected SmartRecyclerAdapter createAdapter() {
         return new DragTouchAdapter(this, mRecyclerView);
     }
 

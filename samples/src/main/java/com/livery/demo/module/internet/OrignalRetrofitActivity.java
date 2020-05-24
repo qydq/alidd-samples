@@ -27,9 +27,7 @@ import com.sunsta.bear.AnConstants;
 import com.sunsta.bear.engine.DownloadService;
 import com.sunsta.bear.engine.GlideEngine;
 import com.sunsta.bear.faster.DataService;
-import com.sunsta.bear.faster.FileUtils;
 import com.sunsta.bear.faster.LaLog;
-import com.sunsta.bear.faster.LaPermissions;
 import com.sunsta.bear.model.entity.Download;
 import com.sunsta.bear.presenter.BaseInternetApi;
 import com.sunsta.bear.presenter.net.InternetClient;
@@ -52,7 +50,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class OrignalRetrofitActivity extends AliActivity implements View.OnClickListener, LaPermissions.PermissionGrant, DownloadService.Callback {
+public class OrignalRetrofitActivity extends AliActivity implements View.OnClickListener, DownloadService.Callback {
     private TextView tvContent;
     private Button btn1, btn2;
     private TextView tvZfb;
@@ -70,11 +68,10 @@ public class OrignalRetrofitActivity extends AliActivity implements View.OnClick
     // public static final String Http_Full_Download_Url = "https://www.zhibo18.live//upload/20200416/5e97519c6b061.mp4";
 // public static final String Http_Full_Download_Url = "https://www.zhibo18.live/upload/20200416/5e97519c6b061.mp4";
     public static final String Http_Full_Download_Url = "https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg";
-//    public static final String Http_Full_Download_Url = "https://i.imagseur.com/uploads/2020-05/14/3dec314beeb30d00ecfc0db657e07c80.jpg";
+    //    public static final String Http_Full_Download_Url = "https://i.imagseur.com/uploads/2020-05/14/3dec314beeb30d00ecfc0db657e07c80.jpg";
 //    public static final String Http_Full_Download_Url = "http://i.imagseur.com/uploads/gifs/gif_16-05-2015/49737-beautiful-asian-banged-hard.gif";
 //    public static final String Http_Full_Download_Url = "http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif";
     private DataService dataService;
-    private LaPermissions inaPermissions;
     private Handler mHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(@NonNull Message msg) {
@@ -93,7 +90,6 @@ public class OrignalRetrofitActivity extends AliActivity implements View.OnClick
     public void initView() {
         setContentView(R.layout.internet_activity_orignal);
         dataService = DataService.getInstance();
-        inaPermissions = new LaPermissions(OrignalRetrofitActivity.this);
         tvContent = findViewById(R.id.tvContent);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
@@ -213,23 +209,6 @@ public class OrignalRetrofitActivity extends AliActivity implements View.OnClick
             }
         }
     };
-
-    @Override
-    public void onPermissionGranted(String... grantedPermissions) {
-        String folder = FileUtils.getInstance().getPwdMovieFolder();
-        downloadApk("sunst_test.png", folder);
-    }
-
-    @Override
-    public void onPermissionDenied(String... deniedPermissions) {
-        showToast("权限被拒绝");
-    }
-
-    @Override
-    public void onPermissionExist() {
-        String folder = FileUtils.getInstance().getPwdMovieFolder();
-        downloadApk("sunst_test.png", folder);
-    }
 
     private void downloadApk(String fileName, String pwdPath) {
         Intent intent = new Intent(OrignalRetrofitActivity.this, DownloadService.class);

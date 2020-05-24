@@ -6,7 +6,7 @@
 
     <Button
         android:id="@+id/btnScreenShot"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginTop="@dimen/AppBarPatchMarginTop"
         android:background="@drawable/in_selector_shadow"
         android:stateListAnimator="@null"
@@ -23,14 +23,14 @@
 
         <Button
             android:id="@+id/btnThumbnail1"
-            style="@style/an_auto_wrap.Font"
+            style="@style/an_auto_wrap.Text"
             android:background="@drawable/in_selector_em_button_register"
             android:text="获取本地视频第一帧"
             android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnThumbnail2"
-            style="@style/an_auto_wrap.Font"
+            style="@style/an_auto_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin_small"
             android:background="@drawable/in_selector_em_button_register"
             android:text="获取网络视频第一帧" />
@@ -39,7 +39,7 @@
 
     <Button
         android:id="@+id/btnPhoneScreen"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_below="@+id/llThumbnail"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
@@ -49,17 +49,17 @@
 
     <Button
         android:id="@+id/btnPhoneCamera"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_below="@+id/btnPhoneScreen"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
-        android:background="@drawable/in_selector_md_shape_oppose"
+        android:background="@drawable/in_selector_opp_md_shape"
         android:text="摄像头录制视频" />
 
     <Button
         android:id="@+id/btnCompressNormal"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_below="@+id/btnPhoneCamera"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
@@ -70,7 +70,7 @@
 
     <Button
         android:id="@+id/btnWater"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_below="@+id/btnCompressNormal"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"

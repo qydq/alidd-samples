@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#cc268f</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- 象牙色  #FFF0F5  #FFFFF0  #FFFAFA-->
+
     <color name="app_color_grey">#393a3e</color>
     <color name="app_color_black">#000000</color>
     <color name="app_color_f6">#f6f6f6</color>

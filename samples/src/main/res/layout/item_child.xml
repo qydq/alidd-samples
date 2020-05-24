@@ -5,13 +5,13 @@
     android:background="@color/ColorWhite">
 
     <LinearLayout
-        style="@style/an_style_button_height"
+        style="@style/an_selector_layout"
         android:layout_marginRight="@dimen/an_dimen_margin_small"
         android:background="@drawable/shaper_expandable_child">
 
         <TextView
             android:id="@+id/tvBackground"
-            style="@style/an_style_icon"
+            style="@style/an_iv.Light"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:gravity="center_vertical"
@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/tvTitile"
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_gravity="center_vertical"
             android:ellipsize="end"
             android:gravity="center_vertical"

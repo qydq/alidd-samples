@@ -9,15 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.livery.demo.R;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 
 import java.util.List;
 
-public class SwipeRecyclerAdapter extends BaseAliAdapter<SwipeRecyclerAdapter.ViewHolder> {
+public class SwipeRecyclerAdapter extends SmartRecyclerAdapter<String, SwipeRecyclerAdapter.ViewHolder> {
     private List<String> mDataList;
+
     public SwipeRecyclerAdapter(Context context) {
         super(context);
     }
 
+    @Override
     public void notifyDataSetChanged(List<String> dataList) {
         this.mDataList = dataList;
         super.notifyDataSetChanged();
@@ -31,7 +34,7 @@ public class SwipeRecyclerAdapter extends BaseAliAdapter<SwipeRecyclerAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(getInflater().inflate(R.layout.item_swipe_recycleview, parent, false));
+        return new ViewHolder(getInflaterView(R.layout.item_swipe_recycleview, parent));
     }
 
     @Override
@@ -42,7 +45,7 @@ public class SwipeRecyclerAdapter extends BaseAliAdapter<SwipeRecyclerAdapter.Vi
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitile);
         }
@@ -51,5 +54,4 @@ public class SwipeRecyclerAdapter extends BaseAliAdapter<SwipeRecyclerAdapter.Vi
             this.tvTitle.setText(title);
         }
     }
-
 }

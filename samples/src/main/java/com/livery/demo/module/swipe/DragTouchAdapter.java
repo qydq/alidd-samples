@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sunsta.bear.layout.swipe.SwipeRecyclerView;
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 
 import java.util.List;
 
 /**
  * 触摸即开始拖拽。
  */
-public class DragTouchAdapter extends BaseAliAdapter<DragTouchAdapter.ViewHolder> {
+public class DragTouchAdapter extends SmartRecyclerAdapter<String,DragTouchAdapter.ViewHolder> {
 
     private SwipeRecyclerView mMenuRecyclerView;
     private List<String> mDataList;

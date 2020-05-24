@@ -18,7 +18,7 @@
 
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -28,7 +28,7 @@
             android:textAllCaps="false" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -39,7 +39,7 @@
 
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -50,7 +50,7 @@
 
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -61,7 +61,7 @@
             android:textAllCaps="false" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -72,7 +72,7 @@
             android:textAllCaps="false" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -80,7 +80,7 @@
             android:text="按钮测试-2  &#8194;系统默认material：selectableItemBackground" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -88,7 +88,7 @@
             android:text="按钮测试-1：em_button_login_bg" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -96,7 +96,7 @@
             android:text="按钮测试0：em_context_menu_item_bg" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -104,7 +104,7 @@
             android:text="按钮测试1：in_selector" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/AppBarPatchMarginTop"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -113,7 +113,7 @@
             android:text="按钮测试2：in_selector_md" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -121,15 +121,15 @@
             android:text="按钮测试3：in_selector_md_shape" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/in_selector_md_shape_oppose"
+            android:background="@drawable/in_selector_opp_md_shape"
             android:text="按钮测试4：in_selector_md_shape_oppose" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -138,7 +138,7 @@
             android:textColor="#FFFFFF" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
@@ -146,19 +146,19 @@
             android:text="按钮测试6：in_selector_shadow" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/in_selector_ll"
-            android:text="按钮测试7：in_selector_ll" />
+            android:background="@drawable/in_selector_md_shape"
+            android:text="按钮测试7：in_selector_md_shape" />
 
         <Button
-            style="@style/an_match_wrap.Font"
+            style="@style/an_match_wrap.Text"
             android:layout_marginLeft="@dimen/an_dimen_margin"
             android:layout_marginTop="@dimen/an_dimen_margin_ssmall"
             android:layout_marginRight="@dimen/an_dimen_margin"
-            android:background="@drawable/in_selector_ll_shape"
+            android:background="@drawable/in_selector_shape"
             android:text="按钮测试8：in_selector_ll_shape" />
     </LinearLayout>
 </com.sunsta.bear.layout.swipe.widget.StickyNestedScrollView>

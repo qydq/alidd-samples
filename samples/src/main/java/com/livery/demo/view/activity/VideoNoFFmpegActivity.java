@@ -11,9 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 
 import com.sunsta.livery.PictureVideoPlayActivity;
 import com.bumptech.glide.Glide;
@@ -28,7 +25,6 @@ import com.sunsta.bear.faster.FileUtils;
 import com.sunsta.bear.faster.LADialog;
 import com.sunsta.bear.faster.LAStorageFile;
 import com.sunsta.bear.faster.LaLog;
-import com.sunsta.bear.faster.LaPermissions;
 import com.sunsta.bear.faster.MediaHelper;
 import com.sunsta.bear.faster.callback.OnLoadVideoImageListener;
 import com.sunsta.bear.faster.webview.NestProgressBar;
@@ -39,6 +35,7 @@ import com.sunsty.xmediac.util.VideoPlayer;
 import java.io.File;
 import java.util.Arrays;
 
+/*本部分权限申请需要替换为easypermission*/
 public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickListener {
     private static final String TAG = "VideoNoFFmpegActivity:";
     private ImageView ivThumbnailVideo;
@@ -50,7 +47,6 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
     private Button btnThumbnail1, btnThumbnail2, btnPhoneScreen, btnPhoneCamera;
     private Button btnWater, btnCompressNormal, btnScreenShot;
 
-    private LaPermissions laPermissions;
     private MediaHelper mediaHelper;
     private RecordUtil recordUtil;
     private VideoCompressUtil compressUtil;
@@ -92,7 +88,6 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
     @Override
     public void initView() {
         setContentView(R.layout.activity_video_noffmpeg);
-        laPermissions = new LaPermissions(this);
         mediaHelper = new MediaHelper(VideoNoFFmpegActivity.this);
         recordUtil = new RecordUtil(VideoNoFFmpegActivity.this);
         nestProgressBar = findViewById(R.id.nestProgressBar);
@@ -207,7 +202,6 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
      */
     private void requestScreenRecordPermission() {
         int[] requestCodes = new int[]{0, 7};
-        laPermissions.requestPermissions(requestCodes, false, permissionGrant);
     }
 
     private void startPhoneScreenRecord() {
@@ -362,32 +356,4 @@ public class VideoNoFFmpegActivity extends AliActivity implements View.OnClickLi
         dismissLoadding();
         tvStatus.setText("水印已成功加载完成");
     }
-
-    /**
-     * ina情景LaPermission权限申请
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        laPermissions.requestPermissionsResult(requestCode, permissions, grantResults);
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    private LaPermissions.PermissionGrant permissionGrant = new LaPermissions.PermissionGrant() {
-        @Override
-        public void onPermissionGranted(String... grantedPermissions) {
-            Toast.makeText(VideoNoFFmpegActivity.this, " open this onPermissionGranted", Toast.LENGTH_SHORT).show();
-            startPhoneScreenRecord();
-        }
-
-        @Override
-        public void onPermissionDenied(String... deniedPermissions) {
-            Toast.makeText(VideoNoFFmpegActivity.this, " open this onPermissionDenied", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onPermissionExist() {
-            Toast.makeText(VideoNoFFmpegActivity.this, " open this onPermissionExist", Toast.LENGTH_SHORT).show();
-            startPhoneScreenRecord();
-        }
-    };
 }

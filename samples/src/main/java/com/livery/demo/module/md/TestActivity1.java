@@ -10,13 +10,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.livery.demo.view.fragment.Fragment1;
 import com.sunsta.bear.faster.LAUi;
 import com.sunsta.bear.listener.AppBarStateChangeListener;
 import com.sunsta.bear.view.ParallaxActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.livery.demo.R;
-import com.livery.demo.view.fragment.LogicalFragment;
 import com.livery.demo.view.fragment.MainFragment;
 import com.livery.demo.view.fragment.OtherFragment;
 import com.livery.demo.view.fragment.SecondFragment;
@@ -46,7 +46,7 @@ public class TestActivity1 extends ParallaxActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.md_activity_test1);
         fitStatusBar(false, true);//设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
         mToolbar = findViewById(R.id.toolbar);
         appBarLayout = findViewById(R.id.appBarLayout);
@@ -65,7 +65,7 @@ public class TestActivity1 extends ParallaxActivity {
 
         nativeFragments.add(new MainFragment());
         nativeFragments.add(new SecondFragment());
-        nativeFragments.add(new LogicalFragment());
+        nativeFragments.add(new Fragment1());
         nativeFragments.add(new OtherFragment());
         NatureAdapter fragmentAdater = new NatureAdapter(getSupportFragmentManager());
         nativeViewPager.setAdapter(fragmentAdater);

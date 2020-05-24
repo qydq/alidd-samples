@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.livery.demo.comm.fagment.AFragment;
-import com.livery.demo.view.fragment.LogicalFragment;
 import com.livery.demo.view.fragment.MainFragment;
+import com.livery.demo.view.fragment.OtherFragment;
 import com.livery.demo.view.fragment.SecondFragment;
 
 
@@ -32,7 +32,7 @@ public class MainAdapter extends FragmentPagerAdapter {
         } else if (position == 1) {
             return new SecondFragment();
         } else if (position == 2) {
-            return new LogicalFragment();
+            return new OtherFragment();
         } else {
             return AFragment.newInstance(position + "an情景系列的demo还在继续开发，敬请期待\n" +
                     "欢迎关注知乎https://zhihu.com/people/qydq");

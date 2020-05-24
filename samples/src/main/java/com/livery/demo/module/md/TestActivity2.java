@@ -54,7 +54,7 @@ public class TestActivity2 extends AliActivity implements View.OnClickListener {
 
     @Override
     public void initView() {
-        setContentView(R.layout.md_activity_test1);
+        setContentView(R.layout.md_activity_test2);
         fitStatusBar(false, true);//设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
         mToolbar = findViewById(R.id.toolbar);
         appBarLayout = findViewById(R.id.appBarLayout);
@@ -82,7 +82,7 @@ public class TestActivity2 extends AliActivity implements View.OnClickListener {
 
         appBarListener();
 
-        nativeViewPager = findViewById(R.id.natureViewPager);
+//        nativeViewPager = findViewById(R.id.natureViewPager);
         nativeViewPager2 = findViewById(R.id.natureViewPager);
         natureTableLayout = findViewById(R.id.natureTableLayout);
 // toolbarInner.findViewById(R.id.iv).setOnClickListener(v -> showToast("1.前两个模块属于alidd情景系列；2.后两个模块属于非alidd情景系列."));

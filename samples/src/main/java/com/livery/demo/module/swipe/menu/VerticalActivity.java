@@ -15,7 +15,7 @@ import com.sunsta.bear.layout.swipe.SwipeMenu;
 import com.sunsta.bear.layout.swipe.SwipeMenuCreator;
 import com.sunsta.bear.layout.swipe.SwipeMenuItem;
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 import com.livery.demo.module.swipe.BaseActivity;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class VerticalActivity extends BaseActivity {
     }
 
     @Override
-    public BaseAliAdapter createAdapter() {
+    public SmartRecyclerAdapter createAdapter() {
         // 这里只是让Item的高度变高一点，竖向排布的菜单看起来就好看些。
         return new VerticalAdapter(this);
     }
@@ -100,7 +100,7 @@ public class VerticalActivity extends BaseActivity {
         }
     };
 
-    private static class VerticalAdapter extends BaseAliAdapter<ViewHolder> {
+    private static class VerticalAdapter extends SmartRecyclerAdapter<String,ViewHolder> {
 
         private List<String> mDataList;
 

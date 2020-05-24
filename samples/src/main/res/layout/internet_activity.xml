@@ -127,7 +127,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/in_selector_ll"
+            android:background="@drawable/in_selector_md"
             android:text="8：(带请求参数)addDispose获取原始ResponseBody"
             android:textAllCaps="false"
             android:textSize="11sp" />
@@ -156,7 +156,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/in_selector_md_shape_oppose"
+            android:background="@drawable/in_selector_opp_md_shape"
             android:text="10：上传文件"
             android:textAllCaps="false"
             android:textSize="11sp" />
@@ -191,7 +191,7 @@
 
     <TextView
         android:id="@+id/tvZfb"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
@@ -201,7 +201,7 @@
 
     <TextView
         android:id="@+id/tvWx"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
@@ -211,7 +211,7 @@
 
     <TextView
         android:id="@+id/httpUpload"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"

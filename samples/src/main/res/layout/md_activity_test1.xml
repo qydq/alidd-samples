@@ -1,297 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <!--android:background="@mipmap/ic_back"-->
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:elevation="0dp">
+            android:background="#9c27b0"
+            app:contentScrim="@drawable/backgroup_top"
+            app:layout_collapseMode="parallax"
+            app:layout_collapseParallaxMultiplier="0.1"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <!-- android:background="#9c27b0"-->
-            <!--app:contentScrim="@mipmap/ic_back"-->
-            <!-- android:layout_height="wrap_content"
-            -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_color_copy_fav" />
 
-            <!--android:layout_height="200dp"
-            android:minHeight="56dp"-->
-            <!-- app:contentScrim="#209c27b0"-->
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.1"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-                <!-- <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@mipmap/ic_back" />-->
-
-                <include
-                    android:id="@+id/toolbarInner"
-                    layout="@layout/toolbar_layout"
-                    app:layout_scrollFlags="scroll" />
-                <!--
-                android:src="@drawable/ic_color_copy_fav"
-                -->
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/AppBarAboveHeight"
-                    android:layout_gravity="left|bottom"
-                    app:layout_scrollFlags="scroll|enterAlways">
-
-                    <ImageView
-                        android:id="@+id/ivHead"
-                        android:layout_width="84dp"
-                        android:layout_height="84dp"
-                        android:src="@drawable/ic_color_share_url"
-                        app:layout_scrollFlags="scroll|enterAlways" />
-
-                    <TextView
-                        android:id="@+id/tvJoin"
-                        android:layout_width="50dp"
-                        android:layout_height="32dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerInParent="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginRight="@dimen/an_dimen_margin"
-                        android:background="@drawable/shaper_expandable"
-                        android:gravity="center"
-                        android:text="加入"
-                        android:textColor="@color/ColorWhite"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <!--?actionBarSize,,,,android:background="?attr/colorAccent":colorPrimary-->
-                <!-- android:background="@android:color/transparent"
-                -->
-                <!--android:layout_marginTop="@dimen/AppBarPatchMarginTop"-->
-
-                <!-- android:layout_height="@dimen/AppBarAboveHeight"
-                -->
-
-                <!-- <androidx.appcompat.widget.Toolbar
+            <!--?actionBarSize,,,,android:background="?attr/colorAccent":colorPrimary-->
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/AppBarAboveHeight"
+                android:layout_marginTop="@dimen/AppBarPatchMarginTop"
                 android:background="@android:color/transparent"
-                app:layout_scrollFlags="scroll|enterAlways">
+                app:layout_scrollFlags="scroll|enterAlways" />
 
-                <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="SideDemoxxx"
-                android:textSize="15sp"
-                android:textStyle="bold">
+            <include
+                android:id="@+id/toolbarInner"
+                layout="@layout/toolbar_layout" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-                </TextView>
-                </androidx.appcompat.widget.Toolbar>-->
 
-                <!-- <RelativeLayout
-                android:background="@color/ColorBlack"
-                android:layout_width="wrap_content"
-                app:layout_scrollFlags="scroll|enterAlways"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/in_selector_leftback" />
-                <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:textSize="15sp"
-                android:textStyle="bold"/>
-                </RelativeLayout>-->
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-            <RelativeLayout
-                android:id="@+id/rlContent1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/an_dimen_margin"
-                android:paddingTop="@dimen/AppBarPatchMarginTop">
-
-                <TextView
-                    android:id="@+id/tvTitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Author:sunst"
-                    android:textColor="#2A272A"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvFan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvTitle1"
-                    android:layout_marginTop="@dimen/an_dimen_margin_small"
-                    android:text="粉丝："
-                    android:textColor="#929090" />
-
-                <TextView
-                    android:id="@+id/tvFanNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvTitle1"
-                    android:layout_marginTop="@dimen/an_dimen_margin_small"
-                    android:layout_toRightOf="@+id/tvFan"
-                    android:text="8888"
-                    android:textColor="#1D1D1D" />
-
-                <TextView
-                    android:id="@+id/tvPost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvTitle1"
-                    android:layout_marginLeft="@dimen/an_dimen_margin"
-                    android:layout_marginTop="@dimen/an_dimen_margin_small"
-                    android:layout_toRightOf="@+id/tvFanNumber"
-                    android:text="帖子："
-                    android:textColor="#929090" />
-
-                <TextView
-                    android:id="@+id/tvPostNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvTitle1"
-                    android:layout_marginLeft="@dimen/an_dimen_margin"
-                    android:layout_marginTop="@dimen/an_dimen_margin_small"
-                    android:layout_toRightOf="@+id/tvPost"
-                    android:text="69"
-                    android:textColor="#1D1D1D" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rlContent2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/AppBarAboveHeight"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/ivBack2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/an_dimen_padding_left"
-                    android:paddingTop="@dimen/AppBarPatchMarginTop"
-                    android:src="@drawable/base_image_arrowback" />
-
-                <TextView
-                    android:id="@+id/tvTitle2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:paddingTop="20dp"
-                    android:text="Author:sunst"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <!-- <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:background="@drawable/base_drawable_backarrow_click"
-            android:paddingTop="@dimen/an_dimen_margin_ssmall" />-->
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/natureTableLayout"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="0.67dp"
-                android:background="@color/ColorWhite"
-                app:tabGravity="center"
-                app:tabIndicator="@drawable/base_image_music"
-                app:tabIndicatorColor="#FF4600"
-                app:tabIndicatorFullWidth="false"
-                app:tabIndicatorHeight="5dp"
-                app:tabMode="fixed"
-                app:tabPaddingEnd="@dimen/an_dimen_margin_ssmall"
-                app:tabPaddingStart="@dimen/an_dimen_margin_ssmall"
-                app:tabRippleColor="@android:color/transparent"
-                app:tabSelectedTextColor="#f00"
-                app:tabTextColor="#000" />
-<!--
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/natureViewPager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never" />-->
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/natureViewPager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never" />
-        </LinearLayout>
-
-        <!-- <LinearLayout
-        android:id="@+id/ll_result"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.material.tabs.TabLayout
-        android:id="@+id/natureTableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/an_dimen_native"
-        android:background="@color/ColorWhite"
-        android:padding="3dp"
-        app:ctlCheckedTextColor="@color/ColorWhite"
-        app:ctlCheckedTextSize="20sp"
-        app:ctlTextColor="@color/ColorWhite"
-        app:ctlTextSize="16sp"
-        app:ctlUnderlineHeight="10dp"
-        app:ctlUnderlineNumber="5"
-        app:tabIndicatorColor="#FE555F"
-        app:tabIndicatorFullWidth="false"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#FE555F" />
+            android:id="@+id/natureTableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="0.67dp"
+            android:background="@color/ColorWhite"
+            app:tabGravity="center"
+            app:tabIndicator="@drawable/base_image_music"
+            app:tabIndicatorColor="#FF4600"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="5dp"
+            app:tabMode="fixed"
+            app:tabPaddingEnd="@dimen/an_dimen_margin_ssmall"
+            app:tabPaddingStart="@dimen/an_dimen_margin_ssmall"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="#f00"
+            app:tabTextColor="#000" />
 
         <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="15dp" />
-        </LinearLayout>-->
-        <!--app:layout_anchor="@id/appBarLayout"-->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:src="@drawable/base_image_music"
-            app:layout_anchorGravity="bottom|end" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:id="@+id/natureViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

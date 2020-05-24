@@ -61,7 +61,7 @@ dependencies {
     /**
      * mark：livery库，这里使用implementation
      * */
-    implementation 'com.sunsta.livery:livery:1.1.12'
+    implementation 'com.sunsta.livery:livery:1.1.13'
 
 
     /**

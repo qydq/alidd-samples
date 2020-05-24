@@ -64,7 +64,7 @@
 
     <TextView
         android:id="@+id/tvZfb"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
@@ -74,7 +74,7 @@
 
     <TextView
         android:id="@+id/tvWx"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"
@@ -84,7 +84,7 @@
 
     <TextView
         android:id="@+id/httpUpload"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin"
         android:layout_marginTop="10dp"
         android:layout_marginRight="@dimen/an_dimen_margin"

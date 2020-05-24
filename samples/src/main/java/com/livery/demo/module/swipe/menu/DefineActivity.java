@@ -12,10 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sunsta.bear.layout.swipe.SwipeMenuLayout;
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
 import com.livery.demo.module.swipe.BaseActivity;
+import com.sunsta.bear.layout.swipe.SwipeMenuLayout;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 
 import java.util.List;
 
@@ -46,14 +46,14 @@ public class DefineActivity extends BaseActivity {
     }
 
     @Override
-    protected BaseAliAdapter createAdapter() {
+    protected SmartRecyclerAdapter createAdapter() {
         return new DefineAdapter(this);
     }
 
     /**
      * 就是这个适配器的Item的Layout需要处理，其实和CardView的方式一模一样。
      */
-    private static class DefineAdapter extends BaseAliAdapter<ViewHolder> {
+    private static class DefineAdapter extends SmartRecyclerAdapter<String, ViewHolder> {
 
         DefineAdapter(Context context) {
             super(context);
@@ -72,7 +72,7 @@ public class DefineActivity extends BaseActivity {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu_define, parent, false));
+                    LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu_define, parent, false));
         }
 
         @Override
@@ -100,17 +100,17 @@ public class DefineActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.left_view: {
                     Toast.makeText(v.getContext(), "我是第" + getAdapterPosition() + "个Item的左边的Button", Toast.LENGTH_SHORT)
-                        .show();
+                            .show();
                     break;
                 }
                 case R.id.btn_start: {
                     Toast.makeText(v.getContext(), "我是第" + getAdapterPosition() + "个Item的中间的Button", Toast.LENGTH_SHORT)
-                        .show();
+                            .show();
                     break;
                 }
                 case R.id.right_view: {
                     Toast.makeText(v.getContext(), "我是第" + getAdapterPosition() + "个Item的右边的Button", Toast.LENGTH_SHORT)
-                        .show();
+                            .show();
                     break;
                 }
             }

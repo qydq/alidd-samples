@@ -17,7 +17,7 @@ import com.sunsta.bear.listener.OnItemClickListener;
 import com.sunsta.bear.layout.swipe.SwipeRecyclerView;
 import com.sunsta.bear.layout.swipe.widget.DefaultItemDecoration;
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 import com.livery.demo.model.adapter.SwipeRecyclerAdapter;
 import com.livery.demo.module.swipe.group.GroupActivity;
 import com.livery.demo.module.swipe.group.MenuActivity;
@@ -36,7 +36,7 @@ public class MainSwipeRecycleActivity extends AliActivity implements OnItemClick
     protected RecyclerView.LayoutManager mLayoutManager;
     protected RecyclerView.ItemDecoration mItemDecoration;
 
-    private BaseAliAdapter mAdapter;
+    private SmartRecyclerAdapter mAdapter;
     protected List<String> mDataList;
 
     @Override
@@ -81,7 +81,7 @@ public class MainSwipeRecycleActivity extends AliActivity implements OnItemClick
         return new DefaultItemDecoration(ContextCompat.getColor(this, R.color.an_color_line), 10, 0);
     }
 
-    protected BaseAliAdapter createAdapter() {
+    protected SmartRecyclerAdapter createAdapter() {
         return new SwipeRecyclerAdapter(this);
     }
 

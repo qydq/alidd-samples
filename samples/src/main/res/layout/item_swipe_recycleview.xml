@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/in_selector_ll"
+    android:background="@drawable/in_selector"
     android:gravity="center_vertical"
     android:paddingTop="@dimen/an_dimen_margin_ssmall"
     android:paddingBottom="@dimen/an_dimen_margin_ssmall">
@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/tvTitile"
-        style="@style/an_match_wrap.Font"
+        style="@style/an_match_wrap.Text"
         android:layout_marginLeft="@dimen/an_dimen_margin_ssmall"
         android:ellipsize="end"
         android:maxLines="2"

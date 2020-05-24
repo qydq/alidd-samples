@@ -12,7 +12,7 @@ import com.sunsta.bear.layout.swipe.SwipeMenuCreator;
 import com.sunsta.bear.layout.swipe.SwipeMenuItem;
 import com.sunsta.bear.layout.swipe.SwipeRecyclerView;
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 import com.livery.demo.model.adapter.SwipeRecyclerAdapter;
 import com.livery.demo.module.swipe.BaseActivity;
 
@@ -39,7 +39,7 @@ public class ViewTypeActivity extends BaseActivity {
     }
 
     @Override
-    protected BaseAliAdapter createAdapter() {
+    protected SmartRecyclerAdapter createAdapter() {
         return new SwipeRecyclerAdapter(this) {
             @Override
             public int getItemViewType(int position) {

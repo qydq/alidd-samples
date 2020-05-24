@@ -25,10 +25,11 @@
         <item>(OK)livery 原始Retrofit获取网络数据（livery提供api)示例参考</item>
         <item>(OK)livery使用InternetClient通用请求网络-获取公共数据</item>
         <item>(OK)livery首发实现网络请求上传文件，下载文件(进度控制，请求参数，上传文件能力)</item>
+        <item>(OK)livery带进度调下载文件2</item>
 
         <item>拍照TakePhoto系列</item>
         <item>拍照PictureSelector（仿微信相册选择拍照）</item>
-        <item>(OK)便捷申请权限操作LaPermission示例faster</item>
+        <item>(OK)便捷申请权限操作EasyPermission示例faster</item>
         <item>(OK)文件文件夹，情景系列示例faster</item>
         <item>Livery1---</item>
         <item>Livery2---</item>
@@ -40,29 +41,7 @@
         <item>Livery8---</item>
         <item>Livery9---</item>
     </string-array>
-
-    <string-array name="main_logical">
-        <item>Livery未开放测试1---</item>
-        <item>Livery未开放测试2---</item>
-        <item>Livery未开放测试3---</item>
-        <item>Livery未开放测试4---</item>
-        <item>Livery未开放测试5---</item>
-        <item>Livery未开放测试6---</item>
-        <item>Livery未开放测试7---</item>
-        <item>Livery未开放测试8---</item>
-        <item>Livery未开放测试---</item>
-        <item>Livery2---</item>
-        <item>Livery3---</item>
-        <item>Livery4---</item>
-        <item>Livery5---</item>
-        <item>Livery6---</item>
-        <item>Livery7---</item>
-        <item>Livery8---</item>
-        <item>Livery9---</item>
-        <item>Livery10---</item>
-        <item>Livery11---</item>
-        <item>Livery12---</item>
-    </string-array>
+    
     <string-array name="main_other">
         <item>alidd框架说明（Github官网）</item>
         <item>我的知乎地址（点击关注Bgwan）</item>
@@ -72,6 +51,12 @@
         <item>启动一个像素的activity(test模块=</item>
         <item>人脸识别模块.</item>
         <item>小团子</item>
+        <item>Livery1---</item>
+        <item>Livery2---</item>
+        <item>Livery3---</item>
+        <item>Livery4---</item>
+        <item>Livery5---</item>
+        <item>Livery6---</item>
     </string-array>
 
     <string-array name="test_data">

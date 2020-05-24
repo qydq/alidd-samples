@@ -1,75 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_material_design"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="false">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <com.sunsta.bear.layout.NoTouchViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tab" />
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#9c27b0"
-            app:contentScrim="@drawable/backgroup_top"
-            app:layout_collapseMode="parallax"
-            app:layout_collapseParallaxMultiplier="0.1"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_color_copy_fav" />
-
-            <!--?actionBarSize,,,,android:background="?attr/colorAccent":colorPrimary-->
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/AppBarAboveHeight"
-                android:layout_marginTop="@dimen/AppBarPatchMarginTop"
-                android:background="@android:color/transparent"
-                app:layout_scrollFlags="scroll|enterAlways" />
-
-            <include
-                android:id="@+id/toolbarInner"
-                layout="@layout/toolbar_layout" />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <LinearLayout
+    <com.sunsta.livery.engine.PageNavigationView
+        android:id="@+id/tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/pager_tab_background"
+        android:elevation="8dp" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/natureTableLayout"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="0.67dp"
-            android:background="@color/ColorWhite"
-            app:tabGravity="center"
-            app:tabIndicator="@drawable/base_image_music"
-            app:tabIndicatorColor="#FF4600"
-            app:tabIndicatorFullWidth="false"
-            app:tabIndicatorHeight="5dp"
-            app:tabMode="fixed"
-            app:tabPaddingEnd="@dimen/an_dimen_margin_ssmall"
-            app:tabPaddingStart="@dimen/an_dimen_margin_ssmall"
-            app:tabRippleColor="@android:color/transparent"
-            app:tabSelectedTextColor="#f00"
-            app:tabTextColor="#000" />
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/natureViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

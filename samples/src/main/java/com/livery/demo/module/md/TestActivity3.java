@@ -20,7 +20,7 @@ public class TestActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.md_activity_test2);
+        setContentView(R.layout.md_activity_test3);
         ViewUtils.setImmersionStateMode(this);
 //ViewUtils.addStatuHeight(findViewById(R.id.fl_layout),this);
         AppBarLayout mAppBarLayout = findViewById(R.id.appbar);

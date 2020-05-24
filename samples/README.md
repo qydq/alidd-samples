@@ -1,3 +1,15 @@
+对于请求网络：
+
+ReplyBinnarMode
+
+reply
+
+rb
+
+mod
+
+
+
 # 一：使用方法
 
 apk名称： livery1.1.1.apk

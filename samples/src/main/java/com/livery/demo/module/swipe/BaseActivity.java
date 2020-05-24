@@ -19,7 +19,7 @@ import com.sunsta.bear.listener.OnItemClickListener;
 import com.sunsta.bear.layout.swipe.SwipeRecyclerView;
 import com.sunsta.bear.layout.swipe.widget.DefaultItemDecoration;
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 import com.livery.demo.model.adapter.SwipeRecyclerAdapter;
 
 
@@ -31,7 +31,7 @@ public class BaseActivity extends AppCompatActivity implements OnItemClickListen
     protected RecyclerView.LayoutManager mLayoutManager;
     protected RecyclerView.ItemDecoration mItemDecoration;
 
-    protected BaseAliAdapter mAdapter;
+    protected SmartRecyclerAdapter mAdapter;
     protected List<String> mDataList;
 
     @Override
@@ -79,7 +79,7 @@ public class BaseActivity extends AppCompatActivity implements OnItemClickListen
         return dataList;
     }
 
-    protected BaseAliAdapter createAdapter() {
+    protected SmartRecyclerAdapter createAdapter() {
         return new SwipeRecyclerAdapter(this);
     }
 

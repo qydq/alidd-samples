@@ -14,7 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.livery.demo.R;
-import com.livery.demo.model.adapter.BaseAliAdapter;
+import com.sunsta.bear.model.adapter.SmartRecyclerAdapter;
 import com.livery.demo.module.swipe.BaseActivity;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class CardViewActivity extends BaseActivity {
      * 主要就是这里的这个Adapter，里面的ItemView需要处理一下。
      */
     @Override
-    protected BaseAliAdapter createAdapter() {
+    protected SmartRecyclerAdapter createAdapter() {
         return new MenuCardAdapter(this);
     }
 
@@ -55,7 +55,7 @@ public class CardViewActivity extends BaseActivity {
     /**
      * 就是这个适配器的Item的Layout需要处理，其实就是自定义Menu啦，一模一样。
      */
-    private static class MenuCardAdapter extends BaseAliAdapter<DefaultViewHolder> {
+    private static class MenuCardAdapter extends SmartRecyclerAdapter<String,DefaultViewHolder> {
 
         private List<String> mDataList;
 

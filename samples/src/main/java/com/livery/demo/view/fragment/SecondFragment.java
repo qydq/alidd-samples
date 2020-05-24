@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.livery.demo.R;
 import com.livery.demo.model.adapter.MainFragmentAdapter;
+import com.livery.demo.module.internet.FolderActivity;
 import com.livery.demo.module.internet.InternetActivity;
 import com.livery.demo.module.internet.OrignalRetrofitActivity;
 import com.livery.demo.module.internet.UpDownloadActivity;
-import com.livery.demo.module.pic.MainPicActivity;
-import com.livery.demo.module.pic.SimpleActivity;
+import com.livery.demo.module.pic.MainPictureActivity;
 import com.livery.demo.view.activity.BeforeSelectAlbumActivity;
 import com.livery.demo.view.activity.EsayPermissionActivity;
 import com.livery.demo.module.internet.DownloadActivity;
@@ -72,16 +72,16 @@ public class SecondFragment extends Fragment implements OnItemClickListener {
                 startActivity(new Intent(getContext(), DownloadActivity.class));
                 break;
             case 5:
-                startActivity(new Intent(getContext(), MainPicActivity.class));
-                break;
-            case 6:
-                startActivity(new Intent(getContext(), SimpleActivity.class));
-                break;
-            case 7:
                 startActivity(new Intent(getContext(), BeforeSelectAlbumActivity.class));
                 break;
-            case 8:
+            case 6:
+                startActivity(new Intent(getContext(), MainPictureActivity.class));
+                break;
+            case 7:
                 startActivity(new Intent(getContext(), EsayPermissionActivity.class));
+                break;
+            case 8:
+                startActivity(new Intent(getContext(), FolderActivity.class));
                 break;
         }
     }

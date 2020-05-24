@@ -11,8 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sunsta.bear.faster.LADialog;
+import com.sunsta.bear.faster.MyDialog;
+import com.sunsta.bear.faster.ToastUtils;
 import com.sunsta.bear.layout.swipe.widget.DefaultItemDecoration;
-import com.sunsta.bear.view.activity.AliWebViewActivity;
+import com.sunsta.bear.view.activity.AliWebActivity;
 import com.sunsta.bear.listener.OnItemClickListener;
 import com.example.cj.videoeditor.activity.VideoBeatyMainActivity;
 import com.livery.demo.R;
@@ -54,13 +57,13 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
         Intent intent = new Intent();
         switch (position) {
             case 0:
-                intent.setClass(getContext(), AliWebViewActivity.class);
+                intent.setClass(getContext(), AliWebActivity.class);
                 intent.putExtra("url", "https://github.com/qydq/alidd-samples");
                 intent.putExtra("title", "Github官方alidd框架");
                 startActivity(intent);
                 break;
             case 1:
-                intent.setClass(getContext(), AliWebViewActivity.class);
+                intent.setClass(getContext(), AliWebActivity.class);
                 intent.putExtra("url", "https://zhihu.com/people/qydq");
                 intent.putExtra("title", "知乎Bgwan（点击关注）");
                 startActivity(intent);
@@ -82,6 +85,29 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
             case 6:
                 startActivity(new Intent(getContext(), TranslucentActivity.class));
                 break;
+            case 7:
+                MyDialog myDialog = new MyDialog(getContext(), R.style.an_dialog_middle_pure_image, LADialog.STYLE.middle_pure_image);
+                myDialog.setImageUrl("https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
+////        myDialog.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
+////        myDialog.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_16-05-2015/49737-beautiful-asian-banged-hard.gif");
+                myDialog.show();
+                break;
+            case 8:
+                ToastUtils.showSelfToast("视频播放功能正在开发中...." + position, R.drawable.ic_color_copy_fav);
+                break;
+            case 9:
+                ToastUtils.showSelfToast("app只能语音唤醒功能正在开发中...." + position, R.drawable.ic_white_mail);
+                break;
+            case 10:
+                ToastUtils.showSelfToast("这位同学，敢不敢点开我知乎，关注一波呀，求关注呀" + position);
+                break;
+            case 11:
+                ToastUtils.sc(getContext(), "关注知乎Bgwan解锁更多姿势1" + position);
+                break;
+            case 12:
+                ToastUtils.s(getContext(), "关注知乎Bgwan解锁更多姿势2" + position);
+                break;
+
         }
     }
 }

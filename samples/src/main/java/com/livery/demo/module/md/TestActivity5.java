@@ -59,7 +59,7 @@ public class TestActivity5 extends AliActivity implements View.OnClickListener {
 
     @Override
     public void initView() {
-        setContentView(R.layout.md_activity_test4);
+        setContentView(R.layout.md_activity_test5);
         fitStatusBar(false, true);//设置状态栏颜色为白色，lightMode=false为默认白色，lightMode=true为黑色
         mToolbar = findViewById(R.id.toolbar);
         appBarLayout = findViewById(R.id.appBarLayout);
