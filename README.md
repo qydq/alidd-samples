@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [sunst0069](https://github.com/qydq)*
 
-- [android快速集成基础框架 - Livery```1.1.13```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery1113)
+- [android快速集成基础框架 - Livery```1.1.14```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery1114)
   - [情景能力# Ability](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
     - [1：主要能力](#1%E4%B8%BB%E8%A6%81%E8%83%BD%E5%8A%9B)
     - [2：最新版本能力](#2%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E8%83%BD%E5%8A%9B)
@@ -16,8 +16,9 @@
   - [常见错误# Easy Mistake](#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF-easy-mistake)
     - [非常重要1：1.1.x版本用androidx，替换掉所有的support-v4,v7包](#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81111x%E7%89%88%E6%9C%AC%E7%94%A8androidx%E6%9B%BF%E6%8D%A2%E6%8E%89%E6%89%80%E6%9C%89%E7%9A%84support-v4v7%E5%8C%85)
     - [非常重要2： Manifest merger failed : Attribute meta-data#android.support.FILE_PROVIDER_PATHS](#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%812-manifest-merger-failed--attribute-meta-dataandroidsupportfile_provider_paths)
-    - [错误3: More than one file was found with OS independent path 'META-INF/rxjava.properties'](#%E9%94%99%E8%AF%AF3-more-than-one-file-was-found-with-os-independent-path-meta-infrxjavaproperties)
-    - [更多4：其它android中常见错误解决方法点击这里查看。](#%E6%9B%B4%E5%A4%9A4%E5%85%B6%E5%AE%83android%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E7%82%B9%E5%87%BB%E8%BF%99%E9%87%8C%E6%9F%A5%E7%9C%8B)
+    - [非常重要3：This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled. Set this property to true in the gradle.properties file and retry.](#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%813this-project-uses-androidx-dependencies-but-the-androiduseandroidx-property-is-not-enabled-set-this-property-to-true-in-the-gradleproperties-file-and-retry)
+    - [注意事项2： More than one file was found with OS independent path 'META-INF/rxjava.properties'](#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B92-more-than-one-file-was-found-with-os-independent-path-meta-infrxjavaproperties)
+    - [更多：其它android中常见错误解决方法点击这里查看。](#%E6%9B%B4%E5%A4%9A%E5%85%B6%E5%AE%83android%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E7%82%B9%E5%87%BB%E8%BF%99%E9%87%8C%E6%9F%A5%E7%9C%8B)
   - [版本日志# Version LOG](#%E7%89%88%E6%9C%AC%E6%97%A5%E5%BF%97-version-log)
     - [apk下载及其说明](#apk%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%AF%B4%E6%98%8E)
     - [1.0.x版本总述](#10x%E7%89%88%E6%9C%AC%E6%80%BB%E8%BF%B0)
@@ -31,15 +32,15 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-# android快速集成基础框架 - Livery```1.1.13```
+# android快速集成基础框架 - Livery```1.1.14```
 
 [![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/master/LICENSE)
 [![Download](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
-[![JCenter](https://img.shields.io/badge/%20JCenter%20-1.1.13-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
+[![JCenter](https://img.shields.io/badge/%20JCenter%20-1.1.14-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
 ![@sunst](https://avatars0.githubusercontent.com/u/20716264?s=60&u=ec068ee954f943483fbf1516803dcd5b77520ad3&v=4)
 
 [![MinSdk](https://img.shields.io/badge/%20MinSdk%20-%2021%2B%20-f0ad4e.svg)](https://android-arsenal.com/api?level=21)
-[![Release Version](https://img.shields.io/badge/release-1.1.13-red.svg)](https://github.com/qydq/small-video-record/releases)
+[![Release Version](https://img.shields.io/badge/release-1.1.14-red.svg)](https://github.com/qydq/small-video-record/releases)
 [![](https://img.shields.io/badge/Author-sunst-blue.svg)](https://www.zhihu.com/people/qydq)
 
 [***中文API帮助文档1.1下载`密码:xeq0`)***](https://pan.baidu.com/s/1yczO3lh4p8Njc_rdb9Fe5g) 一款针对Android平台下快速集成**便捷开发**框架**livery**，```an情景```系列```livery框架```部分基于原项目[an框架](https://github.com/qydq/an-aw-base)（基础的an-base）仓库优化而来，其目1是为小团子fang升级一款音乐聊天软件```[安妮暂定]3.0版本```，现在开放出来，希望用得着的朋友点个star.
@@ -69,12 +70,12 @@
 - [x] 快速集成实现你的导航栏工具
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
-&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.13apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.13.apk)&#8194;&#8194;&#8194;&#8194;
+&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验下载Demo_livery1.1.14apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.14.apk)&#8194;&#8194;&#8194;&#8194;
 ## 集成方式# Binaries
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
 ```Groovy
 dependencies {
-  implementation'com.sunsta.livery:livery:1.1.13'
+  implementation'com.sunsta.livery:livery:1.1.14'
 }
 ```
 第2步骤（可选）：如果使用`网络2请求`，在你的`XxxApplication`中继承`AnApplication`，然后在`onCreate()`方法中初始化"Livery网络2"，如下参考：
@@ -205,14 +206,33 @@ implementation('me.imid.swipebacklayout.lib:library:1.1.0') {
  tools:replace="name,resource" />
 </provider>
 ```
-### 错误3: More than one file was found with OS independent path 'META-INF/rxjava.properties'
+### 非常重要3：This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled. Set this property to true in the gradle.properties file and retry.
+在你的gradle.properties中加入：
+>android.useAndroidX=true
+如下参考配置：
+```Groovy
+org.gradle.jvmargs=-Xmx1536m
+# org.gradle.parallel=true
+android.useAndroidX=true
+# Automatically convert third-party libraries to use AndroidX
+android.enableJetifier=true
+android.useDeprecatedNdk=true
+```
+### 注意事项1：Attribute application@theme value=(@style/AppTheme) from AndroidManifest.xml:11:9-40 is also present at [com.sunsta.livery:livery:1.1.13] AndroidManifest.xml
+
+这是livery资源冲突，在你的AndroidManifest.xml application标签中添加（根据需要添加）：
+
+>tools:replace="android:icon,android:theme,android:label,android:allowBackup,android:name"
+
+也可以把application标签中的重复的删除
+### 注意事项2： More than one file was found with OS independent path 'META-INF/rxjava.properties'
 这是rxJava冲突，在app目录的build.gradle下添加
 ```Groovy
  packagingOptions {
 exclude 'META-INF/rxjava.properties'
  }
 ```
-### [更多4：其它android中常见错误解决方法点击这里查看。](https://github.com/qydq/alidd-samples/blob/master/error.md)
+### [更多：其它android中常见错误解决方法点击这里查看。](https://github.com/qydq/alidd-samples/blob/master/error.md)
 ## 版本日志# Version LOG
 
 [**an-aw-base0.x.x版本log.**](https://github.com/qydq/an-aw-base/releases)
