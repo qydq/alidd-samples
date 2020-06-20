@@ -2,106 +2,87 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constainitLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="173dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="174dp"
-        android:src="@drawable/ic_color_delete_photo"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="400dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/in_selector_md"
         android:onClick="onClick1"
         android:text="创建文件夹1"
-        android:textColor="@color/in_font_selector"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button2" />
+        android:textColor="@color/an_font_middle"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="1dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="191dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/in_selector"
         android:onClick="onClick2"
         android:text="创建文件2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="30dp"
+        android:layout_width="262dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="52dp"
         android:onClick="onClick3"
-        android:text="获取android10各个存储信息"
-        android:textColor="@color/ColorTransparentClicked"
+        android:text="打印storage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button10" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="67dp"
-        android:onClick="onClick4"
+        android:layout_marginStart="28dp"
+        android:onClick="jump"
         android:text="跳转"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/inaBarlayout" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="138dp"
-        android:layout_marginBottom="135dp"
+        android:layout_marginStart="40dp"
         android:onClick="closeNight"
         android:text="关闭夜间模式"
         android:textColor="?android:attr/textColorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/button6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.502" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="61dp"
         android:onClick="openNight"
         android:text="开启夜间模式"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
-        app:layout_constraintStart_toStartOf="@+id/button9" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
         android:id="@+id/button7"
@@ -109,29 +90,93 @@
         android:layout_height="wrap_content"
         android:onClick="dialog1"
         android:text="显示弹框1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inaBarlayout" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         android:onClick="dialog2"
         android:text="显示弹框2"
         app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inaBarlayout" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <!-- android:focusableInTouchMode="true"
+    设置该属性后导致，设置的颜色器选择以后，恢复不了原先状态
+    -->
+
+    <com.sunsta.bear.layout.INABarLayout
+        android:id="@+id/inaBarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        app:anTxRight="使用方法"
+        app:anTxTitle="main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:open_material="true"
+        app:showRLl="true"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:autoLink="all"
+        android:clickable="true"
+        android:focusable="true"
+        android:lineSpacingExtra="5dp"
+        android:onClick="download"
+        android:text="文件下载，并且验证字体颜色选择器"
+        android:textColor="#ff9988"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
+        app:layout_constraintVertical_bias="0.578" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:background="@drawable/in_selector_md"
-        android:layout_marginBottom="121dp"
-        android:onClick="dialog3"
-        android:text="系统默认设置"
+        android:onClick="openSoft"
+        android:text="打开软键盘"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.103"
+        tools:layout_editor_absoluteX="-6dp" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:onClick="closeSoft"
+        android:text="关闭软键盘"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="danMu"
+        android:text="弹幕显示"
+        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

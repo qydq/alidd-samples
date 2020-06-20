@@ -1,40 +1,39 @@
 package com.livery.demo.view.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sunsta.bear.faster.LADialog;
-import com.sunsta.bear.faster.MyDialog;
-import com.sunsta.bear.faster.ToastUtils;
-import com.sunsta.bear.layout.swipe.widget.DefaultItemDecoration;
-import com.sunsta.bear.view.activity.AliWebActivity;
-import com.sunsta.bear.listener.OnItemClickListener;
 import com.example.cj.videoeditor.activity.VideoBeatyMainActivity;
 import com.livery.demo.R;
 import com.livery.demo.model.adapter.MainFragmentAdapter;
 import com.livery.demo.view.activity.TranslucentActivity;
 import com.livery.demo.view.activity.VideoNoFFmpegActivity;
+import com.sunsta.bear.faster.LADialog;
+import com.sunsta.bear.faster.MyDialog;
+import com.sunsta.bear.faster.ToastUtils;
+import com.sunsta.bear.layout.swipe.widget.DefaultItemDecoration;
+import com.sunsta.bear.listener.OnItemClickListener;
+import com.sunsta.bear.view.AliFragment;
+import com.sunsta.bear.view.activity.AliWebActivity;
 import com.sunsty.xmediac.FFmpegRenderActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class OtherFragment extends Fragment implements OnItemClickListener {
+public class OtherFragment extends AliFragment implements OnItemClickListener {
     private RecyclerView recyclerView;
     private MainFragmentAdapter mainFragmentAdapter;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alidd, container, false);
+    public int getLayoutId() {
+        return R.layout.fragment_alidd;
+    }
+
+    @Override
+    public void init() {
         recyclerView = view.findViewById(R.id.recyclerview);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -45,7 +44,6 @@ public class OtherFragment extends Fragment implements OnItemClickListener {
         mainFragmentAdapter = new MainFragmentAdapter(getContext(), createDataList());
         recyclerView.setAdapter(mainFragmentAdapter);
         mainFragmentAdapter.setItemClickListener(this);
-        return view;
     }
 
     protected List<String> createDataList() {

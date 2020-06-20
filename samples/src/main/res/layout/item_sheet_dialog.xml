@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--注意：这里NestedScrollview的layout_height高度无法指定BottomSheetDialog弹出来的最大高度。BottomSheetDialog的高度默认是内部内容的高度，内容过多会覆盖整个屏幕。后面会讲解怎么设置高度！-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="@color/ColorBlack"
+    android:orientation="vertical"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+</androidx.core.widget.NestedScrollView>

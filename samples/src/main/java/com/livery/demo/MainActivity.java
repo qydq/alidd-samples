@@ -51,10 +51,10 @@ public class MainActivity extends ParallaxActivity {
             @Override
             public void onSelected(int index, int old) {
                 LaLog.i(TAG, "selected: " + index + " old: " + old);
-                if (index == 1 || index == 2) {
-                    fitStatusBar(true, true);
-                } else {
+                if (index == 0 || index == 1) {
                     fitStatusBar(false, true);
+                } else {
+                    fitStatusBar(true, true);
                 }
             }
 

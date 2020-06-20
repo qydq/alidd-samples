@@ -35,5 +35,5 @@ dependencies {
     /**
      * mark：livery库
      * */
-    api 'com.sunsta.livery:livery:1.1.13'
+    api 'com.sunsta.livery:livery:1.1.16'
 }

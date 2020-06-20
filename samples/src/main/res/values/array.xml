@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="main_material_ux">
-        <item>(OK)livery首发使用情景-INATabLayout(可扩展的TabLayout</item>
-        <item>(OK)material design 情景系列示例md</item>
-        <item>(OK)导航栏navigation 情景系列示例pager</item>
-        <item>(OK)高效加载gif动画使用示例</item>
+        <item>☀️Livery首发使用情景-INATabLayout(可扩展的TabLayout</item>
+        <item>☀️material design 情景系列示例md</item>
+        <item>☀️导航栏navigation 情景系列示例pager</item>
+        <item>☀️高效加载gif动画使用示例</item>
 
-        <item>(OK)一个WebView加载标签使用情景结合，INALikeButton案例</item>
-        <item>(OK)简单实现侧滑返回到上一个界面的三种方式-之（ParallelActivity）</item>
-        <item>(OK)一个特别的ExpandableListView视觉效果（仿cardView实现）</item>
-        <item>(OK)material swipeRv 情景系列案例swipe</item>
+        <item>☀️一个WebView加载标签使用情景结合，INALikeButton案例</item>
+        <item>☀️简单实现侧滑返回到上一个界面的三种方式-之（ParallelActivity）</item>
+        <item>☀️一个特别的ExpandableListView视觉效果（仿cardView实现）</item>
+        <item>☀️material swipeRv 情景系列案例swipe</item>
         <item>知乎控制</item>
         <item>夜间模式</item>
         <item>Livery1---</item>
@@ -22,15 +22,15 @@
 
     <string-array name="main_an_scene">
         <item>网络1：anbase0.1.1(初始xUtils3)网络请求能力-（注：最新版本1.1.1已移除xutils）</item>
-        <item>(OK)livery 原始Retrofit获取网络数据（livery提供api)示例参考</item>
-        <item>(OK)livery使用InternetClient通用请求网络-获取公共数据</item>
-        <item>(OK)livery首发实现网络请求上传文件，下载文件(进度控制，请求参数，上传文件能力)</item>
-        <item>(OK)livery带进度调下载文件2</item>
+        <item>☀️livery 原始Retrofit获取网络数据（livery提供api)示例参考</item>
+        <item>☀️livery使用InternetClient通用请求网络-获取公共数据</item>
+        <item>☀️livery首发实现网络请求上传文件，下载文件(进度控制，请求参数，上传文件能力)</item>
+        <item>☀️livery带进度调下载文件2</item>
 
         <item>拍照TakePhoto系列</item>
         <item>拍照PictureSelector（仿微信相册选择拍照）</item>
-        <item>(OK)便捷申请权限操作EasyPermission示例faster</item>
-        <item>(OK)文件文件夹，情景系列示例faster</item>
+        <item>☀️便捷申请权限操作EasyPermission示例faster</item>
+        <item>☀️文件文件夹，情景系列示例faster</item>
         <item>Livery1---</item>
         <item>Livery2---</item>
         <item>Livery3---</item>
@@ -41,7 +41,7 @@
         <item>Livery8---</item>
         <item>Livery9---</item>
     </string-array>
-    
+
     <string-array name="main_other">
         <item>alidd框架说明（Github官网）</item>
         <item>我的知乎地址（点击关注Bgwan）</item>

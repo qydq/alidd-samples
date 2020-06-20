@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show_Or_Hide" />
+
+        <Button
+            android:id="@+id/showCustomFragmentDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示CustomFragmentSheetDialog"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/showFullSheetDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示FullFragmentSheetDialog"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/showDialogBottomSheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show_Or_Hide" />
+
+    </LinearLayout>
+
+    <!--注意：这里NestedScrollview的layout_height高度就是BottomSheet弹出来的最大高度。-->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/picture_dialog_shadow"
+        android:orientation="vertical"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_color_sel_qq" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_color_wechat_down" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_color_menu_default" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_white_friends" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_color_delete_photo" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_color_camera" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_color_share_url" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.sunsta.bear.faster.SizeUtils;
+import com.sunsta.bear.faster.ScreenUtils;
 
 
 /**
@@ -46,7 +46,7 @@ public class CircularProgressView extends AppCompatImageView {
     }
 
     private void init() {
-        mStroke = SizeUtils.dip2px(getContext(), mStroke);
+        mStroke = ScreenUtils.dip2px(getContext(), mStroke);
         mPaint = new Paint();
         mPaint.setColor(mNormalColor);
         mPaint.setStrokeWidth(mStroke);
@@ -77,7 +77,7 @@ public class CircularProgressView extends AppCompatImageView {
     }
 
     public void setStroke(float dp) {
-        this.mStroke = (int) SizeUtils.dp2px(getContext(), dp);
+        this.mStroke = (int) ScreenUtils.dp2px(getContext(), dp);
         mPaint.setStrokeWidth(mStroke);
         mDrawable.invalidateSelf();
     }

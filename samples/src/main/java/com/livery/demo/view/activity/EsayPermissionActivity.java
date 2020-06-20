@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.sunsta.bear.faster.LATextView;
+import com.sunsta.bear.immersion.RichTextView;
 import com.sunsta.bear.view.ParallaxActivity;
 import com.livery.demo.R;
 import com.sunsta.bear.faster.EasyPermission;
@@ -44,7 +44,7 @@ public class EsayPermissionActivity extends ParallaxActivity implements EasyPerm
     }
 
     private void changeTxtColor() {
-        LATextView.setUnderLineAndColor02(colortx, "《平台协议》", "《隐私政策》", R.color.ColorAliceblue);
+        RichTextView.setUnderLineAndColor02(colortx, "《平台协议》", "《隐私政策》", R.color.ColorAliceblue);
         SpannableStringBuilder style = new SpannableStringBuilder();
         style.append("请确认已阅读并同意《平台协议》、《隐私政策》，未注册时将自动注册账号");
 

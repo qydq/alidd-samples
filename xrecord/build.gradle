@@ -31,7 +31,7 @@ dependencies {
     /**
      * mark：livery库
      * */
-    api 'com.sunsta.livery:livery:1.1.13'
+    api 'com.sunsta.livery:livery:1.1.16'
     // 视频压缩
     implementation 'com.iceteck.silicompressorr:silicompressor:2.2.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

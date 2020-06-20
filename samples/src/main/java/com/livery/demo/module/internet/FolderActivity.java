@@ -1,96 +1,304 @@
 package com.livery.demo.module.internet;
 
+import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.livery.demo.MainActivity;
 import com.livery.demo.R;
-import com.sunsta.bear.AnConstants;
-import com.sunsta.bear.engine.DownloadService;
+import com.livery.demo.module.md.BottomSheetBehaviorActivity;
+import com.sunsta.bear.engine.picker.CityPickerView;
+import com.sunsta.bear.faster.EasyPermission;
 import com.sunsta.bear.faster.FileUtils;
 import com.sunsta.bear.faster.LADialog;
 import com.sunsta.bear.faster.LAStorageFile;
+import com.sunsta.bear.faster.LAUi;
 import com.sunsta.bear.faster.LaLog;
-import com.sunsta.bear.faster.MyDialog;
 import com.sunsta.bear.faster.ToastUtils;
+import com.sunsta.bear.layout.INABarrageView;
 import com.sunsta.bear.layout.INAStartAnimationView;
+import com.sunsta.bear.presenter.net.InternetClient;
 import com.sunsta.bear.view.AliActivity;
-import com.sunsta.bear.view.activity.AliWebActivity;
 
 import java.io.File;
+import java.util.List;
 
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 import static com.livery.demo.module.internet.OrignalRetrofitActivity.Http_Full_Download_Url;
 
-public class FolderActivity extends AliActivity {
+public class FolderActivity extends AliActivity implements EasyPermission.PermissionCallback {
     private RelativeLayout relativeLayout;
+    private ConstraintLayout constainitLayout;
 
+    private TextView textView;
+    private String[] permissions = new String[]{
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+    };
+
+    private final int REQUEST_PERMISS = 2;
+    private INABarrageView inaBarrageView;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void initView() {
         setContentView(R.layout.activity_folder);
-        RelativeLayout relativeLayout = findViewById(R.id.relativeLayout);
+        relativeLayout = findViewById(R.id.relativeLayout);
+        constainitLayout = findViewById(R.id.constainitLayout);
+        textView = findViewById(R.id.textView);
 
-        Activity activity = FolderActivity.this;
-        while (activity.getParent() != null) {
-            activity = activity.getParent();
-        }
+// setBadBackgroundLayout();
 
-//        launchTimer(2000);
+        INAStartAnimationView animationView = new INAStartAnimationView(this);
+        animationView.setImage(R.drawable.ic_color_camera);
+        animationView.show(relativeLayout);
+        LaLog.d("软键盘状态----------" + LAUi.getInstance().keyboardIsActive(FolderActivity.this));
 
-        if (null != relativeLayout) {
-            INAStartAnimationView openingStartAnimation = new INAStartAnimationView(this);
-            openingStartAnimation.setImage(R.drawable.ic_color_camera);
-            openingStartAnimation.show(relativeLayout);
+        launchTimer(2000);
 
-            relativeLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    startActivity(new Intent(FolderActivity.this, PhotoActivity.class));
-                    dialog2(v);
-                }
-            });
-        }
+        getInaBarlayout().setOnRightLlClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+            }
+        });
 
+        int milli = 10000;
+    }
 
-        //        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                ToastUtils.s(FolderActivity.this, "我是测试的数据，时间到");
-//// showDialog();
-//            }
-//        }, 2000);
-
-
-        int currentMode = AppCompatDelegate.getDefaultNightMode();
-//        int currentNightMode = currentMode & Configuration.UI_MODE_NIGHT_MASK;
-        if (currentMode == Configuration.UI_MODE_NIGHT_NO) {
-            LaLog.d("当前为非夜间模式" + currentMode);
-        } else {
-            LaLog.d("当前为夜间模式" + currentMode);
-        }
+    private void startXXX(View view) {
+        int widthPixels = getResources().getDisplayMetrics().widthPixels;
+        ObjectAnimator tanslationX = new ObjectAnimator().ofFloat(view, "translationX", widthPixels - view.getWidth(), -widthPixels);
+        tanslationX.setDuration(1000);
+        tanslationX.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                view.setVisibility(View.INVISIBLE);
+            }
+        });
+        tanslationX.setInterpolator(new LinearInterpolator());
+        tanslationX.start();
     }
 
     @Override
     public void onLaunchedTimer() {
-        ToastUtils.s(FolderActivity.this, "我是测试的数据，时间到");
+        showToast("我是测试的数据，时间到11111111");
+    }
+
+    //文件夹
+    public void onClick1(View view) {
+        String folder = FileUtils.getInstance().getPwdMovieFolder();
+        File fouceTouchFile = LAStorageFile.INSTANCE.fouceTouchFile(folder, "sunst_test.mp4");
+        if (fouceTouchFile.exists()) {
+            LaLog.d("创建1-文件创建成功");
+        } else {
+            LaLog.d("创建1-foucheTouchFile不存在，使用getExternalFilesDir创建文件夹...");
+            LaLog.d(fouceTouchFile.mkdirs() ? "创建1-新文件创建成功" : "新文件1创建失败");
+            String getAbsolutePath1 = getExternalFilesDir(null).getAbsolutePath();
+            createADirectory(getAbsolutePath1 + File.separator);//创建文件夹
+        }
+    }
+
+    public void onClick2(View view) {
+        String getAbsolutePath = getFilesDir().getAbsolutePath();
+        String folder = FileUtils.getInstance().getPwdMovieFolder();
+
+        File touchFile = new File(getAbsolutePath + folder, "test.txt");
+        if (touchFile.exists()) {
+            LaLog.d("创建2-文件创建成功");
+        } else {
+            LaLog.d("创建2-touchFile不存在，使用getFilesDir创建文件...");
+            createAFile(getAbsolutePath);//创建文件
+        }
+    }
+
+    /**
+     * 创建单个文件
+     */
+    public void createAFile(String filePath) {
+        int result = FileUtils.CreateFile(filePath + "/demos/file/test.txt");
+        showResult(result);
+    }
+
+    /**
+     * 创建文件夹
+     */
+    public void createADirectory(String filePath) {
+        int result = FileUtils.createDir(filePath + "damon/file/tmp/test");
+        showResult(result);
+    }
+
+    /**
+     * 创建结果
+     */
+    private void showResult(int result) {
+        switch (result) {
+            case FileUtils.FLAG_SUCCESS:
+                LaLog.d("result: create success");
+                break;
+            case FileUtils.FLAG_EXISTS:
+                LaLog.d("result: already exist");
+// downloadApk(fouceTouchFile);
+                break;
+            case FileUtils.FLAG_FAILED:
+                LaLog.d("result: create failed");
+                break;
+        }
+    }
+
+    /**
+     * 打印信息，并且申请权限
+     */
+    public void onClick3(View view) {
+        File fouceTouchFile = LAStorageFile.INSTANCE.fouceTouchFile(FileUtils.getInstance().getPwdMovieFolder(), "test.mp4");
+        LaLog.d("验证1-\npath = " + fouceTouchFile.getPath() + "\nname：" + fouceTouchFile.getName() + "\nAbsPath:" + fouceTouchFile.getAbsolutePath() + "\n");
+        if (fouceTouchFile.exists()) {
+            LaLog.d("验证1-文件fouceTouchFile存在===");
+        } else {
+            LaLog.d("验证1-文件fouceTouchFile不存在===");
+            File fouceFile = new File(fouceTouchFile.getAbsolutePath());
+// File newFile = new File(FileUtils.getInstance().getPwdMovieFolder(), fouceTouchFile.getName());
+// Make sure the Pictures&Movie directory exists.
+            if (fouceFile.exists()) {
+                LaLog.d("验证1-新文件已存在");
+            } else {
+                LaLog.d(fouceFile.mkdirs() ? "验证1-新文件创建成功" : "新文件1创建失败");
+            }
+        }
+
+        String getAbsolutePath = getFilesDir().getAbsolutePath();
+        String getPath = getFilesDir().getPath();
+        String getName = getFilesDir().getName();
+        LaLog.d("\n-------------------------------------------");
+        LaLog.d("验证2-\npath =" + getPath + "\nname：" + getName + "\nAbsPath:" + getAbsolutePath + "\n");
+
+        File external = getExternalFilesDir(null);
+        String getAbsolutePath1 = external.getAbsolutePath();
+        String getPath1 = external.getPath();
+        String getName1 = external.getName();
+        LaLog.d("\n-------------------------------------------");
+        LaLog.d("验证3-\npath =" + getPath1 + "\nname：" + getName1 + "\nAbsPath:" + getAbsolutePath1 + "\n");
+
+        requestPermission();
+    }
+
+    /**
+     * standard ：an情景系列livery框架requestPermission打开权限
+     * Author ：sunst
+     * link : https://zhihu.com/people/qydq
+     */
+    private void requestPermission() {
+// if (EasyPermission.hasPermissions(this, permissions)) {
+// LaLog.d("requestPermission" + "已经有了权限");
+// showToast("已经有了权限");
+// } else {
+// EasyPermission.with(this)
+// .rationale("打开我的权限")
+// .addRequestCode(REQUEST_PERMISS)
+// .permissions(permissions)
+// .request();
+// }
+
+        EasyPermission.with(this)
+                .rationale("打开我的权限")
+                .addRequestCode(REQUEST_PERMISS)
+                .permissions(permissions)
+                .request();
+    }
+
+    @Override
+    public void onPermissionGranted(int requestCode, List<String> perms) {
+        showToast("给予了权限");
+        LaLog.d("requestPermission" + "给予了权限");
+    }
+
+    @Override
+    public void onPermissionDenied(int requestCode, List<String> perms) {
+        showToast("没有相机权限");
+        LaLog.d("requestPermission" + "没有相机权限");
+    }
+
+    public void closeNight(View view) {
+// setDayTheme();
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
+    }
+
+    public void openNight(View view) {
+// setNightTheme();
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LaLog.d("验证-onConfigurationChanged uiMode=" + newConfig.uiMode);
+
+        int currentNightMode = newConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        LaLog.d("验证-onConfigurationChanged currentNightMode=" + currentNightMode);
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_NO) {
+// 夜间模式未启用，我们正在使用浅色主题
+            LaLog.d("验证-UI_MODE_NIGHT_NO");
+        }
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+// 夜间模式启用，我们使用的是深色主题
+            LaLog.d("验证-UI_MODE_NIGHT_YES");
+        }
+    }
+
+    public void dialog1(View view) {
+        LADialog.INSTANCE.attach(1, LADialog.STYLE.middle_pure_image, FolderActivity.this);
+        LADialog.INSTANCE.setImageUrl("https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
+
+        LADialog.INSTANCE.attach(2, LADialog.STYLE.middle_pure_image, FolderActivity.this);
+        LADialog.INSTANCE.setImageUrl("https://gank.io/images/ce66aa74d78f49919085b2b2808ecc50");
+        LADialog.INSTANCE.launch();
+
+// MyDialog dialog = new MyDialog(MainActivity.this);
+// dialog.setListData(null);
+// dialog.show();
+    }
+
+    public void dialog2(View view) {
+        ToastUtils.s(FolderActivity.this, "点击提交dialog2");
+
+    }
+
+    public void jump(View view) {
+// startActivity(new Intent(MainActivity.this, TestActivity.class));
+        startActivity(new Intent(FolderActivity.this, BottomSheetBehaviorActivity.class));
+    }
+
+    private View getRootView() {
+        return getWindow().getDecorView().findViewById(android.R.id.content);
     }
 
     // 蒙层
     public void showDialog() {
-        final Dialog dialog = new Dialog(this, R.style.an_dialog_middle_pure_image);
+        final Dialog dialog = new Dialog(this, R.style.TransparentTheme);
         TextView textView = new TextView(this);
+        dialog.setCancelable(true);
         textView.setText("getString(R.string.isFirstShopHint)");
         textView.setTextSize(18);
         textView.setTextColor(Color.WHITE);
@@ -110,210 +318,38 @@ public class FolderActivity extends AliActivity {
         WindowManager windowManager = getWindowManager();
         Display display = windowManager.getDefaultDisplay();
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-        lp.width = (display.getWidth()); // 设置宽度
-        lp.height = (display.getHeight());
+        lp.width = (int) (display.getWidth()); // 设置宽度
+        lp.height = (int) (display.getHeight());
         dialog.getWindow().setAttributes(lp);
 // dialog.getWindow().setGravity(80);
     }
 
-    //文件夹
-    public void onClick1(View view) {
-        String folder = FileUtils.getInstance().getPwdMovieFolder();
-        File fouceTouchFile = LAStorageFile.INSTANCE.fouceTouchFile(folder, "sunst_test.mp4");
-        String getAbsolutePath1 = getExternalFilesDir(null).getAbsolutePath();
-
-        if (fouceTouchFile.exists()) {
-            LaLog.d("创建1-文件创建成功");
-        } else {
-            LaLog.d("创建1-文件文件创建失败");
-            createADirectory(getAbsolutePath1);//创建文件夹
-        }
-        File fouceTouchFile1 = LAStorageFile.INSTANCE.fouceTouchFile(folder, "sunst_test.mp4");
-    }
-
-    public void onClick2(View view) {
-        String getAbsolutePath = getFilesDir().getAbsolutePath();
-// String getAbsolutePath1 = getExternalFilesDir(null).getAbsolutePath();
-        File f = new File(getAbsolutePath + File.separator + "abc" + File.separator, "test.txt");
-        if (f.exists()) {
-            LaLog.d("创建2-文件创建成功");
-        } else {
-            LaLog.d("创建2-文件文件创建失败" + getAbsolutePath);
-            createAFile(getAbsolutePath);//创建文件
-        }
-    }
-
-    public void onClick3(View view) {
-//        RxPermissions rxPermissions = new RxPermissions(FolderActivity.this);
-//        rxPermissions.requestEach(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE})
-//                .subscribe(permission -> {
-//                    if (permission.granted) {
-//                        LaLog.d("创建2-文件创建成功11111111");
-//
-//                        return;
-//                    }
-//                    if (permission.shouldShowRequestPermissionRationale) {
-//                        LaLog.d("创建2-文件创建成功222222222222");
-//
-//                        return;
-//                    }
-//                });
-
-        File fouceTouchFile = LAStorageFile.INSTANCE.fouceTouchFile(FileUtils.getInstance().getPwdMovieFolder(), "test.mp4");
-        LaLog.d("验证1-\nfouceTouchFile：path" + fouceTouchFile.getPath() + "\n fileName：" + fouceTouchFile.getName() + "\n fileAbsPath:" + fouceTouchFile.getAbsolutePath() + "\n");
-
-        String getAbsolutePath = getFilesDir().getAbsolutePath();
-        String getPath = getFilesDir().getPath();
-        String getName = getFilesDir().getName();
-        LaLog.d("验证2-\ngetFilesDir：getAbsolutePath =" + getAbsolutePath + "\n getPath：" + getPath + "\n getName:" + getName + "\n");
-
-        File external = getExternalFilesDir(null);
-        String getAbsolutePath1 = external.getAbsolutePath();
-        String getPath1 = external.getPath();
-        String getName1 = external.getName();
-        LaLog.d("验证3-\ngetFilesDir：getAbsolutePath1 =" + getAbsolutePath1 + "\n getPath1：" + getPath1 + "\n getName1:" + getName1 + "\n");
-
-        if (fouceTouchFile.exists()) {
-            LaLog.d("验证-文件fouceTouchFile存在===");
-        } else {
-            LaLog.d("验证-文件fouceTouchFile不存在===");
-
-            File newFile = new File(getAbsolutePath, fouceTouchFile.getName());
-// File newFile = new File(FileUtils.getInstance().getPwdMovieFolder(), fouceTouchFile.getName());
-// Make sure the Pictures&Movie directory exists.
-            if (newFile.exists()) {
-                LaLog.d("验证-新文件已存在");
-            } else {
-                LaLog.d(newFile.mkdirs() ? "验证-新文件创建成功" : "新文件创建失败");
-            }
-        }
-    }
-
-    private void showResult(int result) {
-        switch (result) {
-            case FileUtils.FLAG_SUCCESS:
-                LaLog.d("result: create success");
-                break;
-            case FileUtils.FLAG_EXISTS:
-                LaLog.d("result: already exist");
-// downloadApk(fouceTouchFile);
-                break;
-            case FileUtils.FLAG_FAILED:
-                LaLog.d("result: create failed");
-                break;
-        }
+    public void download(View view) {
+        downloadApk("wodexiaotuanzi.mp4", "/sunsta/more/");
     }
 
     private void downloadApk(String fileName, String pwdPath) {
-        Intent intent = new Intent(FolderActivity.this, DownloadService.class);
-        intent.putExtra(AnConstants.EXTRA.REQUEST_URL, Http_Full_Download_Url);
-        intent.putExtra(AnConstants.EXTRA.REQUEST_FILENAME, fileName);
-        intent.putExtra(AnConstants.EXTRA.REQUEST_DIRPATH, pwdPath);
-        startService(intent);
+        InternetClient.getInstance().downloadApkInService(Http_Full_Download_Url, fileName, pwdPath);
     }
 
+    public void openSoft(View view) {
+        openSoftKeyboard(FolderActivity.this, view);
+    }
     /**
-     * 创建单个文件
+     * 打开软键盘通用
+     * @param activity 上下文Activity
      */
-    public void createAFile(String filePath) {
-        int result = FileUtils.CreateFile(filePath + "/demos/file/test.txt");
-        showResult(result);
-    }
-
-    /**
-     * 创建文件夹
-     */
-    public void createADirectory(String filePath) {
-        int result = FileUtils.createDir(filePath + "demos/file/tmp/test");
-        showResult(result);
-    }
-
-    public void onClick4(View view) {
-        startActivity(new Intent(FolderActivity.this, MainActivity.class));
-    }
-
-    public void closeNight(View view) {
-//        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
-        setDayTheme();
-    }
-
-    public void openNight(View view) {
-//        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
-        setNightTheme();
-    }
-
-    public void dialog3(View view) {
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        LaLog.d("验证-onConfigurationChanged uiMode=" + newConfig.uiMode);
-
-        int currentNightMode = newConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        LaLog.d("验证-onConfigurationChanged currentNightMode=" + currentNightMode);
-
-        if (currentNightMode == Configuration.UI_MODE_NIGHT_NO) {
-// 夜间模式未启用，我们正在使用浅色主题
-            LaLog.d("验证-UI_MODE_NIGHT_NO");
-        }
-        if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
-// 夜间模式启用，我们使用的是深色主题
-            LaLog.d("验证-UI_MODE_NIGHT_YES");
-        }
+    public void openSoftKeyboard(@NonNull Activity activity, View view) {
+        LAUi.getInstance().openSoftKeyboard(FolderActivity.this, view);
 
     }
 
-    public void dialog1(View view) {
-
-        Activity activity = FolderActivity.this;
-        while (activity.getParent() != null) {
-            activity = activity.getParent();
-        }
-        MyDialog myDialog = new MyDialog(activity);
-// Dialog myDialog = LADialog.INSTANCE.newDialog(FolderActivity.this);
-        myDialog.setListData(null);
-        myDialog.setCancelable(false);
-        myDialog.show();
+    public void closeSoft(View view) {
+        LAUi.getInstance().hideSoftKeyboard(FolderActivity.this);
     }
 
-    public void dialog2(View view) {
-//        MyDialog myDialog = new MyDialog(FolderActivity.this, R.style.an_dialog_middle_pure_image, LADialog.STYLE.middle_pure_image);
-//        myDialog.setImageUrl("https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
-////        myDialog.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
-////        myDialog.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_16-05-2015/49737-beautiful-asian-banged-hard.gif");
-//        myDialog.show();
-
-        //一般来说需要定义一个显示对话框级别的顺序， 不能定义的话，则自己+1操作
-        LADialog.INSTANCE.attach(1, LADialog.STYLE.lodding_animation, FolderActivity.this);
-//        LADialog.INSTANCE.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
-
-//        LADialog.INSTANCE.attach(2, LADialog.STYLE.middle_download_center, FolderActivity.this);
-//        LADialog.INSTANCE.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_10-05-2015/9349392.gif");
-
-//        LADialog.INSTANCE.attach(3, LADialog.STYLE.middle_pure_image, FolderActivity.this);
-//        LADialog.INSTANCE.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showToast("我是个人测试");
-//                gotoIntorduce();
-//            }
-//        });
-//        LADialog.INSTANCE.setImageUrl("http://p7.urlpic.club/pic1893/upload/image/20190220/22008351726.jpg");
-//
-//        LADialog.INSTANCE.attach(4, LADialog.STYLE.middle_pure_image, FolderActivity.this);
-//        LADialog.INSTANCE.setImageUrl("http://i.imagseur.com/uploads/gifs/gif_16-05-2015/49737-beautiful-asian-banged-hard.gif");
-//
-//        LADialog.INSTANCE.attach(5, LADialog.STYLE.fullscreen_dowoload_bottom, FolderActivity.this);
-//        LADialog.INSTANCE.setImageUrl("https://ae01.alicdn.com/kf/U6de089ce45ff468a8f06c50e19ad7379N.jpg");
-        LADialog.INSTANCE.launch();
-    }
-
-    private void gotoIntorduce() {
-        Intent intent = new Intent(this, AliWebActivity.class);
-        intent.putExtra("url", "https://zhuanlan.zhihu.com/p/26089356");
-        intent.putExtra("title", "Github官方alidd框架");
-        startActivity(intent);
+    public void danMu(View view) {
+        CityPickerView cityPickerView = new CityPickerView(this);
+        cityPickerView.show();
     }
 }
