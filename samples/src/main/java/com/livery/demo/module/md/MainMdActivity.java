@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.livery.demo.R;
-import com.livery.demo.module.md.utils.ViewUtils;
+
 /*
  * (1).sunst提供：[an专栏]情景系列，material design 情景系列示例md
  *     如果有帮助到你，真诚的邀请你，关注知乎<a href="https://zhihu.com/people/qydq">Bgwan</a>
@@ -40,5 +40,13 @@ public class MainMdActivity extends AppCompatActivity {
 
     public void style5(View view) {
         startActivity(new Intent(MainMdActivity.this, TestActivity5.class));
+    }
+
+    public void style6(View view) {
+        startActivity(new Intent(MainMdActivity.this, TestActivity6.class));
+    }
+
+    public void style7(View view) {
+        startActivity(new Intent(MainMdActivity.this, BarrageActivity.class));
     }
 }

@@ -1,5 +1,6 @@
 package com.livery.demo.module.md;
 
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,21 +13,27 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.livery.demo.R;
 import com.livery.demo.model.adapter.MainFragmentAdapter;
+import com.sunsta.bear.entity.Barrage;
+import com.sunsta.bear.layout.INABarrageView;
 import com.sunsta.bear.layout.swipe.widget.DefaultItemDecoration;
 import com.sunsta.bear.listener.AppBarStateChangeListener;
+import com.sunsta.bear.listener.OnItemClickListener;
+import com.sunsta.bear.model.adapter.BarrageDataAdapter;
 import com.sunsta.bear.view.AliActivity;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TestActivity4 extends AliActivity {
-
     View mFLayout;
-
     TextView mTextView;
     RecyclerView recyclerView;
     private MainFragmentAdapter mainFragmentAdapter;
     protected AppBarLayout appBarLayout;
+    protected INABarrageView inaBarrageView;
+    protected BarrageDataAdapter barrageDataAdapter;
     protected CollapsingToolbarLayout collapsingToolbarLayout;
     private LinearLayout playButton;
     private Toolbar toolbar;
@@ -38,6 +45,9 @@ public class TestActivity4 extends AliActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         appBarLayout = findViewById(R.id.app_bar);
+        inaBarrageView = findViewById(R.id.inaBarrageView);
+        barrageDataAdapter = inaBarrageView.obtainBarrageAdapter();
+
         collapsingToolbarLayout = findViewById(R.id.toolbar_layout);
         playButton = findViewById(R.id.playButton);
         toolbar = findViewById(R.id.toolbar);
@@ -51,6 +61,68 @@ public class TestActivity4 extends AliActivity {
         recyclerView.setAdapter(mainFragmentAdapter);
 
         appBarListener();
+
+        mainFragmentAdapter.setItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+            }
+        });
+
+
+        timer = new Timer();
+        timer.schedule(new AsyncAddTask(), 0, 200);
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inaBarrageView.pause();
+            }
+        });
+
+    }
+
+    private volatile boolean isStop = false;
+    Timer timer = new Timer();
+    private int num = 0;
+
+    private void addTextBarrage() {
+        Barrage barrage = new Barrage(BarrageDataAdapter.BarrageType.TEXT);
+        barrage.setContent("本人知乎：bgwan，欢迎关注" + (num++));
+        barrage.setAction0Drawable(R.drawable.base_bg_pressed);
+        barrageDataAdapter.addBarrage(barrage);
+    }
+
+    private void addImageTextBarrage() {
+        Barrage barrage = new Barrage(BarrageDataAdapter.BarrageType.IMAGE_TEXT);
+        barrage.setPrimaryIvId(R.drawable.hong);
+        barrage.setAction0Drawable(R.drawable.base_bg_pressed);
+
+        barrage.setContent("显示图片类别的弹幕");
+        barrageDataAdapter.addBarrage(barrage);
+    }
+
+    class AsyncAddTask extends TimerTask {
+        @Override
+        public void run() {
+            for (int i = 0; i < 200; ++i) {
+                if (isStop) {
+                    return;
+                }
+                SystemClock.sleep(100);
+                final int finalI = i;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (finalI % 2 == 0) {
+                            addTextBarrage();
+                        } else {
+                            addImageTextBarrage();
+                        }
+                    }
+                });
+            }
+        }
     }
 
     protected List<String> createDataList() {

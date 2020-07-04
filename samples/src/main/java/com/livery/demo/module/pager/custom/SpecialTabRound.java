@@ -11,7 +11,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 
-import com.sunsta.livery.internal.RoundMessageView;
+import com.sunsta.bear.layout.internal.RoundMessageView;
 import com.sunsta.livery.item.BaseTabItem;
 import com.livery.demo.R;
 

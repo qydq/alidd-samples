@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.livery.demo.module.md.BarrageActivity">
+
+    <com.sunsta.bear.layout.INABarrageView
+        android:id="@+id/barrageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="100dp"
+        android:background="#FF4081"
+        app:barrage_gravity="center"
+        app:barrage_isFly="true"
+        app:barrage_itemGap="15dp"
+        app:barrage_rowNum="1" />
+
+    <FrameLayout
+        android:id="@+id/bbFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="380dp"
+            android:layout_height="380dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/hong" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文本" />
+
+            <Button
+                android:id="@+id/addPriorityBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="列表弹幕" />
+
+            <Button
+                android:id="@+id/addImageBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片" />
+
+            <Button
+                android:id="@+id/addBBBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="霸屏图片" />
+
+            <Button
+                android:id="@+id/addByTimerBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="启动定时器" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/pauseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="暂停" />
+
+            <Button
+                android:id="@+id/resumeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="恢复" />
+
+            <Button
+                android:id="@+id/clearBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清屏" />
+
+            <Button
+                android:id="@+id/dumpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dump"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

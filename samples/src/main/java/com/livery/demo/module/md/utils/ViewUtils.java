@@ -388,10 +388,10 @@ public class ViewUtils {
 
 /* //根据DP与PX转换计算值
 if (isDp) {
-leftPx = SizeUtils.dp2px(left);
-rightPx = SizeUtils.dp2px(right);
-topPx = SizeUtils.dp2px(top);
-bottomPx = SizeUtils.dp2px(bottom);
+leftPx = ScreenUtils.dp2px(left);
+rightPx = ScreenUtils.dp2px(right);
+topPx = ScreenUtils.dp2px(top);
+bottomPx = ScreenUtils.dp2px(bottom);
 }*/
 //设置margin
         marginParams.setMargins(leftPx, topPx, rightPx, bottomPx);

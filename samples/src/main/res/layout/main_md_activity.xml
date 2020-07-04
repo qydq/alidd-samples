@@ -45,4 +45,20 @@
         android:lineSpacingExtra="5dp"
         android:onClick="style5"
         android:text="样式5" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:lineSpacingExtra="5dp"
+        android:onClick="style6"
+        android:text="样式6" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:lineSpacingExtra="5dp"
+        android:onClick="style7"
+        android:text="弹幕" />
 </LinearLayout>

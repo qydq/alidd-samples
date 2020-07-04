@@ -87,7 +87,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_color_copy" />
+                        android:background="@color/ColorWhite"
+                        android:src="@drawable/pager_ic_ondemand_video_black_24dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -117,5 +118,14 @@
         android:src="@drawable/base_image_music"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
+
+    <com.sunsta.bear.layout.INABarrageView
+        android:id="@+id/inaBarrageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ColorTransparent"
+        app:barrage_gravity="top"
+        app:barrage_isFly="true"
+        app:barrage_rowNum="2" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
