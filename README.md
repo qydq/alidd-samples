@@ -72,22 +72,40 @@
 
 &#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.1.44.apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.44.apk)&#8194;&#8194;&#8194;&#8194;
 ## 集成方式# Binaries
+集成方式有以下两种：
+
+### 1.(建议)通过JCenter集成
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
 ```Groovy
 dependencies {
   implementation'com.sunsta.livery:livery:1.1.44'
 }
 ```
-第2步骤（可选）：如果使用`网络2请求`，在你的`XxxApplication`中继承`AnApplication`，然后在`onCreate()`方法中初始化"Livery网络2"，如下参考：
+第2步骤（可选）：如果使用`网络2请求`，最好在你的`XxxApplication`中继承`AnApplication`，然后在`onCreate()`方法中调用如下代码
 ```java
 public class AliddApplication extends AnApplication {
     @Override
   public void onCreate() {
         super.onCreate();
-        InternetClient.getInstance().initialze("BASE_URL");
+        Livery.instance().initialze("BASE_URL");
+        Livery.instance().enableLog(DEBUG,"LOGFILTER);//当配置该内容时候，会打印Livery关键建议信息
     }
 ```
 说明：`BASE_URL`是符合Retrofit的网络请求地址，如：`https://github.com/qydq/`，需要以`/`结尾，最后把`XxxApplication`添加到`AndroidManifest.xml`中.
+
+### 2.(可选)手动集成：
+
+第1步骤： 在链接:https://pan.baidu.com/s/1_NtHc-AlTaw3ka2aoeqQ_A  密码:16f2；下载Livery最新版本文件livery1.1.44.aar
+
+然后将文件拷贝到libs目录中添加引用关系：
+
+```Groovy
+dependencies {
+  implementation(name:'livery1.1.44', ext:'aar')
+}
+```
+
+
 ## 模块介绍# Details Module
 ```hong1.x.x.apk```为提供的安装包(可以扫描前面的二维码下载)，```kaiyan.apk```为livery结合MVVM开发的安装包，已共享到```玩安卓```网站，这里也可以下载；```hong1.x.xx_picture.apk```为PictureSelector二次编译以后的图片选择框架。
 尽量少的依赖其它库来完成这个demo，使用原生的系统的组件和本livery框架提供的部分
@@ -270,7 +288,7 @@ alidd-samples项目(project)概况：
 |**v1.0.19** *`(2020/01/02)`*| 255M |   13.4M |12.2M  |1.包含了视频2个情景系列 和Gif加载动画<br/>2.引入了几张大       的资源gif图， 这是apk Size变大的原因    |
 |**v1.1.10** *`(2020/03/26)`*| 259M |  16M    | 2M |1.包含了视频滤镜的module videobeauty<br/>2.包含导航栏，新增md设计   |
 |**v1.1.13** *`(2020/05/20)`*| 240M |  16.9M   | 1.2M |1.针对资源文件进一步优化，移除大量的布局资源，进行统一分类，视频模块测试代码放开   |
-|**v1.1.44** *`(2020/06/03)`*| 240M |  17.1M   | 1.0M | 1.1.16版本再次移除了一些非必须的资源文件，增加优化了已知问题，继承的体积再此压缩到1M以下|
+|**v1.1.44** *`(2020/06/03)`*| 240M |  17.1M   | 1.0M | 1.1.44再次移除了一些非必须的资源文件，增加优化了已知问题，继承的体积再此压缩到566KB|
 
 说明：alidd-samples项目，是为了方便开发者快速集成livery提供的源代码；demo_livery1.1.11.apk，后面的版本是属于livery情景框架的版本号，非demo版本号（当前demo_apk版本暂时只为1.0).
 
