@@ -1,7 +1,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN sunsta TO UPDATE -->
 **Table of Contents**  *generated with [sunsta](https://zhihu.com/people/qydq)*
 
-- [android快速集成基础框架 - Livery```1.1.103```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery1124)
+- [android快速集成基础框架 - Livery```1.1.111```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery1124)
   - [情景能力# Ability](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
     - [1：主要能力](#1%E4%B8%BB%E8%A6%81%E8%83%BD%E5%8A%9B)
     - [2：最新版本能力](#2%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E8%83%BD%E5%8A%9B)
@@ -30,15 +30,15 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# android快速集成基础框架 - Livery```1.1.103```
+# android快速集成基础框架 - Livery```1.1.111```
 
 [![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/master/LICENSE)
 [![Download](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
-[![JCenter](https://img.shields.io/badge/%20JCenter%20-1.1.103-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
+[![JCenter](https://img.shields.io/badge/%20JCenter%20-1.1.111-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
 ![@sunst](https://avatars0.githubusercontent.com/u/20716264?s=60&u=ec068ee954f943483fbf1516803dcd5b77520ad3&v=4)
 
 [![MinSdk](https://img.shields.io/badge/%20MinSdk%20-%2021%2B%20-f0ad4e.svg)](https://android-arsenal.com/api?level=21)
-[![Release Version](https://img.shields.io/badge/release-1.1.103-red.svg)](https://github.com/qydq/small-video-record/releases)
+[![Release Version](https://img.shields.io/badge/release-1.1.111-red.svg)](https://github.com/qydq/small-video-record/releases)
 [![](https://img.shields.io/badge/Author-sunst-blue.svg)](https://www.zhihu.com/people/qydq)
 
 [***中文API帮助文档1.1下载`密码:xeq0`)***](https://pan.baidu.com/s/1yczO3lh4p8Njc_rdb9Fe5g) 一款针对Android平台下快速集成**便捷开发**框架，```an情景```系列```livery框架```部分基于基础的an-base项目[#原an框架](https://github.com/qydq/an-aw-base)仓库优化而来，其目的1是为小团子fang升级一款音乐聊天软件```[hong]3.0版本```，现在开放出来，当前优化后最新体积仅有603KB.
@@ -70,7 +70,7 @@
 - [x] 快速集成实现你的导航栏工具
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
-&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.1.103.apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.103.apk)&#8194;&#8194;&#8194;&#8194;
+&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.1.111.apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.111.apk)&#8194;&#8194;&#8194;&#8194;
 ## 集成方式# Binaries
 集成方式有以下两种：
 
@@ -78,7 +78,7 @@
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
 ```Groovy
 dependencies {
-  implementation'com.sunsta.livery:livery:1.1.103'
+  implementation'com.sunsta.livery:livery:1.1.111'
 }
 ```
 第2步骤（可选）：如果使用`网络2请求`，最好在你的`XxxApplication`中继承`AnApplication`，然后在`onCreate()`方法中调用如下代码
@@ -95,13 +95,13 @@ public class AliddApplication extends AnApplication {
 
 ### 2.(可选)手动集成：
 
-第1步骤： 在链接:https://pan.baidu.com/s/1_NtHc-AlTaw3ka2aoeqQ_A  密码:16f2；下载Livery最新版本文件livery1.1.103.aar
+第1步骤： 在链接:https://pan.baidu.com/s/1_NtHc-AlTaw3ka2aoeqQ_A  密码:16f2；下载Livery最新版本文件livery1.1.111.aar
 
 然后将文件拷贝到libs目录中添加引用关系：
 
 ```Groovy
 dependencies {
-  implementation(name:'livery1.1.103', ext:'aar')
+  implementation(name:'livery1.1.111', ext:'aar')
 }
 ```
 
@@ -289,7 +289,7 @@ alidd-samples项目(project)概况：
 |**v1.1.10** *`(2020/03/26)`*| 259M |  16M    | 2M |1.包含了视频滤镜的module videobeauty<br/>2.包含导航栏，新增md设计   |
 |**v1.1.13** *`(2020/05/20)`*| 240M |  16.9M   | 1.2M |1.针对资源文件进一步优化，移除大量的布局资源，进行统一分类，视频模块测试代码放开   |
 |**v1.1.51** *`(2020/06/03)`*| 240M |  17.1M   | 603M | 1.1.51再次移除了一些非必须的资源文件，增加优化了已知问题，继承的体积再此压缩到566KB|
-|**v1.1.103** *`(2020/06/03)`*| 230M |  17.1M   | 603M | 1.1.103优化了一些已知问题|
+|**v1.1.111** *`(2020/06/03)`*| 230M |  17.1M   | 603M | 1.1.111优化了一些已知问题|
 
 说明：alidd-samples项目，是为了方便开发者快速集成livery提供的源代码；demo_livery1.1.11.apk，后面的版本是属于livery情景框架的版本号，非demo版本号（当前demo_apk版本暂时只为1.0).
 另：1.1.100以后的版本，交替执行，偶数表示优化当前1.1.x版本， 1.2.x版本为基数如101版本（beta=1.2.x）
