@@ -1,47 +1,47 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [sunst] Engilish  China(https://zhihu.com/people/qydq)*
+**Table of Contents**  *generated with [sunst0069] Engilish  China(https://zhihu.com/people/qydq)*
 
-- [android快速集成基础框架 - Livery```1.2.0```](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery120)
-  - [情景能力# Ability](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
+- [**android快速集成基础框架 - Livery```1.2.0```**](#android%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6---livery120)
+  - [**情景能力# Ability**](#%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B-ability)
     - [1：核心能力](#1%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B)
     - [2：可选能力](#2%E5%8F%AF%E9%80%89%E8%83%BD%E5%8A%9B)
-  - [集成方式# Binaries](#%E9%9B%86%E6%88%90%E6%96%B9%E5%BC%8F-binaries)
+  - [**集成方式# Binaries**](#%E9%9B%86%E6%88%90%E6%96%B9%E5%BC%8F-binaries)
     - [1.(建议)通过JCenter集成](#1%E5%BB%BA%E8%AE%AE%E9%80%9A%E8%BF%87jcenter%E9%9B%86%E6%88%90)
-    - [2.(可选)手动集成：](#2%E5%8F%AF%E9%80%89%E6%89%8B%E5%8A%A8%E9%9B%86%E6%88%90)
-  - [使用步骤# Use Step](#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4-use-step)
+    - [2.(可选)手动集成](#2%E5%8F%AF%E9%80%89%E6%89%8B%E5%8A%A8%E9%9B%86%E6%88%90)
+  - [**使用步骤# Use Step**](#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4-use-step)
     - [（可选）第1步：配置主Application](#%E5%8F%AF%E9%80%89%E7%AC%AC1%E6%AD%A5%E9%85%8D%E7%BD%AE%E4%B8%BBapplication)
     - [第2步：配置AndroidManifest.xml](#%E7%AC%AC2%E6%AD%A5%E9%85%8D%E7%BD%AEandroidmanifestxml)
-  - [模块介绍# Details Module](#%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D-details-module)
+  - [**模块介绍# Details Module**](#%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D-details-module)
     - [1.核心情景能力演示](#1%E6%A0%B8%E5%BF%83%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B%E6%BC%94%E7%A4%BA)
-      - [**核心主窗口类**](#%E6%A0%B8%E5%BF%83%E4%B8%BB%E7%AA%97%E5%8F%A3%E7%B1%BB)
-      - [**网络请求**](#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82)
-      - [**文件下载**](#%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD)
+      - [核心主窗口类](#%E6%A0%B8%E5%BF%83%E4%B8%BB%E7%AA%97%E5%8F%A3%E7%B1%BB)
+      - [网络请求](#%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82)
+      - [文件下载](#%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD)
     - [2.可选情景能力演示](#2%E5%8F%AF%E9%80%89%E6%83%85%E6%99%AF%E8%83%BD%E5%8A%9B%E6%BC%94%E7%A4%BA)
-      - [**高效GIF加载**](#%E9%AB%98%E6%95%88gif%E5%8A%A0%E8%BD%BD)
-      - [**漫天飞羽弹幕使**](#%E6%BC%AB%E5%A4%A9%E9%A3%9E%E7%BE%BD%E5%BC%B9%E5%B9%95%E4%BD%BF)
+      - [高效GIF加载](#%E9%AB%98%E6%95%88gif%E5%8A%A0%E8%BD%BD)
+      - [漫天飞羽弹幕使](#%E6%BC%AB%E5%A4%A9%E9%A3%9E%E7%BE%BD%E5%BC%B9%E5%B9%95%E4%BD%BF)
     - [3.DEMO演示](#3demo%E6%BC%94%E7%A4%BA)
-  - [混淆配置# proguard-rules](#%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE-proguard-rules)
-  - [常见错误# Easy Mistake](#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF-easy-mistake)
+  - [**混淆配置# proguard-rules**](#%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE-proguard-rules)
+  - [**常见错误# Easy Mistake**](#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF-easy-mistake)
     - [非常重要1：1.1.x版本用androidx，替换掉了所有的support-v4,v7包.](#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81111x%E7%89%88%E6%9C%AC%E7%94%A8androidx%E6%9B%BF%E6%8D%A2%E6%8E%89%E4%BA%86%E6%89%80%E6%9C%89%E7%9A%84support-v4v7%E5%8C%85)
     - [非常重要2： Manifest merger failed : Attribute meta-data#android.support.FILE_PROVIDER_PATHS.](#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%812-manifest-merger-failed--attribute-meta-dataandroidsupportfile_provider_paths)
     - [非常重要3：This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled. Set this property to true in the gradle.properties file and retry.](#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%813this-project-uses-androidx-dependencies-but-the-androiduseandroidx-property-is-not-enabled-set-this-property-to-true-in-the-gradleproperties-file-and-retry)
     - [注意事项1：Attribute application@theme value=(@style/AppTheme) from AndroidManifest.xml:11:9-40 is also present at [com.sunsta.livery:livery:1.2.x] AndroidManifest.xml](#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B91attribute-applicationtheme-valuestyleapptheme-from-androidmanifestxml119-40-is-also-present-at-comsunstaliverylivery12x-androidmanifestxml)
-  - [版本日志# Version LOG](#%E7%89%88%E6%9C%AC%E6%97%A5%E5%BF%97-version-log)
+  - [**版本日志# Version LOG**](#%E7%89%88%E6%9C%AC%E6%97%A5%E5%BF%97-version-log)
     - [1.Livery AAR framework记录](#1livery-aar-framework%E8%AE%B0%E5%BD%95)
     - [2.Livery DEMO apk下载及其说明](#2livery-demo-apk%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%AF%B4%E6%98%8E)
     - [~~1.0.x版本总述 ~~](#10x%E7%89%88%E6%9C%AC%E6%80%BB%E8%BF%B0-)
     - [~~1.1.x版本总述 ~~](#11x%E7%89%88%E6%9C%AC%E6%80%BB%E8%BF%B0-)
     - [~~1.2.x版本总述 ~~](#12x%E7%89%88%E6%9C%AC%E6%80%BB%E8%BF%B0-)
-  - [其它说明](#%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E)
+  - [**其它说明**](#%E5%85%B6%E5%AE%83%E8%AF%B4%E6%98%8E)
     - [关于自定义apk名说明](#%E5%85%B3%E4%BA%8E%E8%87%AA%E5%AE%9A%E4%B9%89apk%E5%90%8D%E8%AF%B4%E6%98%8E)
     - [关于应用内apk自动安装说明](#%E5%85%B3%E4%BA%8E%E5%BA%94%E7%94%A8%E5%86%85apk%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E)
-  - [致谢](#%E8%87%B4%E8%B0%A2)
+  - [**致谢**](#%E8%87%B4%E8%B0%A2)
   - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# android快速集成基础框架 - Livery```1.2.0```
+# **android快速集成基础框架 - Livery```1.2.0```**
 
 [![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/master/LICENSE)
 [![Download](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
@@ -54,30 +54,25 @@
 
 [***中文API帮助文档1.2下载`密码:xeq0`)***](https://pan.baidu.com/s/1yczO3lh4p8Njc_rdb9Fe5g) 一款针对Android平台下快速集成**便捷开发**框架```livery```，帮助开发者**架构企业级**应用.
 
-基于基础的an-base仓库([#原an框架](https://github.com/qydq/an-aw-base))与[livery1.1.x]()版本演化而来，针对此做了很多优化，当前优化后最新体积仅有586KB.
+基于an-base仓库([**`原an框架`**](https://github.com/qydq/an-aw-base))与[**`livery1.1.x`**](https://github.com/qydq/alidd-samples/blob/master/livery_old_1.1.x.md)版本演化而来，针对此做了很多优化，当前优化后最新体积仅有586KB.
 ![](https://github.com/qydq/alidd-samples/blob/master/screen/livery_size1_2_0.png?raw=true)
 
 **⚠️注意**
 
-【2021-01-30】当前livery最新版本为：1.2.0
+>* `Livery版本`1.2.x`与`1.1.x不完全兼容，由`1.1.x`升级到`1.2.x`参考[**`升级指南=`**]().
+>* `Livery`一直维护，有问题提[**`issues=`**]([https://github.com/qydq/alidd-samples/issues](https://github.com/qydq/livery-sample/issues))（或在[**`知乎Bgwan`**](https://www.zhihu.com/people/qydq)上给我留言，**问题描述清楚**就行]，一般修复好周7当晚更新.
 
->`Livery1.2.x`与`Livery1.1.x`不完全兼容，由`Livery1.1.x`升级到`1.2.x`参考[升级指南]().
->`Livery`一直维护，有问题提[issues]([https://github.com/qydq/alidd-samples/issues](https://github.com/qydq/livery-sample/issues))（或在[知乎Bgwan](https://www.zhihu.com/people/qydq)上给我留言，**问题描述清楚**就行]，一般修复好周7当晚更新.
+`2021-01-30)`当前livery最新版本为：[![](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)，建议使用最新版本。查看[**`旧版本日志=`**]()也可以了解到livery的使用方法.
+
 
 [**我的唯一知乎地址.**](https://www.zhihu.com/people/qydq/columns)&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;（感谢关注🙏）
 
 专注于物联网领域，世界的通信标准从今开始改变，手机也可以是路由器，成功于视频直播，标准并不一定是Http/s，也可以是Bluetooth.
 
 
-## 情景能力# Ability
+## **情景能力# Ability**
 
-```livery```一路走来经历了很多版本，现在是一个非常成熟的稳定版本；它包含一些非常实用的能力和一些技巧， 用简洁友好的方式，助力便捷开发；以下列举当前支持的能力fuction.<br/>
-
-**⚠️注意**
->`1.0.x`[(点击这里查看旧版本1.0.x日志记录)](https://github.com/qydq/alidd-samples/blob/master/alidd_old_1.0.x.md)
->`1.1.x`[(点击这里查看旧版本1.1.x日志记录)](https://github.com/qydq/alidd-samples/blob/master/alidd_old_1.1.x.md)
-
-`1.2.x`：Livery1.2.0已完成，建议使用最新版本。查看旧版本日志也可以了解到livery的使用方法.
+```livery```一路走来经历了很多版本，现在是一个非常成熟的`稳定版本`；它包含一些非常实用的能力和一些技巧， 用简洁友好的方式，助力便捷开发；以下列举当前支持的能力fuction.<br/>
 
 ### 1：核心能力
 - [x] 国际化多语言（**架构企业级**应用）.
@@ -85,8 +80,8 @@
 - [x] 基础类，如：Ali/Parallax（`Activity/Fragment`）、Base（`Presenter/View`）.
 - [x] 网络请求（☀️ InternetClient整合自`Retrofit+RxJava`）.
 - [x] 文件下载（☀️ DownloaderAsyncTask结合`RxAndroid`与`InternetClient`）.
-- [x] 图库选择（☀️ [PictureSelector](https://github.com/LuckSiege/_PictureSelector_)并整合原TakePhoto模块，视频预览图MediaHelper）.
-- [x] StrictMode API 禁权限便捷申请.
+- [x] 图库选择（☀️ [**`PictureSelector`**](https://github.com/LuckSiege/_PictureSelector_)并整合原TakePhoto模块，视频预览图MediaHelper）.
+- [x] StrictMode API禁 权限便捷申请.
 ### 2：可选能力
 - [x] 快速集成你的导航栏工具  .
 - [x] INA系列控件相关，如标题栏，状态视图.
@@ -99,9 +94,9 @@
 
 &#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.2.0.apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.2.0.apk)&#8194;&#8194;&#8194;&#8194;
 
-## 集成方式# Binaries
+## **集成方式# Binaries**
 
-集成方式有以下两种：
+集成方式有以下两种
 
 ### 1.(建议)通过JCenter集成
 第1步骤：  在你项目（app module）的build.gradle中添加（致谢JitPack和Jcenter）.
@@ -111,9 +106,9 @@ dependencies {
 }
 ```
 
-### 2.(可选)手动集成：
+### 2.(可选)手动集成
 
-在链接:https://pan.baidu.com/s/1_NtHc-AlTaw3ka2aoeqQ_A  密码:16f2；下载Livery最新版本文件livery1.2.0.aar
+[***下载Livery最新版本1.2.0`密码:srrh`)***](https://pan.baidu.com/s/1ttAB7Zp3fHvzlEXzsgUEug)
 
 然后将文件拷贝到libs目录中添加引用关系：
 
@@ -123,7 +118,7 @@ dependencies {
 }
 ```
 
-## 使用步骤# Use Step
+## **使用步骤# Use Step**
 
 ### （可选）第1步：配置主Application
 
@@ -142,7 +137,7 @@ public class XxxApplication extends AnApplication {
 
 ### 第2步：配置AndroidManifest.xml
 
-在集成```livery```时，一般需要merge合并AndroidManifest，否则可能造成冲突.
+在集成```livery```时，一般需要合并AndroidManifest，否则可能造成冲突.
 
 ```xml
 <application
@@ -159,9 +154,9 @@ public class XxxApplication extends AnApplication {
 **⚠️注意**
 > 建议继承扩展livery中的类和主题，不然有的特性，如夜间模式，网络或不可用.
 
-## 模块介绍# Details Module
+## **模块介绍# Details Module**
 
-这里```Details Module```介绍**部分**情景能力`(核心，可选，DEMO演示)`的使用方法，关于```livery情景```更多的api可以查看帮助文档，或在本人知乎[an情景专栏](https://ww)中获取.
+这里```Details Module```介绍**部分**情景能力`(核心，可选，DEMO演示)`的使用方法，关于```livery情景```更多的api可以查看帮助文档，或在本人知乎[**`an情景专栏`**](https://www.zhihu.com/column/sunst)中获取.
 ![](https://github.com/qydq/alidd-samples/blob/master/screen/livery_api.png?raw=true)
 
 
@@ -171,9 +166,9 @@ public class XxxApplication extends AnApplication {
 
 ### 1.核心情景能力演示
 
-#### **核心主窗口类**
+#### 核心主窗口类
 
-** Activity**
+**Activity**
 
 ```java
 public class MainActivity extends AliActivity {
@@ -188,7 +183,7 @@ public class MainActivity extends AliActivity {
 }
 ```
 
-** Fragment**
+**Fragment**
 
 ```java
 public class MainFragment extends AliFragment {
@@ -221,11 +216,11 @@ public class MainFragment extends AliFragment {
 ```
 **⚠️注意**
 
-> `savedInstanceState:Bundle`表示此界面保存的数据，如某某状态，历史记录.
-> AliActivity可以直接替换为：ParallaxActivity表示此界面可以`右滑`返回上个窗口.
-> AliFragment可以替换为：ParallaxFragment表示启动懒加载，这里需要将`init(Bundle)`方法修改为lazyInit(Bundle).
+>* `savedInstanceState:Bundle`表示此界面保存的数据，如某某状态，历史记录.
+>* AliActivity可以直接替换为：ParallaxActivity表示此界面可以`右滑`返回上个窗口.
+>* AliFragment可以替换为：ParallaxFragment表示启动懒加载，这里需要将`init(Bundle)`方法修改为lazyInit(Bundle).
 
-#### **网络请求**
+#### 网络请求
 
 以Github Api请求qydq示例：https://api.github.com/users/qydq?page=1&per_page=50
 
@@ -246,7 +241,7 @@ public class MainFragment extends AliFragment {
 }
 ```
 
-** 第1步：定义一个实体类`ReplyGithubUserMode.java`**
+**第1步：定义一个实体类`ReplyGithubUserMode.java`**
 ```java
 public class ReplyGithubUserMode implements Serializable {
     private static final long serialVersionUID = -4362168516197876328L;
@@ -266,7 +261,7 @@ public class ReplyGithubUserMode implements Serializable {
     ...
 }
 ```
-** 第2步：创建格式（具体格式点击参考）为rxJava的网络请求接口（这里命名为HongApi）**
+**第2步：创建格式（[`具体格式点击参考`](https://zhuanlan.zhihu.com/p/141592512)）为rxJava的网络请求接口（这里命名为HongApi）**
 ```java
 public interface HongApi {
     @GET("users/qydq")
@@ -278,7 +273,7 @@ public interface HongApi {
     Observable<ReplyGithubUserMode> post_observable_query_video(@FieldMap Map<String, Object> params);
 }
 ```
-** 第3步：创建一个网络实现**
+**第3步：创建一个网络实现**
 ```
 public class HongApiImpl {
     /**
@@ -295,9 +290,9 @@ public class HongApiImpl {
     }
 ```
 **⚠️注意**
-> 建议在XxxApplication配置请求域，InternetClient为Livery提供的网络请求核心.
+> 建议在XxxApplication配置请求域，`InternetClient`为Livery提供的网络请求核心.
 
-** 第4步：请求网络**
+**第4步：请求网络**
 
 这里以GET请求示例，调用上面`get_observable_github_user()`方法（调用POST请求类似，参考`第2步`定义的接口，使用本案例直接调用`post_observable_query_video()`方法），先模拟请求参数，如下参考：
 
@@ -342,7 +337,7 @@ InternetClient.getInstance().addDispose(HongApiImpl.api().get_observable_github_
         }));
 ...
 ```
-如果**确定需要**捕获请求的异常，在`addDispose()`方法中加入`InternetException`监听接口请求失败的场景
+如果**确定需要**捕获异常信息（如`连接超时`，`500`，`400`，`JSON解析异常`），在`addDispose()`方法中加入`InternetException`监听接口请求失败的场景
 ```java
 addDispose(HongApiImpl.api().get_observable_github_user(params)
         .compose(Convert.io_main())
@@ -363,13 +358,13 @@ addDispose(HongApiImpl.api().get_observable_github_user(params)
         }));
 ```
 
-#### **文件下载**
+#### 文件下载
 
-核心是DownloaderAsyncTask结合`RxAndroid`与`InternetClient`，支持断点续传（默认开启断点续传），单个文件下载，多个文件下载，暂停\取消，数据库状态持久化，下载完成后是否开启一个通知提醒，支持apk文件自动安装.
+核心是DownloaderAsyncTask结合`RxAndroid`与`InternetClient`，支持**断点续传**（默认开启），单个\多个**文件下载**，暂停\取消，数据库状态持久化，下载完成通知提醒（可选），支持apk文件自动安装.
 
 这里以同时下载livery1.2.0.aar和livery1.2.0doc.zip文件示例
 
-** 第1步：定义一个下载的方法`preDownload()`准备下载**
+**第1步：定义一个下载的方法`preDownload()`准备下载**
 
 ```java
 /*
@@ -449,7 +444,7 @@ private void download(int id, String url) {
 }
 ```
 
-** 第2步：调用下载的方法`preDownload()`开始下载**
+**第2步：调用下载的方法`preDownload()`开始下载**
 
 这里模拟两个按钮点击事件
 
@@ -475,7 +470,7 @@ adapter.setOnItemClickListener((adapter, view, position) -> {
 });
 ```
 
-** 第3步：打开下载文件**
+**第3步：打开下载文件**
 
 文件下载成功以后，一般需要打开文件（如果是apk文件，配置`ResponseDownloader`还会自动安装），但这里存在一个小问题，如果下载的文件被用户删除了，数据库还记载了此id下载的完成状态，除非用户清除APP的数据，否则以后此id都是已下载无法下载，
 出于这个场景livery中可以这样处理，调用`InternetClient.getInstance().updateFaiure()`当最后打开文件的时候，文件不存（url和id一一对应），则表示文件损坏，是否要重新下载.
@@ -485,7 +480,7 @@ String resultFilePath = downloader.getDownloadPath();
 if (!TextUtils.isEmpty(resultFilePath)) {
     File resultFile = new File(resultFilePath);
     if (FileUtils.INSTANCE.isFileExists(resultFile)) {
-        FasterIntents.launchAppPath(mContext, resultFilePath);//打开文件
+        FasterIntents.launchAppPath(mContext, resultFilePath);//调用系统app应用打开文件
     } else {
         InternetClient.getInstance().updateFaiure(url, id);//文件损坏，是否要重新下载
         //notifyItemChanged(mod.getPosition());//更新UI
@@ -500,7 +495,7 @@ if (!TextUtils.isEmpty(resultFilePath)) {
 > * 文件下载成功默认保存的路径为：sdcard/Aliff/相应的目录文件中
 
 ### 2.可选情景能力演示
-#### **高效GIF加载**
+#### 高效GIF加载
 ```XML
 <com.sunsta.bear.engine.gif.GifImageView
  android:id="@+id/gifImageView"
@@ -521,7 +516,7 @@ gifDrawable.setLoopCount(0); //设置无限循环播放
 String url = "https://p6-tt-ipv6.byteimg.com/origin/pgc-image/596f8546221046c2a394ced23120e3d8";
 gifImageView.setImageUrl(url);
 ```
-#### **漫天飞羽弹幕使**
+#### 漫天飞羽弹幕使
 
 ```XML
 <com.sunsta.bear.layout.INABarrageView
@@ -539,7 +534,7 @@ gifImageView.setImageUrl(url);
     app:asBarrageeFloat="true" />
 ```
 
-** 支持的属性（也可通过Java代码动态配置）**
+**支持的属性（也可通过Java代码动态配置）**
 
 | XML中属性 | 含义 |
 |:-----------|:-----------|
@@ -561,14 +556,14 @@ gifImageView.setImageUrl(url);
 |asKeepSequence |//当漫天飞羽时，设置是否保持先后顺序，默认false表示弹幕在布局INABarrageView内随机没有顺序的，不分先后出现，true表示弹幕每次显示一行，当第一行显示完再显示第二行（当设置弹幕行数大于1（超过默认行数），则漫天飞羽关闭）|
 |asBarrageInterpolator |//启用设置差值器，（保留字段）动画持续的时间，不同宽度的物体，划过同一个窗口，规定了总时间，以此获取对应的速度|
 
-** 漫天飞羽弹幕特效**
+**漫天飞羽弹幕特效**
 
 弹幕显示的核心来自Livery的`BarrageDataAdapter`提供，显示一个`满天飞羽弹幕`首先需要获取`BarrageDataAdapter`实例，如下参考：
 
 ```java
 BarrageDataAdapter mBarrageAdapter = inaBarrageView.obtainBarrageAdapter(this);
 ```
-** 一个简单的列子**
+**一个简单的列子**
 ```java
 private void showDanMu() {
     Barrage barrage = new Barrage(BarrageDataAdapter.BarrageType.IMAGE_TEXT);
@@ -579,7 +574,7 @@ private void showDanMu() {
 ```
 Barrage会要求传入一个type参数（IMAGE_TEXT图片文字组合弹幕，TEXT纯文字弹幕）
 
-** 一个复杂的效果**
+**一个复杂的效果**
 
 漫天飞羽弹幕使支持许多自定义属性，比如：弹幕的layout，自适应文字长度，弹幕背景颜色，头像，甚至是动画，包括XML中的所有属性，这样可以加一些逻辑就可以做到动态配置每个弹幕行为，下面是一个复杂的弹幕.
 
@@ -618,7 +613,7 @@ mBarrageAdapter.addBarrage(barrage, new OnBarrageLayout() {
 在遵循`an_item_barrage.xml`控件命名的情况下，通过barrageItem对象能够获取每一个弹幕布局的控件.
 
 
-** 漫天飞羽弹幕事件**
+**漫天飞羽弹幕事件**
 
 弹幕点击事件：
 ```java
@@ -661,7 +656,7 @@ inaBarrageView.setIdleListener(new OnBarrageIdleListener() {
 |:-----------:|:--------:|:---------:|
 |
 ![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_NAVICATION.JPG?raw=true) |![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_NAVICATION1.JPG?raw=true)|![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_NAVICATION2.JPG?raw=true)|
-## 混淆配置# proguard-rules
+## **混淆配置# proguard-rules**
 混淆规则一定要看：[**Android App代码混淆解决方案click**](https://zhuanlan.zhihu.com/p/34559807)
 ```BASH
 #---------------------------4.(反射实体)个人指令区-qy晴雨（请关注知乎Bgwan）---------------------
@@ -689,7 +684,7 @@ inaBarrageView.setIdleListener(new OnBarrageIdleListener() {
 -keep public class com.sunsta.bear.engine.gif.GifIOException{<init>(int);}
 -keep class com.sunsta.bear.engine.gif.GifInfoHandle{<init>(long,int,int,int);}
 ```
-## 常见错误# Easy Mistake
+## **常见错误# Easy Mistake**
 ```xml
 ./gradlew processDebugManifest --stacktrace
 ```
@@ -774,22 +769,22 @@ tools:replace="android:icon,android:theme,android:label,android:allowBackup,andr
 ```
 ### [更多：其它android中常见错误解决方法点击这里查看。](https://github.com/qydq/alidd-samples/blob/master/error.md)
 
-## 版本日志# Version LOG
+## **版本日志# Version LOG**
 
 `Livery`框架AAR`与`初始APP或DEMO版本`日志记录
 
 | **版本** *`(日期)`*   |项目|APK  |AAR`release` |备注（版本大小演变说明）  |
 | --------                   | ----:|-----:   |-----: |                :---- |
 |**~~v0.0.69~~** *`(2018/06/09)`*|#|#|#|`18年`初始版本`项目H`为**小团子芳儿**开发的一款**聊天APP**|
-|**~~v1.0.0~~** *`(2019/12/31)`*| 180M |   7.5M  | 6.4M  |推广引入`livery`首发-INATabLayout使用案例|
+|**~~v1.0.0~~** *`(2019/12/31)`*| 180M |   7.5M  | 6.4M  |[推广引入`livery`首发-INATabLayout使用案例](https://zhuanlan.zhihu.com/p/100098139)|
 |**~~v1.0.19~~** *`(2020/01/02)`*|255M|13.4M|12.2M|`项目H`新增视频 ,`livery`引入GIF引擎动画;加入了几张超大资源gif图，这是造成APK，AAR体积变大的直接原因|
 |**v1.1.10** *`(2020/03/26)`*|259M|16M|2M|新提供`项目D`引入videobeauty,xmediac,xrecord**视频录制**压缩上传**C语言**功能;`livery`引入导航栏，提供MD的UI设计风格，移除超大资源GIF图，这也是AAR体积减小的直接原因|
-|**v1.1.111** *`(2020/12/30)`*|240M|17.1M|603KB|`livery`针对资源文件进一步优化，移除大量的布局资源和一些非必须的资源文件，进行统一分类，视频模块测试代码放开，修复已知问题；**并且引入**了`漫天飞羽弹幕使`，AAR的体积没增加却再次减小到566KB;`项目D`完成`漫天飞羽弹幕使`**使用案例**|
-|**v1.2.0** *`(2020/06/03)`*| 230M |  17.1M   | 603KB | 1.2.0版本开始支持**架构企业级**应用，国际化支持`(简体中文rCN，繁体中文rTW，英文en，德语de，日文ja，葡萄牙pt)`，修复了已知问题|
+|**v1.1.111** *`(2020/12/30)`*|240M|17.1M|603KB|`livery`针对资源文件进一步优化，移除大量的布局资源和一些非必须的资源文件，进行统一分类，**视频模块测试代码放开**，修复已知问题；**并且引入**了`漫天飞羽弹幕使`，AAR的体积没增加却再次减小到566KB;`项目D`完成`漫天飞羽弹幕使`**使用案例**|
+|**v1.2.0** *`(2020/06/03)`*| 230M |  17.1M   | 586KB | 1.2.0版本开始支持**架构企业级**应用，国际化支持`(简体中文rCN，繁体中文rTW，英文en，德语de，日文ja，葡萄牙pt)`，**视频模块测试代码关闭**，修复了已知问题|
 **⚠️说明**
 * 初始`APP0.0.69`为小团子开发的聊天项目（称为`Hong`）,也是项目的灵感来源.
 * 本alidd-samples（称为`项目D`）为`livery框架`提供的DEMO，方便开发者快速集成livery的示例.
-* 表格中版本以此类推，如：`(1.0.0-1.0.19)`为一组表示`1.0.x`发行了`20`个版本，`1.0.10`为**起始版本**,`1.0.19`为**最高版本**，同时~~删除线~~表示此版本废弃.
+* 表格中版本以此类推，如：`(1.0.0-1.0.19)`为一组表示`1.0.x`发行了`20`个版本，`1.0.0`为**起始版本**,`1.0.19`为**最高版本**，同时~~删除线~~表示此版本废弃.
 ### 1.Livery AAR framework记录
 
 * [**an-aw-base0.x.x版本log.**](https://github.com/qydq/an-aw-base/releases)
@@ -807,7 +802,7 @@ tools:replace="android:icon,android:theme,android:label,android:allowBackup,andr
 &#8194;&#8194;[最新版本(demo_livery1.2.0.apk)](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.13.apk)
 
 **⚠️注意**
->为了篇幅这里只记录了最近**当前三个版本**，如要安装其它历史版本，请查看**开头内容**“旧版本1.x.x日志记录”.
+>为了篇幅这里只记录了最近**当前三个版本**，如要安装其它历史版本，请查看**旧版本1.x.x日志记录**日志记录.
 
 ### ~~1.0.x版本总述 ~~
 `livery`的**发行版本**，从基础的an-base仓库([#原an框架](https://github.com/qydq/an-aw-base))重构而来，livery框架1.0.x（及以下的版本）支持的android最低版本为`minSdkVersion=19`，总共发行了`20个实际版本`，依赖方法如下：
@@ -849,14 +844,15 @@ api "androidx.camera:camera-lifecycle:1.0.0-alpha01"
 api "androidx.camera:camera-core:1.0.0-alpha08"
 api "androidx.camera:camera-camera2:1.0.0-alpha05"
 ```
-**具体依赖方法如下类似：**
+**具体依赖方法如下类似**
 ```Groovy
 implementation 'com.sunsta:livery:1.1.x'
 ```
 ### ~~1.2.x版本总述 ~~
 本篇内容即为Livery1.2.x的发行中文帮助文档总述.
-## 其它说明
+## **其它说明**
 ### 关于自定义apk名说明
+
 ```Groovy
 #---------------------------3.(自定义apk)个人其它说明区-sunst（请关注知乎Bgwan）---------------------
 // 便利所有的Variants，all是迭代遍历操作符，相当于for
@@ -880,6 +876,7 @@ outputFileName = apkName + "_Debug" +time + ".apk"
 }
 ```
 ### 关于应用内apk自动安装说明
+
 ```Groovy
 #---------------------------4.(应用内apk安装)个人其它说明区-sunst（请关注知乎Bgwan）---------------------
 private Intent getInstallIntent() {
@@ -911,7 +908,7 @@ e.printStackTrace();
 return intent;
 }
 ```
-## 致谢
+## **致谢**
 非常感谢以下前辈（or开源组织机构）的开源精神，当代互联网的发展离不开前辈们的分享，Livery的成功发布也是.  <br/>   再次感谢🙏。最后感谢优秀的[Github](https://github.com)代码管理平台（排名不分先后）  .
 - [x] [致敬与缅怀-雷霄骅前辈](https://blog.csdn.net/leixiaohua1020 "雷霄骅")
 - [x] [yalantis](https://www.runoob.com/w3cnote/android-ui-framework.html)
@@ -931,6 +928,7 @@ return intent;
 - [ ] [一片枫叶](https://blog.csdn.net/qq_23547831 "一片枫叶_刘超")
 ## LICENSE
 ***[版权声明©️](https://zhuanlan.zhihu.com/p/80668416)***
+
 ```java
 /*
  * Copyright (C) 2016 The Android Developer sunst0069
