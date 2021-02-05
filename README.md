@@ -93,7 +93,7 @@
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
 &#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.2.0.apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery.apk)&#8194;&#8194;&#8194;&#8194;
-![](https://github.com/qydq/alidd-samples/blob/master/screen/bgwan_livery_download.png?raw=true)|![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_GIF.JPG?raw=true)|
+![](https://github.com/qydq/alidd-samples/blob/master/screen/bgwan_livery_download.png?raw=true)
 
 ## **集成方式# Binaries**
 
@@ -711,7 +711,7 @@ implementation('me.imid.swipebacklayout.lib:library:1.1.0') {
 }
 ```
 ### 非常重要2： Manifest merger failed : Attribute meta-data#android.support.FILE_PROVIDER_PATHS.
-这是`FileProvider`冲突，修改AndroidManifest.xml文件的`<provider>`配置（[**`参考如下`**](https://blog.csdn.net/lbqcsdn/article/details/84795775)）.
+这是`FileProvider`冲突，修改AndroidManifest.xml文件，（[**`参考：`**](https://blog.csdn.net/lbqcsdn/article/details/84795775)）.
 ```XML
 <provider
  android:name="android.support.v4.content.FileProvider"
