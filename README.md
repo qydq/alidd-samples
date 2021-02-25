@@ -43,7 +43,7 @@
 
 # **android快速集成基础框架 - Livery```1.2.0```**
 
-[![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/master/LICENSE)
+[![Apache-2.0](http://img.shields.io/badge/license-Apache2.0-brightgreen.svg?style=flat)](https://github.com/qydq/alidd-sample/blob/main/LICENSE)
 [![Download](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
 [![JCenter](https://img.shields.io/badge/%20JCenter%20-1.2.0-5bc0de.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)
 ![@sunst](https://avatars0.githubusercontent.com/u/20716264?s=60&u=ec068ee954f943483fbf1516803dcd5b77520ad3&v=4)
@@ -54,15 +54,15 @@
 
 [***中文API帮助文档1.2下载`密码:xeq0`)***](https://pan.baidu.com/s/1yczO3lh4p8Njc_rdb9Fe5g) 一款针对Android平台下快速集成**便捷开发**框架```livery```，帮助开发者**架构企业级**应用.
 
-基于an-base仓库([**`原an框架`**](https://github.com/qydq/an-aw-base))与[**`livery1.1.x`**](https://github.com/qydq/alidd-samples/blob/master/livery_old_1.1.x.md)版本演化而来，针对此做了很多优化，当前优化后最新体积仅有586KB.
-![](https://github.com/qydq/alidd-samples/blob/master/screen/livery_size1_2_0.png?raw=true)
+基于an-base仓库([**`原an框架`**](https://github.com/qydq/an-aw-base))与[**`livery1.1.x`**](https://github.com/qydq/livery/blob/main/old_livery_1.1.x.md)版本演化而来，针对此做了很多优化，当前优化后最新体积仅有586KB.
+![](https://github.com/qydq/livery/blob/main/image/livery_size.png?raw=true)
 
 **⚠️注意**
 
->* `Livery版本`1.2.x`与`1.1.x不完全兼容，由`1.1.x`升级到`1.2.x`参考[**`升级指南=`**]().
->* `Livery`一直维护，有问题提[**`issues=`**]([https://github.com/qydq/alidd-samples/issues](https://github.com/qydq/livery-sample/issues))（或在[**`知乎Bgwan`**](https://www.zhihu.com/people/qydq)上给我留言，**问题描述清楚**就行]，一般修复好周7当晚更新.
+>* `Livery版本`1.2.x`与`1.1.x不完全兼容，由`1.1.x`升级到`1.2.x`参考[**`升级指南`**](https://github.com/qydq/livery/blob/main/guide_version.md).
+>* `Livery`一直维护，有问题提[**`issues`**](https://github.com/qydq/livery/issues)（或在[**`知乎Bgwan`**](https://www.zhihu.com/people/qydq)上给我留言，**问题描述清楚**就行]，一般修复好周7当晚更新.
 
-`2021-01-30)`当前livery最新版本为：[![](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)，建议使用最新版本。查看[**`旧版本日志=`**]()也可以了解到livery的使用方法.
+`2021-01-30)`当前livery最新版本为[![](https://api.bintray.com/packages/qydq/maven/livery/images/download.svg)](https://bintray.com/qydq/maven/livery/_latestVersion)，建议使用最新版本。查看[**`旧版本日志`**](#%E7%89%88%E6%9C%AC%E6%97%A5%E5%BF%97-version-log)也可以了解到livery的使用方法.
 
 
 [**我的唯一知乎地址.**](https://www.zhihu.com/people/qydq/columns)&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;（感谢关注🙏）
@@ -92,8 +92,9 @@
 - [x] Glide图片加载引擎GlideEngine（☀️ Glide版本为：4.10.0）.
 - [ ] 正在开发ing...智能语音唤醒监听能力（世界上最美的就是声音Voice ）.
 
-&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.2.0.apk**](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery.apk)&#8194;&#8194;&#8194;&#8194;
-![](https://github.com/qydq/alidd-samples/blob/master/screen/bgwan_livery_download.png?raw=true)
+&#8194;&#8194;&#8194;&#8194;&#8194;[**最新体验扫描二维码下载hong1.2.0.apk**](https://github.com/qydq/livery/blob/main/demo/demo_livery.apk)&#8194;&#8194;&#8194;&#8194;
+
+![](https://github.com/qydq/livery/blob/main/image/qr_demo.png?raw=true)
 
 ## **集成方式# Binaries**
 
@@ -155,12 +156,12 @@ public class XxxApplication extends AnApplication {
 
 ## **模块介绍# Details Module**
 
-这里```Details Module```介绍**部分**情景能力`(核心，可选，DEMO演示)`的使用方法，关于```livery情景```更多的api可以查看**`中文API帮助文档1.2`**，或在本人知乎[**`an情景专栏`**](https://www.zhihu.com/column/sunst)中获取.
-![](https://github.com/qydq/alidd-samples/blob/master/screen/livery_api.png?raw=true)
+这里```Details Module```介绍**部分**情景能力`(核心，可选，DEMO演示)`的使用方法，更多```livery情景```可以查看**中文API帮助文档1.2**，或在本人知乎[**`an情景专栏`**](https://www.zhihu.com/column/sunst)中获取.
+![](https://github.com/qydq/livery/blob/main/image/livery_api.png?raw=true)
 
 
 **⚠️注意**
-> * ```hong1.x.x.apk```为提供的安装包(可以扫描前面的二维码下载)，```kaiyan.apk```为livery结合MVVM开发的安装包，已共享到```玩安卓```网站，这里也可下载；```hong1.x.xx_picture.apk```为PictureSelector二次编译以后的图片选择框架.
+> * ```hong1.2.apk```为提供的安装包(可以扫描前面的二维码下载)，```kaiyan.apk```为livery结合MVVM开发的安装包，已共享到```玩安卓```网站，这里也可下载；```hong_picture.apk```为PictureSelector二次编译以后的图片选择框架.
 > * 尽量少的依赖其它库来完成这个demo，使用原生的系统的组件和本livery框架提供的部分
 
 ### 1.核心情景能力演示
@@ -470,7 +471,7 @@ adapter.setOnItemClickListener((adapter, view, position) -> {
 
 **第3步：打开下载文件**
 
-文件下载成功以后，一般需要打开文件（如果是apk文件，配置`ResponseDownloader`还会自动安装），但这里存在一个小问题，如果下载的文件被用户删除了，数据库还标记此id下载的完成状态，除非用户清除APP的数据，否则以后此id都是已下载无法下载，
+文件下载成功以后，一般需要打开文件（如果是apk文件，配置`ResponseDownloader`还会自动安装），但这里存在一个小问题，**如果下载的文件被用户删除了，数据库还标记此id下载的完成状态**，除非用户清除APP的数据，否则以后此id都是已下载无法下载，
 出于这个场景livery中可以这样处理，调用`InternetClient.getInstance().updateFaiure()`当最后打开文件的时候，文件不存（url和id一一对应），则表示文件损坏，需要重新下载.
 
 ```java
@@ -487,7 +488,7 @@ if (!TextUtils.isEmpty(resultFilePath)) {
 ```
 
 **⚠️注意**
-> * 下载是一个耗时的过程，livery独立配置了异步任务/后台线程（可选）执行了下载过程，这里不需要再单独去开启一个线程.
+> * 下载是一个耗时的过程，livery独立配置了异步任务/后台线程（可选）执行下载过程，这里不需要再单独去开启一个线程.
 > * Livery构造了一个下载成功以后将前台service关闭，并且创建一个下载通知（默认是关闭的），只需要在`ResponseDownloader`中开启即可启动一个通知功能.
 > * 建议在下载的时候给一个下载文件的ID，不给id也可下载文件.
 > * 文件下载成功默认保存的路径为：sdcard/Aliff/相应的目录文件中.
@@ -648,12 +649,12 @@ inaBarrageView.setIdleListener(new OnBarrageIdleListener() {
 | 主页Home | 动画Gif |
 |:-----------:|:-----------:|
 |
-![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_HOME.JPG?raw=true)|![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_GIF.JPG?raw=true)|
+![](https://github.com/qydq/livery/blob/main/image/IMG_HOME.JPG?raw=true)|![](https://github.com/qydq/livery/blob/main/image/IMG_GIF.JPG?raw=true)|
 
 | 导航栏 | 导航栏1 | 导航栏2 |
 |:-----------:|:--------:|:---------:|
 |
-![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_NAVICATION.JPG?raw=true) |![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_NAVICATION1.JPG?raw=true)|![](https://github.com/qydq/alidd-samples/blob/master/screen/IMG_NAVICATION2.JPG?raw=true)|
+![](https://github.com/qydq/livery/blob/main/image/image_navication1.JPG?raw=true) |![](https://github.com/qydq/livery/blob/main/image/image_navication2.JPG?raw=true)|![](https://github.com/qydq/livery/blob/main/image/image_navication3.JPG?raw=true)|
 ## **混淆配置# proguard-rules**
 混淆规则一定要看：[**Android App代码混淆解决方案click**](https://zhuanlan.zhihu.com/p/34559807)
 ```BASH
@@ -764,7 +765,7 @@ tools:replace="android:icon,android:theme,android:label,android:allowBackup,andr
 	exclude 'META-INF/rxjava.properties'
  }
 ```
-### [更多：其它android中常见错误解决方法点击这里查看。](https://github.com/qydq/alidd-samples/blob/master/error.md)
+### [更多：其它android中常见错误解决方法点击这里查看。](https://github.com/qydq/livery/blob/main/error.md)
 
 ## **版本日志# Version LOG**
 `Livery`框架AAR`与`初始APP或DEMO版本`日志记录
@@ -777,15 +778,16 @@ tools:replace="android:icon,android:theme,android:label,android:allowBackup,andr
 |**v1.1.10** *`(2020/03/26)`*|259M|16M|2M|新提供`项目D`引入videobeauty,xmediac,xrecord**视频录制**压缩上传**C语言**功能;`livery`引入导航栏，提供MD的UI设计风格，移除超大资源GIF图，这也是AAR体积减小的直接原因|
 |**v1.1.111** *`(2020/12/30)`*|240M|17.1M|603KB|`livery`针对资源文件进一步优化，移除大量的布局资源和一些非必须的资源文件，进行统一分类，**视频模块测试代码放开**，修复已知问题；**并且引入**了`漫天飞羽弹幕使`，AAR的体积没增加却再次减小到566KB;`项目D`完成`漫天飞羽弹幕使`**使用案例**|
 |**v1.2.0** *`(2020/06/03)`*| 230M |  17.1M   | 586KB | 1.2.0版本开始支持**架构企业级**应用，国际化支持`(简体中文rCN，繁体中文rTW，英文en，德语de，日文ja，葡萄牙pt)`，**视频模块测试代码关闭**，修复了已知问题|
+
 **⚠️说明**
 * 初始`APP0.0.69`为小团子开发的聊天项目（称为`Hong`）,也是项目的灵感来源.
-* 本alidd-samples（称为`项目D`）为`livery框架`提供的DEMO，方便开发者快速集成livery的示例.
+* 本livery（称为`项目D`）为`livery框架`提供的DEMO，方便开发者快速集成livery的示例.
 * 表格中版本以此类推，如：`(1.0.1-1.0.20)`为一组表示`1.0.x`发行了`20`个版本，`1.0.1`为**起始版本**,`1.0.20`为**最高版本**，同时~~删除线~~表示此版本废弃.
 ### 1.Livery AAR framework记录
 
 * [**an-aw-base0.x.x版本log.**](https://github.com/qydq/an-aw-base/releases)
-* [**点击这里查看旧版本1.0.x日志记录log.**](https://github.com/qydq/alidd-samples/blob/master/alidd_old_1.0.x.md)
-* [**点击这里查看旧版本1.1.x日志记录log.**](https://github.com/qydq/alidd-samples/blob/master/alidd_old_1.1.x.md)
+* [**点击这里查看旧版本1.0.x日志记录log.**](https://github.com/qydq/livery/blob/main/old_alidd_1.0.x.md)
+* [**点击这里查看旧版本1.1.x日志记录log.**](https://github.com/qydq/livery/blob/main/old_livery_1.1.x.md)
 
 **⚠️注意**
 >代码提交严格跟随日志内容，方便日后查阅相关记录，为控制字数；这里只记录Livery版本日志总述（可以点击以上旧版本log了解详细）和1.1.8之后的重要版本记录.
@@ -795,7 +797,7 @@ tools:replace="android:icon,android:theme,android:label,android:allowBackup,andr
 
 &#8194;&#8194;[历史版本(demo_livery1.1.13.apk)](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.13.apk)
 
-&#8194;&#8194;[最新版本(demo_livery1.2.0.apk)](https://github.com/qydq/alidd-samples/raw/master/apk/demo_livery1.1.13.apk)
+&#8194;&#8194;[最新版本(demo_livery1.2.x.apk)](https://github.com/qydq/livery/blob/main/demo/demo_livery.apk)
 
 **⚠️注意**
 >为了篇幅这里只记录了最近**当前三个版本**，如要安装其它历史版本，请查看**旧版本1.x.x日志记录**日志记录.
